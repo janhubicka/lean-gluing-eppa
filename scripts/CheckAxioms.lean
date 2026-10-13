@@ -30,3 +30,6 @@ import GluingEPPA
 #print axioms GluingEPPA.InverseLabels.markerPerm_injective
 #print axioms GluingEPPA.InverseLabels.markerPerm_inverse
 #print axioms GluingEPPA.InverseLabels.markerPerm_ne_refl
+#print axioms GluingEPPA.BaseFamily.paddedSigma_injective
+#print axioms GluingEPPA.BaseFamily.paddedSigma_inverse
+#print axioms GluingEPPA.BaseFamily.paddedSigma_ne_refl
