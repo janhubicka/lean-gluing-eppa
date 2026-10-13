@@ -1,0 +1,67 @@
+name: Lean
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Cache Lean toolchain
+        uses: actions/cache@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - name: Restore shared pinned Lake workspace
+        id: lake-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .lake
+          key: lake-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
+          restore-keys: |
+            lake-v2-${{ runner.os }}-${{ runner.arch }}-
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned dependencies
+        run: |
+          if ! test -s lake-manifest.json; then lake update; fi
+          lake exe cache get
+      - name: Build
+        run: |
+          mkdir -p proof-audit
+          set -o pipefail
+          lake build 2>&1 | tee proof-audit/build.log
+      - name: Audit theorem axioms
+        run: |
+          set -o pipefail
+          lake env lean scripts/CheckAxioms.lean 2>&1 | tee proof-audit/axioms.log
+          python3 scripts/check-axiom-log.py proof-audit/axioms.log 6
+      - name: Record proof snapshot
+        if: always()
+        run: |
+          mkdir -p proof-audit
+          git rev-parse HEAD > proof-audit/COMMIT
+          cp lean-toolchain lakefile.toml proof-audit/
+          if test -f lake-manifest.json; then cp lake-manifest.json proof-audit/; fi
+          git diff --check
+      - name: Seed shared Lake cache on main only
+        if: ${{ github.ref == 'refs/heads/main' && steps.lake-cache.outputs.cache-hit != 'true' && !cancelled() }}
+        uses: actions/cache/save@v5
+        with:
+          path: .lake
+          key: lake-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: gluing-eppa-proof-audit
+          path: proof-audit/
+          retention-days: 30
