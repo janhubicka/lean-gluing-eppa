@@ -10,3 +10,4 @@ import GluingEPPA.OrientedCover
 import GluingEPPA.OrientedAssembly
 import GluingEPPA.PaddingCore
 import GluingEPPA.Marker4
+import GluingEPPA.PaddedFamily
