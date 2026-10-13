@@ -67,12 +67,13 @@ theorem privatePerm_inverse (i : I) :
   · have hs2 : D.inv (D.inv i) ≠ D.inv i := by
       rw [D.inv_inv]
       exact Ne.symm hs
+    have hs_rev : i ≠ D.inv i := Ne.symm hs
     by_cases hl : i < D.inv i
     · have hnl : ¬ D.inv i < i := not_lt.mpr (le_of_lt hl)
-      simp [privatePerm, hs, hs2, D.inv_inv, hl, hnl]
+      simp [privatePerm, hs, hs_rev, D.inv_inv, hl, hnl]
     · have hgt : D.inv i < i :=
         (lt_or_gt_of_ne (Ne.symm hs)).resolve_left hl
-      simp [privatePerm, hs, hs2, D.inv_inv, hl, hgt]
+      simp [privatePerm, hs, hs_rev, D.inv_inv, hl, hgt]
 
 end InverseLabels
 end GluingEPPA
