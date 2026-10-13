@@ -26,6 +26,7 @@ theorem replay {n : Nat} (r : L n) (a b : V) (x y : Fin n → A)
   classical
   have build : ∃ t : Fin n → A,
       (∀ i, D.Connected (a, x i) (b, t i)) ∧ (S.rel r x ↔ S.rel r t) := by
+    clear ends
     induction walk with
     | refl => exact ⟨x, fun _ => .refl, Iff.rfl⟩
     | @tail b c walk available ih =>

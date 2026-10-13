@@ -66,6 +66,13 @@ theorem changed_available {p q} (h : (G.cover D).Connected p q) (e : E)
       · simpa only [hl, hr] using both
       · simpa only [hl, hr] using And.intro both.2 both.1
 
+private theorem walk_mono {r s : V → V → Prop}
+    (hm : ∀ {a b}, r a b → s a b) {a b}
+    (h : Relation.ReflTransGen r a b) : Relation.ReflTransGen s a b := by
+  induction h with
+  | refl => exact .refl
+  | tail _ e ih => exact ih.tail (hm e)
+
 variable [Fintype E] {L : Nat → Type t}
 
 /-- The Boolean cover of a faithful point-transport frame has an induced
@@ -82,16 +89,13 @@ theorem cover_compatible (S : RelStructure L A) (F : D.Frame U)
     have common := G.support_reachable
       (G.project_lift_path D (ends ⟨0, Nat.zero_lt_succ n⟩))
     have walk : Relation.ReflTransGen (D.Available p.1 x) p.1 q.1 := by
-      induction common with
-      | refl => exact .refl
-      | @tail b c common edge ih =>
-        refine ih.tail ?_
-        intro i
-        obtain ⟨e, changed, inc⟩ := edge
-        have available := G.changed_available D (ends i) e changed
-        rcases inc with ⟨hl, hr⟩ | ⟨hr, hl⟩
-        · simpa only [hl, hr] using available.1
-        · simpa only [hl, hr] using available.2
+      apply walk_mono (h := common)
+      intro b c edge i
+      obtain ⟨e, changed, inc⟩ := edge
+      have available := G.changed_available D (ends i) e changed
+      rcases inc with ⟨hl, hr⟩ | ⟨hr, hl⟩
+      · simpa only [hl, hr] using available.1
+      · simpa only [hl, hr] using available.2
     exact D.replay S F r p.1 q.1 x y respect walk
       (fun i => G.project_point_path D (ends i))
 
