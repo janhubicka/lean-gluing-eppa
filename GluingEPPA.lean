@@ -18,3 +18,4 @@ import GluingEPPA.UnorderedEdges
 import GluingEPPA.UnorderedCover
 import GluingEPPA.UnorderedAssembly
 import GluingEPPA.UnorderedFiniteEPPA
+import GluingEPPA.PrivateCycles
