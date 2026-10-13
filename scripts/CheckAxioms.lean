@@ -33,3 +33,7 @@ import GluingEPPA
 #print axioms GluingEPPA.BaseFamily.paddedSigma_injective
 #print axioms GluingEPPA.BaseFamily.paddedSigma_inverse
 #print axioms GluingEPPA.BaseFamily.paddedSigma_ne_refl
+#print axioms GluingEPPA.PartialFamily.exists_extension
+#print axioms GluingEPPA.PartialFamily.exists_involution_extension
+#print axioms GluingEPPA.PartialFamily.coherentBase_extends
+#print axioms GluingEPPA.PartialFamily.coherentBase_inverse
