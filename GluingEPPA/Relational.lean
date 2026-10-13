@@ -57,7 +57,7 @@ theorem obstruction (a : V)
       ∀ {n} (r : L n) (x : Fin n → A),
         (D.quotientStructure S).rel r (fun i => D.copy a (x i)) → S.rel r x)) :
     (∃ x y, x ≠ y ∧ D.Connected (a, x) (a, y)) ∨
-    (∃ n (r : L n) b (x y : Fin n → A),
+    (∃ (n : Nat) (r : L n) (b : V) (x y : Fin n → A),
       ¬ S.rel r x ∧ S.rel r y ∧ ∀ i, D.Connected (a, x i) (b, y i)) := by
   classical
   by_cases hinj : Function.Injective (D.copy a)

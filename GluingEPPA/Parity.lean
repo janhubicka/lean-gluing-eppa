@@ -20,13 +20,15 @@ theorem inc_symm {e a b} (h : G.Inc e a b) : G.Inc e b a := by
   · exact Or.inr ⟨k, h⟩
   · exact Or.inl ⟨k, h⟩
 
+theorem two_zero : (2 : ZMod 2) = 0 := by decide
+
 variable [DecidableEq E]
 def flip (chi : Valuation (E := E)) (e : E) : Valuation (E := E) :=
   fun d => chi d + if d = e then 1 else 0
 
 theorem flip_flip (chi : Valuation (E := E)) (e : E) : flip (flip chi e) e = chi := by
   funext d
-  by_cases h : d = e <;> norm_num [flip, h, add_assoc]
+  by_cases h : d = e <;> norm_num [flip, h, add_assoc] <;> exact two_zero
 
 def LiftEdge (p q : V × Valuation (E := E)) : Prop :=
   ∃ e, G.Inc e p.1 q.1 ∧ q.2 = flip p.2 e
@@ -52,9 +54,9 @@ theorem step_potential (c : V → ZMod 2) {p q} (h : G.LiftEdge p q) :
   obtain ⟨e, he, hq⟩ := h
   rcases he with ⟨hp, ht⟩ | ⟨hp, ht⟩
   · simp only [potential, hq, dot_flip, weight, hp, ht]
-    ring
+    ring_nf <;> simp only [two_zero, mul_zero, add_zero]
   · simp only [potential, hq, dot_flip, weight, hp, ht]
-    ring
+    ring_nf <;> simp only [two_zero, mul_zero, add_zero]
 
 theorem path_potential (c : V → ZMod 2) {p q}
     (h : Relation.ReflTransGen G.LiftEdge p q) : G.potential c p = G.potential c q := by
@@ -89,6 +91,7 @@ theorem support_reachable {a b : V} {chi psi : Valuation (E := E)}
       simp [weight, c, hl, ht]
     · have ht : ¬ reach (G.right e) := fun h => hl (hr.mpr h)
       norm_num [weight, c, hl, ht]
+      exact two_zero
   have hd : dot (G.weight c) chi = dot (G.weight c) psi := by
     apply Finset.sum_congr rfl
     intro e _

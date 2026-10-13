@@ -3,3 +3,4 @@ import GluingEPPA.Relational
 import GluingEPPA.Replay
 import GluingEPPA.Symmetry
 import GluingEPPA.Parity
+import GluingEPPA.Cover

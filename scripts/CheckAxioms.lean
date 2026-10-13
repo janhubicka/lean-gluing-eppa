@@ -8,3 +8,5 @@ import GluingEPPA
 #print axioms GluingEPPA.System.Symmetry.rel_iff
 #print axioms GluingEPPA.System.Symmetry.extends_of_step
 #print axioms GluingEPPA.EdgeGraph.support_reachable
+#print axioms GluingEPPA.EdgeGraph.changed_available
+#print axioms GluingEPPA.EdgeGraph.cover_compatible

@@ -16,8 +16,9 @@ Reverse occurrences are included using symmetry of the transport relation. -/
 def Available {n : Nat} (a : V) (x : Fin n → A) (b c : V) : Prop :=
   ∀ i, ∃ y z, D.Connected (a, x i) (b, y) ∧ D.step (b, y) (c, z)
 
+include F
+
 /-- Simultaneous replay on a common supported base walk, including its domain check. -/
-include F in
 theorem replay {n : Nat} (r : L n) (a b : V) (x y : Fin n → A)
     (respect : D.RespectsRelations S)
     (walk : Relation.ReflTransGen (D.Available a x) a b)
