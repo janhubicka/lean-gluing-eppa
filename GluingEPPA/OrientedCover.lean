@@ -85,27 +85,27 @@ theorem root_incidence (i : I) :
 variable [DecidableEq ((U ≃ U) × I)]
 
 /-- Affine left action on the oriented Boolean cover. -/
-noncomputable def liftedSymmetry (i : I) :
-    (D.orientedGraph.cover D.system).Symmetry := by
-  classical
-  exact D.orientedGraph.liftSymmetry D.system
+def liftedSymmetry (i : I) :
+    (D.orientedGraph.cover D.system).Symmetry :=
+  D.orientedGraph.liftSymmetry D.system
     (D.leftShift (D.sigma i))
     (shiftEdge (D.sigma i))
     (D.shift_incidence (D.sigma i))
-    (flip 0 (D.rootEdge i))
+    (EdgeGraph.flip (E := ((U ≃ U) × I))
+      (0 : Valuation (E := ((U ≃ U) × I))) (D.rootEdge i))
 
 /-- Concrete root-extension equation for the oriented-index cover. -/
 theorem extends_transport (i : I) {x y : A} (h : D.transport i x y) :
     (D.liftedSymmetry i).map
       ((D.orientedGraph.cover D.system).copy (Equiv.refl U, 0) x) =
     (D.orientedGraph.cover D.system).copy (Equiv.refl U, 0) y := by
-  classical
-  exact D.orientedGraph.root_extension D.system
+  simpa only [liftedSymmetry] using
+    (D.orientedGraph.root_extension D.system
     (D.leftShift (D.sigma i))
     (shiftEdge (D.sigma i))
     (D.shift_incidence (D.sigma i))
     (Equiv.refl U) (D.rootEdge i) (D.root_incidence i)
-    x y (D.root_incoming i h)
+    x y (D.root_incoming i h))
 
 /-- The induced root copy in this explicit finite Boolean cover. -/
 noncomputable def rootEmbedding [Fintype U] [Fintype I] :
