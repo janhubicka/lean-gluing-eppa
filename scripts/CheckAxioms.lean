@@ -19,3 +19,8 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.root_incoming
 #print axioms GluingEPPA.exists_perm_extending_partial
 #print axioms GluingEPPA.exists_perm_extending_involution
+#print axioms GluingEPPA.InverseLabels.step_injective
+#print axioms GluingEPPA.InverseLabels.step_inverse
+#print axioms GluingEPPA.InverseLabels.markerPerm_injective
+#print axioms GluingEPPA.InverseLabels.markerPerm_inverse
+#print axioms GluingEPPA.InverseLabels.markerPerm_ne_refl
