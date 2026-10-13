@@ -16,7 +16,7 @@ variable {S : RelStructure L A} (D : PermutationDiagramData S U I)
 variable [DecidableEq D.unorderedEdges]
 
 /-- The label-preserving affine lift with exactly one coordinate per base edge. -/
-def unorderedLiftedSymmetry (i : I) :
+noncomputable def unorderedLiftedSymmetry (i : I) :
     (D.unorderedGraph.cover D.system).Symmetry :=
   D.unorderedGraph.liftSymmetry D.system
     (D.leftShift (D.sigma i))
