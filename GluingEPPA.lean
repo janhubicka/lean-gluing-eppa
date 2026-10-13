@@ -14,3 +14,4 @@ import GluingEPPA.PaddedFamily
 import GluingEPPA.PartialFamily
 import GluingEPPA.RelPartialAut
 import GluingEPPA.FiniteEPPA
+import GluingEPPA.UnorderedEdges
