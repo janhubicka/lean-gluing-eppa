@@ -102,7 +102,7 @@ theorem unorderedGraph_inc_iff (e : D.unorderedEdges) (a b : U ≃ U) :
   have h : e.1 = s(e.1.out.1, e.1.out.2) := e.1.out_eq.symm
   change ((a = e.1.out.1 ∧ b = e.1.out.2) ∨
      (a = e.1.out.2 ∧ b = e.1.out.1)) ↔ e.1 = s(a, b)
-  rw [h, Sym2.eq_iff]
+  conv_rhs => rw [h, Sym2.eq_iff]
   tauto
 
 theorem unordered_incidence (g : U ≃ U)
