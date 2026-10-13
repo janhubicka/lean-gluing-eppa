@@ -45,7 +45,7 @@ theorem exists_extension [Finite A] (i : I) :
   refine ⟨σ, ?_⟩
   intro x y h
   have hx : dom x := ⟨y, h⟩
-  exact (hσ ⟨x, hx⟩).trans (F.unique_target i x (target ⟨x, hx⟩) y (ht _) h)
+  exact (hσ ⟨x, hx⟩).trans (F.unique_target i x (target ⟨x, hx⟩) y (ht ⟨x, hx⟩) h)
 
 theorem inverse_extends (i : I) (σ : A ≃ A)
     (h : F.Extends i σ) :
@@ -78,8 +78,7 @@ theorem exists_involution_extension [Finite A] (i : I)
       have hy : dom (g x) := ⟨x, hinv x (g x) hxy⟩
       exact F.unique_target i (g x) (g (g x)) x (hg (g x) hy)
         (hinv x (g x) hxy)
-    · simp only [g, dif_neg hx]
-      simp [g, hx]
+    · simp [g, hx]
   let σ : A ≃ A := {toFun := g, invFun := g, left_inv := hgg, right_inv := hgg}
   refine ⟨σ, ?_, ?_⟩
   · apply Equiv.ext
@@ -136,30 +135,22 @@ theorem coherentBase_inverse (i : I) :
     F.coherentBase (F.labels.inv i) = (F.coherentBase i).symm := by
   classical
   by_cases hs : F.labels.inv i = i
-  · have hf : F.labels.inv (F.labels.inv i) = F.labels.inv i := by
-      rw [F.labels.inv_inv, hs]
-    simp only [coherentBase, dif_pos hs, dif_pos hf]
-    rw [hs]
-    exact (F.selfChoice_symm i hs).symm
-  · have hs2 : F.labels.inv (F.labels.inv i) ≠ F.labels.inv i := by
-      rw [F.labels.inv_inv]
-      exact Ne.symm hs
+  · calc
+      F.coherentBase (F.labels.inv i) = F.coherentBase i :=
+        congrArg F.coherentBase hs
+      _ = (F.coherentBase i).symm := by
+        simp only [coherentBase, dif_pos hs]
+        exact (F.selfChoice_symm i hs).symm
+  · have hsi : i ≠ F.labels.inv i := Ne.symm hs
     by_cases hlt : i < F.labels.inv i
-    · have hnlt : ¬ F.labels.inv i < F.labels.inv (F.labels.inv i) := by
-        rw [F.labels.inv_inv]
-        exact not_lt.mpr (le_of_lt hlt)
-      simp only [coherentBase, dif_neg hs, if_pos hlt,
-        dif_neg hs2, if_neg hnlt, F.labels.inv_inv]
-      rfl
-    · have hlt2 : F.labels.inv i < i :=
-        (lt_or_gt_of_ne (Ne.symm hs)).resolve_left hlt
-      have hlt3 : F.labels.inv i < F.labels.inv (F.labels.inv i) := by
-        simpa only [F.labels.inv_inv] using hlt2
-      simp only [coherentBase, dif_neg hs, if_neg hlt,
-        dif_neg hs2, if_pos hlt3, F.labels.inv_inv]
-      rfl
+    · have hnlt : ¬ F.labels.inv i < i := not_lt.mpr (le_of_lt hlt)
+      simp [coherentBase, hs, hsi, F.labels.inv_inv, hlt, hnlt]
+    · have hgt : F.labels.inv i < i :=
+        (lt_or_gt_of_ne hsi).resolve_left hlt
+      simp [coherentBase, hs, hsi, F.labels.inv_inv, hlt, hgt]
 
-def baseFamily : BaseFamily S I where
+
+noncomputable def baseFamily : BaseFamily S I where
   labels := F.labels
   base := F.coherentBase
   base_inverse := F.coherentBase_inverse
