@@ -37,3 +37,4 @@ import GluingEPPA
 #print axioms GluingEPPA.PartialFamily.exists_involution_extension
 #print axioms GluingEPPA.PartialFamily.coherentBase_extends
 #print axioms GluingEPPA.PartialFamily.coherentBase_inverse
+#print axioms GluingEPPA.RelPartialAut.inverse_inverse
