@@ -1,0 +1,5 @@
+/.lake/
+/proof-audit/
+/lake-manifest.json
+*.olean
+*.ilean
