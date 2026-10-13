@@ -21,3 +21,4 @@ import GluingEPPA.UnorderedFiniteEPPA
 import GluingEPPA.PrivateCycles
 import GluingEPPA.PrivateCycleInjection
 import GluingEPPA.PaddedPrivateFamily
+import GluingEPPA.PrivateFiniteEPPA
