@@ -26,7 +26,7 @@ theorem privatePerm_nonself_first (i : I) (h : D.inv i ≠ i) :
   · have he : D.privatePerm i = (privateCycle (D.inv i) i).symm := by
       simp [privatePerm, h, hl]
     rw [he]
-    exact (Equiv.symm_apply_eq).2
+    exact (Equiv.symm_apply_eq (privateCycle (D.inv i) i)).2
       (privateCycle_first (D.inv i) i).symm
 
 theorem privatePerm_moves (i : I) :
@@ -59,7 +59,7 @@ theorem privatePerm_fixes_other (i j : I) (b : Bool)
     · have he : D.privatePerm j = (privateCycle (D.inv j) j).symm := by
         simp [privatePerm, hs, hl]
       rw [he]
-      exact (Equiv.symm_apply_eq).2
+      exact (Equiv.symm_apply_eq (privateCycle (D.inv j) j)).2
         (privateCycle_fix (D.inv j) j i b hj hi).symm
 
 /-- An inverse pair has two different directions on its common support. -/
@@ -81,7 +81,7 @@ theorem privatePerm_inverse_pair_ne (i : I) (hs : D.inv i ≠ i) :
       simp [privatePerm, D.inv_inv, hs, hs2, hrev, hl, hnlt]
     rw [hperm] at hsame
     have hp : (privateCycle i (D.inv i)).symm (i, false) = (i, true) :=
-      (Equiv.symm_apply_eq).2
+      (Equiv.symm_apply_eq (privateCycle i (D.inv i))).2
         (privateCycle_middle i (D.inv i) hrev).symm
     rw [hp] at hsame
     exact hrev (Prod.mk.inj hsame).1.symm
