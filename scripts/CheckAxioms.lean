@@ -7,3 +7,4 @@ import GluingEPPA
 #print axioms GluingEPPA.System.replay
 #print axioms GluingEPPA.System.Symmetry.rel_iff
 #print axioms GluingEPPA.System.Symmetry.extends_of_step
+#print axioms GluingEPPA.EdgeGraph.support_reachable
