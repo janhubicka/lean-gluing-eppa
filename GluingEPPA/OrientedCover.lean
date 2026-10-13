@@ -116,6 +116,7 @@ noncomputable def rootEmbedding [Fintype U] [Fintype I] :
 /-- The concrete finite witness has only finitely many equivalence classes. -/
 theorem finite_witness [Finite A] [Finite U] [Finite I] :
     Finite (D.orientedGraph.cover D.system).Realization := by
+  letI : Fintype ((U ≃ U) × I) := Fintype.ofFinite _
   infer_instance
 
 end PermutationDiagramData
