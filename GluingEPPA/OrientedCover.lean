@@ -40,11 +40,11 @@ def shiftEdge (g : U ≃ U) : ((U ≃ U) × I) ≃ ((U ≃ U) × I) where
     · rfl
 
 theorem left_shift_edge (g : U ≃ U) (e : (U ≃ U) × I) :
-    D.orientedGraph.left (D.shiftEdge g e) =
+    D.orientedGraph.left (shiftEdge g e) =
       (D.leftShift g).perm (D.orientedGraph.left e) := rfl
 
 theorem right_shift_edge (g : U ≃ U) (e : (U ≃ U) × I) :
-    D.orientedGraph.right (D.shiftEdge g e) =
+    D.orientedGraph.right (shiftEdge g e) =
       (D.leftShift g).perm (D.orientedGraph.right e) := by
   apply Equiv.ext
   intro u
@@ -53,7 +53,7 @@ theorem right_shift_edge (g : U ≃ U) (e : (U ≃ U) × I) :
 /-- Explicit incidence equivariance, rather than an assumed edge action. -/
 theorem shift_incidence (g : U ≃ U)
     (e : (U ≃ U) × I) (a b : U ≃ U) :
-    D.orientedGraph.Inc (D.shiftEdge g e)
+    D.orientedGraph.Inc (shiftEdge g e)
       ((D.leftShift g).perm a) ((D.leftShift g).perm b) ↔
     D.orientedGraph.Inc e a b := by
   unfold EdgeGraph.Inc
@@ -82,13 +82,15 @@ theorem root_incidence (i : I) :
     simp [orientedGraph, rootEdge, D.sigma_inverse i]
   exact Or.inl ⟨rfl, (D.root_shift i).trans hright.symm⟩
 
+variable [DecidableEq ((U ≃ U) × I)]
+
 /-- Affine left action on the oriented Boolean cover. -/
 noncomputable def liftedSymmetry (i : I) :
     (D.orientedGraph.cover D.system).Symmetry := by
   classical
   exact D.orientedGraph.liftSymmetry D.system
     (D.leftShift (D.sigma i))
-    (D.shiftEdge (D.sigma i))
+    (shiftEdge (D.sigma i))
     (D.shift_incidence (D.sigma i))
     (flip 0 (D.rootEdge i))
 
@@ -100,7 +102,7 @@ theorem extends_transport (i : I) {x y : A} (h : D.transport i x y) :
   classical
   exact D.orientedGraph.root_extension D.system
     (D.leftShift (D.sigma i))
-    (D.shiftEdge (D.sigma i))
+    (shiftEdge (D.sigma i))
     (D.shift_incidence (D.sigma i))
     (Equiv.refl U) (D.rootEdge i) (D.root_incidence i)
     x y (D.root_incoming i h)
