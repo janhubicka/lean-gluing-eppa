@@ -38,3 +38,4 @@ import GluingEPPA
 #print axioms GluingEPPA.PartialFamily.coherentBase_extends
 #print axioms GluingEPPA.PartialFamily.coherentBase_inverse
 #print axioms GluingEPPA.RelPartialAut.inverse_inverse
+#print axioms GluingEPPA.finite_relational_eppa
