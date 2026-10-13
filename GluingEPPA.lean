@@ -13,3 +13,4 @@ import GluingEPPA.Marker4
 import GluingEPPA.PaddedFamily
 import GluingEPPA.PartialFamily
 import GluingEPPA.RelPartialAut
+import GluingEPPA.FiniteEPPA
