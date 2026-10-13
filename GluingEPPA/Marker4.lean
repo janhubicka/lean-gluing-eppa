@@ -41,17 +41,19 @@ theorem other_value (i j : I) (h : i ≠ j) :
   · by_cases hj' : D.inv j = i
     · right
       simp [step, hj, h, hj']
-      norm_num
+      decide
     · left
-      simp [step, hj, h, hj']
+      simp [step, hj, h, hj', Ne.symm hj']
 
 theorem step_ne_zero (i : I) : D.step i ≠ 0 := by
   intro h
   have hi := congrFun h i
   rw [D.own_value i] at hi
   by_cases hs : D.inv i = i
-  · simp [hs] at hi
-  · simp [hs] at hi
+  · simp only [if_pos hs] at hi
+    exact (by decide : (2 : ZMod 4) ≠ 0) hi
+  · simp only [if_neg hs] at hi
+    exact (by decide : (1 : ZMod 4) ≠ 0) hi
 
 theorem step_injective : Function.Injective D.step := by
   intro i j h
@@ -60,25 +62,26 @@ theorem step_injective : Function.Injective D.step := by
   rcases D.other_value i j hne with hz | hz
   · rw [D.own_value, hz] at he
     by_cases hs : D.inv i = i
-    · simp [hs] at he
-    · simp [hs] at he
+    · simp only [if_pos hs] at he
+      exact (by decide : (2 : ZMod 4) ≠ 0) he
+    · simp only [if_neg hs] at he
+      exact (by decide : (1 : ZMod 4) ≠ 0) he
   · rw [D.own_value, hz] at he
     by_cases hs : D.inv i = i
-    · norm_num [hs] at he
-    · norm_num [hs] at he
+    · simp only [if_pos hs] at he
+      exact (by decide : (2 : ZMod 4) ≠ 3) he
+    · simp only [if_neg hs] at he
+      exact (by decide : (1 : ZMod 4) ≠ 3) he
 
 theorem step_inverse (i : I) : D.step (D.inv i) = - D.step i := by
   funext j
   by_cases h : D.inv i = i
   · rw [h]
     by_cases hj : j = i
-    · simp [step, h, hj] <;> norm_num
+    · simp [step, h, hj] <;> decide
     · simp [step, h, hj]
-  · have hinv : D.inv (D.inv i) ≠ D.inv i := by
-      rw [D.inv_inv]
-      exact Ne.symm h
-    simp only [step, if_neg h, if_neg hinv, D.inv_inv]
-    abel
+  · have hne : i ≠ D.inv i := Ne.symm h
+    simp [step, D.inv_inv i, h, hne, Pi.neg_apply, neg_sub]
 
 def translation (D : InverseLabels I) (v : Marker I) :
     Marker I ≃ Marker I where
