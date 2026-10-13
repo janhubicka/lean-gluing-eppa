@@ -12,6 +12,8 @@ namespace GluingEPPA
 universe u v w z
 namespace PermutationDiagramData
 
+open scoped Classical
+
 variable {L : Nat → Type u} {A : Type v} {U : Type w} {I : Type z}
 variable {S : RelStructure L A} (D : PermutationDiagramData S U I)
 
