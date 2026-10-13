@@ -19,3 +19,4 @@ import GluingEPPA.UnorderedCover
 import GluingEPPA.UnorderedAssembly
 import GluingEPPA.UnorderedFiniteEPPA
 import GluingEPPA.PrivateCycles
+import GluingEPPA.PrivateCycleInjection
