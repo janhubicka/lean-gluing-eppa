@@ -4,7 +4,6 @@ import Mathlib
 A realization therefore satisfies rho b y = rho a x. -/
 namespace GluingEPPA
 universe u v w
-
 variable {V : Type u} {A : Type v}
 
 structure System (V : Type u) (A : Type v) where
@@ -13,7 +12,6 @@ structure System (V : Type u) (A : Type v) where
 
 namespace System
 variable (D : System V A)
-
 abbrev Connected (p q : V × A) : Prop := Relation.ReflTransGen D.step p q
 
 theorem connected_symm {p q : V × A} (h : D.Connected p q) : D.Connected q p := by
@@ -24,14 +22,13 @@ theorem connected_symm {p q : V × A} (h : D.Connected p q) : D.Connected q p :=
 def setoid : Setoid (V × A) where
   r := D.Connected
   iseqv := ⟨fun _ => .refl, D.connected_symm, fun h k => h.trans k⟩
-
 abbrev Realization := Quotient D.setoid
 
 def copy (a : V) (x : A) : D.Realization := Quotient.mk D.setoid (a, x)
 
 theorem copy_eq_iff {a b : V} {x y : A} :
     D.copy a x = D.copy b y ↔ D.Connected (a, x) (b, y) :=
-  ⟨Quotient.exact, Quotient.sound⟩
+  ⟨fun h => Quotient.exact h, fun h => Quotient.sound h⟩
 
 theorem copy_eq_of_step {a b : V} {x y : A} (h : D.step (a, x) (b, y)) :
     D.copy a x = D.copy b y := Quotient.sound (.single h)
@@ -49,6 +46,8 @@ theorem path_value {p q : V × A} (h : D.Connected p q) :
   induction h with
   | refl => rfl
   | tail _ e ih => exact ih.trans (F.commute e)
+
+include F
 
 theorem path_unique {a b : V} {x y z : A}
     (h : D.Connected (a, x) (b, y)) (k : D.Connected (a, x) (b, z)) : y = z :=

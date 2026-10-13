@@ -70,7 +70,8 @@ theorem obstruction (a : V)
     obtain ⟨b, y, hy, heq⟩ := hx
     exact ⟨n, r, b, x, y, hn, hy, fun i => D.connected_symm (Quotient.exact (heq i))⟩
   · left
-    simp only [Function.Injective, not_forall] at hinj
+    simp only [Function.Injective] at hinj
+    push_neg at hinj
     obtain ⟨x, y, heq, hne⟩ := hinj
     exact ⟨x, y, hne, Quotient.exact heq⟩
 end System
