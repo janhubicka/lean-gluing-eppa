@@ -109,8 +109,9 @@ theorem extends_transport (i : I) {x y : A} (h : D.transport i x y) :
 
 /-- The induced root copy in this explicit finite Boolean cover. -/
 noncomputable def rootEmbedding [Fintype U] [Fintype I] :
-    Embedding S ((D.orientedGraph.cover D.system).quotientStructure S) :=
-  D.orientedGraph.coverEmbedding D.system S D.frame D.respects
+    Embedding S ((D.orientedGraph.cover D.system).quotientStructure S) := by
+  letI : Fintype ((U ≃ U) × I) := Fintype.ofFinite _
+  exact D.orientedGraph.coverEmbedding D.system S D.frame D.respects
     (Equiv.refl U, 0)
 
 /-- The concrete finite witness has only finitely many equivalence classes. -/
