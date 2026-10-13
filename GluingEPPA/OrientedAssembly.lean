@@ -12,10 +12,9 @@ namespace GluingEPPA
 universe u v w z
 namespace PermutationDiagramData
 
-open scoped Classical
-
 variable {L : Nat → Type u} {A : Type v} {U : Type w} {I : Type z}
 variable {S : RelStructure L A} (D : PermutationDiagramData S U I)
+variable [DecidableEq ((U ≃ U) × I)]
 
 abbrev WitnessCarrier : Type _ := (D.orientedGraph.cover D.system).Realization
 
@@ -24,7 +23,6 @@ def witness : RelStructure L D.WitnessCarrier :=
 
 /-- The root copy is an induced embedding in the explicitly indexed witness. -/
 noncomputable def inclusion [Fintype U] [Fintype I] : Embedding S D.witness := by
-  classical
   exact D.rootEmbedding
 
 /-- All chosen partial automorphisms have simultaneous extensions on one witness. -/
@@ -34,7 +32,6 @@ theorem all_extensions [Fintype U] [Fintype I] :
         D.witness.rel r (fun j => φ (q j)) ↔ D.witness.rel r q) ∧
       (∀ x y : A, D.transport i x y →
         φ (D.inclusion.toFun x) = D.inclusion.toFun y) := by
-  classical
   intro i
   refine ⟨(D.liftedSymmetry i).quotientEquiv, ?_, ?_⟩
   · intro n r q
@@ -51,7 +48,6 @@ theorem finite_eppa_for_data [Fintype A] [Fintype U] [Fintype I] :
         (∀ {n : Nat} (r : L n) (q : Fin n → D.WitnessCarrier),
           D.witness.rel r (fun j => φ (q j)) ↔ D.witness.rel r q) ∧
         (∀ x y : A, D.transport i x y → φ (ι.toFun x) = ι.toFun y)) := by
-  classical
   refine ⟨D.finite_witness, D.inclusion, ?_⟩
   exact D.all_extensions
 
