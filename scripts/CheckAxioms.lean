@@ -21,3 +21,5 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.root_incidence
 #print axioms GluingEPPA.PermutationDiagramData.extends_transport
 #print axioms GluingEPPA.PermutationDiagramData.finite_witness
+#print axioms GluingEPPA.PermutationDiagramData.all_extensions
+#print axioms GluingEPPA.PermutationDiagramData.finite_eppa_for_data
