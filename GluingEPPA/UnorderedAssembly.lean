@@ -13,7 +13,7 @@ variable [DecidableEq D.unorderedEdges]
 
 abbrev UnorderedWitnessCarrier : Type _ := (D.unorderedGraph.cover D.system).Realization
 
-def unorderedWitness : RelStructure L D.UnorderedWitnessCarrier :=
+noncomputable def unorderedWitness : RelStructure L D.UnorderedWitnessCarrier :=
   (D.unorderedGraph.cover D.system).quotientStructure S
 
 noncomputable def unorderedInclusion [Fintype U] [Fintype I] :
