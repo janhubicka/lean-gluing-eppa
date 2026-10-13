@@ -17,7 +17,7 @@ universe u v
 all data are constructed from the finite input relational structure. -/
 theorem finite_relational_eppa
     {L : Nat → Type u} {A : Type v} [Finite A] (S : RelStructure L A) :
-    ∃ (B : Type (max u v)) (T : RelStructure L B) (ι : Embedding S T),
+    ∃ (B : Type v) (T : RelStructure L B) (ι : Embedding S T),
       Finite B ∧
       ∀ f : RelPartialAut S,
         ∃ φ : B ≃ B,
