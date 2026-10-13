@@ -57,3 +57,7 @@ import GluingEPPA
 #print axioms GluingEPPA.InverseLabels.privatePerm_inverse_pair_ne
 #print axioms GluingEPPA.InverseLabels.privatePerm_injective
 #print axioms GluingEPPA.InverseLabels.privatePerm_ne_refl
+#print axioms GluingEPPA.BaseFamily.privateSigma_injective
+#print axioms GluingEPPA.BaseFamily.privateSigma_inverse
+#print axioms GluingEPPA.BaseFamily.privateSigma_ne_refl
+#print axioms GluingEPPA.BaseFamily.privateCarrier_card
