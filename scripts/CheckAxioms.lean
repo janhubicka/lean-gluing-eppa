@@ -17,3 +17,7 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.loop_free
 #print axioms GluingEPPA.PermutationDiagramData.respects
 #print axioms GluingEPPA.PermutationDiagramData.root_incoming
+#print axioms GluingEPPA.PermutationDiagramData.shift_incidence
+#print axioms GluingEPPA.PermutationDiagramData.root_incidence
+#print axioms GluingEPPA.PermutationDiagramData.extends_transport
+#print axioms GluingEPPA.PermutationDiagramData.finite_witness
