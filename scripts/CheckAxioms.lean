@@ -47,3 +47,9 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.finite_unordered_witness
 #print axioms GluingEPPA.PermutationDiagramData.finite_eppa_for_data_unordered
 #print axioms GluingEPPA.finite_relational_eppa_unordered
+#print axioms GluingEPPA.InverseLabels.privateSlots_card
+#print axioms GluingEPPA.InverseLabels.privateCycle_first
+#print axioms GluingEPPA.InverseLabels.privateCycle_middle
+#print axioms GluingEPPA.InverseLabels.privateCycle_last
+#print axioms GluingEPPA.InverseLabels.privateCycle_fix
+#print axioms GluingEPPA.InverseLabels.privatePerm_inverse
