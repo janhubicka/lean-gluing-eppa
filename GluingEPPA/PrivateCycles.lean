@@ -28,22 +28,22 @@ noncomputable def privateCycle (i j : I) : PrivateSlots I ≃ PrivateSlots I := 
     (Equiv.swap (i, true) (j, false))
 
 theorem privateCycle_first (i j : I) :
-    D.privateCycle i j (i, false) = (j, false) := by
+    privateCycle i j (i, false) = (j, false) := by
   classical
   simp [privateCycle]
 
 theorem privateCycle_middle (i j : I) (h : i ≠ j) :
-    D.privateCycle i j (i, true) = (i, false) := by
+    privateCycle i j (i, true) = (i, false) := by
   classical
   simp [privateCycle, Equiv.swap_apply_of_ne_of_ne, h, Ne.symm h]
 
 theorem privateCycle_last (i j : I) (h : i ≠ j) :
-    D.privateCycle i j (j, false) = (i, true) := by
+    privateCycle i j (j, false) = (i, true) := by
   classical
   simp [privateCycle, Equiv.swap_apply_of_ne_of_ne, h, Ne.symm h]
 
 theorem privateCycle_fix (i j k : I) (b : Bool) (hi : k ≠ i) (hj : k ≠ j) :
-    D.privateCycle i j (k, b) = (k, b) := by
+    privateCycle i j (k, b) = (k, b) := by
   classical
   simp [privateCycle, Equiv.swap_apply_of_ne_of_ne, hi, hj]
 
@@ -54,9 +54,9 @@ noncomputable def privatePerm (i : I) : PrivateSlots I ≃ PrivateSlots I := by
   exact if D.inv i = i then
     Equiv.swap (i, false) (i, true)
   else if i < D.inv i then
-    D.privateCycle i (D.inv i)
+    privateCycle i (D.inv i)
   else
-    (D.privateCycle (D.inv i) i).symm
+    (privateCycle (D.inv i) i).symm
 
 theorem privatePerm_inverse (i : I) :
     D.privatePerm (D.inv i) = (D.privatePerm i).symm := by
