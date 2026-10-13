@@ -61,3 +61,4 @@ import GluingEPPA
 #print axioms GluingEPPA.BaseFamily.privateSigma_inverse
 #print axioms GluingEPPA.BaseFamily.privateSigma_ne_refl
 #print axioms GluingEPPA.BaseFamily.privateCarrier_card
+#print axioms GluingEPPA.finite_relational_eppa_private
