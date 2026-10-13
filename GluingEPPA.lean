@@ -5,3 +5,4 @@ import GluingEPPA.Symmetry
 import GluingEPPA.Parity
 import GluingEPPA.Cover
 import GluingEPPA.AffineLift
+import GluingEPPA.PermutationDiagram
