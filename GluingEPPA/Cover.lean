@@ -7,7 +7,7 @@ namespace EdgeGraph
 variable {V : Type u} {E : Type v} {A : Type w} {U : Type z}
 variable (G : EdgeGraph V E) [DecidableEq E] (D : System V A)
 
-/-- Lift the point-transport relation to the Boolean cover. -/
+/-- Lift point transports to the Boolean cover. -/
 def cover : System (V × Valuation (E := E)) A where
   step p q := G.LiftEdge p.1 q.1 ∧ D.step (p.1.1, p.2) (q.1.1, q.2)
   reverse h := ⟨G.liftEdge_symm h.1, D.reverse h.2⟩
@@ -33,8 +33,7 @@ def coverFrame (F : D.Frame U) : (G.cover D).Frame U where
 def PointAvailable (start : V × A) (b c : V) : Prop :=
   ∃ y z, D.Connected start (b, y) ∧ D.step (b, y) (c, z)
 
-/-- A changed valuation coordinate witnesses a traversal of that edge.
-The point can use that edge in either direction, by reversing the traversal. -/
+/-- A changed coordinate witnesses a traversal usable in both directions. -/
 theorem changed_available {p q} (h : (G.cover D).Connected p q) (e : E)
     (hne : p.1.2 e ≠ q.1.2 e) :
     PointAvailable D (p.1.1, p.2) (G.left e) (G.right e) ∧
@@ -55,16 +54,16 @@ theorem changed_available {p q} (h : (G.cover D).Connected p q) (e : E)
           p.1.2 e = q.1.2 e := same
           _ = r.1.2 e := by rw [value]; simp [flip, Ne.symm hd]
       subst d
-      have prefix := G.project_point_path D h
+      have hprefix := G.project_point_path D h
       have transport := step.2
       have both :
           PointAvailable D (p.1.1, p.2) q.1.1 r.1.1 ∧
           PointAvailable D (p.1.1, p.2) r.1.1 q.1.1 :=
-        ⟨⟨q.2, r.2, prefix, transport⟩,
-         ⟨r.2, q.2, prefix.tail transport, D.reverse transport⟩⟩
+        ⟨⟨q.2, r.2, hprefix, transport⟩,
+         ⟨r.2, q.2, hprefix.tail transport, D.reverse transport⟩⟩
       rcases inc with ⟨hl, hr⟩ | ⟨hr, hl⟩
-      · simpa only [hl, hr] using both
-      · simpa only [hl, hr] using And.intro both.2 both.1
+      · simpa only [hl, hr, PointAvailable] using both
+      · simpa only [hl, hr, PointAvailable] using And.intro both.2 both.1
 
 private theorem walk_mono {r s : V → V → Prop}
     (hm : ∀ {a b}, r a b → s a b) {a b}
@@ -75,8 +74,8 @@ private theorem walk_mono {r s : V → V → Prop}
 
 variable [Fintype E] {L : Nat → Type t}
 
-/-- The Boolean cover of a faithful point-transport frame has an induced
-free relational realization. No realization or EPPA conclusion is assumed. -/
+/-- The Boolean cover of a faithful frame has an induced free realization.
+No realization or EPPA conclusion is assumed. -/
 theorem cover_compatible (S : RelStructure L A) (F : D.Frame U)
     (respect : D.RespectsRelations S) : (G.cover D).Compatible S := by
   refine ⟨(G.coverFrame D F).copy_injective, ?_⟩
@@ -94,12 +93,12 @@ theorem cover_compatible (S : RelStructure L A) (F : D.Frame U)
       obtain ⟨e, changed, inc⟩ := edge
       have available := G.changed_available D (ends i) e changed
       rcases inc with ⟨hl, hr⟩ | ⟨hr, hl⟩
-      · simpa only [hl, hr] using available.1
-      · simpa only [hl, hr] using available.2
+      · simpa only [hl, hr, PointAvailable] using available.1
+      · simpa only [hl, hr, PointAvailable] using available.2
     exact D.replay S F r p.1 q.1 x y respect walk
       (fun i => G.project_point_path D (ends i))
 
-/-- The canonical copies in the finite construction are induced embeddings. -/
+/-- Canonical copies in the finite construction are induced embeddings. -/
 def coverEmbedding (S : RelStructure L A) (F : D.Frame U)
     (respect : D.RespectsRelations S) (p : V × Valuation (E := E)) :
     Embedding S ((G.cover D).quotientStructure S) :=
