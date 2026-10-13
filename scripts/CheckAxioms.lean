@@ -53,3 +53,7 @@ import GluingEPPA
 #print axioms GluingEPPA.InverseLabels.privateCycle_last
 #print axioms GluingEPPA.InverseLabels.privateCycle_fix
 #print axioms GluingEPPA.InverseLabels.privatePerm_inverse
+#print axioms GluingEPPA.InverseLabels.privatePerm_moves
+#print axioms GluingEPPA.InverseLabels.privatePerm_inverse_pair_ne
+#print axioms GluingEPPA.InverseLabels.privatePerm_injective
+#print axioms GluingEPPA.InverseLabels.privatePerm_ne_refl
