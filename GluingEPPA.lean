@@ -8,3 +8,5 @@ import GluingEPPA.AffineLift
 import GluingEPPA.PermutationDiagram
 import GluingEPPA.OrientedCover
 import GluingEPPA.OrientedAssembly
+import GluingEPPA.PaddingCore
+import GluingEPPA.Marker4

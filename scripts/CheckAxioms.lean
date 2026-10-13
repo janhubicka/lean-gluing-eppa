@@ -23,3 +23,10 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.finite_witness
 #print axioms GluingEPPA.PermutationDiagramData.all_extensions
 #print axioms GluingEPPA.PermutationDiagramData.finite_eppa_for_data
+#print axioms GluingEPPA.exists_perm_extending_partial
+#print axioms GluingEPPA.exists_perm_extending_involution
+#print axioms GluingEPPA.InverseLabels.step_injective
+#print axioms GluingEPPA.InverseLabels.step_inverse
+#print axioms GluingEPPA.InverseLabels.markerPerm_injective
+#print axioms GluingEPPA.InverseLabels.markerPerm_inverse
+#print axioms GluingEPPA.InverseLabels.markerPerm_ne_refl
