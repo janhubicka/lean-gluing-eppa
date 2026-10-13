@@ -6,3 +6,4 @@ import GluingEPPA.Parity
 import GluingEPPA.Cover
 import GluingEPPA.AffineLift
 import GluingEPPA.PermutationDiagram
+import GluingEPPA.OrientedCover
