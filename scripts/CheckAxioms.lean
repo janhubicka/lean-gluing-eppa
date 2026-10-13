@@ -13,3 +13,7 @@ import GluingEPPA
 #print axioms GluingEPPA.EdgeGraph.cover_compatible
 #print axioms GluingEPPA.EdgeGraph.liftSymmetry
 #print axioms GluingEPPA.EdgeGraph.root_extension
+#print axioms GluingEPPA.PermutationDiagramData.label_unique
+#print axioms GluingEPPA.PermutationDiagramData.loop_free
+#print axioms GluingEPPA.PermutationDiagramData.respects
+#print axioms GluingEPPA.PermutationDiagramData.root_incoming
