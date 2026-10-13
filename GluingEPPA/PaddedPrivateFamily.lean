@@ -2,7 +2,7 @@ import GluingEPPA.PrivateCycleInjection
 import GluingEPPA.PaddedFamily
 
 /-!
-The linear-size private two-/three-cycle padding from the circulation draft,
+The linear-size private two- and three-cycle padding from the circulation draft,
 rather than the larger ZMod4-vector padding used in the initial EPPA proof.
 -/
 namespace GluingEPPA
@@ -69,7 +69,7 @@ theorem privateCarrier_card [Fintype A] [Fintype I] :
     Fintype.card (PrivatePaddedCarrier A I) =
         Fintype.card A + 2 * Fintype.card I := by
   simp only [PrivatePaddedCarrier, Fintype.card_sum]
-  rw [F.labels.privateSlots_card]
+  rw [InverseLabels.privateSlots_card (I := I)]
 
 end BaseFamily
 end GluingEPPA
