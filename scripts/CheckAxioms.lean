@@ -17,3 +17,5 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.loop_free
 #print axioms GluingEPPA.PermutationDiagramData.respects
 #print axioms GluingEPPA.PermutationDiagramData.root_incoming
+#print axioms GluingEPPA.exists_perm_extending_partial
+#print axioms GluingEPPA.exists_perm_extending_involution
