@@ -7,3 +7,4 @@ import GluingEPPA.Cover
 import GluingEPPA.AffineLift
 import GluingEPPA.PermutationDiagram
 import GluingEPPA.PaddingCore
+import GluingEPPA.Marker4
