@@ -43,3 +43,7 @@ import GluingEPPA
 #print axioms GluingEPPA.PermutationDiagramData.edgeEquiv
 #print axioms GluingEPPA.PermutationDiagramData.unordered_incidence
 #print axioms GluingEPPA.PermutationDiagramData.unorderedRootInc
+#print axioms GluingEPPA.PermutationDiagramData.unordered_extends_transport
+#print axioms GluingEPPA.PermutationDiagramData.finite_unordered_witness
+#print axioms GluingEPPA.PermutationDiagramData.finite_eppa_for_data_unordered
+#print axioms GluingEPPA.finite_relational_eppa_unordered
