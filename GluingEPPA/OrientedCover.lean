@@ -92,7 +92,7 @@ def liftedSymmetry (i : I) :
     (shiftEdge (D.sigma i))
     (D.shift_incidence (D.sigma i))
     (EdgeGraph.flip (E := ((U ≃ U) × I))
-      (0 : Valuation (E := ((U ≃ U) × I))) (D.rootEdge i))
+      (fun (_ : (U ≃ U) × I) => (0 : ZMod 2)) (D.rootEdge i))
 
 /-- Concrete root-extension equation for the oriented-index cover. -/
 theorem extends_transport (i : I) {x y : A} (h : D.transport i x y) :
