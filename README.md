@@ -8,7 +8,7 @@ The toolchain, pinned Mathlib revision, shared-cache CI and axiom-audit conventi
 
 ## Checked snapshot
 
-PR #1 was merged after the build and 14-declaration axiom audit passed in Actions run `38436358688`.
+PR #1 was merged after the 14-declaration axiom audit in Actions run `38436358688`. PR #3 subsequently merged the concrete permutation-base module, whose 18-declaration audit passed in run `38440355549` at source commit `b790d8331ff464eeb76addd0705ab35dfa2922bc`.
 
 - Source head: `aa1bdcb3efde6e89ed2fde23f53bde4d2db7ec63`.
 - Actions checkout: `676ebf0b9300ab2a936acac6d0389f8298b4d1d9`.
@@ -27,6 +27,7 @@ The audit allows only `propext`, `Classical.choice`, and `Quot.sound`; it reject
 - `Cover`: changed-coordinate traversal witnesses, availability in both directions, induced free realization and finiteness.
 - `Symmetry`: descent to quotient automorphisms and the incoming-edge extension equation.
 - `AffineLift`: edge-coordinate permutations, fixed translations, lifted symmetries and rooted extensions.
+- `PermutationDiagram`: the concrete permutation-base transport orientation, unique generator labels, faithful frame, local relation preservation, left multiplication and incoming root edge. **Kernel checked and merged.**
 
 `cover_compatible` assumes a faithful empty-language frame and local relation preservation by each base edge. It proves global compatibility; it does not assume a relational realization or EPPA. `liftSymmetry` takes the induced edge permutation and incidence equivariance explicitly.
 
@@ -35,9 +36,9 @@ The audit allows only `propext`, `Classical.choice`, and `Quot.sound`; it reject
 This is **not yet an unconditional formalization of finite relational EPPA**.
 
 1. Formalize distinguished inverse-compatible permutation extensions on a finite padded set.
-2. Instantiate the base diagram on `Sym(U)`, its faithful frame, its local relation condition and left-multiplication symmetries.
-3. Instantiate the edge permutation and rooted extension interface for every partial automorphism.
-4. Package the finite quotient and all extensions as the unconditional theorem. The manuscript's numerical padding bound is also not yet formalized.
+2. Verify the exact unordered base-edge action on the manuscript's Boolean coordinates. A draft `OrientedCover` uses two parallel coordinates per undirected edge, so is a *different indexing* even though it applies the same generic theorem.
+3. Instantiate the edge permutation and rooted extension interface for all labelled partial automorphisms.
+4. Package the finite quotient and all extensions as the unconditional theorem. The manuscript's numerical padding bound is not yet formalized.
 
 ## Build and audit
 
