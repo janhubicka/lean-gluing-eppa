@@ -45,7 +45,6 @@ theorem exists_perm_extending_involution [Finite A] {p : A → Prop}
       change (if hz : p (g x) then (f ⟨g x, hz⟩ : A) else g x) = x
       rw [dif_pos hy]
       rw [heq, hff]
-      rfl
     · simp [g, hx]
   let σ : A ≃ A :=
     { toFun := g
@@ -57,5 +56,6 @@ theorem exists_perm_extending_involution [Finite A] {p : A → Prop}
     intro x
     rfl
   · intro x hx
-    simp [σ, g, hx]
+    change g x = (f ⟨x, hx⟩ : A)
+    simp [g, hx]
 end GluingEPPA
