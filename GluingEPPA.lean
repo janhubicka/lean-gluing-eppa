@@ -31,3 +31,4 @@ import GluingEPPA.Sparsening.StarCorrection
 import GluingEPPA.Sparsening.ClosedCuts
 import GluingEPPA.Sparsening.ProjectionStep
 import GluingEPPA.Sparsening.RecordInvariance
+import GluingEPPA.Sparsening.CompleteRecords
