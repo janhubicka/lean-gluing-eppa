@@ -97,6 +97,10 @@ jobs:
           fi
           python3 scripts/check-axiom-log.py proof-audit/axioms.log
 
+      - name: Finite sparsening regressions
+        id: finite-checks
+        run: python3 scripts/check_saturated_cover.py --exhaustive --output proof-audit/sparsening-regressions.json
+
       - name: Record checked proof snapshot
         if: always()
         run: |
@@ -109,8 +113,8 @@ jobs:
 
       - name: Seed shared Lake cache from main only
         # PRs restore the main cache but NEVER upload a new multi-GB workspace.
-        # Save only after the proof and axiom audits both pass.
-        if: ${{ github.ref == 'refs/heads/main' && steps.lake-cache.outputs.cache-hit != 'true' && steps.build.outcome == 'success' && steps.audit.outcome == 'success' && !cancelled() }}
+        # Save only after proofs, axiom audits and finite regressions pass.
+        if: ${{ github.ref == 'refs/heads/main' && steps.lake-cache.outputs.cache-hit != 'true' && steps.build.outcome == 'success' && steps.audit.outcome == 'success' && steps.finite-checks.outcome == 'success' && !cancelled() }}
         uses: actions/cache/save@v5
         with:
           path: .lake
