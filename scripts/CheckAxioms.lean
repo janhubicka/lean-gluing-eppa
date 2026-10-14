@@ -105,3 +105,16 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.ChartAtlas.liftOutput_projection
 #print axioms GluingEPPA.Sparsening.ChartAtlas.lifted_chart_closed
 #print axioms GluingEPPA.Sparsening.ChartAtlas.output_support_mono
+#print axioms GluingEPPA.Sparsening.ChartAtlas.atlasCharge_odd
+#print axioms GluingEPPA.Sparsening.ChartAtlas.coChart_path_charge
+#print axioms GluingEPPA.Sparsening.ChartAtlas.coChart_exterior
+#print axioms GluingEPPA.Sparsening.ChartAtlas.relation_coChart
+#print axioms GluingEPPA.Sparsening.ChartAtlas.output_coChart
+#print axioms GluingEPPA.Sparsening.ChartAtlas.output_exterior
+#print axioms GluingEPPA.Sparsening.ChartAtlas.inducedOutput_full
+#print axioms GluingEPPA.Sparsening.ChartAtlas.project_closed
+#print axioms GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_closed_cut
+#print axioms GluingEPPA.Sparsening.ChartAtlas.connected_atlas_chart_or_closed_cut
+#print axioms GluingEPPA.Sparsening.ChartAtlas.induced_closed_ambient
+#print axioms GluingEPPA.Sparsening.ChartAtlas.separator_root_closed
+#print axioms GluingEPPA.Sparsening.ChartAtlas.separator_root_projection_closed
