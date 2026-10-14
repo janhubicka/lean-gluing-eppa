@@ -195,3 +195,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.leftExactEmbedding
 #print axioms GluingEPPA.Sparsening.Tree.rightExactEmbedding
 #print axioms GluingEPPA.Sparsening.Tree.pushoutFreeDecomposition
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.comp
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_closed
