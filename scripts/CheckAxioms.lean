@@ -171,3 +171,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.freeCut_of_nonconstant_color
 #print axioms GluingEPPA.Sparsening.constant_color_or_freeCut
 #print axioms GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_freeCut
+#print axioms GluingEPPA.Sparsening.Tree.inclRight_glued
+#print axioms GluingEPPA.Sparsening.Tree.inclRight_injective
+#print axioms GluingEPPA.Sparsening.Tree.left_eq_right_iff
+#print axioms GluingEPPA.Sparsening.Tree.pushout_covered
