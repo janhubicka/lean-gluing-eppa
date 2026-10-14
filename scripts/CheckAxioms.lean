@@ -245,3 +245,6 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.allCharts_J_complete
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.chart_or_projected_Jroot
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.chart_or_projected_Jclique
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartTestExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartTestRootExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.exists_chartTestRootExact
