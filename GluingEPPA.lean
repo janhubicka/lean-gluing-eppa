@@ -45,3 +45,4 @@ import GluingEPPA.Sparsening.OrbitAction
 import GluingEPPA.Sparsening.OrbitEndpoint
 import GluingEPPA.Sparsening.IrreducibleBridge
 import GluingEPPA.Sparsening.AtlasIrreducible
+import GluingEPPA.Sparsening.OrbitIrreducible
