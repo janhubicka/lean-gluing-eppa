@@ -133,4 +133,43 @@ theorem FullATree.JRoot_factorization
   intro i
   exact ExactUnaryEmbedding.factor_through_spec root block h i
 
+
+/-- Strict full-A trees admit gluing along any exact pair of embeddings
+whose common root is a J-clique in both trees. The J containment theorem
+automatically supplies a full A-block on each side. This is the literal
+target constructor needed by the local separator induction. -/
+theorem FullATree.glue_JRoots
+    {X Y : Type v}
+    (RI : RelStructure (WithJ L) I) (outI : F → I → Set I)
+    (RA : RelStructure (WithJ L) A) (outA : F → A → Set A)
+    (RX : RelStructure (WithJ L) X) (outX : F → X → Set X)
+    (RY : RelStructure (WithJ L) Y) (outY : F → Y → Set Y)
+    (treeX : FullATree RA outA RX outX)
+    (treeY : FullATree RA outA RY outY)
+    (f : ExactUnaryEmbedding RI outI RX outX)
+    (g : ExactUnaryEmbedding RI outI RY outY)
+    (hJX : IsJClique RX (Set.range f.toFun))
+    (hJY : IsJClique RY (Set.range g.toFun)) :
+    FullATree RA outA
+      (pushoutRelations f.toFun g.toFun RX RY)
+      (pushoutOutput f.toFun g.toFun outX outY) := by
+  obtain ⟨deltaX, blockX, hf⟩ :=
+    FullATree.JRoot_factorization treeX f hJX
+  obtain ⟨deltaY, blockY, hg⟩ :=
+    FullATree.JRoot_factorization treeY g hJY
+  have hfx : (blockX.comp deltaX).toFun = f.toFun := by
+    funext i
+    exact hf i
+  have hgy : (blockY.comp deltaY).toFun = g.toFun := by
+    funext i
+    exact hg i
+  have hTree : FullATree RA outA
+      (pushoutRelations (blockX.comp deltaX).toFun
+        (blockY.comp deltaY).toFun RX RY)
+      (pushoutOutput (blockX.comp deltaX).toFun
+        (blockY.comp deltaY).toFun outX outY) :=
+    FullATree.glue RI outI RX outX RY outY
+      treeX treeY deltaX deltaY blockX blockY
+  simpa only [hfx, hgy] using hTree
+
 end GluingEPPA.Sparsening.Tree
