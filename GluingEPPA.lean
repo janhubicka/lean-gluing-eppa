@@ -43,3 +43,5 @@ import GluingEPPA.Sparsening.CompleteChartGraph
 import GluingEPPA.Sparsening.OrbitAtlas
 import GluingEPPA.Sparsening.OrbitAction
 import GluingEPPA.Sparsening.OrbitEndpoint
+import GluingEPPA.Sparsening.IrreducibleBridge
+import GluingEPPA.Sparsening.AtlasIrreducible
