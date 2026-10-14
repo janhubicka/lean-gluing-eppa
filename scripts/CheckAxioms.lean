@@ -234,3 +234,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.projectionHomEmbedding
 #print axioms GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_JRoot_freeCut
 #print axioms GluingEPPA.Sparsening.ChartAtlas.freeCut_projected_root_closed
+
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.carrier_finite
