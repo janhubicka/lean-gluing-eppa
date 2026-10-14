@@ -52,3 +52,4 @@ import GluingEPPA.Sparsening.TreePushoutCarrier
 import GluingEPPA.Sparsening.TreeFreeCutMaps
 import GluingEPPA.Sparsening.TreeFreeCutHom
 import GluingEPPA.Sparsening.TreePushoutRelations
+import GluingEPPA.Sparsening.TreePushoutExact
