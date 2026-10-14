@@ -16,40 +16,47 @@ lemma vector_add_self (c : E → ZMod 2) : c + c = 0 := by
   funext e
   exact bit_add_self (c e)
 
+lemma restricted_path_forget {K : V → Prop} {p q : V × (E → ZMod 2)}
+    (h : Relation.ReflTransGen (restrictedLift G K) p q) :
+    Relation.ReflTransGen G.LiftEdge p q := by
+  induction h with
+  | refl => exact .refl
+  | tail _ step ih => exact ih.tail step.1
+
 /-- An actual supported walk with prescribed parity, from every initial
 valuation. No quotient equality or record completeness is assumed. -/
 def Realizes (K : V → Prop) (s t : V) (d : E → ZMod 2) : Prop :=
   ∀ chi : E → ZMod 2,
     Relation.ReflTransGen (restrictedLift G K) (s, chi) (t, chi + d)
 
-lemma realizes_zero (K : V → Prop) (s : V) : G.Realizes K s s 0 := by
+lemma realizes_zero (K : V → Prop) (s : V) : Realizes G K s s 0 := by
   intro chi
   simpa only [add_zero] using
     (Relation.ReflTransGen.refl :
       Relation.ReflTransGen (restrictedLift G K) (s, chi) (s, chi))
 
 lemma realizes_add {K : V → Prop} {s t z : V} {a b : E → ZMod 2}
-    (ha : G.Realizes K s t a) (hb : G.Realizes K t z b) :
-    G.Realizes K s z (a + b) := by
+    (ha : Realizes G K s t a) (hb : Realizes G K t z b) :
+    Realizes G K s z (a + b) := by
   intro chi
   simpa only [add_assoc] using (ha chi).trans (hb (chi + a))
 
 lemma realizes_edge {K : V → Prop} (s t : V) (e : E)
     (inc : G.Inc e s t) (hs : K s) (ht : K t) :
-    G.Realizes K s t (edgeUnit e) := by
+    Realizes G K s t (edgeUnit e) := by
   intro chi
   exact Relation.ReflTransGen.single ⟨⟨e, inc, rfl⟩, hs, ht⟩
 
 lemma realizes_sum {T : Type*} (K : V → Prop) (s : V)
     (F : Finset T) (c : T → E → ZMod 2)
-    (each : ∀ t ∈ F, G.Realizes K s s (c t)) :
-    G.Realizes K s s (∑ t ∈ F, c t) := by
+    (each : ∀ t ∈ F, Realizes G K s s (c t)) :
+    Realizes G K s s (∑ t ∈ F, c t) := by
   classical
   induction F using Finset.induction_on with
-  | empty => simpa using G.realizes_zero K s
+  | empty => simpa using realizes_zero G K s
   | @insert t F ht ih =>
     rw [Finset.sum_insert ht]
-    exact G.realizes_add (each t (Finset.mem_insert_self t F))
+    exact realizes_add G (each t (Finset.mem_insert_self t F))
       (ih (fun r hr => each r (Finset.mem_insert_of_mem hr)))
 
 /-- Choose one spoke, or the zero walk for equal endpoints. -/
@@ -57,16 +64,16 @@ lemma exists_spoke
     (complete : ∀ a b : V, a ≠ b → ∃ e, G.Inc e a b) (s t : V) :
     ∃ c : E → ZMod 2, (s = t → c = 0) ∧
       ∀ K : V → Prop, K s → K t →
-        G.Realizes K s t c ∧ G.Realizes K t s c := by
+        Realizes G K s t c ∧ Realizes G K t s c := by
   classical
   by_cases hst : s = t
   · subst t
     exact ⟨0, fun _ => rfl, fun K _ _ =>
-      ⟨G.realizes_zero K s, G.realizes_zero K s⟩⟩
+      ⟨realizes_zero G K s, realizes_zero G K s⟩⟩
   · obtain ⟨e, he⟩ := complete s t hst
     exact ⟨edgeUnit e, fun h => (hst h).elim, fun K hs ht =>
-      ⟨G.realizes_edge s t e he hs ht,
-       G.realizes_edge t s e (G.inc_symm he) ht hs⟩⟩
+      ⟨realizes_edge G s t e he hs ht,
+       realizes_edge G t s e (G.inc_symm he) ht hs⟩⟩
 
 /-- Pairing with the boundary counts the two endpoints of every edge. -/
 lemma boundary_pairing (d : E → ZMod 2) (w : V → ZMod 2) :
@@ -83,7 +90,7 @@ paired with the chosen spokes. No connected-support hypothesis is needed. -/
 lemma cone_sum (c : V → E → ZMod 2) (d : E → ZMod 2) (f : E) :
     (∑ e, d e * (c (G.left e) f + edgeUnit e f + c (G.right e) f)) =
       d f + ∑ a, boundary G d a * c a f := by
-  rw [G.boundary_pairing d (fun a => c a f)]
+  rw [boundary_pairing G d (fun a => c a f)]
   have hu : (∑ e, d e * edgeUnit e f) = d f := by
     simp [edgeUnit, mul_ite]
   simp_rw [mul_add, Finset.sum_add_distrib]
@@ -99,24 +106,24 @@ theorem realizes_of_boundary
     (supported : ∀ e, d e ≠ 0 → K (G.left e) ∧ K (G.right e))
     (ends : ∀ a, boundary G d a =
       (if s = a then 1 else 0) + (if t = a then 1 else 0)) :
-    G.Realizes K s t d := by
+    Realizes G K s t d := by
   classical
-  choose c hzero hwalk using (fun a : V => G.exists_spoke complete s a)
+  choose c hzero hwalk using (fun a : V => exists_spoke G complete s a)
   have hz : c s = 0 := hzero s rfl
   let loop : E → E → ZMod 2 := fun e f =>
     d e * (c (G.left e) f + edgeUnit e f + c (G.right e) f)
-  have hloops : ∀ e, G.Realizes K s s (loop e) := by
+  have hloops : ∀ e, Realizes G K s s (loop e) := by
     intro e
     have bits : ∀ z : ZMod 2, z = 0 ∨ z = 1 := by decide
     rcases bits (d e) with he | he
     · have hloop : loop e = 0 := by funext f; simp [loop, he]
       rw [hloop]
-      exact G.realizes_zero K s
+      exact realizes_zero G K s
     · have hn : d e ≠ 0 := by rw [he]; exact one_ne_zero
       obtain ⟨hl, hr⟩ := supported e hn
-      have hpath := G.realizes_add
-        (G.realizes_add (hwalk (G.left e) K hs hl).1
-          (G.realizes_edge (G.left e) (G.right e) e (Or.inl ⟨rfl, rfl⟩) hl hr))
+      have hpath := realizes_add G
+        (realizes_add G (hwalk (G.left e) K hs hl).1
+          (realizes_edge G (G.left e) (G.right e) e (Or.inl ⟨rfl, rfl⟩) hl hr))
         (hwalk (G.right e) K hs hr).2
       simpa only [loop, he, one_mul, Pi.add_apply] using hpath
   have hsum : (∑ e, loop e) = d + c t := by
@@ -124,10 +131,10 @@ theorem realizes_of_boundary
     change (∑ e, loop e) f = d f + c t f
     rw [Finset.sum_apply]
     change (∑ e, d e * (c (G.left e) f + edgeUnit e f + c (G.right e) f)) = _
-    rw [G.cone_sum, ends]
+    rw [cone_sum G, ends]
     simp [add_mul, ite_mul, Finset.sum_add_distrib, hz]
-  have whole := G.realizes_add
-    (G.realizes_sum K s Finset.univ loop (fun e _ => hloops e))
+  have whole := realizes_add G
+    (realizes_sum G K s Finset.univ loop (fun e _ => hloops e))
     (hwalk t K hs ht).1
   simpa only [hsum, add_assoc, vector_add_self, add_zero] using whole
 
@@ -158,7 +165,7 @@ theorem supported_walk_of_records
     apply he
     change chi e + psi e = 0
     rw [exterior e hn, bit_add_self]
-  have hwalk := G.realizes_of_boundary complete K s t hs ht (chi + psi) hi hb chi
+  have hwalk := realizes_of_boundary G complete K s t hs ht (chi + psi) hi hb chi
   have hv : chi + (chi + psi) = psi := by
     rw [← add_assoc, vector_add_self, zero_add]
   simpa only [hv] using hwalk
@@ -173,13 +180,10 @@ theorem supported_walk_iff_records
         ∀ e, ¬ (K (G.left e) ∧ K (G.right e)) → chi e = psi e := by
   constructor
   · intro h
-    have hp : Relation.ReflTransGen G.LiftEdge (s, chi) (t, psi) := by
-      induction h with
-      | refl => exact .refl
-      | tail _ step ih => exact ih.tail step.1
+    have hp := restricted_path_forget G h
     exact ⟨charge_path G hp, fun e he => exterior_path G K e he h⟩
   · rintro ⟨hc, he⟩
-    exact G.supported_walk_of_records complete K s t hs ht chi psi hc he
+    exact supported_walk_of_records G complete K s t hs ht chi psi hc he
 
 /-- The common lifted record is now reached by genuine supported paths
 for every point, not merely a solution of the record equations. -/
@@ -200,7 +204,7 @@ theorem common_supported_representative {P : Type w}
     origin_mem odd record consistent
   refine ⟨s, c, hs, ?_⟩
   intro p
-  apply G.supported_walk_of_records complete (support p) (origin p) s
+  apply supported_walk_of_records G complete (support p) (origin p) s
     (origin_mem p) (hs p) (chi p) c
   · funext v
     exact (record p v).trans (hb v).symm
