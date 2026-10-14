@@ -14,7 +14,8 @@ namespace GluingEPPA.Sparsening
 universe u v w z
 
 /-- One genuinely binary relation symbol. -/
-structure JSymbol (n : Nat) where
+structure JSymbol (n : Nat) : Type where
+  tag : Unit
   arity_two : n = 2
 
 /-- Old relation symbols together with the new binary J. -/
@@ -30,7 +31,7 @@ def withJ {L : Nat → Type u} {P : Type v}
     cases r with
     | inl r => exact R.rel r xs
     | inr j =>
-      obtain ⟨hn⟩ := j
+      obtain ⟨_, hn⟩ := j
       cases hn
       exact J (xs 0) (xs 1)
 
@@ -42,7 +43,7 @@ def withJ {L : Nat → Type u} {P : Type v}
 @[simp] theorem withJ_binary_rel {L : Nat → Type u} {P : Type v}
     (R : RelStructure L P) (J : P → P → Prop)
     (xs : Fin 2 → P) :
-    (withJ R J).rel (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs ↔
+    (withJ R J).rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs ↔
       J (xs 0) (xs 1) := Iff.rfl
 
 /-- An actual J-clique is irreducible for arbitrary unary set-valued
@@ -64,10 +65,10 @@ theorem j_clique_irreducible {L : Nat → Type u} {P : Type v} {F : Type w}
     push_neg at h
     exact d.right_proper (Set.eq_univ_of_forall h)
   let xs : Fin 2 → P := fun i => if i.val = 0 then q else p
-  have hrel : (withJ R J).rel (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs := by
+  have hrel : (withJ R J).rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs := by
     change J (xs 0) (xs 1)
     simpa [xs] using complete q p
-  rcases d.rel_local (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs hrel with hl | hr
+  rcases d.rel_local (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs hrel with hl | hr
   · exact hp (by simpa [xs] using hl (1 : Fin 2))
   · exact hq (by simpa [xs] using hr (0 : Fin 2))
 
@@ -90,10 +91,10 @@ theorem j_clique_subset_one_side {L : Nat → Type u} {P : Type v}
   obtain ⟨p, hpS, hpL⟩ := Set.not_subset.mp hl
   obtain ⟨q, hqS, hqR⟩ := Set.not_subset.mp hr
   let xs : Fin 2 → P := fun i => if i.val = 0 then q else p
-  have hrel : (withJ R J).rel (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs := by
+  have hrel : (withJ R J).rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs := by
     change J (xs 0) (xs 1)
     simpa [xs] using clique q hqS p hpS
-  rcases d.rel_local (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs hrel with hleft | hright
+  rcases d.rel_local (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs hrel with hleft | hright
   · exact False.elim (hpL (by simpa [xs] using hleft (1 : Fin 2)))
   · exact False.elim (hqR (by simpa [xs] using hright (0 : Fin 2)))
 
@@ -122,6 +123,7 @@ theorem quotient_withJ_rel_iff
     {L : Nat → Type u} {P : Type v} {V : Type w} {E : Type z}
     (G : GluingEPPA.EdgeGraph V E) (support : P → V → Prop)
     (R : RelStructure L P) (J : P → P → Prop)
+    [Fintype V] [Fintype E] [DecidableEq V] [DecidableEq E]
     (clique : ∀ s x y, support x s → support y s → J x y)
     {n : Nat} (r : WithJ L n)
     (qs : Fin n → ChartAtlas.Vertex G support) :
@@ -191,10 +193,10 @@ theorem chart_J_complete
   obtain ⟨a, ha, hax⟩ := hs hx
   obtain ⟨b, hb, hby⟩ := hs hy
   let xs : Fin 2 → A := fun i => if i.val = 0 then a else b
-  have hrel : (withJ R J).rel (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs := by
+  have hrel : (withJ R J).rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs := by
     change J (xs 0) (xs 1)
     simpa [xs] using hroot a b ha hb
-  have hh := (h.rel_iff (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs).mpr hrel
+  have hh := (h.rel_iff (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs).mpr hrel
   have hJ : J (h.perm a) (h.perm b) := by
     change J (h.perm (xs 0)) (h.perm (xs 1)) at hh
     simpa [xs] using hh
@@ -209,6 +211,10 @@ theorem coChart_projection_J
     (out : F → A → Set A) (root : Set A)
     (hroot : ∀ x y, x ∈ root → y ∈ root → J x y)
     [Finite A]
+    [Fintype (Chart (withJ R J) out root)]
+    [Fintype (Edges (withJ R J) out root)]
+    [DecidableEq (Chart (withJ R J) out root)]
+    [DecidableEq (Edges (withJ R J) out root)]
     {p q : Vertex (withJ R J) out root}
     (h : ChartAtlas.CoChart (graph (withJ R J) out root)
       (support (withJ R J) out root) p q) :
