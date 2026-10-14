@@ -222,3 +222,7 @@ import GluingEPPA
 
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_JClique
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.glueHomEmbedding
+
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projection_rel_map
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projection_nullary_iff
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projectionHomEmbedding
