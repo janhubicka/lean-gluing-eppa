@@ -219,3 +219,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.exactSubsetIntoSide
 #print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.exact_afterExact
 #print axioms GluingEPPA.Sparsening.Tree.unaryHomEmbedding_glueFreeCut
+
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projection_rel_map
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projection_nullary_iff
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projectionHomEmbedding
