@@ -27,6 +27,7 @@ theorem charge_constant_of_irreducible (X : Set (Vertex G support))
       (inducedAtlas G support R X)
       (inducedOutput G support out closed X)) :
     ∀ p q : X, atlasCharge G support p.val = atlasCharge G support q.val := by
+  intro p q
   apply color_constant_of_irreducible
     (inducedAtlas G support R X) (inducedOutput G support out closed X)
     (fun q : X => atlasCharge G support q.val)
