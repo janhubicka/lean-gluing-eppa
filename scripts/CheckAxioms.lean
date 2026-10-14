@@ -180,3 +180,6 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_right
 #print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_unique
 #print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_injective
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_rel
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_unary_mem
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_unary_image
