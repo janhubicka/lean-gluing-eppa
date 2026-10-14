@@ -24,7 +24,7 @@ def restrictedLift (allowed : V → Prop)
 theorem local_step_potential (allowed : V → Prop) (s : V → ZMod 2)
     (w : E → ZMod 2)
     (cut : ∀ e a b, G.Inc e a b → allowed a → allowed b → w e = s a + s b)
-    {p q : V × (E → ZMod 2)} (h : G.restrictedLift allowed p q) :
+    {p q : V × (E → ZMod 2)} (h : restrictedLift G allowed p q) :
     s p.1 + EdgeGraph.dot w p.2 = s q.1 + EdgeGraph.dot w q.2 := by
   obtain ⟨⟨e, he, hq⟩, hp, ht⟩ := h
   rw [hq, EdgeGraph.dot_flip, cut e p.1 q.1 he hp ht]
@@ -38,11 +38,11 @@ theorem local_path_potential (allowed : V → Prop) (s : V → ZMod 2)
     (w : E → ZMod 2)
     (cut : ∀ e a b, G.Inc e a b → allowed a → allowed b → w e = s a + s b)
     {p q : V × (E → ZMod 2)}
-    (h : Relation.ReflTransGen (G.restrictedLift allowed) p q) :
+    (h : Relation.ReflTransGen (restrictedLift G allowed) p q) :
     s p.1 + EdgeGraph.dot w p.2 = s q.1 + EdgeGraph.dot w q.2 := by
   induction h with
   | refl => rfl
-  | tail _ e ih => exact ih.trans (G.local_step_potential allowed s w cut e)
+  | tail _ e ih => exact ih.trans (local_step_potential G allowed s w cut e)
 
 /-- Every interior potential occurs exactly twice. -/
 theorem parity_telescopes (eta : Nat → ZMod 2) (n : Nat) :
