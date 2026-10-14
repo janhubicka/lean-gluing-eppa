@@ -207,3 +207,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.factor_through_spec
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.JRoot_factorization
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.glue_JRoots
+
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutToPushout_rel
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutToPushout_unary_mem
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutToPushout_exact_on_irreducible
