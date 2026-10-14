@@ -89,3 +89,10 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.charge_odd
 #print axioms GluingEPPA.Sparsening.charge_path
 #print axioms GluingEPPA.Sparsening.exterior_path
+#print axioms GluingEPPA.Sparsening.realizes_sum
+#print axioms GluingEPPA.Sparsening.boundary_pairing
+#print axioms GluingEPPA.Sparsening.cone_sum
+#print axioms GluingEPPA.Sparsening.realizes_of_boundary
+#print axioms GluingEPPA.Sparsening.supported_walk_of_records
+#print axioms GluingEPPA.Sparsening.supported_walk_iff_records
+#print axioms GluingEPPA.Sparsening.common_supported_representative
