@@ -96,3 +96,12 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.supported_walk_of_records
 #print axioms GluingEPPA.Sparsening.supported_walk_iff_records
 #print axioms GluingEPPA.Sparsening.common_supported_representative
+#print axioms GluingEPPA.Sparsening.ChartAtlas.point_eq_iff_records
+#print axioms GluingEPPA.Sparsening.ChartAtlas.exists_representative
+#print axioms GluingEPPA.Sparsening.ChartAtlas.copy_injective
+#print axioms GluingEPPA.Sparsening.ChartAtlas.chartEmbedding
+#print axioms GluingEPPA.Sparsening.ChartAtlas.common_chart
+#print axioms GluingEPPA.Sparsening.ChartAtlas.liftOutput_copy
+#print axioms GluingEPPA.Sparsening.ChartAtlas.liftOutput_projection
+#print axioms GluingEPPA.Sparsening.ChartAtlas.lifted_chart_closed
+#print axioms GluingEPPA.Sparsening.ChartAtlas.output_support_mono

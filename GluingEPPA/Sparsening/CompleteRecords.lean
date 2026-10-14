@@ -125,13 +125,18 @@ theorem realizes_of_boundary
         (realizes_add G (hwalk (G.left e) K hs hl).1
           (realizes_edge G (G.left e) (G.right e) e (Or.inl ⟨rfl, rfl⟩) hl hr))
         (hwalk (G.right e) K hs hr).2
-      simpa only [loop, he, one_mul, Pi.add_apply] using hpath
+      have hloop : loop e = c (G.left e) + edgeUnit e + c (G.right e) := by
+        funext f
+        simp [loop, he]
+      rw [hloop]
+      exact hpath
   have hsum : (∑ e, loop e) = d + c t := by
     funext f
     change (∑ e, loop e) f = d f + c t f
     rw [Finset.sum_apply]
     change (∑ e, d e * (c (G.left e) f + edgeUnit e f + c (G.right e) f)) = _
-    rw [cone_sum G, ends]
+    rw [cone_sum G]
+    simp_rw [ends]
     simp [add_mul, ite_mul, Finset.sum_add_distrib, hz]
   have whole := realizes_add G
     (realizes_sum G K s Finset.univ loop (fun e _ => hloops e))

@@ -32,3 +32,5 @@ import GluingEPPA.Sparsening.ClosedCuts
 import GluingEPPA.Sparsening.ProjectionStep
 import GluingEPPA.Sparsening.RecordInvariance
 import GluingEPPA.Sparsening.CompleteRecords
+import GluingEPPA.Sparsening.ChartAtlas
+import GluingEPPA.Sparsening.UnaryAtlas
