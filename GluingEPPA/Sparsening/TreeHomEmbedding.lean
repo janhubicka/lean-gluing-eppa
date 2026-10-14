@@ -90,7 +90,8 @@ theorem range_irreducible
         apply Set.eq_univ_of_forall
         rintro ⟨b, hb⟩
         obtain ⟨a, ha⟩ := hb
-        have he : j a = (⟨b, hb⟩ : Set.range e.toFun) :=
+        have hbrange : b ∈ Set.range e.toFun := ⟨a, ha⟩
+        have he : j a = (⟨b, hbrange⟩ : Set.range e.toFun) :=
           Subtype.ext ha
         rw [← he]
         have haa : a ∈ ({a | j a ∈ d.left} : Set A) := by
@@ -103,7 +104,8 @@ theorem range_irreducible
         apply Set.eq_univ_of_forall
         rintro ⟨b, hb⟩
         obtain ⟨a, ha⟩ := hb
-        have he : j a = (⟨b, hb⟩ : Set.range e.toFun) :=
+        have hbrange : b ∈ Set.range e.toFun := ⟨a, ha⟩
+        have he : j a = (⟨b, hbrange⟩ : Set.range e.toFun) :=
           Subtype.ext ha
         rw [← he]
         have haa : a ∈ ({a | j a ∈ d.right} : Set A) := by
@@ -179,7 +181,10 @@ def comp
     intro a
     change e2.toFun (⟨e.toFun a, ⟨a, rfl⟩⟩ : T) =
       g.toFun (f.toFun a.val)
-    rw [he2 ⟨e.toFun a, ⟨a, rfl⟩⟩, he a]
+    calc
+      e2.toFun (⟨e.toFun a, ⟨a, rfl⟩⟩ : T) =
+          g.toFun (e.toFun a) := he2 ⟨e.toFun a, ⟨a, rfl⟩⟩
+      _ = g.toFun (f.toFun a.val) := congrArg g.toFun (he a)
 
 end UnaryHomEmbedding
 end GluingEPPA.Sparsening.Tree
