@@ -215,3 +215,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.toClosedRange
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_irreducible
 #print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.comp
+
+#print axioms GluingEPPA.Sparsening.Tree.exactSubsetIntoSide
+#print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.exact_afterExact
+#print axioms GluingEPPA.Sparsening.Tree.unaryHomEmbedding_glueFreeCut
