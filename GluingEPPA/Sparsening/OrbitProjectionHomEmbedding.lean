@@ -54,7 +54,9 @@ theorem projection_nullary_iff
       (support R out root) R).rel r xs
     refine ⟨emptyChart R out root, 0,
       (fun i : Fin 0 => Fin.elim0 i), ?_, ?_⟩
-    · simpa using hr
+    · convert hr using 1
+      funext i
+      exact Fin.elim0 i
     · intro i
       exact Fin.elim0 i
   · exact projection_rel_map R out root r xs
@@ -75,6 +77,11 @@ def projectionHomEmbedding :
         (support R out root) z ∈
       ChartAtlas.project (graph R out root) (support R out root) ''
         outputs R out root f q := ⟨z, hz, rfl⟩
+    change ChartAtlas.project (graph R out root)
+      (support R out root) z ∈
+      ChartAtlas.project (graph R out root) (support R out root) ''
+        ChartAtlas.liftOutput (graph R out root) (support R out root)
+          out (closed R out root) f q at hi
     rw [ChartAtlas.liftOutput_projection
       (graph R out root) (support R out root)
       out (closed R out root) f q] at hi
@@ -112,6 +119,11 @@ def projectionHomEmbedding :
               ChartAtlas.project (graph R out root)
                 (support R out root) '' outputs R out root f q.val :=
             ⟨z.val, hz, rfl⟩
+          change ChartAtlas.project (graph R out root)
+              (support R out root) z.val ∈
+            ChartAtlas.project (graph R out root) (support R out root) ''
+              ChartAtlas.liftOutput (graph R out root) (support R out root)
+                out (closed R out root) f q.val at hi
           rw [ChartAtlas.liftOutput_projection
             (graph R out root) (support R out root)
             out (closed R out root) f q.val] at hi
@@ -119,6 +131,10 @@ def projectionHomEmbedding :
         · intro hy
           have hi : y ∈ ChartAtlas.project (graph R out root)
               (support R out root) '' outputs R out root f q.val := by
+            change y ∈ ChartAtlas.project (graph R out root)
+              (support R out root) ''
+              ChartAtlas.liftOutput (graph R out root) (support R out root)
+                out (closed R out root) f q.val
             rw [ChartAtlas.liftOutput_projection
               (graph R out root) (support R out root)
               out (closed R out root) f q.val]
