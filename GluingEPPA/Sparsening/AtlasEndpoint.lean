@@ -89,8 +89,13 @@ def identity : AtlasSymmetry G support where
   have h : (identity (G := G) (support := support)).map 0
       (copy G support s chi (project G support q) hx) =
       copy G support s chi (project G support q) hx := by
+    have hc : EdgeGraph.affine (Equiv.refl E) (0 : E → ZMod 2) chi = chi := by
+      funext e
+      simp [EdgeGraph.affine]
     rw [map_copy]
-    simp [identity, EdgeGraph.affine]
+    change copy G support s (EdgeGraph.affine (Equiv.refl E) 0 chi)
+      (project G support q) _ = copy G support s chi (project G support q) hx
+    rw [hc]
   simpa only [hq] using h
 
 theorem endpoint_identity {root : V} (spokes : RootSpokes G root)

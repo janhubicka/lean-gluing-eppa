@@ -99,7 +99,9 @@ jobs:
 
       - name: Finite sparsening regressions
         id: finite-checks
-        run: python3 scripts/check_saturated_cover.py --exhaustive --output proof-audit/sparsening-regressions.json
+        run: |
+          python3 scripts/check_saturated_cover.py --exhaustive --output proof-audit/sparsening-regressions.json
+          python3 scripts/check_atlas_action.py --output proof-audit/affine-regressions.json
 
       - name: Record checked proof snapshot
         if: always()
