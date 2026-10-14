@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.TreeRootFactorization
+import GluingEPPA.Sparsening.TreeIrreducibleSide
 
 /-!
 # Homomorphism-embeddings glued over a real upstairs free cut
