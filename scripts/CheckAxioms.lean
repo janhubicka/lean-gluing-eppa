@@ -202,3 +202,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.refl
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.singleton
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.contains_A
+#print axioms GluingEPPA.Sparsening.Tree.jClique_pushout_one_side
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.JClique_contained_in_A
