@@ -102,6 +102,7 @@ jobs:
         run: |
           python3 scripts/check_saturated_cover.py --exhaustive --output proof-audit/sparsening-regressions.json
           python3 scripts/check_atlas_action.py --output proof-audit/affine-regressions.json
+          python3 scripts/check_orbit_atlas.py --output proof-audit/orbit-regressions.json
 
       - name: Record checked proof snapshot
         if: always()

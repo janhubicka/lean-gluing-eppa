@@ -10,8 +10,7 @@ variable (R : RelStructure L A) (out : F → A → Set A) (root : Set A)
 open scoped Classical
 noncomputable section
 variable [Finite A]
-local instance chartsFintype : Fintype (Chart R out root) := Fintype.ofFinite _
-local instance edgesFintype : Fintype (Edges R out root) := Fintype.ofFinite _
+attribute [local instance] chartsFintype edgesFintype
 
 variable (hr : UnaryClosed out (fun x => x ∈ root))
 
@@ -73,7 +72,7 @@ theorem liftedChart_inclusion (s t : Chart R out root) (incl : s.val ⊆ t.val)
 
 /-- Every actual subchart is contained in some lifted full chart. -/
 theorem liftedChart_in_full (s : Chart R out root) (chi : Edges R out root → ZMod 2) :
-    ∃ (h : Aut R out) psi,
+    ∃ (h : Aut R out) (psi : Edges R out root → ZMod 2),
       liftedChart R out root s chi ⊆ liftedChart R out root (fullChart R out root hr h) psi := by
   obtain ⟨h, hh⟩ := contained_in_full R out root hr s
   obtain ⟨psi, hp⟩ := liftedChart_inclusion R out root s (fullChart R out root hr h) hh chi
