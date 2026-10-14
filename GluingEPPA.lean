@@ -64,3 +64,4 @@ import GluingEPPA.Sparsening.TreeHomEmbedding
 import GluingEPPA.Sparsening.TreeHomEmbeddingGlue
 import GluingEPPA.Sparsening.TreeHomEmbeddingTreeGlue
 import GluingEPPA.Sparsening.TreeHomEmbeddingRestrict
+import GluingEPPA.Sparsening.TreeHomEmbeddingClosedCodomain
