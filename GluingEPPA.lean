@@ -48,6 +48,7 @@ import GluingEPPA.Sparsening.AtlasIrreducible
 import GluingEPPA.Sparsening.OrbitIrreducible
 import GluingEPPA.Sparsening.AuxiliaryJ
 import GluingEPPA.Sparsening.AtlasAllTestCuts
+import GluingEPPA.Sparsening.AtlasRootedFreeCut
 import GluingEPPA.Sparsening.TreePushoutCarrier
 import GluingEPPA.Sparsening.TreeFreeCutMaps
 import GluingEPPA.Sparsening.TreeFreeCutHom
