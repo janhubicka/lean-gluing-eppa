@@ -50,3 +50,4 @@ import GluingEPPA.Sparsening.AuxiliaryJ
 import GluingEPPA.Sparsening.AtlasAllTestCuts
 import GluingEPPA.Sparsening.TreePushoutCarrier
 import GluingEPPA.Sparsening.TreeFreeCutMaps
+import GluingEPPA.Sparsening.TreeFreeCutHom
