@@ -55,4 +55,5 @@ import GluingEPPA.Sparsening.TreePushoutRelations
 import GluingEPPA.Sparsening.TreePushoutExact
 import GluingEPPA.Sparsening.TreeStrongAmalgam
 import GluingEPPA.Sparsening.TreeEmbeddingComposition
+import GluingEPPA.Sparsening.TreeIrreducibleSide
 import GluingEPPA.Sparsening.TreeFullA

@@ -197,6 +197,8 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.pushoutFreeDecomposition
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.comp
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_closed
+#print axioms GluingEPPA.Sparsening.inducedUnary_full
+#print axioms GluingEPPA.Sparsening.irreducible_subset_one_side
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.refl
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.singleton
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.contains_A
