@@ -92,10 +92,19 @@ theorem testProjection_overlap_J
   intro x _ y _
   obtain ⟨p, hp, hpx⟩ := x.property
   obtain ⟨q, hq, hqy⟩ := y.property
+  have hOld : R.rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2))
+      (Tree.JPair x.val y.val) := by
+    rw [← hpx, ← hqy]
+    exact hJ p q hp.1 hp.2 hq.1 hq.2
   change R.rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2))
-    (Tree.JPair x.val y.val)
-  rw [← hpx, ← hqy]
-  exact hJ p q hp.1 hp.2 hq.1 hq.2
+    (fun i => (Tree.JPair x y i).val)
+  have hPair :
+      (fun i : Fin 2 => (Tree.JPair x y i).val) =
+      Tree.JPair x.val y.val := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hPair]
+  exact hOld
 
 /-- Concrete canonical-atlas version of the projected separator-root
 gluing theorem. The only extra geometric hypothesis is that the
