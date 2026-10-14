@@ -35,8 +35,8 @@ theorem charge_constant_of_irreducible (X : Set (Vertex G support))
     exact coChart_charge G support
       (relation_coChart G support R r (fun k => (xs k).val) hx i j)
   · intro f p q h
-    exact coChart_charge G support
-      (output_coChart G support out closed f p.val q.val h)
+    exact (coChart_charge G support
+      (output_coChart G support out closed f p.val q.val h)).symm
   · exact hirr
 
 /-- In an irreducible closed test, the concrete chart-or-cut alternative
@@ -45,7 +45,7 @@ shared by ALL points, not a pointwise choice of charts. -/
 theorem irreducible_lies_in_chart
     (complete : ∀ a b : V, a ≠ b → ∃ e, G.Inc e a b)
     (X : Set (Vertex G support)) [Nonempty X]
-    (hclosed : UnaryClosed (liftOutput G support out closed) (fun q => q ∈ X))
+    (_hclosed : UnaryClosed (liftOutput G support out closed) (fun q => q ∈ X))
     (hirr : IsIrreducible
       (inducedAtlas G support R X)
       (inducedOutput G support out closed X)) :
@@ -91,10 +91,12 @@ theorem project_embeds_irreducible
   · intro p hp q hq heq
     obtain ⟨hps, hpe⟩ := hchart ⟨p, hp⟩
     obtain ⟨hqs, hqe⟩ := hchart ⟨q, hq⟩
+    have hsub : (⟨project G support p, hps⟩ : {x // support x s}) =
+        ⟨project G support q, hqs⟩ := Subtype.ext heq
     have hc : copy G support s chi (project G support p) hps =
-        copy G support s chi (project G support q) hqs := by
-      cases heq
-      rfl
+        copy G support s chi (project G support q) hqs :=
+      congrArg (fun x : {x // support x s} =>
+        copy G support s chi x.val x.property) hsub
     exact hpe.symm.trans (hc.trans hqe)
   · intro n r xs hxs
     constructor
