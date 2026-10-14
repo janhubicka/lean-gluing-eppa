@@ -27,3 +27,5 @@ import GluingEPPA.Sparsening.LocalParity
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.OddBoundary
 import GluingEPPA.Sparsening.CoherentTranslation
+import GluingEPPA.Sparsening.StarCorrection
+import GluingEPPA.Sparsening.ClosedCuts

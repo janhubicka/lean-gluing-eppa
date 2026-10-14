@@ -75,3 +75,9 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.common_chart_of_consistent_records
 #print axioms GluingEPPA.Sparsening.chartTranslation_comp
 #print axioms GluingEPPA.Sparsening.chartTranslation_identity
+#print axioms GluingEPPA.Sparsening.exists_edge_chain
+#print axioms GluingEPPA.Sparsening.internal_star_correction
+#print axioms GluingEPPA.Sparsening.common_lifted_record
+#print axioms GluingEPPA.Sparsening.cutSide_closed
+#print axioms GluingEPPA.Sparsening.tuple_cutSide
+#print axioms GluingEPPA.Sparsening.record_chart_or_closed_cut
