@@ -192,5 +192,10 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.right_rel_iff
 #print axioms GluingEPPA.Sparsening.Tree.left_unary_image_eq
 #print axioms GluingEPPA.Sparsening.Tree.right_unary_image_eq
+#print axioms GluingEPPA.Sparsening.Tree.leftExactEmbedding
+#print axioms GluingEPPA.Sparsening.Tree.rightExactEmbedding
+#print axioms GluingEPPA.Sparsening.Tree.pushoutFreeDecomposition
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.comp
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_closed
 #print axioms GluingEPPA.Sparsening.inducedUnary_full
 #print axioms GluingEPPA.Sparsening.irreducible_subset_one_side
