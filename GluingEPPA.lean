@@ -60,3 +60,4 @@ import GluingEPPA.Sparsening.TreeFullA
 import GluingEPPA.Sparsening.TreeJCliqueRoot
 import GluingEPPA.Sparsening.TreeRootFactorization
 import GluingEPPA.Sparsening.TreeFreeCutPushoutHom
+import GluingEPPA.Sparsening.TreeHomEmbedding
