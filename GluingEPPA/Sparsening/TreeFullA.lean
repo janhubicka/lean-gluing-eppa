@@ -74,4 +74,23 @@ theorem FullATree.contains_A
     let g := αY.comp δY
     exact ⟨(leftExactEmbedding RI outI RX outX RY outY f g).comp αX⟩
 
+/-- Every literal strict tree of full A-copies has a finite carrier when
+the original A is finite. No separate bound or finiteness hypothesis on
+the intermediate gluing interfaces is needed. -/
+theorem FullATree.carrier_finite
+    (RA : RelStructure L A) (outA : F → A → Set A)
+    [Finite A]
+    {V : Type v} (RV : RelStructure L V) (outV : F → V → Set V)
+    (tree : FullATree RA outA RV outV) :
+    Finite V := by
+  induction tree with
+  | copy RV outV e surjective =>
+      exact Finite.of_surjective e.toFun surjective
+  | glue RI outI RX outX RY outY hX hY δX δY αX αY ihX ihY =>
+      letI : Finite _ := ihX
+      letI : Finite _ := ihY
+      exact pushout_finite
+        (αX.comp δX).toFun (αY.comp δY).toFun
+
+
 end GluingEPPA.Sparsening.Tree
