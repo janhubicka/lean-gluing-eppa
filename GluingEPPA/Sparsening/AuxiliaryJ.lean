@@ -229,5 +229,6 @@ theorem coChart_projection_J
       chart_J_complete R J out root hroot s x y hx hy) h
 
 end
+end Finite
 end OrbitAtlas
 end GluingEPPA.Sparsening
