@@ -34,3 +34,5 @@ import GluingEPPA.Sparsening.RecordInvariance
 import GluingEPPA.Sparsening.CompleteRecords
 import GluingEPPA.Sparsening.ChartAtlas
 import GluingEPPA.Sparsening.UnaryAtlas
+import GluingEPPA.Sparsening.AtlasRecords
+import GluingEPPA.Sparsening.AtlasSeparator
