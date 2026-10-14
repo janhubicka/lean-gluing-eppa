@@ -228,3 +228,6 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.restrictClosed
 
 #print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.intoClosedCodomain
+
+#print axioms GluingEPPA.Sparsening.Tree.irreducible_of_complete_J
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.glueProjectedRoot
