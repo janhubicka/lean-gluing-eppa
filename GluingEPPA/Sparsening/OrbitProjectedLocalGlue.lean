@@ -22,6 +22,8 @@ variable {L : Nat → Type u} {F : Type w}
 variable {A B X Y : Type v}
 open scoped Classical
 noncomputable section
+variable [Finite B]
+attribute [local instance] chartsFintype edgesFintype
 
 /-- The actual projection, restricted to a possibly empty test. -/
 def testProjection (R : RelStructure (WithJ L) B)
@@ -32,7 +34,7 @@ def testProjection (R : RelStructure (WithJ L) B)
 
 /-- On every closed test the *whole* projected unary fibre equals the
 corresponding old fibre. This is stronger than being a homomorphism. -/
-theorem testProjection_fibres [Finite B]
+theorem testProjection_fibres
     (R : RelStructure (WithJ L) B)
     (out : F → B → Set B) (root : Set B)
     (S : Set (Vertex R out root))
@@ -69,7 +71,7 @@ theorem testProjection_fibres [Finite B]
 /-- The exact atlas-root conclusion gives the complete J-clique
 needed by the strict-tree target gluing theorem. The overlap may
 be empty, and projection need not be injective there. -/
-theorem testProjection_overlap_J [Finite B]
+theorem testProjection_overlap_J
     (R : RelStructure (WithJ L) B)
     (out : F → B → Set B) (root : Set B)
     (S : Set (Vertex R out root))
@@ -99,7 +101,7 @@ theorem testProjection_overlap_J [Finite B]
 gluing theorem. The only extra geometric hypothesis is that the
 projected actual overlap is J-complete; complete unary fibres and
 closed old images are derived, not assumed. -/
-theorem glueProjectedAtlasCut [Finite B]
+theorem glueProjectedAtlasCut
     (R : RelStructure (WithJ L) B)
     (out : F → B → Set B) (root : Set B)
     (RA : RelStructure (WithJ L) A) (outA : F → A → Set A)
