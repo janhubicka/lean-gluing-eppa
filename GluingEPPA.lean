@@ -57,3 +57,4 @@ import GluingEPPA.Sparsening.TreeStrongAmalgam
 import GluingEPPA.Sparsening.TreeEmbeddingComposition
 import GluingEPPA.Sparsening.TreeIrreducibleSide
 import GluingEPPA.Sparsening.TreeFullA
+import GluingEPPA.Sparsening.TreeJCliqueRoot
