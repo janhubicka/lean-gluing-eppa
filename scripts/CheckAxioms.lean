@@ -222,3 +222,6 @@ import GluingEPPA
 
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_JClique
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.glueHomEmbedding
+
+#print axioms GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_JRoot_freeCut
+#print axioms GluingEPPA.Sparsening.ChartAtlas.freeCut_projected_root_closed
