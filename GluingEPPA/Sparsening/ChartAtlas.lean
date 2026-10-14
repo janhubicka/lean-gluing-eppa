@@ -82,7 +82,7 @@ theorem point_eq_iff_records
 /-- Every quotient vertex is genuinely in a chart, including when some charts
 are empty. No covering assumption on the ambient set is required. -/
 theorem exists_representative (q : Vertex G support) :
-    ∃ s chi (h : support (project G support q) s),
+    ∃ (s : V) (chi : E → ZMod 2) (h : support (project G support q) s),
       copy G support s chi (project G support q) h = q := by
   rcases q with ⟨x, q⟩
   induction q using Quotient.inductionOn with
@@ -112,6 +112,7 @@ def chartEmbedding (R : RelStructure L A) (s : V) (chi : E → ZMod 2) :
     · rintro ⟨t, psi, y, hy, heq⟩
       have hp : (fun i => (y i).val) = (fun i => (x i).val) :=
         funext (fun i => congrArg (project G support) (heq i))
+      change R.rel r (fun i => (x i).val)
       simpa only [hp] using hy
     · intro hx
       exact ⟨s, chi, x, hx, fun _ => rfl⟩
@@ -127,7 +128,7 @@ theorem common_chart {P : Type*}
     (consistent : ∀ p q e,
       ¬ (support (x p) (G.left e) ∧ support (x p) (G.right e)) →
       ¬ (support (x q) (G.left e) ∧ support (x q) (G.right e)) → chi p e = chi q e) :
-    ∃ s c (valid' : ∀ p, support (x p) s),
+    ∃ (s : V) (c : E → ZMod 2) (valid' : ∀ p, support (x p) s),
       ∀ p, copy G support (origin p) (chi p) (x p) (valid p) =
         copy G support s c (x p) (valid' p) := by
   obtain ⟨s, c, hs, paths⟩ := common_supported_representative G complete
