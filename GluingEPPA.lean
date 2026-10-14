@@ -29,3 +29,5 @@ import GluingEPPA.Sparsening.OddBoundary
 import GluingEPPA.Sparsening.CoherentTranslation
 import GluingEPPA.Sparsening.StarCorrection
 import GluingEPPA.Sparsening.ClosedCuts
+import GluingEPPA.Sparsening.ProjectionStep
+import GluingEPPA.Sparsening.RecordInvariance

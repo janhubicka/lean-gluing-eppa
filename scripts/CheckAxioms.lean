@@ -81,3 +81,11 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.cutSide_closed
 #print axioms GluingEPPA.Sparsening.tuple_cutSide
 #print axioms GluingEPPA.Sparsening.record_chart_or_closed_cut
+#print axioms GluingEPPA.Sparsening.image_small_or_injective
+#print axioms GluingEPPA.Sparsening.proper_piece_image_small
+#print axioms GluingEPPA.Sparsening.image_inter_of_injective_union
+#print axioms GluingEPPA.Sparsening.unary_image_closed
+#print axioms GluingEPPA.Sparsening.boundary_flip
+#print axioms GluingEPPA.Sparsening.charge_odd
+#print axioms GluingEPPA.Sparsening.charge_path
+#print axioms GluingEPPA.Sparsening.exterior_path
