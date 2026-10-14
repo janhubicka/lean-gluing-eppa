@@ -71,6 +71,32 @@ theorem j_clique_irreducible {L : Nat → Type u} {P : Type v} {F : Type w}
   · exact hp (by simpa [xs] using hl (1 : Fin 2))
   · exact hq (by simpa [xs] using hr (0 : Fin 2))
 
+/-- In *every* free-amalgamation step, a complete J-clique remains entirely
+on one side. No closure assumption on the clique is needed: a single J-pair
+between two exclusive points witnesses the forbidden crossing. This is the
+one-line inductive ingredient for the strict tree-amalgamation target. -/
+theorem j_clique_subset_one_side {L : Nat → Type u} {P : Type v}
+    {F : Type w} (R : RelStructure L P) (J : P → P → Prop)
+    (out : F → P → Set P)
+    (d : UnaryFreeDecomposition (withJ R J) out)
+    (S : Set P)
+    (clique : ∀ p ∈ S, ∀ q ∈ S, J p q) :
+    S ⊆ d.left ∨ S ⊆ d.right := by
+  classical
+  by_cases hl : S ⊆ d.left
+  · exact Or.inl hl
+  by_cases hr : S ⊆ d.right
+  · exact Or.inr hr
+  obtain ⟨p, hpS, hpL⟩ := Set.not_subset.mp hl
+  obtain ⟨q, hqS, hqR⟩ := Set.not_subset.mp hr
+  let xs : Fin 2 → P := fun i => if i.val = 0 then q else p
+  have hrel : (withJ R J).rel (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs := by
+    change J (xs 0) (xs 1)
+    simpa [xs] using clique q hqS p hpS
+  rcases d.rel_local (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs hrel with hleft | hright
+  · exact False.elim (hpL (by simpa [xs] using hleft (1 : Fin 2)))
+  · exact False.elim (hqR (by simpa [xs] using hright (0 : Fin 2)))
+
 namespace ChartAtlas
 variable {V : Type u} {E : Type v} {P : Type w} {L : Nat → Type z}
 variable (G : GluingEPPA.EdgeGraph V E) (support : P → V → Prop)
