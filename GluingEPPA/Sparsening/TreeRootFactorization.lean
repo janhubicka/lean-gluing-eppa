@@ -170,6 +170,7 @@ theorem FullATree.glue_JRoots
         (blockY.comp deltaY).toFun outX outY) :=
     FullATree.glue RI outI RX outX RY outY
       treeX treeY deltaX deltaY blockX blockY
-  simpa only [hfx, hgy] using hTree
+  rw [← hfx, ← hgy]
+  exact hTree
 
 end GluingEPPA.Sparsening.Tree
