@@ -82,7 +82,7 @@ theorem FullATree.JClique_contained_in_A
       let f : ExactUnaryEmbedding RI outI RX outX := αX.comp δX
       let g : ExactUnaryEmbedding RI outI RY outY := αY.comp δY
       rcases jClique_pushout_one_side f.toFun g.toFun RX RY S hS with hleft | hright
-      · let SX : Set X := {x | inclLeft f.toFun g.toFun x ∈ S}
+      · let SX := {x | inclLeft f.toFun g.toFun x ∈ S}
         have hSX : IsJClique RX SX := by
           intro x hx y hy
           have hh := hS (inclLeft f.toFun g.toFun x) hx
@@ -112,7 +112,7 @@ theorem FullATree.JClique_contained_in_A
         refine ⟨z, ?_⟩
         change inclLeft f.toFun g.toFun (a.toFun z) = p
         rw [hz, heq]
-      · let SY : Set Y := {y | inclRight f.toFun g.toFun y ∈ S}
+      · let SY := {y | inclRight f.toFun g.toFun y ∈ S}
         have hSY : IsJClique RY SY := by
           intro x hx y hy
           have hh := hS (inclRight f.toFun g.toFun x) hx
