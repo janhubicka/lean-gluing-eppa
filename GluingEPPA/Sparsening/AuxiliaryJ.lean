@@ -203,6 +203,12 @@ theorem chart_J_complete
   rw [← hax, ← hby]
   exact hJ
 
+section Finite
+open scoped Classical
+noncomputable section
+variable [Finite A]
+attribute [local instance] chartsFintype edgesFintype
+
 /-- Every auxiliary edge of the new canonical quotient projects to a
 genuine old J-edge. This handles the induction's projection homomorphism
 for the fresh relation without treating J merely as a meta-relation. -/
@@ -210,11 +216,6 @@ theorem coChart_projection_J
     (R : RelStructure L A) (J : A → A → Prop)
     (out : F → A → Set A) (root : Set A)
     (hroot : ∀ x y, x ∈ root → y ∈ root → J x y)
-    [Finite A]
-    [Fintype (Chart (withJ R J) out root)]
-    [Fintype (Edges (withJ R J) out root)]
-    [DecidableEq (Chart (withJ R J) out root)]
-    [DecidableEq (Edges (withJ R J) out root)]
     {p q : Vertex (withJ R J) out root}
     (h : ChartAtlas.CoChart (graph (withJ R J) out root)
       (support (withJ R J) out root) p q) :
@@ -222,13 +223,11 @@ theorem coChart_projection_J
       (support (withJ R J) out root) p)
       (ChartAtlas.project (graph (withJ R J) out root)
       (support (withJ R J) out root) q) := by
-  classical
-  letI : Fintype (Chart (withJ R J) out root) := Fintype.ofFinite _
-  letI : Fintype (Edges (withJ R J) out root) := Fintype.ofFinite _
   exact ChartAtlas.coChart_projects_to_J
     (graph (withJ R J) out root) (support (withJ R J) out root)
     J (fun s x y hx hy =>
       chart_J_complete R J out root hroot s x y hx hy) h
 
+end
 end OrbitAtlas
 end GluingEPPA.Sparsening
