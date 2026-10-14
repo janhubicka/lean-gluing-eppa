@@ -133,16 +133,9 @@ theorem color_constant_of_irreducible {Q : Type z}
             exact h ((relation_color r xs hr i i0).symm.trans hi)
       func_cross_empty := by
         intro f x hx
-        have hc : x ∈ left ∪ right := by
-          rw [show left ∪ right = Set.univ from
-            (by
-              apply Set.eq_univ_of_forall
-              intro z
-              by_cases hz : color z = color p
-              · exact Or.inl hz
-              · exact Or.inr hz)]
-          exact Set.mem_univ x
-        exact (hx hc).elim }
+        by_cases hc : color x = color p
+        · exact (hx (Or.inl hc)).elim
+        · exact (hx (Or.inr hc)).elim }
   exact hirr.false d
 
 end GluingEPPA.Sparsening
