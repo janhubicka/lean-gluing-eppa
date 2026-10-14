@@ -108,11 +108,19 @@ theorem FullATree.glueProjectedRoot
     · calc
         l.toFun ⟨z, hzL⟩ =
           hx.toFun (⟨p.toFun z, hLmem ⟨z, hzL⟩⟩ : SL) := rfl
-        _ = ef.toFun w := by simpa [w, inclL] using (hef w).symm
+        _ = ef.toFun w := by
+          have heq : (⟨p.toFun z, hLmem ⟨z, hzL⟩⟩ : SL) =
+              inclL.toFun w := Subtype.ext rfl
+          rw [heq]
+          exact (hef w).symm
     · calc
         r.toFun ⟨z, hzR⟩ =
           hy.toFun (⟨p.toFun z, hRmem ⟨z, hzR⟩⟩ : SR) := rfl
-        _ = eg.toFun w := by simpa [w, inclR] using (heg w).symm
+        _ = eg.toFun w := by
+          have heq : (⟨p.toFun z, hRmem ⟨z, hzR⟩⟩ : SR) =
+              inclR.toFun w := Subtype.ext rfl
+          rw [heq]
+          exact (heg w).symm
   refine ⟨PushoutCarrier ef.toFun eg.toFun,
     pushoutRelations ef.toFun eg.toFun RX RY,
     pushoutOutput ef.toFun eg.toFun outX outY, ?_⟩
