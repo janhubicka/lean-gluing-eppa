@@ -242,3 +242,11 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.testProjection_fibres
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.testProjection_overlap_J
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.glueProjectedAtlasCut
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.allCharts_J_complete
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chart_or_projected_Jroot
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chart_or_projected_Jclique
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartTestExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartTestRootExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.exists_chartTestRootExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartHasTreeImage
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.localTreeOfOldTrees
