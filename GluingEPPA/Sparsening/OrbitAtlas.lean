@@ -90,7 +90,11 @@ def chartPerm (h : Aut R out) : Chart R out root ≃ Chart R out root where
 @[simp] theorem chartPerm_mem (h : Aut R out) (s : Chart R out root) (x : A) :
     support R out root (h.perm x) (chartPerm R out root h s) ↔ support R out root x s := by
   change h.perm x ∈ h.perm '' s.val ↔ x ∈ s.val
-  exact Set.mem_image_iff_of_injective h.perm.injective
+  constructor
+  · rintro ⟨y, hy, heq⟩
+    exact h.perm.injective heq ▸ hy
+  · intro hx
+    exact ⟨x, hx, rfl⟩
 
 @[simp] theorem chartPerm_refl :
     chartPerm R out root Aut.refl = Equiv.refl (Chart R out root) := by
@@ -126,8 +130,8 @@ def emptyChart : Chart R out root :=
   ⟨∅, by intro f x y hx; exact False.elim hx,
     Aut.refl, fun x hx => False.elim hx⟩
 
-def subchart (hr : UnaryClosed out (fun x => x ∈ root)) (s : Set A)
-    (hs : UnaryClosed out (fun x => x ∈ s)) (incl : s ⊆ root) : Chart R out root :=
+def subchart (s : Set A) (hs : UnaryClosed out (fun x => x ∈ s))
+    (incl : s ⊆ root) : Chart R out root :=
   ⟨s, hs, Aut.refl, fun x hx => ⟨x, incl hx, rfl⟩⟩
 
 theorem contained_in_full (hr : UnaryClosed out (fun x => x ∈ root))
