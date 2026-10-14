@@ -59,12 +59,11 @@ If a finite source side is proper, its image cannot have k+1 points
 when the entire source has at most k+1 points. No injectivity
 hypothesis and no quotient structure is needed. This is the numerical
 induction lemma for genuine upstairs free cuts. -/
-theorem proper_set_image_small [Finite P] [Finite B]
+theorem proper_set_image_small [Fintype P] [Finite B]
     (p : P → B) (Y : Set P) (hproper : Y ≠ Set.univ)
     (k : Nat) (hcard : Fintype.card P ≤ k + 1) :
     Fintype.card (p '' Y) ≤ k := by
   classical
-  letI : Fintype P := Fintype.ofFinite _
   letI : Fintype Y := Fintype.ofFinite _
   letI : Fintype (p '' Y) := Fintype.ofFinite _
   have hnot : ¬ Function.Surjective (fun z : Y => z.val) := by
