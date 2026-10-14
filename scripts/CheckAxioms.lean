@@ -158,3 +158,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.ChartAtlas.charge_constant_of_irreducible
 #print axioms GluingEPPA.Sparsening.ChartAtlas.irreducible_lies_in_chart
 #print axioms GluingEPPA.Sparsening.ChartAtlas.project_embeds_irreducible
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.projection_on_irreducible
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.irreducible_move_into_root
