@@ -175,3 +175,8 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.inclRight_injective
 #print axioms GluingEPPA.Sparsening.Tree.left_eq_right_iff
 #print axioms GluingEPPA.Sparsening.Tree.pushout_covered
+#print axioms GluingEPPA.Sparsening.Tree.freeCut_right_of_not_left
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_left
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_right
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_unique
+#print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_injective
