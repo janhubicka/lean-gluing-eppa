@@ -222,3 +222,7 @@ import GluingEPPA
 
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_JClique
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.glueHomEmbedding
+
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.closedSubtype
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.toHomEmbedding
+#print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.restrictClosed
