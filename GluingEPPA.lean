@@ -22,3 +22,6 @@ import GluingEPPA.PrivateCycles
 import GluingEPPA.PrivateCycleInjection
 import GluingEPPA.PaddedPrivateFamily
 import GluingEPPA.PrivateFiniteEPPA
+import GluingEPPA.Sparsening.Saturated
+import GluingEPPA.Sparsening.LocalParity
+import GluingEPPA.Sparsening.Descent
