@@ -248,3 +248,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.chartTestExact
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.chartTestRootExact
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.exists_chartTestRootExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartHasTreeImage
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.localTreeOfOldTrees
