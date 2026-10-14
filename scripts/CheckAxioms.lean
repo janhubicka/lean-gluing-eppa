@@ -160,3 +160,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.ChartAtlas.project_embeds_irreducible
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.projection_on_irreducible
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.irreducible_move_into_root
+#print axioms GluingEPPA.Sparsening.withJ_binary_rel
+#print axioms GluingEPPA.Sparsening.j_clique_irreducible
+#print axioms GluingEPPA.Sparsening.ChartAtlas.chart_is_J_clique
+#print axioms GluingEPPA.Sparsening.ChartAtlas.coChart_projects_to_J
