@@ -30,7 +30,8 @@ def exactSubsetIntoSide (S T : Set P)
   toFun := fun z => ⟨z.val, hsub z.property⟩
   injective := by
     intro a b hab
-    exact Subtype.ext (congrArg Subtype.val hab)
+    apply Subtype.ext
+    exact congrArg Subtype.val hab
   rel_iff := by
     intro n r xs
     exact Iff.rfl
@@ -40,6 +41,7 @@ def exactSubsetIntoSide (S T : Set P)
     constructor
     · rintro ⟨z, hz, heq⟩
       have hb : z.val = b.val := congrArg Subtype.val heq
+      change b.val ∈ out f a.val
       exact hb ▸ hz
     · intro hb
       have hs : b.val ∈ S := hclosed f a.val b.val a.property hb
