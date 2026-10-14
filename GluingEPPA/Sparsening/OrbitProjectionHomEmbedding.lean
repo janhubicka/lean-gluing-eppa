@@ -55,8 +55,6 @@ theorem projection_nullary_iff
     refine ⟨emptyChart R out root, 0,
       (fun i : Fin 0 => Fin.elim0 i), ?_, ?_⟩
     · convert hr using 1
-      funext i
-      exact Fin.elim0 i
     · intro i
       exact Fin.elim0 i
   · exact projection_rel_map R out root r xs
