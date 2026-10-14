@@ -69,3 +69,9 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.closed_parity_sum_zero
 #print axioms GluingEPPA.Sparsening.rank_decreases
 #print axioms GluingEPPA.Sparsening.exists_good_stage
+#print axioms GluingEPPA.Sparsening.sum_boundary
+#print axioms GluingEPPA.Sparsening.common_chart_of_boundary
+#print axioms GluingEPPA.Sparsening.exterior_completion
+#print axioms GluingEPPA.Sparsening.common_chart_of_consistent_records
+#print axioms GluingEPPA.Sparsening.chartTranslation_comp
+#print axioms GluingEPPA.Sparsening.chartTranslation_identity

@@ -25,3 +25,5 @@ import GluingEPPA.PrivateFiniteEPPA
 import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.LocalParity
 import GluingEPPA.Sparsening.Descent
+import GluingEPPA.Sparsening.OddBoundary
+import GluingEPPA.Sparsening.CoherentTranslation
