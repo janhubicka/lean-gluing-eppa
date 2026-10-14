@@ -48,6 +48,7 @@ import GluingEPPA.Sparsening.AtlasIrreducible
 import GluingEPPA.Sparsening.OrbitIrreducible
 import GluingEPPA.Sparsening.AuxiliaryJ
 import GluingEPPA.Sparsening.AtlasAllTestCuts
+import GluingEPPA.Sparsening.AtlasRootedFreeCut
 import GluingEPPA.Sparsening.TreePushoutCarrier
 import GluingEPPA.Sparsening.TreeFreeCutMaps
 import GluingEPPA.Sparsening.TreeFreeCutHom
@@ -65,3 +66,4 @@ import GluingEPPA.Sparsening.TreeHomEmbeddingGlue
 import GluingEPPA.Sparsening.TreeHomEmbeddingTreeGlue
 import GluingEPPA.Sparsening.TreeHomEmbeddingRestrict
 import GluingEPPA.Sparsening.TreeHomEmbeddingClosedCodomain
+import GluingEPPA.Sparsening.OrbitProjectionHomEmbedding
