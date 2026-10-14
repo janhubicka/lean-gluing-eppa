@@ -67,3 +67,4 @@ import GluingEPPA.Sparsening.TreeHomEmbeddingTreeGlue
 import GluingEPPA.Sparsening.TreeHomEmbeddingRestrict
 import GluingEPPA.Sparsening.TreeHomEmbeddingClosedCodomain
 import GluingEPPA.Sparsening.OrbitProjectionHomEmbedding
+import GluingEPPA.Sparsening.TreeProjectedRootAssembly

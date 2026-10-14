@@ -236,3 +236,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.ChartAtlas.freeCut_projected_root_closed
 
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.carrier_finite
+#print axioms GluingEPPA.Sparsening.Tree.irreducible_of_complete_J
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.glueProjectedRoot
