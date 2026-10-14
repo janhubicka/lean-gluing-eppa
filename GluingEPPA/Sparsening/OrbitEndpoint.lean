@@ -42,11 +42,18 @@ theorem endpoint_comp (h g : Aut R out) (dom mid ran : Chart R out root)
     (endpoint R out root hr g mid ran).perm
       ((endpoint R out root hr h dom mid).perm q) =
       (endpoint R out root hr (h.trans g) dom ran).perm q := by
-  change (canonical R out root g).map _ ((canonical R out root h).map _ q) = _
-  have hh := (canonical R out root h).endpoint_map_comp (canonical R out root g)
+  change (canonical R out root g).map
+    (chartTranslation (canonical R out root g).edges
+      ((spokes R out root hr).eta mid) ((spokes R out root hr).eta ran))
+    ((canonical R out root h).map
+      (chartTranslation (canonical R out root h).edges
+        ((spokes R out root hr).eta dom) ((spokes R out root hr).eta mid)) q) =
+    (canonical R out root (h.trans g)).map
+      (chartTranslation (canonical R out root (h.trans g)).edges
+        ((spokes R out root hr).eta dom) ((spokes R out root hr).eta ran)) q
+  rw [canonical_trans]
+  exact (canonical R out root h).endpoint_map_comp (canonical R out root g)
     (spokes R out root hr) dom mid ran q
-  simpa only [endpoint, lift, ChartAtlas.AtlasSymmetry.quotientEquiv,
-    canonical_trans] using hh
 
 theorem endpoint_identity (dom : Chart R out root) (q : Vertex R out root) :
     (endpoint R out root hr Aut.refl dom dom).perm q = q := by
