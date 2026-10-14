@@ -167,4 +167,4 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.chart_J_complete
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.coChart_projection_J
 #print axioms GluingEPPA.Sparsening.j_clique_subset_one_side
-#print axioms GluingEPPA.Sparsening.OrbitAtlas.quotient_withJ_rel_iff
+#print axioms GluingEPPA.Sparsening.ChartAtlas.quotient_withJ_rel_iff
