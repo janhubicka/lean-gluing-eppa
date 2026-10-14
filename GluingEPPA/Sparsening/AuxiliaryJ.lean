@@ -106,4 +106,56 @@ theorem coChart_projects_to_J (J : P → P → Prop)
   exact old_chart_cliques s x y hx hy
 
 end ChartAtlas
+
+namespace OrbitAtlas
+variable {L : Nat → Type u} {A : Type v} {F : Type w}
+
+/-- Actual closed subcharts of the automorphism orbit inherit completeness
+of J from the distinguished root. This is the concrete input needed for
+the J-part of the projection homomorphism. -/
+theorem chart_J_complete
+    (R : RelStructure L A) (J : A → A → Prop)
+    (out : F → A → Set A) (root : Set A)
+    (hroot : ∀ x y, x ∈ root → y ∈ root → J x y)
+    (s : Chart (withJ R J) out root)
+    (x y : A) (hx : support (withJ R J) out root x s)
+    (hy : support (withJ R J) out root y s) : J x y := by
+  obtain ⟨h, hs⟩ := s.property.2
+  obtain ⟨a, ha, hax⟩ := hs hx
+  obtain ⟨b, hb, hby⟩ := hs hy
+  let xs : Fin 2 → A := fun i => if i.val = 0 then a else b
+  have hrel : (withJ R J).rel (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs := by
+    change J (xs 0) (xs 1)
+    simpa [xs] using hroot a b ha hb
+  have hh := (h.rel_iff (Sum.inr (⟨rfl⟩ : JSymbol 2)) xs).mpr hrel
+  have hJ : J (h.perm a) (h.perm b) := by
+    change J (h.perm (xs 0)) (h.perm (xs 1)) at hh
+    simpa [xs] using hh
+  rw [← hax, ← hby]
+  exact hJ
+
+/-- Every auxiliary edge of the new canonical quotient projects to a
+genuine old J-edge. This handles the induction's projection homomorphism
+for the fresh relation without treating J merely as a meta-relation. -/
+theorem coChart_projection_J
+    (R : RelStructure L A) (J : A → A → Prop)
+    (out : F → A → Set A) (root : Set A)
+    (hroot : ∀ x y, x ∈ root → y ∈ root → J x y)
+    [Finite A]
+    {p q : Vertex (withJ R J) out root}
+    (h : ChartAtlas.CoChart (graph (withJ R J) out root)
+      (support (withJ R J) out root) p q) :
+    J (ChartAtlas.project (graph (withJ R J) out root)
+      (support (withJ R J) out root) p)
+      (ChartAtlas.project (graph (withJ R J) out root)
+      (support (withJ R J) out root) q) := by
+  classical
+  letI : Fintype (Chart (withJ R J) out root) := Fintype.ofFinite _
+  letI : Fintype (Edges (withJ R J) out root) := Fintype.ofFinite _
+  exact ChartAtlas.coChart_projects_to_J
+    (graph (withJ R J) out root) (support (withJ R J) out root)
+    J (fun s x y hx hy =>
+      chart_J_complete R J out root hroot s x y hx hy) h
+
+end OrbitAtlas
 end GluingEPPA.Sparsening
