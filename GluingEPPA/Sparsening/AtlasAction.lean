@@ -85,13 +85,13 @@ lemma affine_inverse_left (delta chi : E → ZMod 2) :
     EdgeGraph.affine D.edges.symm (D.inverseShift delta)
       (EdgeGraph.affine D.edges delta chi) = chi := by
   funext e
-  simp [EdgeGraph.affine, inverseShift]
+  simp [EdgeGraph.affine, inverseShift, add_assoc, bit_add_self]
 
 lemma affine_inverse_right (delta chi : E → ZMod 2) :
     EdgeGraph.affine D.edges delta
       (EdgeGraph.affine D.edges.symm (D.inverseShift delta) chi) = chi := by
   funext e
-  simp [EdgeGraph.affine, inverseShift]
+  simp [EdgeGraph.affine, inverseShift, add_assoc, bit_add_self]
 
 @[simp] theorem symm_map_map (delta : E → ZMod 2) (q : Vertex G support) :
     D.symm.map (D.inverseShift delta) (D.map delta q) = q := by
