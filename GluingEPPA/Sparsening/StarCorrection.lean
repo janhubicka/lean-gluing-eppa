@@ -92,16 +92,16 @@ theorem internal_star_correction
 
 lemma boundary_eq_of_exterior
     (support : P → V → Prop) (p : P) (eta chi : E → ZMod 2)
-    (matches : ∀ e, ¬ internal G support p e → eta e = chi e)
+    (agrees : ∀ e, ¬ internal G support p e → eta e = chi e)
     (v : V) (hv : ¬ support p v) : boundary G eta v = boundary G chi v := by
   classical
   unfold boundary
   apply Finset.sum_congr rfl
   intro e _
   by_cases hl : G.left e = v
-  · rw [matches e (fun h => hv (hl ▸ h.1))]
+  · rw [agrees e (fun h => hv (hl ▸ h.1))]
   · by_cases hr : G.right e = v
-    · rw [matches e (fun h => hv (hr ▸ h.2))]
+    · rw [agrees e (fun h => hv (hr ▸ h.2))]
     · simp [hl, hr]
 
 /-- The simultaneous representative supplied in the no-separator case.
