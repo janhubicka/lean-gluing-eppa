@@ -135,8 +135,8 @@ theorem quotient_withJ_rel_iff
       (ChartAtlas.quotientStructure G support R).rel r qs
     exact Iff.rfl
   | inr j =>
-    obtain ⟨hn⟩ := j
-    cases hn
+    have hn : n = 2 := j.arity_two
+    subst n
     change
       (∃ (s : V) (chi : E → ZMod 2)
           (xs : Fin 2 → {x // support x s}),
