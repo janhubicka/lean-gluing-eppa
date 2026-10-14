@@ -59,11 +59,17 @@ def ClosedCut.toFreeDecomposition {R : RelStructure L P}
   left_proper := by
     obtain ⟨p, hp⟩ := cut.proper_left
     intro h
-    exact hp (by rw [h]; exact Set.mem_univ p)
+    have hm : p ∈ ({q : P | cut.left q} : Set P) := by
+      rw [h]
+      exact Set.mem_univ p
+    exact hp hm
   right_proper := by
     obtain ⟨p, hp⟩ := cut.proper_right
     intro h
-    exact hp (by rw [h]; exact Set.mem_univ p)
+    have hm : p ∈ ({q : P | cut.right q} : Set P) := by
+      rw [h]
+      exact Set.mem_univ p
+    exact hp hm
   rel_local := cut.tuple_side
   func_cross_empty := by
     intro f p h
