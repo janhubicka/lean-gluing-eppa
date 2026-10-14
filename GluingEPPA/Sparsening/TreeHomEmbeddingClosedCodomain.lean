@@ -45,17 +45,49 @@ noncomputable def UnaryHomEmbedding.intoClosedCodomain
   exact_on_irred := by
     intro T hT hirr
     obtain ⟨e, he⟩ := h.exact_on_irred T hT hirr
-    let block := ExactUnaryEmbedding.closedSubtype RB outB S hclosed
-    have hmem : ∀ a : T, ∃ b : S, block.toFun b = e.toFun a := by
-      intro a
-      refine ⟨⟨h.toFun a.val, hRange a.val⟩, ?_⟩
-      exact (he a).symm
-    let e' := ExactUnaryEmbedding.factor_through e block hmem
-    refine ⟨e', ?_⟩
-    intro a
-    apply Subtype.ext
-    have hfac := ExactUnaryEmbedding.factor_through_spec e block hmem a
-    change (e'.toFun a).val = h.toFun a.val
-    exact hfac.trans (he a)
+    let k : T → S := fun a => ⟨h.toFun a.val, hRange a.val⟩
+    have hk (a : T) : (k a).val = e.toFun a := (he a).symm
+    refine ⟨{
+      toFun := k
+      injective := ?_
+      rel_iff := ?_
+      out_eq := ?_ }, ?_⟩
+    · intro a b hab
+      apply e.injective
+      calc
+        e.toFun a = (k a).val := (hk a).symm
+        _ = (k b).val := congrArg Subtype.val hab
+        _ = e.toFun b := hk b
+    · intro n r xs
+      change RB.rel r (fun i => (k (xs i)).val) ↔
+        (inducedRelations RA T).rel r xs
+      have htuple : (fun i => (k (xs i)).val) =
+          (fun i => e.toFun (xs i)) := by
+        funext i
+        exact hk (xs i)
+      rw [htuple]
+      exact e.rel_iff r xs
+    · intro f a
+      apply Set.ext
+      intro b
+      constructor
+      · rintro ⟨z, hz, hzb⟩
+        change b.val ∈ outB f (h.toFun a.val)
+        have hez : e.toFun z ∈ e.toFun '' (inducedUnary outA T f a) :=
+          ⟨z, hz, rfl⟩
+        rw [e.out_eq f a] at hez
+        have hb : (k z).val = b.val := congrArg Subtype.val hzb
+        rw [← hk a, ← hk z, hb] at hez
+        exact hez
+      · intro hb
+        have hz : b.val ∈ outB f (e.toFun a) := by
+          rw [← hk a]
+          exact hb
+        rw [← e.out_eq f a] at hz
+        obtain ⟨z, hz, hez⟩ := hz
+        have heq : k z = b := Subtype.ext ((hk z).trans hez)
+        exact ⟨z, hz, heq⟩
+    · intro a
+      rfl
 
 end GluingEPPA.Sparsening.Tree
