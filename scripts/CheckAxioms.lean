@@ -192,3 +192,6 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.right_rel_iff
 #print axioms GluingEPPA.Sparsening.Tree.left_unary_image_eq
 #print axioms GluingEPPA.Sparsening.Tree.right_unary_image_eq
+#print axioms GluingEPPA.Sparsening.Tree.leftExactEmbedding
+#print axioms GluingEPPA.Sparsening.Tree.rightExactEmbedding
+#print axioms GluingEPPA.Sparsening.Tree.pushoutFreeDecomposition
