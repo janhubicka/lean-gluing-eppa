@@ -31,7 +31,7 @@ def exactSubsetIntoSide (S T : Set P)
   injective := by
     intro a b hab
     apply Subtype.ext
-    exact congrArg Subtype.val hab
+    exact congrArg (fun q : T => (q : P)) hab
   rel_iff := by
     intro n r xs
     exact Iff.rfl
