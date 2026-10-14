@@ -53,4 +53,37 @@ theorem unary_image_closed
   obtain ⟨y, hy, rfl⟩ := hc
   exact ⟨y, closed f x y hx hy, rfl⟩
 
+
+/-- Direct set/subtype cardinality form of the proper-piece image bound.
+If a finite source side is proper, its image cannot have k+1 points
+when the entire source has at most k+1 points. No injectivity
+hypothesis and no quotient structure is needed. This is the numerical
+induction lemma for genuine upstairs free cuts. -/
+theorem proper_set_image_small [Finite P] [Finite B]
+    (p : P → B) (Y : Set P) (hproper : Y ≠ Set.univ)
+    (k : Nat) (hcard : Fintype.card P ≤ k + 1) :
+    Fintype.card (p '' Y) ≤ k := by
+  classical
+  letI : Fintype P := Fintype.ofFinite _
+  letI : Fintype Y := Fintype.ofFinite _
+  letI : Fintype (p '' Y) := Fintype.ofFinite _
+  have hnot : ¬ Function.Surjective (fun z : Y => z.val) := by
+    intro hs
+    apply hproper
+    apply Set.eq_univ_of_forall
+    intro z
+    obtain ⟨y, hy⟩ := hs z
+    exact hy ▸ y.property
+  have hlt : Fintype.card Y < Fintype.card P :=
+    Fintype.card_lt_of_injective_not_surjective
+      (fun z : Y => z.val) Subtype.val_injective hnot
+  have hsurj : Function.Surjective
+      (fun z : Y => (⟨p z.val, ⟨z.val, z.property, rfl⟩⟩ : p '' Y)) := by
+    rintro ⟨b, ⟨z, hz, heq⟩⟩
+    refine ⟨⟨z, hz⟩, Subtype.ext ?_⟩
+    exact heq
+  have hle : Fintype.card (p '' Y) ≤ Fintype.card Y :=
+    Fintype.card_le_of_surjective _ hsurj
+  omega
+
 end GluingEPPA.Sparsening
