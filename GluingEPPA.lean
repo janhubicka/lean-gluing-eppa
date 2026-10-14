@@ -36,3 +36,6 @@ import GluingEPPA.Sparsening.ChartAtlas
 import GluingEPPA.Sparsening.UnaryAtlas
 import GluingEPPA.Sparsening.AtlasRecords
 import GluingEPPA.Sparsening.AtlasSeparator
+import GluingEPPA.Sparsening.AtlasAction
+import GluingEPPA.Sparsening.AtlasUnaryAction
+import GluingEPPA.Sparsening.AtlasEndpoint

@@ -118,3 +118,16 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.ChartAtlas.induced_closed_ambient
 #print axioms GluingEPPA.Sparsening.ChartAtlas.separator_root_closed
 #print axioms GluingEPPA.Sparsening.ChartAtlas.separator_root_projection_closed
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.path_map
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.symm_map_map
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_symm_map
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_comp
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_rel_iff
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_output_image
+#print axioms GluingEPPA.Sparsening.ChartAtlas.chooseRootSpokes
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.root_extension
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.endpoint_map_comp
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.identity_map
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.endpoint_identity
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_chart_image
+#print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.exists_translation_chart
