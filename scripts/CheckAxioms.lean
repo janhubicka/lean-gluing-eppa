@@ -183,3 +183,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_rel
 #print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_unary_mem
 #print axioms GluingEPPA.Sparsening.Tree.glueFreeCutMap_unary_image
+#print axioms GluingEPPA.Sparsening.Tree.left_map_rel
+#print axioms GluingEPPA.Sparsening.Tree.right_map_rel
+#print axioms GluingEPPA.Sparsening.Tree.left_map_unary
+#print axioms GluingEPPA.Sparsening.Tree.right_map_unary
