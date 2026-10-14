@@ -206,3 +206,4 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.JClique_contained_in_A
 #print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.factor_through_spec
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.JRoot_factorization
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.glue_JRoots
