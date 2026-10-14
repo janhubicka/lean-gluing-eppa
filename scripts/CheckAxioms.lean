@@ -39,6 +39,7 @@ import GluingEPPA
 #print axioms GluingEPPA.PartialFamily.coherentBase_inverse
 #print axioms GluingEPPA.RelPartialAut.inverse_inverse
 #print axioms GluingEPPA.finite_relational_eppa
+#print axioms GluingEPPA.RelPartialAut.inverse_inverse
 #print axioms GluingEPPA.PermutationDiagramData.baseAdjacent_symm
 #print axioms GluingEPPA.PermutationDiagramData.edgeEquiv
 #print axioms GluingEPPA.PermutationDiagramData.unordered_incidence
@@ -131,3 +132,13 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.endpoint_identity
 #print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_chart_image
 #print axioms GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.exists_translation_chart
+#print axioms GluingEPPA.Sparsening.CompleteChartGraph.complete
+#print axioms GluingEPPA.Sparsening.CompleteChartGraph.loopless
+#print axioms GluingEPPA.Sparsening.CompleteChartGraph.perm_inc
+#print axioms GluingEPPA.Sparsening.CompleteChartGraph.perm_refl
+#print axioms GluingEPPA.Sparsening.CompleteChartGraph.perm_trans
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.Aut.image_closed
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.Aut.image_output
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartPerm_mem
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.chartPerm_trans
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.contained_in_full
