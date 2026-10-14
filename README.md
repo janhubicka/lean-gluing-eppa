@@ -11,9 +11,9 @@ in `GluingEPPA/PrivateFiniteEPPA.lean` is *unconditional*: for every finite
 relational structure (including repeated coordinates, nullary symbols and
 empty partial automorphisms) it constructs one finite induced witness in which
 every partial automorphism extends to a relation-preserving automorphism.
-It does not assume coherent extensions or the existence of an EPPA witness.
+It does not assume inverse-compatible extensions or the existence of an EPPA witness.
 
-The checked construction now uses BOTH:
+The checked construction uses BOTH:
 
 - **Exactly one Boolean coordinate per unordered base edge**, matching the
   manuscript's `M` (modules `UnorderedEdges`, `UnorderedCover`,
@@ -30,15 +30,14 @@ describes omitting this unused point, giving `2s+3t` rather than
 `2(s+2t)` marker points. The Lean cardinal bound needed by the theorem
 is fully proved; **that optional pruning is not separately formalized**.
 
-**Checked source:** PR
+**Base EPPA checkpoint:** PR
 [#9](https://github.com/janhubicka/lean-gluing-eppa/pull/9) at
 `548c5df7bbd2124f51d18590f8078d0efb8f3575`; merged as
 `137ff8144f70b4af12423f65f8fbc984fb8752eb`.
 
-**Independent checks:**
 [PR build](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38485444160)
 and [merged-main build](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38485659390)
-both passed the full build and **63-declaration axiom audit**.
+both passed the full build and the then-current **63-declaration axiom audit**.
 The audit allows only `propext`, `Classical.choice`, and `Quot.sound`.
 No `sorryAx` or custom assumed axioms occur in the checked declarations.
 
@@ -52,12 +51,51 @@ No `sorryAx` or custom assumed axioms occur in the checked declarations.
   affine lifts and the concrete permutation-base diagram.
 - `UnorderedEdges`, `UnorderedCover`, `UnorderedAssembly`,
   `UnorderedFiniteEPPA`: the exact undirected-edge construction.
-- `PaddingCore`, `PartialFamily`, `RelPartialAut`: coherent total
+- `PaddingCore`, `PartialFamily`, `RelPartialAut`: inverse-compatible total
   extensions of all relational partial automorphisms, including involutions.
+  The name `coherentBase` refers to this inverse compatibility, **not** to
+  the composition requirement of coherent EPPA.
 - `Marker4`, `PaddedFamily`, `FiniteEPPA`: an earlier, fully checked,
   larger-marker alternative retained for comparison.
 - `PrivateCycles`, `PrivateCycleInjection`, `PaddedPrivateFamily`,
   `PrivateFiniteEPPA`: the short private-cycle construction and final theorem.
+
+## Sparsening: checked local core, full theorem pending
+
+PR [#10](https://github.com/janhubicka/lean-gluing-eppa/pull/10) added the
+saturated-overlap relational foundations, local parity obstruction and numerical
+descent lemmas. PR [#11](https://github.com/janhubicka/lean-gluing-eppa/pull/11)
+adds 20 audited local declarations, bringing the full audit to **90**.
+
+Checked source: `c078ed47d096dfad1f4bb4d0c25efd187a2203de`.
+Merged source: `bcd996a619fda13d28b020902c430049f97f420a`.
+Both the [PR run](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38496737487)
+and the [main run](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38497206270)
+passed the build, 90-declaration axiom audit and finite sparsening regressions.
+
+The new modules under `GluingEPPA/Sparsening/` prove:
+
+- `OddBoundary`, `StarCorrection`: compatible exterior data has common base
+  support, and an explicit internal star correction supplies one common lifted
+  **record**, not merely a common old chart.
+- `ClosedCuts`: the record-level common-record-or-proper-closed-cut dichotomy;
+  all relation tuples lie on one side, and both sides and their root are closed
+  under every output of the given unary set-valued functions.
+- `RecordInvariance`: pointed boundary charge and exterior coordinates are
+  invariant along supported Boolean transport paths.
+- `ProjectionStep`: small image or injectivity, proper-piece bounds, exact
+  projected intersections under injectivity, and closed images under equality
+  of complete unary fibres.
+- `CoherentTranslation`: the endpoint-cochain composition and identity formulas.
+
+**These local results do not yet formalize the full sparsening theorem.**
+Pending are the varying-size closed-chart quotient; the converse from equal
+records to supported-walk equivalence; the concrete affine quotient action and
+its EPPA/coherence properties; and strict tree-amalgamation/iteration. In
+particular, the fixed-carrier relational `Saturated` module is not the whole
+unary-function atlas. No sparsening theorem or local-tree conclusion is assumed
+by the newly checked modules. Independent mathematical referee review of the
+new written proof remains outstanding.
 
 ## Reproducible CI and shared caches
 
@@ -74,7 +112,7 @@ python3 scripts/check-axiom-log.py axioms.log
 
 CI is adapted from `janhubicka/lean-successors`. GitHub Actions caches the
 pinned toolchain across builds and restores one shared pinned Lake workspace.
-Only a successful `main` build **after the theorem and axiom audits pass**
+Only a successful `main` build after all proof/audit/regression gates pass
 seeds this large cache. PRs reuse it but never upload per-PR copies.
 Artifacts retain commit IDs, build/axiom logs, dependency inputs and checksums.
 The untracked generated manifest is intentionally omitted from the cache key
