@@ -47,4 +47,5 @@ import GluingEPPA.Sparsening.IrreducibleBridge
 import GluingEPPA.Sparsening.AtlasIrreducible
 import GluingEPPA.Sparsening.OrbitIrreducible
 import GluingEPPA.Sparsening.AuxiliaryJ
+import GluingEPPA.Sparsening.AtlasAllTestCuts
 import GluingEPPA.Sparsening.TreePushoutCarrier
