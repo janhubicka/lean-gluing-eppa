@@ -187,3 +187,8 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.right_map_rel
 #print axioms GluingEPPA.Sparsening.Tree.left_map_unary
 #print axioms GluingEPPA.Sparsening.Tree.right_map_unary
+#print axioms GluingEPPA.Sparsening.Tree.tuple_overlap
+#print axioms GluingEPPA.Sparsening.Tree.left_rel_iff
+#print axioms GluingEPPA.Sparsening.Tree.right_rel_iff
+#print axioms GluingEPPA.Sparsening.Tree.left_unary_image_eq
+#print axioms GluingEPPA.Sparsening.Tree.right_unary_image_eq
