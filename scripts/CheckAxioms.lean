@@ -62,3 +62,10 @@ import GluingEPPA
 #print axioms GluingEPPA.BaseFamily.privateSigma_ne_refl
 #print axioms GluingEPPA.BaseFamily.privateCarrier_card
 #print axioms GluingEPPA.finite_relational_eppa_private
+#print axioms GluingEPPA.Sparsening.respects
+#print axioms GluingEPPA.System.Frame.projection_rel
+#print axioms GluingEPPA.Sparsening.saturated_cover_compatible
+#print axioms GluingEPPA.Sparsening.local_path_potential
+#print axioms GluingEPPA.Sparsening.closed_parity_sum_zero
+#print axioms GluingEPPA.Sparsening.rank_decreases
+#print axioms GluingEPPA.Sparsening.exists_good_stage
