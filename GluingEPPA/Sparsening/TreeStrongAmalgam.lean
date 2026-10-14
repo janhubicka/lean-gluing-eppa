@@ -141,6 +141,8 @@ noncomputable def pushoutFreeDecomposition
   · intro h p hn
     have cover : p ∈ Set.range left.toFun ∪
         Set.range right.toFun := by
+      change p ∈ Set.range (inclLeft ef.toFun eg.toFun) ∪
+        Set.range (inclRight ef.toFun eg.toFun)
       rw [pushout_covered ef.toFun eg.toFun]
       exact Set.mem_univ p
     exact (hn cover).elim
