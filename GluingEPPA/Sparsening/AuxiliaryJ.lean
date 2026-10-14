@@ -114,6 +114,47 @@ theorem chart_is_J_clique (s : V) (chi : E → ZMod 2)
       (copy G support s chi x hx) (copy G support s chi y hy) :=
   ⟨s, chi, x, y, hx, hy, rfl, rfl⟩
 
+/-- The auxiliary relation contributed by the quotient agrees EXACTLY with
+the geometric co-chart relation, provided old J is complete on the charts.
+Consequently there is no ambiguity between "J as a true symbol" and
+"J as a convenient chart relation" at any sparsening stage. -/
+theorem quotient_withJ_rel_iff
+    {L : Nat → Type u} {P : Type v} {V : Type w} {E : Type z}
+    (G : GluingEPPA.EdgeGraph V E) (support : P → V → Prop)
+    (R : RelStructure L P) (J : P → P → Prop)
+    (clique : ∀ s x y, support x s → support y s → J x y)
+    {n : Nat} (r : WithJ L n)
+    (qs : Fin n → ChartAtlas.Vertex G support) :
+    (ChartAtlas.quotientStructure G support (withJ R J)).rel r qs ↔
+      (ChartAtlas.expandedRelations G support R).rel r qs := by
+  cases r with
+  | inl r =>
+    change (ChartAtlas.quotientStructure G support R).rel r qs ↔
+      (ChartAtlas.quotientStructure G support R).rel r qs
+    exact Iff.rfl
+  | inr j =>
+    obtain ⟨hn⟩ := j
+    cases hn
+    change
+      (∃ (s : V) (chi : E → ZMod 2)
+          (xs : Fin 2 → {x // support x s}),
+          J (xs 0).val (xs 1).val ∧
+          ∀ i, ChartAtlas.copy G support s chi (xs i).val (xs i).property = qs i) ↔
+      ChartAtlas.CoChart G support (qs 0) (qs 1)
+    constructor
+    · rintro ⟨s, chi, xs, hJ, hxs⟩
+      exact ⟨s, chi, (xs 0).val, (xs 1).val, (xs 0).property,
+        (xs 1).property, hxs 0, hxs 1⟩
+    · rintro ⟨s, chi, x, y, hx, hy, hqx, hqy⟩
+      let xs : Fin 2 → {a // support a s} :=
+        fun i => if i.val = 0 then ⟨x, hx⟩ else ⟨y, hy⟩
+      refine ⟨s, chi, xs, ?_, ?_⟩
+      · simpa [xs] using clique s x y hx hy
+      · intro i
+        fin_cases i
+        · simpa [xs] using hqx
+        · simpa [xs] using hqy
+
 /-- Every new J-edge projects to an old J-edge once the old J-relation is
 complete on each of the chosen closed charts. -/
 theorem coChart_projects_to_J (J : P → P → Prop)
