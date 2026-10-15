@@ -266,3 +266,26 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.HasTreeImage.changeBase_iff
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.hasTreeImage_refinedRoot_iff
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.localTreeOfBoundedOldTrees_nextRoot
+
+#print axioms GluingEPPA.Sparsening.unaryClosure
+#print axioms GluingEPPA.Sparsening.mem_unaryClosure
+#print axioms GluingEPPA.Sparsening.unaryClosure_closed
+#print axioms GluingEPPA.Sparsening.unaryClosure_minimal
+#print axioms GluingEPPA.Sparsening.unaryClosure_closed_subset_eq_univ
+#print axioms GluingEPPA.Sparsening.unaryClosure_irreducible
+#print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.out_eq
+#print axioms GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.image_closed
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.emptyTestExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.refine
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.localTrees_zero
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.localTrees_refine
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_localTrees
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projection
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projectToBase
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projectToBase_fibres
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.rootEmbedding
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.rootEmbedding_surjective
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projectToBase_root
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_localTrees_fixedBase
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_local_finite_target
