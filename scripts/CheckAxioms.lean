@@ -243,3 +243,5 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.testProjection_overlap_J
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.glueProjectedAtlasCut
 #print axioms GluingEPPA.Sparsening.proper_set_image_small
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_closed
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_J_complete
