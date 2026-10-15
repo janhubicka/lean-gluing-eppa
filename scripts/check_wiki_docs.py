@@ -20,6 +20,7 @@ REQUIRED = {
     "Proof-architecture.md", "Finite-relational-EPPA.md",
     "Sparsening-construction.md", "Auxiliary-lemmas.md",
     "Adversarial-referee-record.md", "Development-and-audit.md",
+    "Audit-tracker.md",
 }
 
 

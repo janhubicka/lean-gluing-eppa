@@ -9,7 +9,8 @@ structures with relations and whole set-valued unary functions.
 [Published-statement crosswalk](docs/wiki/Published-statements.md) ·
 [Proof architecture](docs/wiki/Proof-architecture.md) ·
 [Auxiliary lemmas](docs/wiki/Auxiliary-lemmas.md) ·
-[Adversarial referee audit](docs/wiki/Adversarial-referee-record.md)
+[Adversarial referee audit](docs/wiki/Adversarial-referee-record.md) ·
+[Audit tracker](docs/wiki/Audit-tracker.md)
 
 **[Live GitHub Wiki](https://github.com/janhubicka/lean-gluing-eppa/wiki)**
 is published and synchronized from version-controlled `docs/wiki/`.
