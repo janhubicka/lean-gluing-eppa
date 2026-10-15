@@ -1,130 +1,136 @@
-# Gluing EPPA — Lean validation
+# Gluing EPPA — Lean library
 
-A Lean formalization of finite relational EPPA using gluing diagrams, followed
-by validation of a proposed sparsening construction.
-**No manuscript TeX or source draft is stored here.**
+A formalization of finite relational EPPA using gluing diagrams, followed by
+the complete-overlap sparsening construction for relations and set-valued
+unary functions. **No manuscript TeX is stored here.** The written proof and
+its declaration-level validation ledger live in
+[`janhubicka/Otto-simplified`](https://github.com/janhubicka/Otto-simplified).
+
+## Current checked scope
+
+The actual finite local-tree iteration is checked, together with exact
+stage-root identifications and the composite canonical projection fixing
+the root. [PR #54](https://github.com/janhubicka/lean-gluing-eppa/pull/54)
+passed [full CI 38730041734](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38730041734)
+with **281 distinct audited declarations**, then merged at
+`62489bb0afda48311ff44d421b84a33407010915`. Its checked snapshot is
+`cfc836414002b8e83e613a4fd95680deaf05ddad`; the source snapshots have no file
+differences. Only `propext`, `Classical.choice`, and `Quot.sound` are allowed
+in the audited transitive dependencies.
+
+**The full sparsening EPPA theorem is not yet assembled in Lean.**
+The entire family of partial-automorphism extensions, coherence through the
+finite tower, and the final combined statement remain obligations. The
+original-language reduct and positive-stage faithfulness are implemented in
+[PR #55](https://github.com/janhubicka/lean-gluing-eppa/pull/55), whose corrected
+check is pending at this update. Individual endpoint composition identities
+are not by themselves the full coherent-family theorem.
 
 ## Unconditional finite relational EPPA
 
-`GluingEPPA.finite_relational_eppa_private` constructs one finite induced witness
-extending all partial automorphisms of any finite relational structure. It
-assumes neither a witness nor inverse-compatible total extensions. Nullary
-relations, repeated tuple entries and empty partial automorphisms are included.
-The construction uses one Boolean coordinate per unordered base edge and
-private transposition/three-cycle markers on `A ⊕ (I × Bool)`. Distinctness,
-nonidentity, inverse compatibility and the bound `|A| + 2|I|` are checked.
-The optional pruning of unused markers to the smaller `2s+3t` count is not
-separately formalized. `PartialFamily.coherentBase` means inverse-compatible
-choices, NOT the composition requirement of coherent EPPA.
+`GluingEPPA.finite_relational_eppa_private` constructs a finite induced witness
+extending every partial automorphism of a finite relational structure. It
+assumes neither a witness nor supplied inverse-compatible total extensions.
+Nullary relations, repeated coordinates and empty partial automorphisms are
+included. The construction uses Boolean coordinates on unordered base edges
+and private transposition/three-cycle markers. The bound `|A| + 2|I|` for the
+padded permutation carrier is checked; pruning to the sharper marker count
+`2s+3t` is not separately formalized.
 
-The ordinary-EPPA checkpoint is PR #9 at
-`548c5df7bbd2124f51d18590f8078d0efb8f3575`, merged as
-`137ff8144f70b4af12423f65f8fbc984fb8752eb`; both builds passed 63 audited targets.
+`PartialFamily.coherentBase` denotes inverse-compatible choices only, **not**
+the composition condition of coherent EPPA.
 
-## Sparsening: canonical atlas, local geometry and actions checked
+## Structures and maps
 
-**154 unique declarations** now pass the axiom audit, preserving all previous
-132 targets. Only `propext`, `Classical.choice` and `Quot.sound` are permitted;
-no `sorryAx` or custom assumed axiom occurs in their transitive dependencies.
-**The full sparsening theorem remains pending.**
+`RelStructure L A` interprets relation symbols by arity. Unary functions are
+maps `F -> A -> Set A`, so outputs may be empty, branching or cyclic.
+`UnaryClosed` expresses closure under every output. `inducedRelations` and
+`inducedUnary` form the induced structure on a subtype; `inducedUnary_full`
+retains whole ambient fibres on a closed subtype.
 
-- PR #12: supported-walk converse, variable-size valid chart quotient and full
-  unary fibres. Source `97f834c6639e0b2948d6c641323318bfb6e3e261`; run
-  `38503255935`, 106 targets; merged `24f429e4adaa512efb40e384e7de8977a15ae8fe`.
-- PR #13: actual chart-or-closed-separator certificate. Source
-  `9216dcc8a72e7d69067395f90de7c988b740aabb`; PR run `38503944598` and main run
-  `38504321125`, 119 targets.
-- PR #14: generic affine quotient action, full unary fibres and actual endpoint
-  equations. Source `2947c28fdd2996e3348375c64d3da52b2db3196d`; PR run
-  `38565510278` and main run `38567430312`, 132 targets; merged
-  `b4c2a22c28de7a4635beed161a6e930a2991232e`.
-- PR [#15](https://github.com/janhubicka/lean-gluing-eppa/pull/15): canonical
-  orbit atlas, its full relational/unary automorphisms, endpoint composition
-  and automorphic chart movement. Source
-  `835e18e29d0664ff78edffc4ce9e3f524e2558b7`; merged
-  `82d5b2299aeab292aa5d2fe9e73a450bc2d9f44b`.
-  [PR run](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38573078116)
-  and [main run](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38574191452)
-  both passed the full build, **154-target audit** and all three regression suites.
-  Downloaded artifact hashes, every internal checksum and all unique axiom
-  outputs were checked; local and CI orbit-regression results agree exactly.
+`Tree.ExactUnaryEmbedding` stores an injective map, relation reflection and
+preservation, and equality of complete unary fibres. `IsIrreducible` means
+no free decomposition into two proper closed sides.
+`Tree.UnaryHomEmbedding` is exact on every closed irreducible test and need
+not be globally injective. These maps compose, and their closed irreducible
+images remain closed and irreducible.
 
-### Local geometry
+### Why the internal homomorphism record preserves whole fibres
 
-`CompleteRecords` constructs supported walks from equality of pointed boundary
-charge and exterior coordinates, by rooted excursions and an endpoint spoke.
-Disconnected parity support, loops, parallel edges and zero-length walks are
-handled. `ChartAtlas` uses only valid occurrences `(s,chi,x)` with `x ∈ s`;
-canonical charts are induced and compatible records give an actual common
-lifted chart. `UnaryAtlas` proves representative independence of entire unary
-fibres and `p[F_new(q)] = F_old(p(q))`, including branching and cyclic outputs.
-`AtlasRecords` derives local agreement from contributing charts.
-`AtlasSeparator` gives an actual common chart or a proper closed cut, with
-ambient-closed sides and a closed projected separator root.
+`UnaryGeneratedClosure` defines the least closed set containing one vertex.
+`unaryClosure_irreducible` proves its induced structure irreducible: a closed
+side containing the generator already contains its entire closure. Therefore
+`Tree.UnaryHomEmbedding.out_eq` derives full fibre equality from exactness on
+these tests. `image_closed` then proves that images of all closed sets are
+closed. None of these lemmas requires finiteness. Forward unary membership
+alone would not suffice.
 
-### Affine actions and the canonical orbit
+## The canonical refinement
 
-`AtlasAction`, `AtlasUnaryAction` and `AtlasEndpoint` prove the generic action
+`OrbitAtlas.Chart` indexes actual closed subsets contained in an automorphic
+image of the distinguished root, including the empty chart. Charts are not
+embedding presentations. `OrbitAction.Vertex`, `relations` and `outputs`
+build the quotient of valid occurrences `(s,chi,x)` with `x` in chart `s`.
+The graph of chart overlaps is complete, and every overlap is used.
 
-    L(h,delta)[s,chi,x] = [h(s),h_*chi+delta,h(x)]
-    L(g,epsilon) L(h,delta) = L(gh,epsilon+g_*delta),
+`CompleteRecords` identifies quotient vertices by pointed parity charge and
+exterior coordinates. `AtlasSeparator` and `OrbitRootedDichotomy` turn an
+arbitrary nonempty closed test into a one-chart test or an actual proper
+upstairs free cut. The projected overlap is a closed complete-J root.
+No freeness is inferred for the entire old projected image.
 
-including quotient descent, inverse, full unary-fibre equality, uniform root
-spokes, endpoint extension/composition and exact chart images.
+`OrbitAction.lift` gives actual affine automorphisms. `OrbitEndpoint`
+checks root-spoke extensions, their pointwise composition equations, and
+movement of whole charts into the distinguished root. `OrbitIrreducible`
+and `OrbitProjectionHomEmbedding` connect these facts to irreducible
+containment, one-step faithfulness and projection exactness.
 
-`CompleteChartGraph` now supplies the actual complete loopless unordered graph
-and induced edge actions with identity and composition. `OrbitAtlas` takes
-charts to be ACTUAL closed subsets contained in some `h[A]`, not embedding
-presentations; set-image actions compose and preserve closure. Empty charts
-and finite chart carriers are derived without assuming the old root orbit
-covers the ambient carrier.
+## Strict full-A trees and local bounds
 
-`OrbitAction.canonical` instantiates all membership/incidence hypotheses.
-`OrbitAction.lift` is an actual combined relational/unary automorphism for each
-old automorphism and translation. `OrbitEndpoint.endpoint_extends`,
-`endpoint_comp` and `endpoint_identity` concern canonical quotient maps with
-actual domain/range charts, not an abstract supplied action.
-`liftedChart_in_full` uses a single uniform spoke for a whole smaller chart.
-`fullChart_to_root` sends every lifted full chart exactly onto the root;
-`chart_to_root` moves every smaller lifted chart inside it. No upstairs
-transitivity or automorphism existence is an input assumption.
+`Tree.FullATree` has full-copy leaves and free-amalgam gluing interfaces
+contained in full base copies on both sides. Its carrier is finite when the
+base is finite. A complete-J root lies in a full base copy. The projected-root
+gluing lemmas use the actual upstairs free cut, not an assumed downstairs cut.
 
-This is the automorphism part of faithfulness, NOT yet the semantic theorem
-that EVERY irreducible substructure lies in a chart.
+`OrbitLocalTreeBounded.localTreeOfBoundedOldTrees` raises the local size bound
+from k to k+1. A one-chart test embeds into the root. Otherwise each proper
+side, and therefore its projected image, has at most k vertices; glue the
+old target trees along the exact projected root.
 
-### Independent finite implementations
+`Tree.FullATree.changeBase_iff` and `HasTreeImage.changeBase_iff` show that
+isomorphic bases define the same target class. Both actual gluing maps
+remain unchanged by inserting the base isomorphism and its inverse.
+`OrbitTreeBaseChange.localTreeOfBoundedOldTrees_nextRoot` returns the bound
+based on the new distinguished root, ready for iteration.
 
-CI runs three supplementary Python suites. They are not substitutes for Lean
-proofs or independent mathematical referee reports.
+## The actual finite tower
 
-- `check_saturated_cover.py`: local quotient/parity/separator checks.
-- `check_atlas_action.py`: union-find quotient checks of affine actions, full
-  unary fibres and mutations of the coordinate/inverse-translation rules.
-- `check_orbit_atlas.py`: enumerates old automorphisms and actual closed-subset
-  orbits, then computes the supported quotient by union-find, not records.
-  Five cases include empty roots, proper root orbits, branching unary fibres
-  and overlapping root images with a closed common sink. It checks 149,504
-  affine occurrence evaluations, 800 chart-movement point equations, 149
-  composable endpoint pairs and 13,728 quotient composition equations. A
-  nonempty proper-domain extension genuinely moves the root chart. Freezing
-  chart indices while moving points is detected as an incorrect rule.
+`OrbitAtlas.FiniteRooted` packages a finite expanded structure and a closed
+complete-J root. It does **not** assume EPPA or a local-tree property.
+Its `refine` uses the actual canonical quotient and zero-valuation root.
+Its recursively defined `tower` is the sequence of these refinements.
 
-### Remaining obligations
+The principal exported declarations in `OrbitAtlas.FiniteRooted` are:
 
-Formalize the irreducibility/free-amalgam semantic bridge, identify the
-auxiliary contributed relation J with chart adjacency, derive irreducible
-containment and hence faithfulness and the projection homomorphism-embedding.
-The converse identifying all automorphic A-copies with controlled full charts
-also still requires this bridge. Package the simultaneous partial-automorphism
-extension choices and their coherence when supplied downstairs. Then assemble
-strict tree amalgamation, the local size induction, iteration and final reduct.
-The checked endpoint cocycle by itself is not the full coherent sparsening
-theorem. Independent mathematical referee review remains outstanding.
+- `tower_localTrees`: every closed test of size at most n in stage n has a
+  strict tree image based on that stage's actual root;
+- `rootEmbedding` and `rootEmbedding_surjective`: exact identification with
+  the original root;
+- `tower_localTrees_fixedBase` and `tower_local_finite_target`: the same local
+  conclusion with the original root fixed and a finite target tree;
+- `projectToBase`, `projectToBase_fibres`, and `projectToBase_root`: the actual
+  composite homomorphism-embedding, full fibres, and its root-fixing equation.
 
-## Reproducible CI and shared caches
+The empty base case preserves nullary predicates. `FiniteRooted.finite` is
+essential when interpreting `Nat.card`: no infinite subtype is silently
+treated as an empty finite test. Global injectivity and surjectivity of the
+projection are never assumed. Root surjectivity concerns only the exact
+root-identification map.
 
-Lean `leanprover/lean4:v4.35.0-rc3`; Mathlib pinned at
-`5bd58ac291422a21f412ae354c91e7d172255a2c`.
+## Verification and supplementary tests
+
+Use the pinned toolchain `leanprover/lean4:v4.35.0-rc3` and Mathlib revision
+`5bd58ac291422a21f412ae354c91e7d172255a2c` from `lakefile.toml`:
 
 ```sh
 lake update
@@ -134,10 +140,23 @@ lake env lean scripts/CheckAxioms.lean > axioms.log
 python3 scripts/check-axiom-log.py axioms.log
 ```
 
-CI is adapted from `janhubicka/lean-successors`. Actions caches the pinned
-toolchain and restores one shared pinned Lake workspace. Only a successful
-main build after all proof/audit/regression gates pass seeds the large cache;
-PRs reuse it without per-PR uploads. Artifacts retain commits, logs, dependency
-inputs and SHA256SUMS. The generated manifest is omitted from the cache key
-because the revision is pinned in `lakefile.toml`. PR #15 changes no cache keys
-or seeding policy; it only adds the orbit-regression command to the test gate.
+CI also runs `check_saturated_cover.py`, `check_atlas_action.py`, and
+`check_orbit_atlas.py`. These supplementary finite computations include
+negative controls; they do not replace Lean proofs or independent referees.
+Audit artifacts record the checked commit, logs, pinned dependencies, and
+checksums. PRs restore the shared main Lake cache without uploading a
+separate multi-gigabyte cache. Only successful main checks may seed it.
+
+## Remaining assembly and review
+
+After the reduct checks, package the chosen extensions for every original
+partial automorphism and transport their domains and ranges along the exact
+root maps. Use the two-spoke endpoint identity to prove extension for every
+index, and its cancellation identity to preserve coherence for every
+composable pair. Then combine this with the checked geometric tower into
+the exact sparsening EPPA conclusion.
+
+The local conclusion is a homomorphism-embedding into a tree, not an induced
+embedding: repeated Boolean refinements can retain an induced square.
+Independent mathematical refereeing remains outstanding; the recorded
+adversarial passes are self-audits, not independent-agent reports.
