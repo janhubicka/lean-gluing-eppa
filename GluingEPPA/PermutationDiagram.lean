@@ -64,7 +64,6 @@ def frame : D.system.Frame U where
   commute := by
     intro a b x y h
     obtain ⟨i, hb, hxy⟩ := h
-    change a (D.incl x) = b (D.incl y)
     calc
       a (D.incl x) = b (D.sigma i (D.incl x)) := (hb _).symm
       _ = b (D.incl y) := congrArg b (D.transport_sigma i x y hxy)

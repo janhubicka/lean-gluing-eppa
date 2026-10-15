@@ -65,13 +65,13 @@ theorem obstruction (a : V)
     have hh : ¬ ∀ {n} (r : L n) (x : Fin n → A),
         (D.quotientStructure S).rel r (fun i => D.copy a (x i)) → S.rel r x :=
       fun hk => h ⟨hinj, hk⟩
-    push_neg at hh
+    push Not at hh
     obtain ⟨n, r, x, hx, hn⟩ := hh
     obtain ⟨b, y, hy, heq⟩ := hx
     exact ⟨n, r, b, x, y, hn, hy, fun i => D.connected_symm (Quotient.exact (heq i))⟩
   · left
     simp only [Function.Injective] at hinj
-    push_neg at hinj
+    push Not at hinj
     obtain ⟨x, y, heq, hne⟩ := hinj
     exact ⟨x, y, hne, Quotient.exact heq⟩
 end System
