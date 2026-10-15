@@ -22,6 +22,7 @@ variable {L : Nat → Type u} {F : Type t}
 variable {B : Type v}
 open scoped Classical
 noncomputable section
+attribute [local instance] chartsFintype edgesFintype
 
 /-- Reusable packaging of a homomorphism-embedding into a strict tree of
 full copies of the *specified* base structure. Source and base may have
