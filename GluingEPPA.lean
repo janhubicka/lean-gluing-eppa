@@ -70,3 +70,6 @@ import GluingEPPA.Sparsening.OrbitProjectionHomEmbedding
 import GluingEPPA.Sparsening.TreeProjectedRootAssembly
 import GluingEPPA.Sparsening.TreeProjectedFreeCut
 import GluingEPPA.Sparsening.OrbitProjectedLocalGlue
+import GluingEPPA.Sparsening.OrbitRootedDichotomy
+import GluingEPPA.Sparsening.OrbitChartExact
+import GluingEPPA.Sparsening.OrbitLocalTreeStep
