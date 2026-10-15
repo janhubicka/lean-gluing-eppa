@@ -55,13 +55,12 @@ theorem refine_reduct_faithful (S : Set C.refine.Carrier)
     ∃ g : Aut (forgetJRelations C.refine.rel) C.refine.out,
       ∀ x, x ∈ S → g.perm x ∈ C.refine.root := by
   by_cases hne : Nonempty S
-  · letI : Nonempty S := hne
-    have hi : IsIrreducible (inducedRelations C.refine.rel S)
+  · have hi : IsIrreducible (inducedRelations C.refine.rel S)
         (inducedUnary C.refine.out S) :=
       irreducible_expand_J (inducedRelations C.refine.rel S)
         (inducedUnary C.refine.out S) hirr
-    obtain ⟨g, hg⟩ := irreducible_move_into_root C.rel C.out C.root
-      C.root_closed S hS hi
+    obtain ⟨g, hg⟩ := @irreducible_move_into_root _ _ _ C.rel C.out C.root
+      C.finite C.root_closed S hne hS hi
     exact ⟨g.forgetJ, hg⟩
   · refine ⟨Aut.refl, ?_⟩
     intro x hx
