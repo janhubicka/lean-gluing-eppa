@@ -73,3 +73,4 @@ import GluingEPPA.Sparsening.OrbitProjectedLocalGlue
 import GluingEPPA.Sparsening.OrbitRootedDichotomy
 import GluingEPPA.Sparsening.OrbitChartExact
 import GluingEPPA.Sparsening.OrbitLocalTreeStep
+import GluingEPPA.Sparsening.OrbitLocalTreeBounded
