@@ -16,7 +16,7 @@ Theorem 7.5 in [postprint v5](https://arxiv.org/html/2501.17293v5).
 
 | Page | Contents |
 | --- | --- |
-| [Using the library](Using-the-library.md) | Lake setup, stable public theorem names, exact hypotheses, sample \`#check\` commands, and narrow imports |
+| [Using the library](Using-the-library.md) | Lake setup, stable public theorem names, exact hypotheses, sample `#check` commands, and narrow imports |
 | [Published statements](Published-statements.md) | Precise correspondence of the paper's two main statements with the checked Lean conclusions; explicit scope limitations |
 | [Proof architecture](Proof-architecture.md) | A short human-readable proof from gluing EPPA through complete-overlap refinement and the finite tower |
 | [Finite relational EPPA](Finite-relational-EPPA.md) | Original gluing diagrams, permutation extensions, unordered edges, and private markers |
@@ -26,7 +26,7 @@ Theorem 7.5 in [postprint v5](https://arxiv.org/html/2501.17293v5).
 | [Development and audit](Development-and-audit.md) | Dependency structure, reproducibility, test scope, proof status and design decisions |
 | [Wiki publishing](Publishing.md) | Automatic synchronization to the GitHub Wiki tab and one-time initialization instructions |
 
-The maintained source is [\`docs/wiki/\`](https://github.com/janhubicka/lean-gluing-eppa/tree/main/docs/wiki);
+The maintained source is [`docs/wiki/`](https://github.com/janhubicka/lean-gluing-eppa/tree/main/docs/wiki);
 the separate [GitHub Wiki](https://github.com/janhubicka/lean-gluing-eppa/wiki)
 is synchronized by Actions **once its first Home page has been initialized**.
 Until then, the source-controlled pages are fully readable.
@@ -57,7 +57,7 @@ import GluingEPPA
 ~~~
 
 The complete ordinary and coherent sparsening theorem was checked in
-[merged commit \`136bd0f5\`](https://github.com/janhubicka/lean-gluing-eppa/commit/136bd0f5f47209f090ea4e284a8c6a4c9386d795):
+[merged commit `136bd0f5`](https://github.com/janhubicka/lean-gluing-eppa/commit/136bd0f5f47209f090ea4e284a8c6a4c9386d795):
 the full Lean build, **331 named axiom-audit targets** and all three
 finite regression suites passed. The statement covers a **fixed language**,
 with arbitrary relational symbols and whole set-valued unary functions.
