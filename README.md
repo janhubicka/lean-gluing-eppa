@@ -8,23 +8,30 @@ its declaration-level validation ledger live in
 
 ## Current checked scope
 
-The actual finite local-tree iteration is checked, together with exact
-stage-root identifications and the composite canonical projection fixing
-the root. [PR #54](https://github.com/janhubicka/lean-gluing-eppa/pull/54)
-passed [full CI 38730041734](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38730041734)
-with **281 distinct audited declarations**, then merged at
-`62489bb0afda48311ff44d421b84a33407010915`. Its checked snapshot is
-`cfc836414002b8e83e613a4fd95680deaf05ddad`; the source snapshots have no file
-differences. Only `propext`, `Classical.choice`, and `Quot.sound` are allowed
-in the audited transitive dependencies.
+**The complete ordinary and coherent sparsening EPPA theorems are formalized.**
+The merged head is [`136bd0f5f47209f090ea4e284a8c6a4c9386d795`](https://github.com/janhubicka/lean-gluing-eppa/commit/136bd0f5f47209f090ea4e284a8c6a4c9386d795),
+via [PR #56](https://github.com/janhubicka/lean-gluing-eppa/pull/56).
+The [final PR build](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38738905840)
+and [merged-main build](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38739744079)
+passed. The audit records **331 declarations matched by name** across four
+manifests (281 + 21 + 12 + 17), allowing only `propext`,
+`Classical.choice`, and `Quot.sound`. All three finite regression suites
+passed; these are supplementary checks, not mathematical proofs.
 
-**The full sparsening EPPA theorem is not yet assembled in Lean.**
-The entire family of partial-automorphism extensions, coherence through the
-finite tower, and the final combined statement remain obligations. The
-original-language reduct and positive-stage faithfulness are implemented in
-[PR #55](https://github.com/janhubicka/lean-gluing-eppa/pull/55), whose corrected
-check is pending at this update. Individual endpoint composition identities
-are not by themselves the full coherent-family theorem.
+The exported ordinary theorem is
+`GluingEPPA.Sparsening.OrbitAtlas.sparsening_eppa` and the coherent theorem is
+`GluingEPPA.Sparsening.OrbitAtlas.coherent_sparsening_eppa`.
+Both live in `GluingEPPA/Sparsening/SparseningTheorem.lean` and depend on
+the *new canonical complete-overlap construction*, not a previously proved
+sparsening result from another library. In the finite target, both the
+projection and the exact root copy refer to the **same witness**. The result
+covers arbitrary fixed relation symbols and whole set-valued unary functions.
+There is no claim about permutations of language symbols.
+
+The complete source and human-readable proof are in
+[`janhubicka/Otto-simplified`](https://github.com/janhubicka/Otto-simplified).
+For an audit of exact hypotheses and the one-generated-closure bridge, see
+the manuscript's [validation ledger](https://github.com/janhubicka/Otto-simplified/blob/main/VALIDATION.md).
 
 ## Unconditional finite relational EPPA
 
@@ -131,6 +138,37 @@ treated as an empty finite test. Global injectivity and surjectivity of the
 projection are never assumed. Root surjectivity concerns only the exact
 root-identification map.
 
+## Full sparsening theorem — reusable interface
+
+`ClosedPartialAut R out` represents an isomorphism between two **closed
+induced** structures, with a surjective exact map onto its declared range.
+Its `IsComposition` relation is the actual matched-domain composition; the
+empty partial automorphism is admitted. `ExtendsAlong` expresses pointwise
+extension along the distinguished copy, while `CoherentFamily` quantifies
+over all composable triples, not just inverse pairs.
+
+`SparseningWitness R0 out0 root n` contains:
+
+- a finite carrier with relations and whole set-valued unary fibres;
+- one exact embedding of the original closed root;
+- one family extending *every* original partial automorphism;
+- a homomorphism-embedding to `R0` fixing the distinguished root;
+- movement of every closed irreducible test into that root by an automorphism;
+- for each closed test of at most `n` vertices, a homomorphism-embedding
+  into a **finite strict** tree of copies of the original root.
+
+The ordinary existence theorem takes a finite ambient witness and the
+extension-existence hypothesis; the coherent theorem takes an actual
+coherent initial extension family. The root is assumed irreducible in the
+public theorem (and closed in the initial ambient structure). No other
+geometry is postulated as an input.
+
+`ClosedPartialAut.withCompleteJ`, `ClosedPartialAut.forgetJ`,
+`OrbitAtlas.initialRooted`, `FiniteRooted.towerFamily`, and
+`OrbitAtlas.sparseningFromExtensions` identify the exact proof pipeline.
+The construction uses stage `max(1,n)` because geometric faithfulness
+requires at least one refinement even when `n=0`.
+
 ## Verification and supplementary tests
 
 Use the pinned toolchain `leanprover/lean4:v4.35.0-rc3` and Mathlib revision
@@ -140,8 +178,11 @@ Use the pinned toolchain `leanprover/lean4:v4.35.0-rc3` and Mathlib revision
 lake update
 lake exe cache get
 lake build
-lake env lean scripts/CheckAxioms.lean > axioms.log
-python3 scripts/check-axiom-log.py axioms.log
+for manifest in scripts/Check*Axioms.lean; do
+  log="${manifest%.lean}.log"
+  lake env lean "$manifest" > "$log"
+  python3 scripts/check-axiom-log.py "$log" "$manifest"
+done
 ```
 
 CI also runs `check_saturated_cover.py`, `check_atlas_action.py`, and
@@ -151,7 +192,22 @@ Audit artifacts record the checked commit, logs, pinned dependencies, and
 checksums. PRs restore the shared main Lake cache without uploading a
 separate multi-gigabyte cache. Only successful main checks may seed it.
 
-## Remaining assembly and review
+## Scope and review
+
+The complete fixed-language statement corresponding to Theorem 7.5 of the
+[2025 postprint of *Twenty years of Nešetřil’s classification programme*](https://arxiv.org/html/2501.17293v5)
+is now checked. `FullATree` is a stricter target than general tree
+amalgamation: its interfaces lie inside actual full base copies. For an
+irreducible original root, this implies the survey's required tree class.
+The local map is a homomorphism-embedding, not an induced embedding into a
+tree; persistent induced squares preclude that stronger claim for this
+specific Boolean iteration.
+
+Independent mathematical refereeing is still outstanding. The finite
+regression suites, self-audits and Lean kernel checking serve different
+purposes and are not interchangeable. Future work can refactor this
+library's API without needing to preserve obsolete compatibility wrappers,
+but should keep the public theorem types stable or provide migration notes.
 
 After the reduct checks, package the chosen extensions for every original
 partial automorphism and transport their domains and ranges along the exact
