@@ -82,3 +82,5 @@ import GluingEPPA.Sparsening.UnaryGeneratedClosure
 import GluingEPPA.Sparsening.OrbitFiniteTower
 import GluingEPPA.Sparsening.ForgetJ
 import GluingEPPA.Sparsening.OrbitTowerReduct
+import GluingEPPA.Sparsening.ClosedPartialAut
+import GluingEPPA.Sparsening.OrbitExtensionFamily
