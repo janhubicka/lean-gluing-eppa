@@ -252,3 +252,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.chartHasTreeImage
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.localTreeOfOldTrees
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.localTreeOfBoundedOldTrees
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_closed
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_J_complete
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRootExact
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRootExact_surjective
