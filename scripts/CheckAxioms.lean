@@ -239,4 +239,7 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.Tree.irreducible_of_complete_J
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.glueProjectedRoot
 #print axioms GluingEPPA.Sparsening.Tree.FullATree.glueProjectedFreeCut
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.testProjection_fibres
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.testProjection_overlap_J
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.glueProjectedAtlasCut
 #print axioms GluingEPPA.Sparsening.proper_set_image_small
