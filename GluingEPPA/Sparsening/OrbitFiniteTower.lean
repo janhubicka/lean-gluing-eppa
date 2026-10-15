@@ -98,9 +98,9 @@ theorem localTrees_refine (k : Nat) (h : C.LocalTrees k) :
     C.root_closed (fun x y hx hy => C.root_J x hx y hy) k h S hS hSmall
 
 /-- The actual finite sequence of canonical quotient structures. -/
-def tower : Nat → FiniteRooted.{u,v,t} L F
+def tower (C : FiniteRooted.{u,v,t} L F) : Nat → FiniteRooted.{u,v,t} L F
   | 0 => C
-  | n + 1 => (C.tower n).refine
+  | n + 1 => (tower C n).refine
 
 /-- Every closed test with at most n vertices in stage n has a strict
 full-root tree image. The empty base case includes all nullary symbols. -/
@@ -114,10 +114,10 @@ def projection : Tree.UnaryHomEmbedding C.refine.rel C.refine.out C.rel C.out :=
   projectionHomEmbedding C.rel C.out C.root
 
 /-- Composite of the actual canonical projections back to stage zero. -/
-def projectToBase : (n : Nat) →
+def projectToBase (C : FiniteRooted.{u,v,t} L F) : (n : Nat) →
     Tree.UnaryHomEmbedding (C.tower n).rel (C.tower n).out C.rel C.out
   | 0 => (Tree.ExactUnaryEmbedding.refl C.rel C.out).toHomEmbedding
-  | n + 1 => (C.projectToBase n).comp (C.tower n).projection
+  | n + 1 => (projectToBase C n).comp (C.tower n).projection
 
 /-- Complete unary fibres are preserved by the composite as well as
 by each individual projection. -/
@@ -128,12 +128,12 @@ theorem projectToBase_fibres (n : Nat) (f : F) (x : (C.tower n).Carrier) :
 
 /-- Consecutive roots are exactly isomorphic; composing gives the fixed
 original root as the base of every stage's tree class. -/
-def rootEmbedding : (n : Nat) → Tree.ExactUnaryEmbedding
+def rootEmbedding (C : FiniteRooted.{u,v,t} L F) : (n : Nat) → Tree.ExactUnaryEmbedding
     C.rootRelations C.rootOutputs (C.tower n).rootRelations (C.tower n).rootOutputs
   | 0 => Tree.ExactUnaryEmbedding.refl C.rootRelations C.rootOutputs
   | n + 1 =>
       (refinedRootExact (C.tower n).rel (C.tower n).out (C.tower n).root
-        (C.tower n).root_closed).comp (C.rootEmbedding n)
+        (C.tower n).root_closed).comp (rootEmbedding C n)
 
 theorem rootEmbedding_surjective (n : Nat) :
     Function.Surjective (C.rootEmbedding n).toFun := by
