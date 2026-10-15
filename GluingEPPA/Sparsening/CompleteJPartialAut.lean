@@ -11,7 +11,12 @@ namespace GluingEPPA.Sparsening
 universe u v t
 variable {L : Nat → Type u} {A : Type v} {F : Type t}
 
-abbrev completeJ (R : RelStructure L A) := withJ R (fun _ _ => True)
+/-- Complete J needs no arity casts: its interpretation is always true.
+This presentation commutes definitionally with induced substructures. -/
+def completeJ (R : RelStructure L A) : RelStructure (WithJ L) A where
+  rel r xs := match r with
+    | Sum.inl r => R.rel r xs
+    | Sum.inr _ => True
 
 namespace ClosedPartialAut
 
@@ -39,10 +44,7 @@ def withCompleteJ {R : RelStructure L A} {out : F → A → Set A}
       intro n r xs
       cases r with
       | inl r => exact p.map.rel_iff r xs
-      | inr j =>
-          obtain ⟨_, hn⟩ := j
-          cases hn
-          exact Iff.rfl
+      | inr _ => exact Iff.rfl
     out_eq := p.map.out_eq }
   surjective := p.surjective
 
@@ -75,10 +77,7 @@ def OrbitAtlas.Aut.withCompleteJ {R : RelStructure L A} {out : F → A → Set A
     intro n r xs
     cases r with
     | inl r => exact h.rel_iff r xs
-    | inr j =>
-        obtain ⟨_, hn⟩ := j
-        cases hn
-        exact Iff.rfl
+    | inr _ => exact Iff.rfl
   unary_iff := h.unary_iff
 
 /-- The actual initial expanded structure for the canonical tower. -/
