@@ -119,3 +119,7 @@ cache. All proof changes must pass CI before merging.
 The [publishing page](Publishing.md) explains why
 source-controlled wiki Markdown and the GitHub Wiki tab
 must be verified separately.
+The live Wiki is populated, but the synchronization action uses a
+force push: preserve edits in the repository's `docs/wiki/` sources,
+not solely in the GitHub Wiki UI. We pin the publishing action to its
+reviewed immutable Git commit and do not trigger it from direct Wiki edits.

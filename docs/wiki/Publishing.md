@@ -29,14 +29,17 @@ modeled on the successfully published lean-milliken wiki.
 Its triggers are:
 
 - `push` on `main` modifying `docs/wiki/**` or its workflow;
-- `gollum` after a change to the GitHub Wiki (including first Home creation);
 - `workflow_dispatch` for manual re-synchronization.
 
 First it checks whether the remote `owner/repo.wiki.git`
 actually exists. Only if that succeeds does it run
-`Andrew-Chen-Wang/github-wiki-action@v5` with
-`preprocess: true` and `strategy: clone`.
-It does **not** force-push Wiki history.
+`Andrew-Chen-Wang/github-wiki-action@v5` at an **immutable commit**
+with `preprocess: true` and `strategy: clone`.
+**Its actual run uses `git push -f origin master`.** This is intentional:
+`docs/wiki/` is the single source of truth, but it means manual changes
+made only in the Wiki tab may be overwritten. Review Wiki edits in the
+code repository instead. The action revision and checkout revision are
+pinned to immutable commits in the workflow.
 
 ### If the Wiki has never had a Home page
 
@@ -47,10 +50,9 @@ cannot bypass merely by pushing `docs/wiki` to `main`:
    while signed in with edit permission.
 2. Click **Create the first page**, title it **Home**, enter
    a short temporary sentence, and save.
-3. The `gollum` trigger should run the wiki publisher.
-   Otherwise open
-   [Publish wiki workflow](https://github.com/janhubicka/lean-gluing-eppa/actions/workflows/publish-wiki.yml),
-   choose **Run workflow** on `main`.
+3. Open [Publish wiki workflow](https://github.com/janhubicka/lean-gluing-eppa/actions/workflows/publish-wiki.yml),
+   choose **Run workflow** on `main`, and run it once to populate the new
+   Wiki repository. This is required on a fresh fork.
 
 The first page initializes the separate Wiki Git
 repository. Subsequent publication is automatic from
