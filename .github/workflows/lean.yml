@@ -107,6 +107,21 @@ jobs:
           python3 scripts/check_atlas_action.py --output proof-audit/affine-regressions.json
           python3 scripts/check_orbit_atlas.py --output proof-audit/orbit-regressions.json
 
+      - name: Audit module graph and wiki Markdown
+        id: structural-audit
+        run: |
+          mkdir -p proof-audit
+          if ! python3 scripts/audit_library_imports.py > proof-audit/import-graph.json 2>&1; then
+            cat proof-audit/import-graph.json
+            exit 1
+          fi
+          if ! python3 scripts/check_wiki_docs.py > proof-audit/wiki-links.json 2>&1; then
+            cat proof-audit/wiki-links.json
+            exit 1
+          fi
+          cat proof-audit/import-graph.json
+          cat proof-audit/wiki-links.json
+
       - name: Record checked proof snapshot
         if: always()
         run: |
