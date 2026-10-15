@@ -1,7 +1,9 @@
 name: Publish gluing EPPA wiki
 
 on:
-  gollum: # The first saved Home page initializes the separate Wiki repo.
+  # The separate Wiki repository was initialized on 15 October 2026.
+  # Do not re-trigger publication on every direct Wiki edit: the publisher
+  # uses a force push and docs/wiki/ is the authoritative source.
   push:
     branches: [main]
     paths:
@@ -21,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out versioned wiki source
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Check internal wiki and source links
         run: python3 scripts/check_wiki_docs.py
@@ -42,9 +44,11 @@ jobs:
             echo "::notice::GitHub Wiki is not initialized. Create the first Home page at https://github.com/${GITHUB_REPOSITORY}/wiki; this workflow will then publish the pages."
           fi
 
+      # This action invokes `git push -f`: manual Wiki-only changes can be
+      # overwritten. Merge edits to docs/wiki/ instead.
       - name: Sync source pages to GitHub Wiki tab
         if: steps.wiki.outputs.initialized == 'true'
-        uses: Andrew-Chen-Wang/github-wiki-action@v5
+        uses: Andrew-Chen-Wang/github-wiki-action@1bbb4280446f9630e8e21a18012cbacf3b0f992e # v5
         with:
           path: docs/wiki
           preprocess: true

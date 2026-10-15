@@ -124,3 +124,15 @@ not substitute referee opinions.
 No mathematical gap is currently asserted in the validated
 fixed-language proof. No claim about variants with symbol
 permutations or induced local-tree embeddings is made.
+
+### Wiki publication side effect
+
+The first successful publisher run
+[38766957545](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38766957545)
+cloned the live wiki, created the eleven pages, and used an actual
+`git push -f origin master`. We audited and corrected the earlier
+statement that the publishing action never forced pushes. Direct edits in
+the Wiki UI should **not** be relied on as permanent source. The publisher
+now runs on source changes to `docs/wiki/**` or explicit workflow dispatch,
+not on every `gollum` event. Its third-party action and checkout revisions
+are pinned to full Git commit hashes, not mutable version tags.
