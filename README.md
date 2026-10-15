@@ -42,6 +42,9 @@ the composition condition of coherent EPPA.
 
 ## Structures and maps
 
+Below, sparsening declarations are relative to the namespace
+`GluingEPPA.Sparsening`; `RelStructure` is in `GluingEPPA`.
+
 `RelStructure L A` interprets relation symbols by arity. Unary functions are
 maps `F -> A -> Set A`, so outputs may be empty, branching or cyclic.
 `UnaryClosed` expresses closure under every output. `inducedRelations` and
@@ -57,33 +60,34 @@ images remain closed and irreducible.
 
 ### Why the internal homomorphism record preserves whole fibres
 
-`UnaryGeneratedClosure` defines the least closed set containing one vertex.
-`unaryClosure_irreducible` proves its induced structure irreducible: a closed
-side containing the generator already contains its entire closure. Therefore
-`Tree.UnaryHomEmbedding.out_eq` derives full fibre equality from exactness on
-these tests. `image_closed` then proves that images of all closed sets are
-closed. None of these lemmas requires finiteness. Forward unary membership
-alone would not suffice.
+The module `UnaryGeneratedClosure` defines the least closed set containing
+one vertex. `unaryClosure_irreducible` proves its induced structure
+irreducible: a closed side containing the generator already contains its
+entire closure. Therefore `Tree.UnaryHomEmbedding.out_eq` derives full fibre
+equality from exactness on these tests. `image_closed` then proves that
+images of all closed sets are closed. None of these lemmas requires
+finiteness. Forward unary membership alone would not suffice.
 
 ## The canonical refinement
 
 `OrbitAtlas.Chart` indexes actual closed subsets contained in an automorphic
 image of the distinguished root, including the empty chart. Charts are not
-embedding presentations. `OrbitAction.Vertex`, `relations` and `outputs`
-build the quotient of valid occurrences `(s,chi,x)` with `x` in chart `s`.
-The graph of chart overlaps is complete, and every overlap is used.
+embedding presentations. `OrbitAtlas.Vertex`, `OrbitAtlas.relations` and
+`OrbitAtlas.outputs` build the quotient of valid occurrences `(s,chi,x)` with
+`x` in chart `s`. The graph of chart overlaps is complete, and every overlap
+is used.
 
-`CompleteRecords` identifies quotient vertices by pointed parity charge and
-exterior coordinates. `AtlasSeparator` and `OrbitRootedDichotomy` turn an
-arbitrary nonempty closed test into a one-chart test or an actual proper
-upstairs free cut. The projected overlap is a closed complete-J root.
-No freeness is inferred for the entire old projected image.
+The module `CompleteRecords` identifies quotient vertices by pointed parity
+charge and exterior coordinates. The modules `AtlasSeparator` and
+`OrbitRootedDichotomy` turn an arbitrary nonempty closed test into a one-chart
+test or an actual proper upstairs free cut. The projected overlap is a
+closed complete-J root. No freeness is inferred for the old projected image.
 
-`OrbitAction.lift` gives actual affine automorphisms. `OrbitEndpoint`
-checks root-spoke extensions, their pointwise composition equations, and
-movement of whole charts into the distinguished root. `OrbitIrreducible`
-and `OrbitProjectionHomEmbedding` connect these facts to irreducible
-containment, one-step faithfulness and projection exactness.
+`OrbitAtlas.lift` gives actual affine automorphisms. The module
+`OrbitEndpoint` checks root-spoke extensions, their pointwise composition
+equations, and movement of whole charts into the distinguished root.
+`OrbitIrreducible` and `OrbitProjectionHomEmbedding` connect these facts to
+irreducible containment, one-step faithfulness and projection exactness.
 
 ## Strict full-A trees and local bounds
 
@@ -92,16 +96,16 @@ contained in full base copies on both sides. Its carrier is finite when the
 base is finite. A complete-J root lies in a full base copy. The projected-root
 gluing lemmas use the actual upstairs free cut, not an assumed downstairs cut.
 
-`OrbitLocalTreeBounded.localTreeOfBoundedOldTrees` raises the local size bound
-from k to k+1. A one-chart test embeds into the root. Otherwise each proper
-side, and therefore its projected image, has at most k vertices; glue the
-old target trees along the exact projected root.
+`OrbitAtlas.localTreeOfBoundedOldTrees`, in `OrbitLocalTreeBounded.lean`,
+raises the local size bound from k to k+1. A one-chart test embeds into the
+root. Otherwise each proper side, and therefore its projected image, has at
+most k vertices; glue the old target trees along the exact projected root.
 
-`Tree.FullATree.changeBase_iff` and `HasTreeImage.changeBase_iff` show that
-isomorphic bases define the same target class. Both actual gluing maps
-remain unchanged by inserting the base isomorphism and its inverse.
-`OrbitTreeBaseChange.localTreeOfBoundedOldTrees_nextRoot` returns the bound
-based on the new distinguished root, ready for iteration.
+`Tree.FullATree.changeBase_iff` and `OrbitAtlas.HasTreeImage.changeBase_iff`
+show that isomorphic bases define the same target class. Both actual gluing
+maps remain unchanged by inserting the base isomorphism and its inverse.
+`OrbitAtlas.localTreeOfBoundedOldTrees_nextRoot` returns the bound based on
+the new distinguished root, ready for iteration.
 
 ## The actual finite tower
 
