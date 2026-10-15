@@ -84,3 +84,5 @@ import GluingEPPA.Sparsening.ForgetJ
 import GluingEPPA.Sparsening.OrbitTowerReduct
 import GluingEPPA.Sparsening.ClosedPartialAut
 import GluingEPPA.Sparsening.OrbitExtensionFamily
+import GluingEPPA.Sparsening.CompleteJPartialAut
+import GluingEPPA.Sparsening.SparseningTheorem
