@@ -140,7 +140,7 @@ theorem record_chart_or_closed_cut
   · exact Or.inl (common_lifted_record G complete support origin chi alpha
       origin_mem odd record consistent)
   · right
-    push_neg at consistent
+    push Not at consistent
     obtain ⟨p, q, e, hp, hq, hd⟩ := consistent
     have root_closed : UnaryClosed out (fun x => internal G support x e) := by
       intro f x y hx hy

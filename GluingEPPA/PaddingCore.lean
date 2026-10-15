@@ -43,7 +43,7 @@ theorem exists_perm_extending_involution [Finite A] {p : A → Prop}
         apply Subtype.ext
         simp [g, hx]
       change (if hz : p (g x) then (f ⟨g x, hz⟩ : A) else g x) = x
-      rw [dif_pos hy]
+      rw [dite_eq_left hy]
       rw [heq, hff]
     · simp [g, hx]
   let σ : A ≃ A :=

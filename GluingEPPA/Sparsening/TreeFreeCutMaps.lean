@@ -101,7 +101,7 @@ theorem glueFreeCutMap_injective
       exact (hCross ⟨y, hy⟩ ⟨x, hxR⟩ h.symm).symm
     · have hyR : y ∈ d.right := freeCut_right_of_not_left d hy
       have h : r ⟨x, hxR⟩ = r ⟨y, hyR⟩ := by
-        simpa only [glueFreeCutMap, dif_neg hx, dif_neg hy] using hxy
+        simpa only [glueFreeCutMap, dite_eq_right hx, dite_eq_right hy] using hxy
       exact congrArg Subtype.val (hRight h)
 
 end GluingEPPA.Sparsening.Tree

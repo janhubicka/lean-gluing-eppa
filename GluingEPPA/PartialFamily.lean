@@ -139,7 +139,7 @@ theorem coherentBase_inverse (i : I) :
       F.coherentBase (F.labels.inv i) = F.coherentBase i :=
         congrArg F.coherentBase hs
       _ = (F.coherentBase i).symm := by
-        simp only [coherentBase, dif_pos hs]
+        simp only [coherentBase, dite_eq_left hs]
         exact (F.selfChoice_symm i hs).symm
   · have hsi : i ≠ F.labels.inv i := Ne.symm hs
     by_cases hlt : i < F.labels.inv i
