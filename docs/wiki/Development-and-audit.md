@@ -6,8 +6,10 @@ internal wrapper as a permanent public API.
 
 ## Source layout
 
-The top-level `GluingEPPA.lean` reexports the entire library.
-Its two major bodies are:
+The top-level `GluingEPPA.lean` reexports the entire library via
+**six terminal imports**, which the import-DAG audit proves reach all **88**
+Lean source modules. This replaces the former **88 direct imports**
+without removing any theorem or source file. Its two major bodies are:
 
 - **Unconditional finite relational EPPA:** `Basic`, `Relational`,
   `PermutationDiagram`, `PartialFamily`, the oriented/unordered
@@ -51,7 +53,8 @@ There are several distinct concepts of "dead code":
 
 - An **unused direct import** in the umbrella entrypoint is a harmless
   redundancy if another imported module reaches it transitively.
-  The import-DAG script computes this conservatively.
+  The import-DAG script computes this conservatively and CI now
+  rejects reintroducing redundant umbrella entries.
 - A **legacy theorem wrapper** with no downstream references may
   be removed after checking any known clients, its presence in
   the axiom manifest, and documentation links.
