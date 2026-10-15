@@ -10,6 +10,17 @@ displays as **Home**. `_Sidebar.md` gives the navigation.
 `docs/wiki/*.md` does **not** automatically create a
 GitHub Wiki tab page.
 
+## Current publication status (15 October 2026)
+
+**Published and synchronizing.** The separate `lean-gluing-eppa.wiki.git`
+repository is initialized. [Actions run 38766957545](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38766957545)
+cloned it, generated `Home.md` and `_Sidebar.md`, and pushed Wiki commit
+`55a5fab` to its `master` branch. Its *Sync source pages to GitHub Wiki tab*
+step completed successfully. The [live wiki](https://github.com/janhubicka/lean-gluing-eppa/wiki)
+now contains all eleven pages. No manual first-page initialization remains
+necessary for this repository. The bootstrap instructions below apply to
+fresh forks or copies whose Wiki storage has never been created.
+
 ## Automatic synchronization
 
 The repository carries

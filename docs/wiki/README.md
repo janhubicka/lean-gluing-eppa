@@ -26,10 +26,11 @@ Theorem 7.5 in [postprint v5](https://arxiv.org/html/2501.17293v5).
 | [Development and audit](Development-and-audit.md) | Dependency structure, reproducibility, test scope, proof status and design decisions |
 | [Wiki publishing](Publishing.md) | Automatic synchronization to the GitHub Wiki tab and one-time initialization instructions |
 
-The maintained source is [`docs/wiki/`](https://github.com/janhubicka/lean-gluing-eppa/tree/main/docs/wiki);
-the separate [GitHub Wiki](https://github.com/janhubicka/lean-gluing-eppa/wiki)
-is synchronized by Actions **once its first Home page has been initialized**.
-Until then, the source-controlled pages are fully readable.
+The maintained source is [`docs/wiki/`](https://github.com/janhubicka/lean-gluing-eppa/tree/main/docs/wiki).
+The [**live GitHub Wiki**](https://github.com/janhubicka/lean-gluing-eppa/wiki)
+was successfully populated by [Actions run 38766957545](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38766957545),
+which pushed eleven pages to the Wiki's separate Git repository
+(Wiki commit `55a5fab`). Subsequent source changes synchronize automatically.
 
 ## Main theorem endpoints
 

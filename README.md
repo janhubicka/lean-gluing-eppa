@@ -11,11 +11,12 @@ structures with relations and whole set-valued unary functions.
 [Auxiliary lemmas](docs/wiki/Auxiliary-lemmas.md) ·
 [Adversarial referee audit](docs/wiki/Adversarial-referee-record.md)
 
-The [GitHub Wiki tab](https://github.com/janhubicka/lean-gluing-eppa/wiki)
-is synchronized from version-controlled `docs/wiki/` after its separate
-Wiki Git repository has been initialized. Until then, the source pages
-linked above are the fully readable documentation. Publication details
-are in [Publishing](docs/wiki/Publishing.md).
+**[Live GitHub Wiki](https://github.com/janhubicka/lean-gluing-eppa/wiki)**
+is published and synchronized from version-controlled `docs/wiki/`.
+[Publishing run 38766957545](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/38766957545)
+pushed eleven pages, including Home and the sidebar, as Wiki commit
+`55a5fab` on 15 October 2026. Source-controlled pages remain the
+canonical editable copy; see [Publishing](docs/wiki/Publishing.md).
 
 ## The two main results
 
