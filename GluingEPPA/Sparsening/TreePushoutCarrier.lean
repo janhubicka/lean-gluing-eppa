@@ -1,4 +1,4 @@
-import Mathlib.Data.Finite.Sum
+import Mathlib.Basic.Finite.Sum
 import GluingEPPA.Sparsening.AuxiliaryJ
 
 /-!
@@ -43,7 +43,7 @@ theorem inclRight_glued (f : I → X) (g : I → Y)
   change (if h : g i ∈ Set.range g then
       (Sum.inl (f (Classical.choose h)) : PushoutCarrier f g)
     else Sum.inr ⟨g i, h⟩) = Sum.inl (f i)
-  simp only [dif_pos hi]
+  simp only [dite_eq_left hi]
   exact congrArg (fun j : I =>
     (Sum.inl (f j) : PushoutCarrier f g))
     (hg (Classical.choose_spec hi))
@@ -55,7 +55,7 @@ theorem inclRight_outside (f : I → X) (g : I → Y)
   change (if h : y ∈ Set.range g then
       (Sum.inl (f (Classical.choose h)) : PushoutCarrier f g)
     else Sum.inr ⟨y, h⟩) = Sum.inr ⟨y, hy⟩
-  simp only [dif_neg hy]
+  simp only [dite_eq_right hy]
 
 theorem inclRight_injective
     (f : I → X) (g : I → Y) (hf : Function.Injective f)

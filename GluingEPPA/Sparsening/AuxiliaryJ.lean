@@ -58,11 +58,11 @@ theorem j_clique_irreducible {L : Nat → Type u} {P : Type v} {F : Type w}
   intro d
   obtain ⟨p, hp⟩ : ∃ p : P, p ∉ d.left := by
     by_contra h
-    push_neg at h
+    push Not at h
     exact d.left_proper (Set.eq_univ_of_forall h)
   obtain ⟨q, hq⟩ : ∃ q : P, q ∉ d.right := by
     by_contra h
-    push_neg at h
+    push Not at h
     exact d.right_proper (Set.eq_univ_of_forall h)
   let xs : Fin 2 → P := fun i => if i.val = 0 then q else p
   have hrel : (withJ R J).rel (Sum.inr (⟨(), rfl⟩ : JSymbol 2)) xs := by

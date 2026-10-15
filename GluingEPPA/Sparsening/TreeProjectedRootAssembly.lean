@@ -31,11 +31,11 @@ theorem irreducible_of_complete_J
   intro d
   obtain ⟨p, hp⟩ : ∃ p : P, p ∉ d.left := by
     by_contra h
-    push_neg at h
+    push Not at h
     exact d.left_proper (Set.eq_univ_of_forall h)
   obtain ⟨q, hq⟩ : ∃ q : P, q ∉ d.right := by
     by_contra h
-    push_neg at h
+    push Not at h
     exact d.right_proper (Set.eq_univ_of_forall h)
   have hj := hJ q (Set.mem_univ q) p (Set.mem_univ p)
   rcases d.rel_local (Sum.inr (⟨(), rfl⟩ : JSymbol 2))

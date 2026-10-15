@@ -77,7 +77,7 @@ theorem exterior_completion
   intro p e hp
   have he : ∃ q, ¬ internal G support q e := ⟨p, hp⟩
   dsimp only [eta]
-  rw [dif_pos he]
+  rw [dite_eq_left he]
   exact consistent (Classical.choose he) p e (Classical.choose_spec he) hp
 
 /-- Common base support, not yet a common representative in a lifted chart. -/
