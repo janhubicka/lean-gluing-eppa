@@ -65,13 +65,15 @@ def inspect() -> dict:
     if set(minimal_closure) != set(root_closure):
         raise ValueError("Suggested import reduction does not preserve reachable modules")
     duplicates = sorted(x for x, n in Counter(umbrella).items() if n > 1)
+    redundant = [mod for mod in root_imports if mod not in minimal]
     lines = sum(p.read_text(encoding="utf8").count("\n") + 1 for p in files)
     stats = {
-        "status": "PASS" if not uncovered and not duplicates else "FAIL",
+        "status": "PASS" if not uncovered and not duplicates and not redundant else "FAIL",
         "lean_modules": len(known),
         "source_lines": lines,
         "umbrella_imports": len(umbrella),
         "umbrella_duplicate_imports": duplicates,
+        "umbrella_redundant_imports": redundant,
         "umbrella_uncovered_modules": uncovered,
         "suggested_minimal_umbrella_imports": minimal,
         "suggested_minimal_import_count": len(minimal),
