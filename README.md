@@ -208,15 +208,3 @@ regression suites, self-audits and Lean kernel checking serve different
 purposes and are not interchangeable. Future work can refactor this
 library's API without needing to preserve obsolete compatibility wrappers,
 but should keep the public theorem types stable or provide migration notes.
-
-After the reduct checks, package the chosen extensions for every original
-partial automorphism and transport their domains and ranges along the exact
-root maps. Use the two-spoke endpoint identity to prove extension for every
-index, and its cancellation identity to preserve coherence for every
-composable pair. Then combine this with the checked geometric tower into
-the exact sparsening EPPA conclusion.
-
-The local conclusion is a homomorphism-embedding into a tree, not an induced
-embedding: repeated Boolean refinements can retain an induced square.
-Independent mathematical refereeing remains outstanding; the recorded
-adversarial passes are self-audits, not independent-agent reports.
