@@ -99,7 +99,12 @@ theorem FullATree.changeBase
         exact congrArg αY.toFun (e.apply_inverse he (δY.toFun y))
       have h := FullATree.glue RI outI RX outX RY outY ihX ihY
         (inv.comp δX) (inv.comp δY) (αX.comp e) (αY.comp e)
-      simpa only [hx, hy] using h
+      -- The carrier itself depends on the two maps: transport the whole
+      -- proposition, rather than simplifying just its displayed indices.
+      exact (congrArg₂
+        (fun f g => FullATree RA outA
+          (pushoutRelations f g RX RY) (pushoutOutput f g outX outY))
+        hx hy).mp h
 
 /-- Isomorphic bases define the same class of literal target trees. -/
 theorem FullATree.changeBase_iff
