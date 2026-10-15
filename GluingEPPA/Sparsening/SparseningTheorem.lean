@@ -128,6 +128,7 @@ theorem sparseningFromExtensions_coherent
   exact congrArg (fun a => a.perm x)
     (ht f.withCompleteJ g.withCompleteJ h.withCompleteJ hcomp.withCompleteJ)
 
+include hr in
 /-- Ordinary EPPA supplies simultaneous choices by choice; the geometry
 comes from the canonical tower, not a different existing EPPA theorem. -/
 theorem sparsening_eppa
@@ -139,6 +140,7 @@ theorem sparsening_eppa
   choose H0 h0 using eppa
   exact ⟨sparseningFromExtensions R0 out0 root hr H0 h0 n⟩
 
+include hr in
 /-- The coherent version, with the original irreducible A as the distinguished root. -/
 theorem coherent_sparsening_eppa
     (hirr : IsIrreducible (inducedRelations R0 root) (inducedUnary out0 root))

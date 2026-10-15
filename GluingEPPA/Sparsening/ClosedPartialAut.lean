@@ -50,7 +50,10 @@ def retag (R : RelStructure L A) (out : F → A → Set A)
     Tree.ExactUnaryEmbedding (inducedRelations R D) (inducedUnary out D)
       (inducedRelations R E) (inducedUnary out E) where
   toFun x := ⟨x.val, h ▸ x.property⟩
-  injective := fun _ _ he => Subtype.ext (congrArg Subtype.val he)
+  injective := by
+    intro x y he
+    apply Subtype.ext
+    exact congrArg (fun z : E => z.val) he
   rel_iff _ _ := Iff.rfl
   out_eq := by
     intro f x
@@ -58,7 +61,7 @@ def retag (R : RelStructure L A) (out : F → A → Set A)
     constructor
     · rintro ⟨z, hz, he⟩
       change y.val ∈ out f x.val
-      rw [← congrArg Subtype.val he]
+      rw [← congrArg (fun z : E => z.val) he]
       exact hz
     · intro hy
       exact ⟨⟨y.val, h.symm ▸ y.property⟩, hy, Subtype.ext rfl⟩
