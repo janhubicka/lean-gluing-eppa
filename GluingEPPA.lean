@@ -76,3 +76,5 @@ import GluingEPPA.Sparsening.OrbitLocalTreeStep
 import GluingEPPA.Sparsening.OrbitLocalTreeBounded
 import GluingEPPA.Sparsening.OrbitRefinedRoot
 import GluingEPPA.Sparsening.OrbitRefinedRootExact
+import GluingEPPA.Sparsening.TreeBaseChange
+import GluingEPPA.Sparsening.OrbitTreeBaseChange

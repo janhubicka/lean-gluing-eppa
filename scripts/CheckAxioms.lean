@@ -256,3 +256,13 @@ import GluingEPPA
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_J_complete
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRootExact
 #print axioms GluingEPPA.Sparsening.OrbitAtlas.refinedRootExact_surjective
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.inverse
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.apply_inverse
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.inverse_apply
+#print axioms GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.inverse_surjective
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.changeBase
+#print axioms GluingEPPA.Sparsening.Tree.FullATree.changeBase_iff
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.HasTreeImage.changeBase
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.HasTreeImage.changeBase_iff
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.hasTreeImage_refinedRoot_iff
+#print axioms GluingEPPA.Sparsening.OrbitAtlas.localTreeOfBoundedOldTrees_nextRoot
