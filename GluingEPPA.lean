@@ -80,3 +80,5 @@ import GluingEPPA.Sparsening.TreeBaseChange
 import GluingEPPA.Sparsening.OrbitTreeBaseChange
 import GluingEPPA.Sparsening.UnaryGeneratedClosure
 import GluingEPPA.Sparsening.OrbitFiniteTower
+import GluingEPPA.Sparsening.ForgetJ
+import GluingEPPA.Sparsening.OrbitTowerReduct

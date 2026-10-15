@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.TreeHomEmbedding
+import GluingEPPA.Sparsening.ProjectionStep
 
 /-!
 # One-generated closure and complete unary fibres

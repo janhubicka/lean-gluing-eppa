@@ -91,11 +91,14 @@ jobs:
       - name: Audit theorem axioms
         id: audit
         run: |
-          if ! lake env lean scripts/CheckAxioms.lean > proof-audit/axioms.log 2>&1; then
-            cat proof-audit/axioms.log
-            exit 1
-          fi
-          python3 scripts/check-axiom-log.py proof-audit/axioms.log
+          for manifest in scripts/Check*Axioms.lean; do
+            log="proof-audit/$(basename "$manifest" .lean).log"
+            if ! lake env lean "$manifest" > "$log" 2>&1; then
+              cat "$log"
+              exit 1
+            fi
+            python3 scripts/check-axiom-log.py "$log" "$manifest"
+          done
 
       - name: Finite sparsening regressions
         id: finite-checks
