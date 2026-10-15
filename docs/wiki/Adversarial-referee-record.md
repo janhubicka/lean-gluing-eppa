@@ -79,11 +79,16 @@ embedding for these witnesses.
 
 ## Pass III: formal trust and software maintainability
 
-The main `GluingEPPA.lean` umbrella imports every library module.
-A syntactic dependency-graph audit can identify redundant direct
-imports, but *deleting proof modules from the filesystem* solely on
-that basis is unsafe: a module can be useful to external clients
-even if it is not reached by another theorem.
+The public `GluingEPPA.lean` umbrella originally listed **88**
+direct module imports. The checked import DAG showed that **six**
+terminal imports reach the same **88** source modules along the same
+dependency graph. We simplified the umbrella to those six imports,
+without deleting *any* file or any theorem. The library import checker
+now rejects new redundant umbrella entries and missing source modules.
+
+Removing an actual proof module from the filesystem on lexical grounds
+would be unsafe: an internal module can be useful to independent clients
+even if it is not directly mentioned in the final theorem.
 
 The reproducible structural script
 [`scripts/audit_library_imports.py`](../../scripts/audit_library_imports.py)
