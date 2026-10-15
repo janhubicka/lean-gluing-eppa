@@ -101,7 +101,7 @@ lake update
 lake exe cache get
 lake build
 for manifest in scripts/Check*Axioms.lean; do
-  log="\${manifest%.lean}.log"
+  log="${manifest%.lean}.log"
   lake env lean "$manifest" > "$log"
   python3 scripts/check-axiom-log.py "$log" "$manifest"
 done
