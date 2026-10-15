@@ -1,88 +1,20 @@
-import GluingEPPA.Basic
-import GluingEPPA.Relational
-import GluingEPPA.Replay
-import GluingEPPA.Symmetry
-import GluingEPPA.Parity
-import GluingEPPA.Cover
-import GluingEPPA.AffineLift
-import GluingEPPA.PermutationDiagram
-import GluingEPPA.OrientedCover
-import GluingEPPA.OrientedAssembly
-import GluingEPPA.PaddingCore
-import GluingEPPA.Marker4
-import GluingEPPA.PaddedFamily
-import GluingEPPA.PartialFamily
-import GluingEPPA.RelPartialAut
 import GluingEPPA.FiniteEPPA
-import GluingEPPA.UnorderedEdges
-import GluingEPPA.UnorderedCover
-import GluingEPPA.UnorderedAssembly
 import GluingEPPA.UnorderedFiniteEPPA
-import GluingEPPA.PrivateCycles
-import GluingEPPA.PrivateCycleInjection
-import GluingEPPA.PaddedPrivateFamily
 import GluingEPPA.PrivateFiniteEPPA
 import GluingEPPA.Sparsening.Saturated
-import GluingEPPA.Sparsening.LocalParity
 import GluingEPPA.Sparsening.Descent
-import GluingEPPA.Sparsening.OddBoundary
-import GluingEPPA.Sparsening.CoherentTranslation
-import GluingEPPA.Sparsening.StarCorrection
-import GluingEPPA.Sparsening.ClosedCuts
-import GluingEPPA.Sparsening.ProjectionStep
-import GluingEPPA.Sparsening.RecordInvariance
-import GluingEPPA.Sparsening.CompleteRecords
-import GluingEPPA.Sparsening.ChartAtlas
-import GluingEPPA.Sparsening.UnaryAtlas
-import GluingEPPA.Sparsening.AtlasRecords
-import GluingEPPA.Sparsening.AtlasSeparator
-import GluingEPPA.Sparsening.AtlasAction
-import GluingEPPA.Sparsening.AtlasUnaryAction
-import GluingEPPA.Sparsening.AtlasEndpoint
-import GluingEPPA.Sparsening.CompleteChartGraph
-import GluingEPPA.Sparsening.OrbitAtlas
-import GluingEPPA.Sparsening.OrbitAction
-import GluingEPPA.Sparsening.OrbitEndpoint
-import GluingEPPA.Sparsening.IrreducibleBridge
-import GluingEPPA.Sparsening.AtlasIrreducible
-import GluingEPPA.Sparsening.OrbitIrreducible
-import GluingEPPA.Sparsening.AuxiliaryJ
-import GluingEPPA.Sparsening.AtlasAllTestCuts
-import GluingEPPA.Sparsening.AtlasRootedFreeCut
-import GluingEPPA.Sparsening.TreePushoutCarrier
-import GluingEPPA.Sparsening.TreeFreeCutMaps
-import GluingEPPA.Sparsening.TreeFreeCutHom
-import GluingEPPA.Sparsening.TreePushoutRelations
-import GluingEPPA.Sparsening.TreePushoutExact
-import GluingEPPA.Sparsening.TreeStrongAmalgam
-import GluingEPPA.Sparsening.TreeEmbeddingComposition
-import GluingEPPA.Sparsening.TreeIrreducibleSide
-import GluingEPPA.Sparsening.TreeFullA
-import GluingEPPA.Sparsening.TreeJCliqueRoot
-import GluingEPPA.Sparsening.TreeRootFactorization
-import GluingEPPA.Sparsening.TreeFreeCutPushoutHom
-import GluingEPPA.Sparsening.TreeHomEmbedding
-import GluingEPPA.Sparsening.TreeHomEmbeddingGlue
-import GluingEPPA.Sparsening.TreeHomEmbeddingTreeGlue
-import GluingEPPA.Sparsening.TreeHomEmbeddingRestrict
-import GluingEPPA.Sparsening.TreeHomEmbeddingClosedCodomain
-import GluingEPPA.Sparsening.OrbitProjectionHomEmbedding
-import GluingEPPA.Sparsening.TreeProjectedRootAssembly
-import GluingEPPA.Sparsening.TreeProjectedFreeCut
-import GluingEPPA.Sparsening.OrbitProjectedLocalGlue
-import GluingEPPA.Sparsening.OrbitRootedDichotomy
-import GluingEPPA.Sparsening.OrbitChartExact
-import GluingEPPA.Sparsening.OrbitLocalTreeStep
-import GluingEPPA.Sparsening.OrbitLocalTreeBounded
-import GluingEPPA.Sparsening.OrbitRefinedRoot
-import GluingEPPA.Sparsening.OrbitRefinedRootExact
-import GluingEPPA.Sparsening.TreeBaseChange
-import GluingEPPA.Sparsening.OrbitTreeBaseChange
-import GluingEPPA.Sparsening.UnaryGeneratedClosure
-import GluingEPPA.Sparsening.OrbitFiniteTower
-import GluingEPPA.Sparsening.ForgetJ
-import GluingEPPA.Sparsening.OrbitTowerReduct
-import GluingEPPA.Sparsening.ClosedPartialAut
-import GluingEPPA.Sparsening.OrbitExtensionFamily
-import GluingEPPA.Sparsening.CompleteJPartialAut
 import GluingEPPA.Sparsening.SparseningTheorem
+
+/-!
+# The Gluing EPPA library
+
+This public umbrella intentionally imports the six *terminal* local modules
+covering all 88 source modules. Earlier versions listed every module by
+name, adding no semantics but obscuring the actual dependency structure.
+
+Use a narrower import when possible (for example
+`GluingEPPA.Sparsening.TreeHomEmbedding` for locally exact maps or
+`GluingEPPA.Sparsening.SparseningTheorem` for the two final theorems).
+The import graph and its complete public closure are checked in CI
+by `scripts/audit_library_imports.py`.
+-/
