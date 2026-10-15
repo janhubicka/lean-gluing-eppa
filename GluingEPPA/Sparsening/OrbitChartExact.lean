@@ -138,6 +138,8 @@ noncomputable def chartTestRootExact
           (testProjection R out root S p) := by
         apply (h.symm.unary_iff f
           (testProjection R out root S p) (h.perm z.val)).mp
+        change h.perm.symm (h.perm z.val) ∈ out f
+          (h.perm.symm (testProjection R out root S p))
         simpa only [Equiv.symm_apply_apply] using hz
       have hImg : h.perm z.val ∈ e.toFun ''
           (ChartAtlas.inducedOutput (graph R out root)
@@ -146,7 +148,7 @@ noncomputable def chartTestRootExact
         exact hOld
       obtain ⟨q, hq, hEq⟩ := hImg
       refine ⟨q, hq, Subtype.ext ?_⟩
-      change h.perm.symm (testProjection R out root S q) = z.val
+      change h.perm.symm (e.toFun q) = z.val
       rw [hEq, Equiv.symm_apply_apply]
 
 /-- No extra chart automorphism has to be chosen: every canonical chart
