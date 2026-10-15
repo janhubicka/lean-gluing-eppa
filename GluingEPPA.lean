@@ -71,3 +71,4 @@ import GluingEPPA.Sparsening.TreeProjectedRootAssembly
 import GluingEPPA.Sparsening.TreeProjectedFreeCut
 import GluingEPPA.Sparsening.OrbitProjectedLocalGlue
 import GluingEPPA.Sparsening.OrbitRefinedRoot
+import GluingEPPA.Sparsening.OrbitRefinedRootExact
