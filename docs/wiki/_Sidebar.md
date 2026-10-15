@@ -9,6 +9,7 @@
 - [Auxiliary lemma index](Auxiliary-lemmas.md)
 - [Adversarial referee audit](Adversarial-referee-record.md)
 - [Development and audit](Development-and-audit.md)
+- [Audit tracker](Audit-tracker.md)
 - [Publishing instructions](Publishing.md)
 
 ---

@@ -24,6 +24,7 @@ Theorem 7.5 in [postprint v5](https://arxiv.org/html/2501.17293v5).
 | [Auxiliary lemma index](Auxiliary-lemmas.md) | Reusable definitions and lemmas, file by file, including exact unary fibres and change of base |
 | [Adversarial referee audit](Adversarial-referee-record.md) | Three separate self-audits: mathematical fidelity, kernel trust, and maintenance/dead-code candidates |
 | [Development and audit](Development-and-audit.md) | Dependency structure, reproducibility, test scope, proof status and design decisions |
+| [Audit tracker](Audit-tracker.md) | Certified milestones, code cleanup, warning census, next referee checks |
 | [Wiki publishing](Publishing.md) | Automatic synchronization to the GitHub Wiki tab and one-time initialization instructions |
 
 The maintained source is [`docs/wiki/`](https://github.com/janhubicka/lean-gluing-eppa/tree/main/docs/wiki).
