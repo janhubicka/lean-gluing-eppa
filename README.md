@@ -30,8 +30,10 @@ There is no claim about permutations of language symbols.
 
 The complete source and human-readable proof are in
 [`janhubicka/Otto-simplified`](https://github.com/janhubicka/Otto-simplified).
-For an audit of exact hypotheses and the one-generated-closure bridge, see
-the manuscript's [validation ledger](https://github.com/janhubicka/Otto-simplified/blob/main/VALIDATION.md).
+See the [referee-oriented statement and failure-mode audit](docs/sparsening-proof-audit.md)
+for the direct comparison with the published formulation and a reproducible
+verification checklist. The manuscript's [validation ledger](https://github.com/janhubicka/Otto-simplified/blob/main/VALIDATION.md)
+records the exact source pins and editor-facing notes.
 
 ## Unconditional finite relational EPPA
 
