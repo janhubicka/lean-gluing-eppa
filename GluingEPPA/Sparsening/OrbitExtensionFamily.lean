@@ -117,8 +117,14 @@ theorem refineFamily_extends
     hD hE ((C.rootAmbient e).toFun x.val) ⟨x.val, x.property, rfl⟩
   have himage := C.partChart_image e H hH p
   change chartPerm C.rel C.out C.root (H p) D = _ at himage
-  rw [himage, hH p x] at hp
-  exact hp
+  rw [himage] at hp
+  let y : C.root :=
+    ⟨(H p).perm ((C.rootAmbient e).toFun x.val),
+      hE ⟨(C.rootAmbient e).toFun x.val, ⟨x.val, x.property, rfl⟩, rfl⟩⟩
+  have hy : y = e.toFun (p.map.toFun x).val := Subtype.ext (hH p x)
+  exact hp.trans (congrArg
+    (fun z : C.root =>
+      ((refinedRootExact C.rel C.out C.root C.root_closed).toFun z).val) hy)
 
 /-- Coherence needs no new choices: the identical middle chart cancels. -/
 theorem refineFamily_coherent
