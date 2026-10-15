@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.TreeFullA
+import GluingEPPA.Sparsening.TreeIrreducibleSide
 
 /-!
 # Closed partial automorphisms and composable triples
