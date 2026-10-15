@@ -67,8 +67,8 @@ theorem refinedRoot_J_complete
     exact hJ x hx y hy
   · intro i
     fin_cases i
-    · simpa only [xs, Tree.JPair, dif_pos, ↓reduceIte] using hxp
-    · simpa only [xs, Tree.JPair, dif_neg, Nat.reduceNe, ↓reduceIte] using hyq
+    · simpa [xs, Tree.JPair, s] using hxp
+    · simpa [xs, Tree.JPair, s] using hyq
 
 end
 end GluingEPPA.Sparsening.OrbitAtlas
