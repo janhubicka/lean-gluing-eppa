@@ -25,7 +25,10 @@ theorem reindexMap_apply (p : I ≃ J)
     (f : ∀ i, A i ≃* B (p i))
     (x : ∀ i, A i) (i : I) :
     reindexMap A B p f x (p i) = f i (x i) := by
-  simp [reindexMap]
+  unfold reindexMap
+  have hi := p.symm_apply_apply i
+  cases hi
+  simp
 
 noncomputable def reindexGroupEquiv (p : I ≃ J)
     (f : ∀ i, A i ≃* B (p i)) :
