@@ -25,6 +25,7 @@ namespace LocalSteinerAxioms
 
 variable {D : LabelledGraph V E A}
 variable (H : LocalSteinerAxioms D) (P : PresentLabels D)
+include H
 
 theorem realized_swap {b c d : P.Actual}
     (ht : P.triple b c d) : P.triple c b d := by
@@ -52,6 +53,7 @@ theorem realized_distinct {b c d : P.Actual}
       (H.realized_cycle P ht))
 
 /-- The symmetric triple relation has unique completion of any ordered pair. -/
+omit H in
 theorem realized_unique {b c d e : P.Actual}
     (h : P.triple b c d) (k : P.triple b c e) : d = e :=
   P.triple_unique h k
