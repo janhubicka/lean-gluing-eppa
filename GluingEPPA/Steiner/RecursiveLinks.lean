@@ -201,17 +201,13 @@ noncomputable def inclusion (k : Proper S) : (old k).Carrier →* (data D S old)
 
 theorem inclusion_edge (k : Proper S) (e : E) (he : e ∈ k.val) :
     inclusion D S old L A hA k ((old k).edge e) = (data D S old).edge e := by
-  have hw : ∀ f ∈ ([e] : List E), f ∈ sets S k := by
-    intro f hf
-    have hfe : f = e := List.mem_singleton.mp hf
-    subst f
-    change e ∈ k.val
-    exact he
-  have h := DirectRecord.inclusion_word D (sets S) (groups S old)
-    (edges S old) (involutions S old) k (hom D S old L A k)
-    (hom_edge D S old L A hA k) (S : Set E) k.property.1 (old k).generated [e] hw
-  rw [DirectRecord.valuation_eq_product] at h
-  simpa only [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one] using h
+  apply Subtype.ext
+  change hom D S old L A k ((old k).edge e) =
+    (DirectRecord.totalGenerator D (sets S) (groups S old)
+      (edges S old) (involutions S old) (S : Set E) e).val
+  rw [hom_edge D S old L A hA k e he,
+    DirectRecord.totalGenerator_mem _ _ _ _ _ _ e (k.property.1 he)]
+  rfl
 
 /-- Property (II) for the new stage, with earlier premises supplied by L and A. -/
 theorem inclusion_replace (k : Proper S) (u v : V) (g : (old k).Carrier)
