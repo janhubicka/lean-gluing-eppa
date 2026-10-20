@@ -104,7 +104,7 @@ def copy (s : V) (x : A) : D.Realization := Quotient.mk D.setoid (s, x)
 
 theorem copy_eq_iff (s t : V) (x y : A) :
     D.copy s x = D.copy t y ↔ x = y ∧ D.Carries x s t :=
-  ⟨Quotient.exact, Quotient.sound⟩
+  ⟨fun h => Quotient.exact h, fun h => Quotient.sound h⟩
 
 theorem copy_injective (s : V) : Function.Injective (D.copy s) := by
   intro x y h
