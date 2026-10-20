@@ -36,8 +36,12 @@ def comap (A : RightAction H X) (f : G →* H) : RightAction G X where
 def perm (A : RightAction G X) (g : G) : Equiv.Perm X where
   toFun x := A.act x g
   invFun x := A.act x g⁻¹
-  left_inv x := by rw [A.mul, mul_inv_cancel, A.one]
-  right_inv x := by rw [A.mul, inv_mul_cancel, A.one]
+  left_inv x := by
+    change A.act (A.act x g) g⁻¹ = x
+    rw [A.mul, mul_inv_cancel, A.one]
+  right_inv x := by
+    change A.act (A.act x g⁻¹) g = x
+    rw [A.mul, inv_mul_cancel, A.one]
 
 @[simp] theorem perm_apply (A : RightAction G X) (g : G) (x : X) :
     A.perm g x = A.act x g := rfl
