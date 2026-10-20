@@ -57,7 +57,7 @@ theorem realized_unique {b c d e : P.Actual}
   P.triple_unique h k
 
 /-- An elementary relational presentation of a partial Steiner triple system. -/
-structure PartialSteiner (B : Type v) where
+structure PartialSteiner (B : Type*) where
   triple : B → B → B → Prop
   swap : ∀ {x y z}, triple x y z → triple y x z
   cycle : ∀ {x y z}, triple x y z → triple y z x
