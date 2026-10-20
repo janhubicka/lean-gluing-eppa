@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.PermutationConjugation
+
+#print axioms GluingEPPA.Steiner.permutationConjugation
+#print axioms GluingEPPA.Steiner.permutationConjugation_apply
+#print axioms GluingEPPA.Steiner.permutationConjugation_swap
