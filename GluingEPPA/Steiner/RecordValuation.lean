@@ -113,7 +113,15 @@ noncomputable def imageGroup (S : Set E) : Subgroup (Product D T K a ha) where
 
 instance finiteImageGroup [Finite I] [Finite V] [∀ i, Finite (K i)] (S : Set E) :
     Finite (imageGroup D T K a ha S) := by
-  infer_instance
+  classical
+  letI : Fintype I := Fintype.ofFinite I
+  letI : ∀ i, Fintype (K i) := fun i => Fintype.ofFinite (K i)
+  letI : ∀ i, Fintype (D.Component (T i) (a i) (ha i)) :=
+    fun i => Fintype.ofFinite (D.Component (T i) (a i) (ha i))
+  letI : Fintype (Product D T K a ha) := inferInstance
+  exact Finite.of_injective
+    (fun g : imageGroup D T K a ha S => (g.val : Product D T K a ha))
+    Subtype.val_injective
 
 /-- A word's record as an element of the new image group. -/
 noncomputable def valuation (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
