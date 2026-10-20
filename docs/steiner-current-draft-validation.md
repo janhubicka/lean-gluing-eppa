@@ -1,5 +1,25 @@
 # Validation of the current recursive gluing manuscript
 
+## Validation scope and preservation
+
+**Keep all existing validation of `amalgamation_diagrams.tex`.** The relational
+EPPA, complete-overlap sparsening, and coherent results remain an active part
+of this library. Preserve all supporting Lean modules, declarations,
+exact-name axiom manifests, regression tests, CI coverage, manuscript markers,
+and pinned proof references. The new Steiner proof does not replace that
+validation. Do not remove those dependencies or checks when cleaning up
+superseded Steiner work.
+
+The only active Steiner manuscript target is
+`janhubicka/Otto-simplified/steiner_recursive_gluing_valuations.tex`.
+The other Steiner notes and the earlier proof in PR #64 are superseded as
+validation targets; completing their separate formalizations is not required.
+Retain their sources and useful counterexamples or elementary lemmas as
+reference material. Reuse is allowed only when it matches the current draft
+or after proving the necessary correspondence. Existing proofs and checks
+are not deleted by this scope decision, and no earlier result is declared
+false merely because its manuscript is no longer a target.
+
 ## Target and fidelity rule
 
 The target is `janhubicka/Otto-simplified`, `steiner_recursive_gluing_valuations.tex`.
