@@ -97,10 +97,10 @@ noncomputable def actionWithGenerators (r t : I) :
       intro e ht
       rw [F.deletion_generator r t e.val e.property]
       simp [ht]
-    obtain ⟨φ, hφ⟩ := (T t).restriction_factors_of_membership
+    obtain ⟨φ, hφ⟩ := (T t).restriction_factors
       (T l) i (C.preserves l t hlt)
-      (C.inclusion_injective l t hlt)
-      (C.replacement l t hlt)
+      ((T t).reflects_of_membership (T l) i
+        (C.inclusion_injective l t hlt) (C.replacement l t hlt))
       (fun e : R r => a r e.val)
       (fun e : R r => a l e.val)
       (fun e : R r => e.val ∈ R t)
