@@ -103,8 +103,8 @@ theorem inc_edge (r : Proper S) (e : E) (he : e ∈ r.val) :
 theorem ret_edge (r : Proper S) (e : E) (he : e ∈ S) :
     ret D S old r (edge D S old e) = if e ∈ r.val then (old r).edge e else 1 := by
   rw [edge_of_mem D S old e he]
-  change (if e ∈ (↑r.val : Set E) then (old r).edge e else 1) = _
-  by_cases hr : e ∈ r.val <;> simp [hr]
+  simp [ret, GeneratedStep.coordinate, GeneratedStep.generator,
+    value, RecursiveStep.groupProjection, RecursiveStep.edgeValue, masks, edges]
 
 theorem action_edge (r : Proper S) (e : E) (he : e ∈ S) :
     action D S old r (edge D S old e) =
