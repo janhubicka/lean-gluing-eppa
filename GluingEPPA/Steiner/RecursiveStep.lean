@@ -12,6 +12,7 @@ The full dependent induction over all finite edge subsets remains separate.
 namespace GluingEPPA.Steiner
 
 universe u v w z t
+attribute [local instance] Classical.propDecidable
 
 namespace Transport
 
@@ -31,10 +32,10 @@ theorem edgePerm_involutive (D : EdgeGraph V E) (R : Set E) (a : E → G)
     T.edgePerm D R a e * T.edgePerm D R a e = 1 := by
   classical
   by_cases he : e ∈ R
-  · simp only [edgePerm, if_pos he, ← map_mul, ha e he, map_one]
+  · simp only [edgePerm, ite_eq_left he, ← map_mul, ha e he, map_one]
   · apply Equiv.ext
     intro x
-    simp [edgePerm, he, swapPoints, Equiv.Perm.mul_apply]
+    simp [edgePerm, he, swapPoints]
 
 theorem edgePerm_endpoint (D : EdgeGraph V E) (R : Set E) (a : E → G)
     (ha : ∀ e ∈ R, a e * a e = 1)
@@ -44,7 +45,7 @@ theorem edgePerm_endpoint (D : EdgeGraph V E) (R : Set E) (a : E → G)
   classical
   by_cases he : e ∈ R
   · have h := (T.action_inv_marked_iff u v (a e)).mpr (hstep e he u v hj)
-    simpa only [edgePerm, if_pos he, involutive_inv_eq (ha e he)] using h
+    simpa only [edgePerm, ite_eq_left he, involutive_inv_eq (ha e he)] using h
   · rcases hj with ⟨hu, hv⟩ | ⟨hv, hu⟩
     · rw [← hu, ← hv]
       simp [edgePerm, he, swapPoints]
