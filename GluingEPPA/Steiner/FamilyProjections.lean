@@ -14,6 +14,7 @@ The group actions on the old quotient coordinates are handled separately.
 namespace GluingEPPA.Steiner.RecursiveStep
 
 universe u v w z
+attribute [local instance] Classical.propDecidable
 variable {I : Type u} {E : Type v}
 variable (A : I → Type w) [∀ i, Group (A i)]
 variable (R : I → Set E) (a : ∀ i, E → A i)
@@ -45,14 +46,14 @@ theorem meet_subset_left (r t : I) : R (F.meet r t) ⊆ R r := by
 
 /-- Retain precisely the generators belonging to the target mask. -/
 def groupCoordinate (r t : I) : A r →* A t :=
-  (F.inclusion (F.meet r t) t (F.meet_subset_right r t)).comp
+  (F.inclusion (F.meet r t) t (OldGroupMaps.meet_subset_right A R a F r t)).comp
     (F.deletion r t)
 
 /-- This is the group-coordinate identity needed by the next finite product. -/
 theorem groupCoordinate_generator (r t : I) (e : E) (he : e ∈ R r) :
-    F.groupCoordinate r t (a r e) =
+    OldGroupMaps.groupCoordinate A R a F r t (a r e) =
       if e ∈ R t then a t e else 1 := by
-  change F.inclusion (F.meet r t) t (F.meet_subset_right r t)
+  change F.inclusion (F.meet r t) t (OldGroupMaps.meet_subset_right A R a F r t)
     (F.deletion r t (a r e)) =
       if e ∈ R t then a t e else 1
   rw [F.deletion_generator r t e he]
@@ -62,7 +63,7 @@ theorem groupCoordinate_generator (r t : I) (e : E) (he : e ∈ R r) :
       exact ⟨he, ht⟩
     simp only [ite_eq_left ht]
     exact F.inclusion_generator (F.meet r t) t
-      (F.meet_subset_right r t) e hm
+      (OldGroupMaps.meet_subset_right A R a F r t) e hm
   · simp [ht]
 
 end OldGroupMaps
