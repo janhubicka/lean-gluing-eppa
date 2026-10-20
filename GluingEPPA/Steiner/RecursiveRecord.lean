@@ -143,7 +143,7 @@ theorem projection_edge (i : Proper S) (e : E) (he : e ∈ S) :
       (DirectRecord.totalGenerator D (sets S) (groups S old)
         (edges S old) (involutions S old) (S : Set E) e) = _
   rw [DirectRecord.totalGenerator_mem _ _ _ _ _ _ e he]
-  rfl
+  by_cases hi : e ∈ i.val <;> simp [DirectRecord.projection_generator, sets, edges, hi]
 
 /-- The coordinate action needed in the next compatibility lemma. -/
 def action (i : Proper S) : RightAction (data D S old).Carrier
@@ -166,7 +166,7 @@ end Step
 
 /-- Well-founded recursion constructs the same smaller data wherever it is used. -/
 noncomputable def family (S : Finset E) : Data E S :=
-  Step.data D S (fun i => family D i.val)
+  Step.data D S (fun i => family i.val)
 termination_by S.card
 decreasing_by exact Finset.card_lt_card i.property
 
