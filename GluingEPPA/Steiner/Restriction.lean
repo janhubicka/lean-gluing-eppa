@@ -135,6 +135,8 @@ noncomputable def restrictedEdge (inside : E → Prop) (b : E → H)
   classical
   exact if inside e then T.action (i (b e)) else T.swapPoints (source e) (target e)
 
+include pres
+
 /-- The crossing-set restriction respects every relation of the source group.
 
 `K` is G_R, `H` is G_(R∩T), and `G` is G_T. The old source action on
