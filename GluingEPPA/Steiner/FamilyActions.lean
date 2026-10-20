@@ -67,7 +67,7 @@ noncomputable def actionWithGenerators (r t : I) :
     rw [F.inclusion_generator r t hsub e.val e.property]
     simp [Transport.edgePerm, hsub e.property]
   · let l := F.meet r t
-    have hlt : R l ⊆ R t := F.meet_subset_right r t
+    have hlt : R l ⊆ R t := OldGroupMaps.meet_subset_right A R a F r t
     let i : A l →* A t := F.inclusion l t hlt
     have hon : ∀ e : R r, e.val ∈ R t →
         C.smallerAction r t hsub (a r e.val) =
@@ -126,11 +126,11 @@ noncomputable def actionWithGenerators (r t : I) :
 /-- The two coordinate kinds satisfy exactly the assumptions of the
 previously checked finite product construction. -/
 noncomputable def compatible : CompatibleCoordinates A T R a D where
-  groups := F.groupCoordinate
+  groups := OldGroupMaps.groupCoordinate A R a F
   actions := fun r t => (C.actionWithGenerators r t).val
   groups_on := by
     intro r e t
-    exact F.groupCoordinate_generator r t e.val e.property
+    exact OldGroupMaps.groupCoordinate_generator A R a F r t e.val e.property
   actions_on := by
     intro r e t
     exact (C.actionWithGenerators r t).property e
