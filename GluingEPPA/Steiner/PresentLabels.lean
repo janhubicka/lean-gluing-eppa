@@ -36,7 +36,7 @@ def Actual : Type (max u v) :=
     ∃ (s : D.Sheet) (x : A), P.present s.1 x ∧ (D.lifted).copy s x = q }
 
 /-- A point of a labelled chart gives a point in the true realization. -/
-def copy (s : D.Sheet) (x : A) (hx : P.present s.1 x) : P.Actual :=
+noncomputable def copy (s : D.Sheet) (x : A) (hx : P.present s.1 x) : P.Actual :=
   ⟨(D.lifted).copy s x, ⟨s, x, hx, rfl⟩⟩
 
 /-- A point relation in the genuine realization is contributed locally. -/
@@ -83,7 +83,7 @@ is the image of a local triple. -/
 theorem chart_closed {s : D.Sheet} {x y : A}
     (hx : P.present s.1 x) (hy : P.present s.1 y) {d : P.Actual}
     (h : P.triple (P.copy s x hx) (P.copy s y hy) d) :
-    ∃ z (hz : P.present s.1 z), D.triple s.1 x y z ∧ P.copy s z hz = d := by
+    ∃ z, ∃ hz : P.present s.1 z, D.triple s.1 x y z ∧ P.copy s z hz = d := by
   obtain ⟨z, ht, heq⟩ := D.lifted_chart_closed h
   have hz : P.present s.1 z := (P.triple_present ht).2.2
   refine ⟨z, hz, ht, ?_⟩
