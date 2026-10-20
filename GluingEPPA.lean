@@ -7,6 +7,7 @@ import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.CoherentSpokes
 import GluingEPPA.Steiner.TransportIso
 import GluingEPPA.Steiner.SteinerRelation
+import GluingEPPA.Steiner.GeneratorPermutation
 
 /-!
 # The Gluing EPPA library
