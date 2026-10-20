@@ -17,6 +17,8 @@ right-action convention.
 namespace GluingEPPA.Steiner
 namespace EdgeGraph
 
+attribute [local instance] Classical.propDecidable
+
 universe u v w
 variable {V : Type u} {E : Type v} {G : Type w} [Group G]
 variable (D : EdgeGraph V E) (T : Set E) (a : E → G)
@@ -121,6 +123,27 @@ inductive WordWalk (S : Set E) : V → List E → V → Prop
   | nil (u : V) : WordWalk S u [] u
   | cons {u v z : V} {e : E} {w : List E} :
       e ∈ S → D.Joins e u v → WordWalk S v w z → WordWalk S u (e :: w) z
+
+/-- Retaining the word agrees with the existing actual-walk valuation. -/
+theorem WordWalk.value {S : Set E} {u v : V} {w : List E}
+    (p : D.WordWalk S u w v) :
+    D.WalkValue S a u v ((w.map a).prod) := by
+  induction p with
+  | nil u =>
+      simpa using (WalkValue.nil (D := D) (S := S) (a := a) u)
+  | cons he hj p ih =>
+      simpa only [List.map_cons, List.prod_cons] using (WalkValue.cons he hj ih)
+
+/-- Conversely every previously defined actual valued walk has such a word. -/
+theorem WalkValue.exists_word {S : Set E} {u v : V} {g : G}
+    (p : D.WalkValue S a u v g) :
+    ∃ w, D.WordWalk S u w v ∧ (w.map a).prod = g := by
+  induction p with
+  | nil u => exact ⟨[], WordWalk.nil u, rfl⟩
+  | @cons u v z e g he hj p ih =>
+      obtain ⟨w,hw,hv⟩ := ih
+      exact ⟨e :: w, WordWalk.cons he hj hw, by
+        simp only [List.map_cons, List.prod_cons, hv]⟩
 
 /-- The endpoint identity iterated along a genuine walk, not an arbitrary word. -/
 theorem componentWordPerm_walk {S : Set E} {u v : V} {w : List E}

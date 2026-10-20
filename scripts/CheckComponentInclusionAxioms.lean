@@ -9,6 +9,8 @@ import GluingEPPA.Steiner.ComponentInclusion
 #print axioms GluingEPPA.Steiner.EdgeGraph.componentWordPerm_nil
 #print axioms GluingEPPA.Steiner.EdgeGraph.componentWordPerm_cons
 #print axioms GluingEPPA.Steiner.EdgeGraph.componentWordPerm_append
+#print axioms GluingEPPA.Steiner.EdgeGraph.WordWalk.value
+#print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.exists_word
 #print axioms GluingEPPA.Steiner.EdgeGraph.componentWordPerm_walk
 #print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.congr_edges
 #print axioms GluingEPPA.Steiner.EdgeGraph.componentMap_apply

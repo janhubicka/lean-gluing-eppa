@@ -16,6 +16,8 @@ replacement for that lemma or a proof of the whole finite recursion.
 namespace GluingEPPA.Steiner
 namespace EdgeGraph
 
+attribute [local instance] Classical.propDecidable
+
 universe u v w z
 variable {V : Type u} {E : Type v} {G : Type w} {H : Type z}
 variable [Group G] [Group H]
@@ -42,6 +44,7 @@ variable (hNT : N ⊆ T) (i : G →* H) (hi : ∀ e ∈ N, i (a e) = b e)
 def componentMap : D.Component N a ha → D.Component T b hb :=
   Quotient.map (fun z : V × G => (z.1, i z.2)) (by
     intro x y p
+    change D.CayleyWalk N a x.1 x.2 y.1 y.2 at p
     apply (D.cayleyWalk_iff_value T b x.1 y.1 (i x.2) (i y.2)).2
     have q := ((p.value.map i).congr_edges hi).mono hNT
     simpa only [map_mul, map_inv] using q)
@@ -62,6 +65,7 @@ theorem componentMap_injective
   intro x y
   refine Quotient.inductionOn₂ x y ?_
   rintro ⟨u,g⟩ ⟨v,h⟩ heq
+  change D.component T b hb u (i g) = D.component T b hb v (i h) at heq
   apply (D.component_eq_iff_value N a ha u v g h).2
   apply hreplace u v (g⁻¹ * h)
   have q := (D.component_eq_iff_value T b hb u v (i g) (i h)).1 heq
