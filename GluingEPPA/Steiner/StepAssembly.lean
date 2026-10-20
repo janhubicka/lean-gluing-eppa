@@ -28,7 +28,7 @@ structure CompatibleCoordinates where
 
 variable (ha : ∀ i e, e ∈ R i → a i e * a i e = 1)
 
-abbrev NewGroup := GeneratedStep.Carrier (edgeValue A T R a D)
+noncomputable abbrev NewGroup := GeneratedStep.Carrier (edgeValue A T R a D)
   (edgeValue_involutive A T R a D ha)
 
 noncomputable def newGenerator (e : E) : NewGroup A T R a D ha :=
