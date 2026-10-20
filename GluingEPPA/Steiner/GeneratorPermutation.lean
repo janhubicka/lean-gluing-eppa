@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.WordLift
+import GluingEPPA.Steiner.GeneratedStep
 
 /-!
 # Permuting named involutive generators
@@ -30,7 +30,7 @@ theorem perm_relations_inverse (π : E ≃ E)
     wordValue a (w.map π.symm) = 1 := by
   have h := (hrel (w.map π.symm)).mpr
   have hp : wordValue a ((w.map π.symm).map π) = 1 := by
-    simpa only [List.map_map, Equiv.apply_symm_apply, List.map_id] using hw
+    simpa only [List.map_map, Function.comp_def, Equiv.apply_symm_apply, List.map_id] using hw
   exact h hp
 
 noncomputable def permHom (π : E ≃ E)
@@ -62,7 +62,7 @@ noncomputable def permEquiv (π : E ≃ E)
     · exact perm_relations_inverse a π hrel w
     · intro hw
       have h := (hrel (w.map π.symm)).mp hw
-      simpa only [List.map_map, Equiv.symm_apply_apply, List.map_id] using h
+      simpa only [List.map_map, Function.comp_def, Equiv.apply_symm_apply, List.map_id] using h
   let backward := permHom a ha hgen π.symm hInv
   have hback : backward.comp forward = MonoidHom.id G := by
     apply hom_ext_of_words a hgen
