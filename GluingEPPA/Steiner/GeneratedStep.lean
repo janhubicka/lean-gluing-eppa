@@ -81,12 +81,14 @@ variable {F : Type t} (b : F → H) (j : F → E)
 variable (hgen : ∀ g, ∃ w, wordValue b w = g)
 variable (φ : H →* P) (hφ : ∀ e, φ (b e) = a (j e))
 
+include hφ in
 theorem mapped_word (w : List F) :
     φ (wordValue b w) = wordValue a (w.map j) := by
   induction w with
   | nil => simp
   | cons e w ih => simp only [wordValue_cons, List.map_cons, map_mul, hφ, ih]
 
+include hgen hφ in
 theorem image_mem (g : H) : φ g ∈ wordSubgroup a ha := by
   obtain ⟨w, hw⟩ := hgen g
   refine ⟨w.map j, ?_⟩
