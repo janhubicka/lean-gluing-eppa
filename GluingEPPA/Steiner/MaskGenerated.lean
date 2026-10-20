@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.MaskIntersection
+import GluingEPPA.Steiner.GeneratedStep
 
 /-!
 # Generation by retained edge names
