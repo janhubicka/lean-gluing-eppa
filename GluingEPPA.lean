@@ -9,6 +9,7 @@ import GluingEPPA.Steiner.TransportIso
 import GluingEPPA.Steiner.SteinerRelation
 import GluingEPPA.Steiner.GeneratorPermutation
 import GluingEPPA.Steiner.GeneratedSymmetry
+import GluingEPPA.Steiner.ProperSymmetry
 
 /-!
 # The Gluing EPPA library
