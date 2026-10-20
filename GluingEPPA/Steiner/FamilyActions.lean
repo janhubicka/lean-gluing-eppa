@@ -77,6 +77,8 @@ noncomputable def actionWithGenerators (r t : I) :
         rw [F.meet_eq]
         exact ⟨e.property, ht⟩
       rw [C.smallerAction_generator r t hsub e]
+      change (T l).edgePerm D (R l) (a l) e.val =
+        (T l).action (a l e.val)
       simp [Transport.edgePerm, hl]
     have hout : ∀ e : R r, ¬ e.val ∈ R t →
         C.smallerAction r t hsub (a r e.val) =
@@ -86,18 +88,20 @@ noncomputable def actionWithGenerators (r t : I) :
         rw [F.meet_eq]
         exact fun h => ht h.2
       rw [C.smallerAction_generator r t hsub e]
+      change (T l).edgePerm D (R l) (a l) e.val =
+        (T l).swapPoints (D.source e.val) (D.target e.val)
       simp [Transport.edgePerm, hl]
     have hdel : ∀ e : R r, e.val ∈ R t →
         F.deletion r t (a r e.val) = a l e.val := by
       intro e ht
       rw [F.deletion_generator r t e.val e.property]
-      simp [ht]
+      simpa [l, ht]
     have hdelout : ∀ e : R r, ¬ e.val ∈ R t →
         F.deletion r t (a r e.val) = 1 := by
       intro e ht
       rw [F.deletion_generator r t e.val e.property]
       simp [ht]
-    obtain ⟨φ, hφ⟩ := (T t).restriction_factors
+    let witness := (T t).restriction_factors
       (T l) i (C.preserves l t hlt)
       ((T t).reflects_of_membership (T l) i
         (C.inclusion_injective l t hlt) (C.replacement l t hlt))
@@ -111,6 +115,8 @@ noncomputable def actionWithGenerators (r t : I) :
       hon hout hdel hdelout
       (fun e => C.involutive r e.val e.property)
       (C.generated r)
+    let φ := Classical.choose witness
+    have hφ := Classical.choose_spec witness
     refine ⟨φ, ?_⟩
     intro e
     rw [hφ e]
@@ -127,7 +133,7 @@ noncomputable def actionWithGenerators (r t : I) :
 previously checked finite product construction. -/
 noncomputable def compatible : CompatibleCoordinates A T R a D where
   groups := OldGroupMaps.groupCoordinate A R a F
-  actions := fun r t => (C.actionWithGenerators r t).val
+  actions := fun r t => (OldWalkActions.actionWithGenerators A T R a D F C r t).val
   groups_on := by
     intro r e t
     exact OldGroupMaps.groupCoordinate_generator A R a F r t e.val e.property
