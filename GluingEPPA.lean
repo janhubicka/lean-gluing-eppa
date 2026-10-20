@@ -6,7 +6,7 @@ import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.MaskGenerated
 import GluingEPPA.Steiner.LocalTriples
-import GluingEPPA.Steiner.FamilyStep
+import GluingEPPA.Steiner.FiniteInduction
 
 /-!
 # The Gluing EPPA library
