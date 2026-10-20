@@ -9,9 +9,9 @@ actions supplied by that lemma. The resulting product homomorphism takes
 old generators to new generators. Old word representations show that it
 lands in the literal image group. Projection proves it injective.
 
-The final lemma is the manuscript's extraction of the restricted walk
-from its component coordinate. The recursive existence of all the required
-earlier-stage data remains a separate obligation.
+The final lemmas derive the inclusion's own component action and extract
+the restricted walk, exactly as in the manuscript. The recursive existence
+of all the required earlier-stage data remains a separate obligation.
 -/
 
 namespace GluingEPPA.Steiner
@@ -64,6 +64,7 @@ variable (k : I) (F : K k →* Product D T K a ha)
 variable (hF : ∀ e ∈ T k, F (a k e) = letter D T K a ha e)
 
 /-- The generator rule is valid for every allowed word. -/
+include hF in
 theorem map_word (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
     F ((w.map (a k)).prod) = value D T K a ha w := by
   induction w with
@@ -111,6 +112,34 @@ theorem inclusion_injective :
   have hp := congrArg (projection D T K a ha S k) heq
   simpa only [projection_inclusion] using hp
 
+/-- The inclusion acts on its own smaller component coordinate by the deck action.
+This is derived from the generator rule and old word representations; it is
+not a new induction premise. -/
+theorem inclusion_componentAction (g : K k)
+    (c : D.Component (T k) (a k) (ha k)) :
+    (coordinateAction D T K a ha S k).act c
+        (inclusion D T K a ha k F hF S hTS hgen g) =
+      D.componentRightAction (T k) (a k) (ha k) c g := by
+  obtain ⟨w, hw, hv⟩ := hgen g
+  have hact :
+      (coordinateAction D T K a ha S k).act c
+          (inclusion D T K a ha k F hF S hTS hgen ((w.map (a k)).prod)) =
+        D.componentWordPerm (T k) (a k) (ha k) w c := by
+    rw [inclusion_word D T K a ha k F hF S hTS hgen w hw]
+    rfl
+  have hdeck := D.componentAction_word (T k) (T k) (a k) (ha k) (a k)
+    (D.componentGroupAction (T k) (a k) (ha k))
+    (fun e he d => D.componentGroupAction_edge (T k) (a k) (ha k) he d)
+    w hw c
+  calc
+    (coordinateAction D T K a ha S k).act c
+        (inclusion D T K a ha k F hF S hTS hgen g) =
+      D.componentWordPerm (T k) (a k) (ha k) w c := by
+        simpa only [hv] using hact
+    _ = D.componentRightAction (T k) (a k) (ha k) c ((w.map (a k)).prod) :=
+      hdeck.symm
+    _ = D.componentRightAction (T k) (a k) (ha k) c g := by rw [hv]
+
 /-- Extract the exact restricted walk from the coordinate for the smaller set.
 The premise is the coordinate formula for the newly constructed inclusion,
 not an assumed restricted-walk conclusion. -/
@@ -140,6 +169,17 @@ theorem replacement_from_coordinate (S : Set E) (k : I)
           D.componentWordPerm_walk (T k) (a k) (ha k) p
   have hp := (D.component_eq_iff_value (T k) (a k) (ha k) u v g⁻¹ 1).1 hcomp
   simpa only [inv_inv, mul_one] using hp
+
+/-- Property (II) for the actual new inclusion, with its coordinate formula proved. -/
+theorem inclusion_replacement {u v : V} (w : List E)
+    (hw : ∀ e ∈ w, e ∈ S) (p : D.WordWalk S u w v) (g : K k)
+    (hval : valuation D T K a ha S w hw =
+      inclusion D T K a ha k F hF S hTS hgen g) :
+    D.WalkValue (T k) (a k) u v g := by
+  exact replacement_from_coordinate D T K a ha S k
+    (inclusion D T K a ha k F hF S hTS hgen)
+    (fun c g => inclusion_componentAction D T K a ha k F hF S hTS hgen g c)
+    w hw p g hval
 
 end DirectRecord
 end EdgeGraph
