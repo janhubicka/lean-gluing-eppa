@@ -5,6 +5,7 @@ import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.CoherentSpokes
+import GluingEPPA.Steiner.PresentLabels
 
 /-!
 # The Gluing EPPA library
