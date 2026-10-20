@@ -37,8 +37,12 @@ def component (u : V) (g : G) : D.Component M a ha :=
 
 theorem component_eq_iff (u v : V) (g h : G) :
     D.component M a ha u g = D.component M a ha v h ↔
-      D.CayleyWalk M a u g v h :=
-  ⟨Quotient.exact, Quotient.sound⟩
+      D.CayleyWalk M a u g v h := by
+  constructor
+  · intro hp
+    exact @Quotient.exact (V × G) (D.cayleySetoid M a ha) (u,g) (v,h) hp
+  · intro hp
+    exact @Quotient.sound (V × G) (D.cayleySetoid M a ha) (u,g) (v,h) hp
 
 theorem component_eq_iff_value (u v : V) (g h : G) :
     D.component M a ha u g = D.component M a ha v h ↔
@@ -99,7 +103,7 @@ theorem componentRightAction_mul (c : D.Component M a ha) (h k : G) :
   unfold componentRightAction
   rw [D.componentTranslation_mul, mul_inv_rev]
 
-/-- This is the exact hypothesis supplied by old property (II) with the empty set. -/
+/-- The exact hypothesis supplied by earlier-stage property (II) with the empty set. -/
 theorem distinguished_injective
     (hunit : ∀ u v, D.WalkValue M a u v 1 → u = v) :
     Function.Injective (fun u => D.component M a ha u 1) := by
