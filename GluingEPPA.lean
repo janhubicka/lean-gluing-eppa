@@ -7,7 +7,7 @@ import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.StepAssembly
 import GluingEPPA.Steiner.MaskGenerated
 import GluingEPPA.Steiner.LocalTriples
-import GluingEPPA.Steiner.FamilyProjections
+import GluingEPPA.Steiner.FamilyActions
 
 /-!
 # The Gluing EPPA library
