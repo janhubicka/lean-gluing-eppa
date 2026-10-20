@@ -14,7 +14,7 @@ namespace GluingEPPA.Steiner.Transport
 universe u v
 variable {V : Type u} {G : Type v} [Group G]
 /-- Compatible symmetries of vertices and group values. -/
-structure Symmetry where
+structure Symmetry (T : Transport V G) where
   vertices : V ≃ V
   values : G ≃* G
   preserves : ∀ u v g,
