@@ -146,6 +146,7 @@ noncomputable def compatibleAction (k i : Proper S) :
       (L (meet S k i) k Finset.inter_subset_left).delete
       (A (meet S k i) k (meet_lt_left S h))
 
+include hA in
 theorem compatibleAction_edge (k i : Proper S) (e : E) (he : e ∈ k.val)
     (c : components D S old i) :
     (compatibleAction D S old L A k i).act c ((old k).edge e) =
@@ -168,7 +169,11 @@ theorem compatibleAction_edge (k i : Proper S) (e : E) (he : e ∈ k.val)
       (L (meet S k i) k Finset.inter_subset_left).delete
       (A (meet S k i) k (meet_lt_left S h))
       (sets S k) (by ext f; simp [sets, meet]) (edges S old k)
-      (L (meet S k i) k Finset.inter_subset_left).delete_edge
+      (by
+        intro f hf
+        by_cases hn : f ∈ (meet S k i).val <;>
+          simpa [sets, edges, hn] using
+            (L (meet S k i) k Finset.inter_subset_left).delete_edge f hf)
       (hA (meet S k i) k (meet_lt_left S h)) he c
 
 /-- The full product homomorphism is assembled in the manuscript's order. -/
@@ -177,12 +182,17 @@ noncomputable def hom (k : Proper S) : (old k).Carrier →*
   DirectRecord.coordinateHom D (sets S) (groups S old) (edges S old)
     (involutions S old) k (groupHom D S old L k) (compatibleAction D S old L A k)
 
+include hA in
 theorem hom_edge (k : Proper S) (e : E) (he : e ∈ k.val) :
     hom D S old L A k ((old k).edge e) =
       DirectRecord.letter D (sets S) (groups S old) (edges S old) (involutions S old) e :=
   DirectRecord.coordinateHom_generator D (sets S) (groups S old) (edges S old)
     (involutions S old) k (groupHom D S old L k) (compatibleAction D S old L A k)
-    (groupHom_edge D S old L k) (compatibleAction_edge D S old L A hA k) e he
+    (by
+      intro i f hf
+      by_cases hi : f ∈ i.val <;>
+        simpa [sets, edges, hi] using groupHom_edge D S old L k i f hf)
+    (compatibleAction_edge D S old L A hA k) e he
 
 noncomputable def inclusion (k : Proper S) : (old k).Carrier →* (data D S old).Carrier :=
   DirectRecord.inclusion D (sets S) (groups S old) (edges S old) (involutions S old)
@@ -193,7 +203,10 @@ theorem inclusion_edge (k : Proper S) (e : E) (he : e ∈ k.val) :
     inclusion D S old L A hA k ((old k).edge e) = (data D S old).edge e := by
   have hw : ∀ f ∈ ([e] : List E), f ∈ sets S k := by
     intro f hf
-    simpa only [List.mem_singleton.mp hf] using he
+    have hfe : f = e := List.mem_singleton.mp hf
+    subst f
+    change e ∈ k.val
+    exact he
   have h := DirectRecord.inclusion_word D (sets S) (groups S old)
     (edges S old) (involutions S old) k (hom D S old L A k)
     (hom_edge D S old L A hA k) (S : Set E) k.property.1 (old k).generated [e] hw
@@ -221,7 +234,8 @@ noncomputable def link (k : Proper S) : Link D (old k) (data D S old) where
   incl := inclusion D S old L A hA k
   incl_edge := inclusion_edge D S old L A hA k
   delete := projection D S old k
-  delete_edge := projection_edge D S old k
+  delete_edge e he := by
+    by_cases hm : e ∈ k.val <;> simpa [hm] using projection_edge D S old k e he
   replace := inclusion_replace D S old L A hA k
 
 end Step
