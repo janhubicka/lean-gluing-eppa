@@ -36,7 +36,7 @@ theorem inclusion_edge (M S : Finset E) (hMS : M ⊆ S) (e : E) (he : e ∈ M) :
 theorem deletion_edge (M S : Finset E) (hMS : M ⊆ S) (e : E) (he : e ∈ S) :
     deletion D M S hMS ((family D S).edge e) =
       if e ∈ M then (family D M).edge e else 1 := by
-  by_cases hm : e ∈ M <;> simpa [hm] using (familyLink D M S hMS).delete_edge e he
+  by_cases hm : e ∈ M <;> simpa [deletion, hm] using (familyLink D M S hMS).delete_edge e he
 
 theorem retraction (M S : Finset E) (hMS : M ⊆ S) :
     (deletion D M S hMS).comp (inclusion D M S hMS) = MonoidHom.id _ :=
@@ -98,8 +98,8 @@ theorem projector_edge (M : Finset E) (e : E) :
     ((family D Finset.univ).edge e)) = _
   rw [deletion_edge D M Finset.univ _ e (Finset.mem_univ e)]
   by_cases he : e ∈ M
-  · rw [if_pos he, inclusion_edge D M Finset.univ _ e he]
-  · rw [if_neg he, map_one]
+  · simp only [if_pos he, inclusion_edge D M Finset.univ _ e he]
+  · simp only [if_neg he, map_one]
 
 /-- The commuting-projector argument of the current Corollary 4.4. -/
 theorem projector_inter (M N : Finset E) :
@@ -121,8 +121,10 @@ theorem walk_projector (M : Finset E) {u v : V}
     projector D M g = g := by
   induction p with
   | nil => exact map_one _
-  | cons he hj p ih =>
-      rw [map_mul, projector_edge, if_pos he, ih]
+  | @cons u v w e k he hj p ih =>
+      have heM : e ∈ M := he
+      rw [map_mul, projector_edge]
+      simp only [if_pos heM, ih]
 
 /-- The replacement walk has exactly the original two lifted endpoints. -/
 theorem exact_intersection_walk (M N : Finset E) (u v : V)
