@@ -14,7 +14,7 @@ universe u
 variable {V E : Type u} [Fintype E] [DecidableEq E] [Finite V]
 attribute [local instance] Classical.propDecidable
 
-abbrev previous (D : EdgeGraph V E) (S : Finset E) (r : Proper S) := family D r.val
+noncomputable abbrev previous (D : EdgeGraph V E) (S : Finset E) (r : Proper S) := family D r.val
 
 noncomputable abbrev Good (D : EdgeGraph V E) (S : Finset E) :=
   Correct D S (family D S) (previous D S)
@@ -84,7 +84,7 @@ theorem replacement (R : Finset E) (h : R ⊆ S) (u v : V)
   by_cases hEq : R = S
   · subst R
     simpa [incAll] using p
-  · apply Correct.replacement D S (family D S) (previous D S) c
+  · apply Correct.replacement c
       ⟨R, Finset.ssubset_iff_subset_ne.mpr ⟨h, hEq⟩⟩ u v g
     simpa [incAll, hEq] using p
 
