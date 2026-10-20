@@ -16,6 +16,7 @@ recursion over the proper edge subsets remains separate.
 namespace GluingEPPA.Steiner.RecursiveStep
 
 universe u v w z
+attribute [local instance] Classical.propDecidable
 variable {I : Type u} {V : Type v} {E : Type w}
 variable (A : I → Type z) [∀ i, Group (A i)]
 variable (T : ∀ i, Transport V (A i))
