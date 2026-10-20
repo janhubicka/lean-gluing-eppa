@@ -21,12 +21,11 @@ def setoid : Setoid (V × G) where
     · intro p
       simpa using T.refl p.1
     · intro p q h
-      change T.Rel q.1 p.1 (q.2 * p.2⁻¹)
       simpa only [mul_inv_rev, inv_inv] using T.symm h
     · intro p q r hpq hqr
       have h := T.trans hpq hqr
-      change T.Rel p.1 r.1 (p.2 * r.2⁻¹)
-      convert h using 1 <;> group
+      have heq : (p.2 * q.2⁻¹) * (q.2 * r.2⁻¹) = p.2 * r.2⁻¹ := by group
+      simpa only [heq] using h
 
 abbrev Space := Quotient T.setoid
 
@@ -36,7 +35,7 @@ def marked (v : V) : T.Space := T.point v 1
 
 @[simp] theorem point_eq_iff (u v : V) (g h : G) :
     T.point u g = T.point v h ↔ T.Rel u v (g * h⁻¹) :=
-  ⟨Quotient.exact, Quotient.sound⟩
+  ⟨fun h => Quotient.exact h, fun h => Quotient.sound h⟩
 
 @[simp] theorem point_eq_marked_iff (u v : V) (g : G) :
     T.point u g = T.marked v ↔ T.Rel u v g := by
