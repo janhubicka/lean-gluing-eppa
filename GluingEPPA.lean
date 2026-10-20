@@ -7,6 +7,7 @@ import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.CoherentSpokes
 import GluingEPPA.Steiner.PresentLabels
 import GluingEPPA.Steiner.TransportIso
+import GluingEPPA.Steiner.SteinerRelation
 
 /-!
 # The Gluing EPPA library
