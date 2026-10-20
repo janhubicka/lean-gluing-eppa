@@ -35,14 +35,15 @@ theorem permutationConjugation_apply (f : X ≃ Y) (p : Equiv.Perm X) (x : X) :
     permutationConjugation f p (f x) = f (p x) := by
   simp [permutationConjugation]
 
-theorem permutationConjugation_swap (f : X ≃ Y) (x y : X) :
+theorem permutationConjugation_swap [DecidableEq X] [DecidableEq Y]
+    (f : X ≃ Y) (x y : X) :
     permutationConjugation f (Equiv.swap x y) =
       Equiv.swap (f x) (f y) := by
   apply Equiv.ext
   intro z
   let x' := f.symm z
   have hz : z = f x' := (f.apply_symm_apply z).symm
-  subst z
+  rw [hz]
   classical
   by_cases h : x' = x
   · subst x'
