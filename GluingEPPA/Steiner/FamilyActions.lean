@@ -139,7 +139,7 @@ noncomputable def compatible : CompatibleCoordinates A T R a D where
     exact OldGroupMaps.groupCoordinate_generator A R a F r t e.val e.property
   actions_on := by
     intro r e t
-    exact (C.actionWithGenerators r t).property e
+    exact (OldWalkActions.actionWithGenerators A T R a D F C r t).property e
 
 end OldWalkActions
 end GluingEPPA.Steiner.RecursiveStep
