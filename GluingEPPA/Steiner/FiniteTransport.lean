@@ -34,8 +34,9 @@ noncomputable def project (D : EdgeGraph V E) (R : Set E) : FullGroup D →* Ful
 
 theorem project_edge (D : EdgeGraph V E) (R : Set E) (e : E) :
     project D R (fullEdge D e) = if e ∈ R then fullEdge D e else 1 := by
-  change inclusion D R.toFinset Finset.univ (belowUniv R)
-    (retraction D R.toFinset Finset.univ (belowUniv R) ((family D Finset.univ).edge e)) = _
+  change Good.incAll D Finset.univ (good D Finset.univ) R.toFinset (belowUniv R)
+    (Good.retAll D Finset.univ (good D Finset.univ) R.toFinset
+      (belowUniv R) ((family D Finset.univ).edge e)) = _
   rw [Good.retAll_edge D Finset.univ (good D Finset.univ) R.toFinset
     (belowUniv R) e (Finset.mem_univ e)]
   by_cases he : e ∈ R
@@ -86,9 +87,12 @@ theorem exactTransport (D : EdgeGraph V E) (M N : Set E) (u v : V) (g : FullGrou
 theorem value_one_endpoints (D : EdgeGraph V E) (u v : V)
     (p : D.WalkValue Set.univ (fullEdge D) u v 1) : u = v := by
   have q := replaceFixed D (∅ : Set E) u v 1 p (map_one (project D ∅))
-  cases q with
-  | nil => rfl
-  | cons he hj hq => exact False.elim he
+  have empty_walk_endpoints {x y : V} {h : FullGroup D}
+      (w : D.WalkValue (∅ : Set E) (fullEdge D) x y h) : x = y := by
+    induction w with
+    | nil => rfl
+    | cons he hj w ih => exact False.elim he
+  exact empty_walk_endpoints q
 
 /-- A loop-free graph edge never receives the identity. This rules out
 vacuous satisfaction of transport by collapsing all graph vertices. -/
