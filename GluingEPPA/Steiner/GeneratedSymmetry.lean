@@ -21,6 +21,7 @@ variable (a : E → P) (b : F → Q)
 variable (ha : ∀ e, a e * a e = 1) (hb : ∀ e, b e * b e = 1)
 variable (p : P ≃* Q) (σ : E ≃ F)
 variable (hgen : ∀ e, p (a e) = b (σ e))
+include hgen
 
 theorem map_word (w : List E) :
     wordValue b (w.map σ) = p (wordValue a w) := by
@@ -60,7 +61,8 @@ noncomputable def carrierEquiv : Carrier a ha ≃* Carrier b hb where
     simp
   map_mul' g h := by
     apply Subtype.ext
-    simp only [Subtype.coe_mul, map_mul]
+    change p (g.val * h.val) = p g.val * p h.val
+    exact map_mul p g.val h.val
 
 theorem carrierEquiv_generator (e : E) :
     carrierEquiv a b ha hb p σ hgen (generator a ha e) =
