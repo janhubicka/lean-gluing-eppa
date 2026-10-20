@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.WalkQuotient
+import GluingEPPA.Steiner.Restriction
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.single
 #print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.trans
@@ -19,3 +19,19 @@ import GluingEPPA.Steiner.WalkQuotient
 #print axioms GluingEPPA.Steiner.Transport.range_inclusion
 #print axioms GluingEPPA.Steiner.Transport.markedPart_rightMul_iff
 #print axioms GluingEPPA.Steiner.Transport.swap_fixes_complement
+#print axioms GluingEPPA.Steiner.wordValue_reverse
+#print axioms GluingEPPA.Steiner.wordValue_eq_of_relations
+#print axioms GluingEPPA.Steiner.wordSubgroup
+#print axioms GluingEPPA.Steiner.exists_word_of_closure
+#print axioms GluingEPPA.Steiner.involutiveWordLift
+#print axioms GluingEPPA.Steiner.involutiveWordLift_word
+#print axioms GluingEPPA.Steiner.involutiveWordLift_generator
+#print axioms GluingEPPA.Steiner.word_on_image
+#print axioms GluingEPPA.Steiner.word_on_complement
+#print axioms GluingEPPA.Steiner.relations_of_two_parts
+#print axioms GluingEPPA.Steiner.Transport.action
+#print axioms GluingEPPA.Steiner.Transport.inclusion_action
+#print axioms GluingEPPA.Steiner.Transport.inclusion_swap
+#print axioms GluingEPPA.Steiner.Transport.markedPart_action_iff
+#print axioms GluingEPPA.Steiner.Transport.restriction_relations
+#print axioms GluingEPPA.Steiner.Transport.restriction_factors
