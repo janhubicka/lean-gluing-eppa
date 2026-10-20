@@ -5,7 +5,7 @@ import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.StepAssembly
-import GluingEPPA.Steiner.MaskIntersection
+import GluingEPPA.Steiner.MaskGenerated
 
 /-!
 # The Gluing EPPA library
