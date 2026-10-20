@@ -118,7 +118,12 @@ instance finiteImageGroup [Finite I] [Finite V] [∀ i, Finite (K i)] (S : Set E
   letI : ∀ i, Fintype (K i) := fun i => Fintype.ofFinite (K i)
   letI : ∀ i, Fintype (D.Component (T i) (a i) (ha i)) :=
     fun i => Fintype.ofFinite (D.Component (T i) (a i) (ha i))
-  letI : Fintype (Product D T K a ha) := inferInstance
+  letI : ∀ i, Fintype ((Equiv.Perm (D.Component (T i) (a i) (ha i)))ᵐᵒᵖ) :=
+    fun i => Fintype.ofEquiv
+      (Equiv.Perm (D.Component (T i) (a i) (ha i))) MulOpposite.opEquiv
+  letI : Fintype (Product D T K a ha) := by
+    unfold Product
+    infer_instance
   exact Finite.of_injective
     (fun g : imageGroup D T K a ha S => (g.val : Product D T K a ha))
     Subtype.val_injective
