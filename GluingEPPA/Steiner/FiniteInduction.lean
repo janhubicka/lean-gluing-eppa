@@ -16,7 +16,7 @@ attribute [local instance] Classical.propDecidable
 
 abbrev previous (D : EdgeGraph V E) (S : Finset E) (r : Proper S) := family D r.val
 
-abbrev Good (D : EdgeGraph V E) (S : Finset E) :=
+noncomputable abbrev Good (D : EdgeGraph V E) (S : Finset E) :=
   Correct D S (family D S) (previous D S)
 
 namespace Good
@@ -83,9 +83,10 @@ theorem replacement (R : Finset E) (h : R ⊆ S) (u v : V)
     D.WalkValue (↑R : Set E) (family D R).edge u v g := by
   by_cases hEq : R = S
   · subst R
-    simpa only [incAll, dif_pos rfl, MonoidHom.id_apply] using p
-  · apply c.replacement ⟨R, Finset.ssubset_iff_subset_ne.mpr ⟨h, hEq⟩⟩ u v g
-    simpa only [incAll, dif_neg hEq] using p
+    simpa [incAll] using p
+  · apply Correct.replacement D S (family D S) (previous D S) c
+      ⟨R, Finset.ssubset_iff_subset_ne.mpr ⟨h, hEq⟩⟩ u v g
+    simpa [incAll, hEq] using p
 
 end Good
 
