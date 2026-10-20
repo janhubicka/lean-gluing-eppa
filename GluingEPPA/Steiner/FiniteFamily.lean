@@ -83,7 +83,9 @@ noncomputable def edge (e : E) : Group D S old :=
 theorem edge_involutive (e : E) : edge D S old e * edge D S old e = 1 := by
   by_cases he : e ∈ S
   · rw [edge_of_mem D S old e he]
-    exact GeneratedStep.generator_involutive _ _ ⟨e, he⟩
+    exact GeneratedStep.generator_involutive
+      (fun f : S => value D S old f.val)
+      (fun f : S => value_involutive D S old f.val) (⟨e, he⟩ : S)
   · simp only [edge_of_not_mem D S old e he, one_mul]
 
 theorem generated (g : Group D S old) :
@@ -134,7 +136,9 @@ theorem family_empty_one (D : EdgeGraph V E)
   have hnil : w = [] := by
     cases w with
     | nil => rfl
-    | cons e w => exact False.elim (by simpa using e.property)
+    | cons e w =>
+      rcases e with ⟨x, hx⟩
+      simp at hx
   simpa only [hnil, wordValue_nil] using hw.symm
 
 end GluingEPPA.Steiner.FiniteFamily

@@ -4,9 +4,8 @@ import GluingEPPA.PrivateFiniteEPPA
 import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
-import GluingEPPA.Steiner.MaskGenerated
 import GluingEPPA.Steiner.LocalTriples
-import GluingEPPA.Steiner.FiniteInduction
+import GluingEPPA.Steiner.FiniteTransport
 
 /-!
 # The Gluing EPPA library
