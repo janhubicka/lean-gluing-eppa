@@ -13,8 +13,6 @@ namespace GluingEPPA.Steiner.Transport
 
 universe u v
 variable {V : Type u} {G : Type v} [Group G]
-variable (T : Transport V G)
-
 /-- Compatible symmetries of vertices and group values. -/
 structure Symmetry where
   vertices : V ≃ V
@@ -23,7 +21,7 @@ structure Symmetry where
     T.Rel u v g ↔ T.Rel (vertices u) (vertices v) (values g)
 
 namespace Symmetry
-variable (s : T.Symmetry)
+variable {T : Transport V G} (s : T.Symmetry)
 
 def pair (p : V × G) : V × G :=
   (s.vertices p.1, s.values p.2)
