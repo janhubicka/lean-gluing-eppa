@@ -5,7 +5,7 @@ import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.LocalTriples
-import GluingEPPA.Steiner.FiniteTransport
+import GluingEPPA.Steiner.LiftedTriples
 
 /-!
 # The Gluing EPPA library
