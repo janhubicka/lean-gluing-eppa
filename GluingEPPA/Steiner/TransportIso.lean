@@ -39,7 +39,6 @@ def symm : U.Iso T where
 def map : T.Space → U.Space :=
   Quotient.map (fun p => (f.vertices p.1, f.values p.2)) (by
     intro p q h
-    apply Quotient.sound
     change U.Rel (f.vertices p.1) (f.vertices q.1)
       (f.values p.2 * (f.values q.2)⁻¹)
     have hp := (f.rel_iff p.1 q.1 (p.2 * q.2⁻¹)).mp h
