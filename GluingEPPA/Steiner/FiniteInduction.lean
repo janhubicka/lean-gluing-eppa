@@ -126,9 +126,9 @@ noncomputable def maps : RecursiveStep.OldGroupMaps
     rw [Good.retAll_edge D r.val (ih r) (meet S r t).val Finset.inter_subset_left e he]
     by_cases ht : e ∈ t.val
     · have hm : e ∈ (meet S r t).val := Finset.mem_inter.mpr ⟨he, ht⟩
-      simp only [ite_eq_left hm, ite_eq_left ht]
+      simp [Step.masks, hm, ht]
     · have hm : e ∉ (meet S r t).val := fun h => ht (Finset.mem_inter.mp h).2
-      simp only [ite_eq_right hm, ite_eq_right ht]
+      simp [Step.masks, hm, ht]
 
 noncomputable def actions : RecursiveStep.OldWalkActions
     (Step.Groups S (previous D S)) (Step.transports D S (previous D S))

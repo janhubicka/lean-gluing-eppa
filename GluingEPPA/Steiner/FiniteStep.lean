@@ -103,7 +103,8 @@ theorem inc_edge (r : Proper S) (e : E) (he : e ∈ r.val) :
 theorem ret_edge (r : Proper S) (e : E) (he : e ∈ S) :
     ret D S old r (edge D S old e) = if e ∈ r.val then (old r).edge e else 1 := by
   rw [edge_of_mem D S old e he]
-  rfl
+  change (if e ∈ (↑r.val : Set E) then (old r).edge e else 1) = _
+  by_cases hr : e ∈ r.val <;> simp [hr]
 
 theorem action_edge (r : Proper S) (e : E) (he : e ∈ S) :
     action D S old r (edge D S old e) =
@@ -133,7 +134,7 @@ theorem action_inc (r : Proper S) (g : (old r).Carrier) :
       ((old r).transport D).action ((old r).edge e.val)
     rw [inc_edge D S old C r e.val e.property,
       action_edge D S old r e.val ((Finset.ssubset_iff_subset_ne.mp r.property).1 e.property)]
-    simp only [Transport.edgePerm, ite_eq_left e.property]
+    simp [Transport.edgePerm, e.property]
   exact DFunLike.congr_fun h g
 
 theorem replacement (r : Proper S) (u v : V) (g : (old r).Carrier)
