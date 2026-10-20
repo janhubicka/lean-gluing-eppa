@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.Restriction
+import GluingEPPA.Steiner.WalkAction
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.single
 #print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.trans
@@ -35,3 +35,7 @@ import GluingEPPA.Steiner.Restriction
 #print axioms GluingEPPA.Steiner.Transport.markedPart_action_iff
 #print axioms GluingEPPA.Steiner.Transport.restriction_relations
 #print axioms GluingEPPA.Steiner.Transport.restriction_factors
+#print axioms GluingEPPA.Steiner.EdgeGraph.WalkValue.action_endpoint
+#print axioms GluingEPPA.Steiner.Transport.action_inv_marked_iff
+#print axioms GluingEPPA.Steiner.Transport.replacement_of_coordinate
+#print axioms GluingEPPA.Steiner.Transport.restriction_factors_of_membership

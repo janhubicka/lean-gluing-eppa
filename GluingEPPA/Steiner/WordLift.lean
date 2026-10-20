@@ -39,7 +39,7 @@ theorem wordValue_reverse (a : E → G) (ha : ∀ e, a e * a e = 1)
   | nil => simp
   | cons e w ih =>
       simp only [List.reverse_cons, wordValue_append, wordValue_singleton,
-        wordValue_cons, mul_inv_rev, ih, involutive_inv_eq (ha e)]
+        wordValue_cons, wordValue_nil, mul_one, mul_inv_rev, ih, involutive_inv_eq (ha e)]
 
 /-- Source-equal words have target-equal values. Two identity words with the
 same reversed suffix suffice; target generators need not be assumed involutive. -/
@@ -72,7 +72,7 @@ theorem exists_word_of_closure (a : E → G) (ha : ∀ e, a e * a e = 1)
     (hgen : Subgroup.closure (Set.range a) = ⊤) (g : G) :
     ∃ w, wordValue a w = g := by
   have hle : Subgroup.closure (Set.range a) ≤ wordSubgroup a ha := by
-    apply Subgroup.closure_le.mpr
+    apply (Subgroup.closure_le (wordSubgroup a ha)).mpr
     rintro x ⟨e, rfl⟩
     exact ⟨[e], wordValue_singleton a e⟩
   apply hle
