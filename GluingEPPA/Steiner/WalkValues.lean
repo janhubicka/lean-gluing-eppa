@@ -44,7 +44,8 @@ variable {D} {S : Set E} {a : E → G}
 
 theorem single {u v : V} {e : E} (he : e ∈ S) (hj : D.Joins e u v) :
     D.WalkValue S a u v (a e) := by
-  simpa using WalkValue.cons he hj (WalkValue.nil v)
+  simpa only [mul_one] using
+    WalkValue.cons he hj (WalkValue.nil (D := D) (S := S) (a := a) v)
 
 theorem trans {u v w : V} {g h : G}
     (p : D.WalkValue S a u v g) (q : D.WalkValue S a v w h) :
