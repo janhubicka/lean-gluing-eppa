@@ -66,8 +66,7 @@ theorem extension_comp (F : P →* H) (f g h : I)
           twoSpoke_comp F (D.sigma f) (D.sigma g)
             (D.domain f) (D.range f) (D.range g)
     _ = D.extension F g * D.extension F f := by
-          rw [hmiddle]
-          rfl
+          simp only [extension, hmiddle]
 
 end CoherentSpokes
 end GluingEPPA.Steiner
