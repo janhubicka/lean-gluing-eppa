@@ -1,113 +1,127 @@
 # Validation of the current recursive gluing manuscript
 
-## Validation scope and preservation
+## Scope and preservation
 
-**Keep all existing validation of `amalgamation_diagrams.tex`.** The relational
-EPPA, complete-overlap sparsening, and coherent results remain an active part
-of this library. Preserve all supporting Lean modules, declarations,
-exact-name axiom manifests, regression tests, CI coverage, manuscript markers,
-and pinned proof references. The new Steiner proof does not replace that
-validation. Do not remove those dependencies or checks when cleaning up
-superseded Steiner work.
+**Keep all existing validation of `amalgamation_diagrams.tex`.** Its relational
+EPPA, complete-overlap sparsening, and coherent results remain active. Preserve
+their Lean modules, exact-name axiom manifests, regressions, CI checks,
+manuscript markers, and pinned proof references. No such proof or check is
+removed by the current Steiner work.
 
 The only active Steiner manuscript target is
 `janhubicka/Otto-simplified/steiner_recursive_gluing_valuations.tex`.
-The other Steiner notes and the earlier proof in PR #64 are superseded as
-validation targets; completing their separate formalizations is not required.
-Retain their sources and useful counterexamples or elementary lemmas as
-reference material. Reuse is allowed only when it matches the current draft
-or after proving the necessary correspondence. Existing proofs and checks
-are not deleted by this scope decision, and no earlier result is declared
-false merely because its manuscript is no longer a target.
+Other Steiner notes and PR #64 are superseded as validation targets, not
+sources to delete or results to declare false. Reuse elementary results only
+when they match this proof or after proving the necessary correspondence.
 
-## Target and fidelity
+## Target and evidence
 
-The current self-contained source is manuscript commit
-`559401bee5aaa229875a837cb013797195f070b9`, blob
+Manuscript source: `559401bee5aaa229875a837cb013797195f070b9`, blob
 `2ef757114e12e666144cecefbea53ce8fa1ec48f`.
-Validate its actual construction, not merely the same EPPA conclusion.
-No old recursive-group existence theorem or external acyclicity theorem
-is imported. All manuscript TeX remains in Otto-simplified.
+This pass changes no TeX, hypotheses, or theorem statement.
+All manuscript TeX stays in Otto-simplified.
 
-The proof-code snapshot and completed run results are recorded in
-[PR #65](https://github.com/janhubicka/lean-gluing-eppa/pull/65) and in
+The checked proof-code snapshot and full-run evidence are recorded in
+[PR #65](https://github.com/janhubicka/lean-gluing-eppa/pull/65) and
 [the manuscript ledger](https://github.com/janhubicka/Otto-simplified/blob/main/STEINER_VALIDATION.md).
-Do not infer successful validation merely from a submitted source file.
+A source file or a failed/interrupted run is not a certificate.
 
-## Previously checked foundation
+Checked proof-code commit: **`a6d94ac21ee22bd7958bc0bbb6fc3f71fa71744f`**.
+[Actions #316](https://github.com/janhubicka/lean-gluing-eppa/actions/runs/39511924460)
+passed the full build, every exact-name axiom audit, existing regressions,
+import coverage and wiki checks. The downloaded artifact has SHA-256
+`1c93e6bb2815689ac3ed0fca21b62b882369280837bb28d3180dd12d5d480bbd`;
+all 23 internal hashes were verified. Its test-merge commit is
+`ff6c4ac90434bf449dc3237f64515126c720790b`.
 
-Actions #304, run `39488815380`, passed completely at
-`2ec0ccc535a397c1383a541f85301865b7c4869a`.
-It checked all earlier declarations and both component manifests (18 + 22
-names), finite regressions, import coverage and wiki links.
+The three new manifests check 53 exact names (17 + 19 + 17), with only
+`propext`, `Classical.choice`, and `Quot.sound`. No `sorryAx`, custom axiom,
+or untrusted evaluation occurs. The same run checks 470 outputs in total,
+including all 331 original amalgamation/sparsening checks and the 86 earlier
+current-draft checks. All 100 source modules remain covered.
+This documentation update does not change the checked proof sources.
 
-- `WalkValues.lean` is elementary reused evaluation of actual named-edge walks.
-- `CayleyLift.lean` defines literal lifted steps and exact endpoint value g^-1*h.
-- `CayleyComponents.lean` defines the finite quotient by actual connectivity,
-  its equality criterion, deck translations, and inverse-left-translation
-  right action. Marked-component injectivity retains the earlier value-one premise.
-- `ComponentPermutations.lean` defines internal translations/external swaps
-  on every component, involutivity, arbitrary-word composition, and actual-walk
-  endpoint identities.
-- `ComponentInclusion.lean` defines j_N^T, proves it injective under the exact
-  earlier replacement premise, and proves translation and generator equivariance
-  and invariance of its image and complement.
+## Correspondence with the current proof
 
-## Current construction modules and exact correspondence
+### Actual components and one construction step
 
-The new modules are checked by `CheckComponentCompatibilityAxioms.lean`
-(18 exact names), `CheckRecordValuationAxioms.lean` (18), and
-`CheckRecordInclusionAxioms.lean` (10). The latest completed run, rather than
-this list of files, determines their checked status.
+`CayleyLift`, `CayleyComponents`, `ComponentPermutations`, and
+`ComponentInclusion` define the actual lifts, their finite component sets,
+the internal-translation/external-swap permutations, and j_N^T.
+`RightAction` and `ComponentCompatibility` construct both invariant-part
+actions and verify every old word equality on the entire component set.
+`RecordValuation` defines the literal product record and its image subgroup.
+`RecordInclusion` constructs the new inclusion, derives its component action,
+and proves the one-stage exact replacement conclusion.
 
-### Lemma 4.1: actual actions on both parts
+These were checked at `cd1a3fe513cb1e52e5f0105fe8fedae0da85de39` in
+Actions #311. The earlier-stage premises in those modules are now supplied
+by the recursive construction below; they are not global assumptions.
 
-`RightAction.lean` proves the identity and multiplication laws for an action
-transported to the image of an injection, combined with an action on its
-invariant complement. Invariance is under the whole group, not just generators.
+### RecursiveRecord: construct the actual groups first
 
-`ComponentCompatibility.lean` applies this to the actual map j_N^T. On its
-image it uses the old K_M coordinate action on C_N; outside it uses the deck
-action through i_N^T composed with r_N^M. It proves the named-generator rule
-on all of C_T, then preservation of every old word equality, without requiring
-those words to be walks. The nested-subset case is also proved.
+`RecursiveRecord.family` is well-founded recursion on the cardinality of S.
+Its equation constructs the same literal record image from this family's
+values at all proper subsets. No alternate family of groups is selected.
+Finiteness, involutive named generators and allowed-word representations
+are proved during construction. The empty-stage record is an empty product
+and is proved trivial. Outside S the total generator function is 1; all
+walks and representation words retain their stated edge restriction.
 
-Earlier replacement in the smaller T-lift, the deletion map, and the smaller
-coordinate action remain explicit induction inputs. Their existence is not
-silently assumed as a theorem about the completed recursion.
+`Step.action` is precisely the old component-coordinate projection.
+`family_coordinate_action` obtains it by unfolding the actual earlier
+record; it is not an additional assumption of the compatibility lemma.
 
-### Literal new valuation and image group
+### RecursiveLinks: supply the simultaneous induction
 
-`RecordValuation.lean` defines exactly the word record in the product of old
-groups and old component permutation groups. Opposite permutation multiplication
-implements the manuscript's left-to-right convention. It proves multiplication,
-reversal, the image-subgroup construction, finiteness, and involutive generators.
-Deletion is the first-coordinate projection. Its surjectivity is proved before
-the new inclusion, using only earlier word representations. The component
-coordinate is an actual right action with the required generator rule.
+`Link` packages inclusion, deletion, their generator rules, and exact
+restricted-walk replacement. It is the induction target, not assumed data
+about the final family. `family_links` constructs it for every M subset S
+by strong induction. All links used at a new stage have proper smaller
+targets; in the crossing case N = M intersection T is proper in M, so the
+required C_N coordinate really exists in the old K_M record.
 
-### Inclusion and exact replacement
+The complete K_M-action is then assembled from the already checked two-part
+construction. `Step.link` uses the literal product inclusion and coordinate
+deletion, and invokes the derived component-action formula to obtain (II).
+No new-stage replacement or compatibility hypothesis is supplied.
 
-`RecordInclusion.lean` combines the group-coordinate maps and compatible
-actions into a product homomorphism. It constructs the inclusion into the
-literal image subgroup using word representations, proves its word formula,
-and proves that projection is a left inverse, hence injectivity.
+### RecursiveTransport: coherent maps and actual endpoint intersections
 
-`inclusion_componentAction` derives its own smaller-component coordinate from
-the generator rule. `inclusion_replacement` then proves property (II) for this
-actual inclusion, by extracting a walk from c(u,g^-1) = c(v,1). It does not
-assume the new replacement property or an additional coordinate-action premise.
+`Data.hom_ext` proves uniqueness of homomorphisms from named generators.
+The selected links therefore give the constructed maps on fixed carriers,
+not substitute groups. Retraction, inclusion injectivity, and composition
+of successive inclusions and deletions are proved.
 
-## What remains
+`replacement` is (II) with no earlier-stage premise left over. The
+commuting projectors are proved on the actual final group. A common value
+of two restricted walks is fixed by the intersection projector; deletion
+supplies its smaller preimage, replacement produces an actual restricted
+walk, and inclusion restores the full value. `exact_intersection_walk`
+retains both original lifted endpoints. `component_intersection` gives the
+binary component-set equality in the literal final lift.
 
-The one-stage construction results are not yet an unconditional finite-family
-existence theorem. The simultaneous induction must still instantiate the old
-data for all proper subsets, compose the maps coherently, and prove naturality.
-The actual binary-language edge adapter and the Boolean interface remain open,
-as do final exact intersections, the closed induced Steiner realization,
-the bipartite inclusion diagram and the unconditional coherent EPPA theorem.
-The appendix comparison lemmas have no new kernel certificate here.
+The ambient group is never changed when allowed edges are restricted.
+No nonemptiness restriction on base vertices or component parts is added.
 
-No main-theorem or full-recursion validation marker follows merely from the
-conditional one-stage lemmas. Continue with the current direct-record family,
-not the superseded proof. All amalgamation-diagram tests remain active.
+## Proof boundary and next targets
+
+The core finite-subset recursion and binary exact intersections are proved
+for named loopless graphs with parallel edge names allowed. The formal adapter
+from the manuscript's inverse-paired binary relations remains to be supplied.
+Edge subsets use `Finset E`, with E finite; the set-notation and nonempty
+finite-family corollary wrappers are also still to add.
+
+Naturality under diagram isomorphisms is **not** a consequence already checked
+by `family_links`. It must be proved for this same literal family, including
+symmetries which reverse an undirected edge. Next: component isomorphisms,
+conjugation of edge actions, reindexing of record coordinates, restriction to
+the image groups, and identity/composition from the generator equations.
+
+The Boolean quotient interface, the actual closed induced Steiner free
+realization, the relabelled bipartite inclusion diagram and the final coherent
+EPPA theorem remain outstanding. The comparison appendix has no new certificate.
+Do not mark all of Theorem 4.2 or the main EPPA theorem verified on the basis
+of the core recursion. No older recursive-group theorem or Otto existence
+theorem is imported; only elementary actual-walk evaluation is reused from
+the superseded Steiner work.
