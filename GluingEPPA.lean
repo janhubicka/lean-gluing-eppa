@@ -6,6 +6,7 @@ import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.StepAssembly
 import GluingEPPA.Steiner.MaskGenerated
+import GluingEPPA.Steiner.LocalTriples
 
 /-!
 # The Gluing EPPA library
