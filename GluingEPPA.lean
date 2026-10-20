@@ -4,13 +4,14 @@ import GluingEPPA.PrivateFiniteEPPA
 import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
+import GluingEPPA.Steiner.CayleyComponents
 
 /-!
 # The Gluing EPPA library
 
-This public umbrella intentionally imports the six *terminal* local modules
-covering all 88 source modules. Earlier versions listed every module by
-name, adding no semantics but obscuring the actual dependency structure.
+This public umbrella imports the terminal local modules of each construction.
+Earlier versions listed every module by name, adding no semantics but
+obscuring the actual dependency structure.
 
 Use a narrower import when possible (for example
 `GluingEPPA.Sparsening.TreeHomEmbedding` for locally exact maps or
