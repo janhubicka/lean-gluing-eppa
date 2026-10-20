@@ -22,6 +22,12 @@ theorem perm_word (π : E ≃ E) (w : List E) :
     wordValue (fun e => a (π e)) w = wordValue a (w.map π) := by
   simp only [wordValue, List.map_map, Function.comp_def]
 
+theorem map_symm_cancel (π : E ≃ E) (w : List E) :
+    (w.map π.symm).map π = w := by
+  induction w with
+  | nil => rfl
+  | cons e w ih => simp [ih]
+
 /-- The inverse name permutation also preserves identity relations. -/
 theorem perm_relations_inverse (π : E ≃ E)
     (hrel : ∀ w : List E,
@@ -30,7 +36,7 @@ theorem perm_relations_inverse (π : E ≃ E)
     wordValue a (w.map π.symm) = 1 := by
   have h := (hrel (w.map π.symm)).mpr
   have hp : wordValue a ((w.map π.symm).map π) = 1 := by
-    simpa only [List.map_map, Function.comp_def, Equiv.apply_symm_apply, List.map_id] using hw
+    simpa only [map_symm_cancel π w] using hw
   exact h hp
 
 noncomputable def permHom (π : E ≃ E)
@@ -62,7 +68,7 @@ noncomputable def permEquiv (π : E ≃ E)
     · exact perm_relations_inverse a π hrel w
     · intro hw
       have h := (hrel (w.map π.symm)).mp hw
-      simpa only [List.map_map, Function.comp_def, Equiv.apply_symm_apply, List.map_id] using h
+      simpa only [map_symm_cancel π w] using h
   let backward := permHom a ha hgen π.symm hInv
   have hback : backward.comp forward = MonoidHom.id G := by
     apply hom_ext_of_words a hgen
@@ -70,14 +76,14 @@ noncomputable def permEquiv (π : E ≃ E)
     change backward (forward (a e)) = a e
     rw [permHom_generator a ha hgen π hrel e,
       permHom_generator a ha hgen π.symm hInv (π e)]
-    exact π.symm_apply_apply e ▸ rfl
+    simp
   have hforward : forward.comp backward = MonoidHom.id G := by
     apply hom_ext_of_words a hgen
     intro e
     change forward (backward (a e)) = a e
     rw [permHom_generator a ha hgen π.symm hInv e,
       permHom_generator a ha hgen π hrel (π.symm e)]
-    exact π.apply_symm_apply e ▸ rfl
+    simp
   exact
     { toFun := forward
       invFun := backward
