@@ -64,8 +64,8 @@ variable (k : I) (F : K k →* Product D T K a ha)
 variable (hF : ∀ e ∈ T k, F (a k e) = letter D T K a ha e)
 
 /-- The generator rule is valid for every allowed word. -/
-include hF in
-theorem map_word (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
+theorem map_word (hF : ∀ e ∈ T k, F (a k e) = letter D T K a ha e)
+    (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
     F ((w.map (a k)).prod) = value D T K a ha w := by
   induction w with
   | nil => simp only [List.map_nil, List.prod_nil, map_one, value_nil]

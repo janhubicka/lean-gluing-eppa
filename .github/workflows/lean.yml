@@ -80,7 +80,7 @@ jobs:
           mkdir -p proof-audit
           # Check the active current-draft module first; retain the full build
           # and every existing amalgamation-diagram audit below unchanged.
-          if ! lake build GluingEPPA.Steiner.RecordValuation > proof-audit/steiner-current-build.log 2>&1; then
+          if ! lake build GluingEPPA.Steiner.RecordInclusion > proof-audit/steiner-current-build.log 2>&1; then
             cat proof-audit/steiner-current-build.log
             exit 1
           fi
