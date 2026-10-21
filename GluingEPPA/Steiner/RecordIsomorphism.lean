@@ -1,19 +1,15 @@
 import GluingEPPA.Steiner.WordHomomorphism
 
 /-!
-# Relabelling the literal direct record, one stage at a time
+# Relabelling the literal direct record
 
-Every old-group coordinate and every old-component permutation coordinate
-is compared explicitly. Component conjugacy applies to arbitrary words.
-Thus equality of source records implies equality of renamed target records;
-no equality-preservation premise about the new stage is assumed.
+Every old-group and old-component permutation coordinate is compared.
+Conjugacy is proved for arbitrary words, not only words of walks.
 -/
 
 namespace GluingEPPA.Steiner
 namespace EdgeGraph
-
 attribute [local instance] Classical.propDecidable
-
 universe u
 variable {V E V' E' G H : Type u}
 
@@ -34,7 +30,6 @@ theorem restricted_value_map [Group G] [Group H] (p : E ≃ E')
         simpa [DirectRecord.restrictWord, he, he'] using ih
 
 namespace RecursiveRecord.Step
-
 variable (D : EdgeGraph V E) [Finite V] [Fintype E] [DecidableEq E]
 variable (S : Finset E) (old : ∀ i : Proper S, Data E i.val)
 
@@ -60,9 +55,8 @@ variable (D' : EdgeGraph V' E') [Finite V'] [Fintype E'] [DecidableEq E']
 variable (f : Iso D D') (S' : Finset E') (old' : ∀ j : Proper S', Data E' j.val)
 variable (hSS : ∀ e, f.edge e ∈ S' ↔ e ∈ S)
 
-/-- Each target coordinate is the relabelling of an actual source coordinate.
-The only supplied isomorphisms are for proper subsets. -/
 include hSS in
+/-- Only proper-subset isomorphisms are supplied; the new-stage equality is proved. -/
 theorem preserves_word_equalities
     (earlier : ∀ j : Proper S', ∃ i : Proper S,
       ∃ F : (old i).Carrier ≃* (old' j).Carrier,

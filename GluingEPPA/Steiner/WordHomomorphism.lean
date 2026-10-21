@@ -1,20 +1,14 @@
 import GluingEPPA.Steiner.CayleyIsomorphism
 
-/-!
-# Maps determined by the current family's word representations
-
-This elementary extension construction is used only after preservation of
-word equalities has been proved for the literal records. It assumes no group
-existence theorem and no symmetry theorem about the recursive construction.
--/
+/-! Elementary homomorphisms from allowed word representations.
+Preservation of word equalities is an explicit premise, supplied for the
+literal records by the next module. No group-existence theorem is used. -/
 
 namespace GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data
-
 universe u
 variable {E E' H : Type u} {S : Finset E} {T : Finset E'}
 variable (A : Data E S) [Group H] (t : E → H)
 
-/-- Evaluate a chosen allowed representative; independence is proved below. -/
 noncomputable def wordMap (g : A.Carrier) : H :=
   ((Classical.choose (A.generated g)).map t).prod
 
@@ -23,18 +17,16 @@ variable (hker : ∀ p q : List E,
   (p.map A.edge).prod = (q.map A.edge).prod →
   (p.map t).prod = (q.map t).prod)
 
-/-- The output is independent of the chosen representative. -/
 include hker in
+/-- Evaluation is independent of the chosen representative. -/
 theorem wordMap_word (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
     wordMap A t ((w.map A.edge).prod) = (w.map t).prod := by
   exact hker _ w (Classical.choose_spec (A.generated ((w.map A.edge).prod))).1
     hw (Classical.choose_spec (A.generated ((w.map A.edge).prod))).2
 
-/-- Concatenation gives an actual homomorphism from preservation of word equalities. -/
 noncomputable def wordHom : A.Carrier →* H where
   toFun := wordMap A t
-  map_one' := by
-    simpa using wordMap_word A t hker [] (by simp)
+  map_one' := by simpa using wordMap_word A t hker [] (by simp)
   map_mul' g h := by
     obtain ⟨p, hp, rfl⟩ := A.generated g
     obtain ⟨q, hq, rfl⟩ := A.generated h
@@ -62,8 +54,7 @@ theorem wordHom_edge (e : E) (he : e ∈ S) :
     have hfe : f = e := by simpa using hf
     simpa only [hfe] using he)
 
-/-- Two inverse changes of names which preserve word equalities give the unique
-isomorphism on the generated groups. No representatives enter its generator rule. -/
+/-- Inverse changes of edge names yield inverse homomorphisms. -/
 theorem exists_equiv_of_word_equalities (B : Data E' T) (p : E ≃ E')
     (hST : ∀ e, p e ∈ T ↔ e ∈ S)
     (hforward : ∀ w q : List E,

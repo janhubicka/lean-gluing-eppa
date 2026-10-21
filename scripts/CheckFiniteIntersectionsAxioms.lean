@@ -1,0 +1,8 @@
+import GluingEPPA.Steiner.FiniteIntersections
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.edgeSubset
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.edgeSubset_coe
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.set_component_intersection
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.set_exact_intersection_walk
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.finite_intersection_walk
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.component_finite_intersection

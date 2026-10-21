@@ -1,34 +1,28 @@
 import GluingEPPA.Steiner.RecursiveTransport
 
 /-!
-# Isomorphisms of the actual Cayley lifts and their components
+# Isomorphisms of actual Cayley lifts and components
 
-The named-edge isomorphism preserves incidence, not a chosen orientation.
-It may reverse any edge independently. Given a generator-preserving group
-isomorphism, this file constructs the induced equivalence of actual component
-sets and proves conjugacy of both kinds of component edge permutations.
-These are the smaller-stage inputs to naturality of the literal record.
+Graph isomorphisms preserve incidence, not chosen orientations. Given a
+smaller-stage group isomorphism, we construct the equivalence of actual
+component sets and conjugate all component edge and word permutations.
 -/
 
 namespace GluingEPPA.Steiner
 namespace EdgeGraph
-
 attribute [local instance] Classical.propDecidable
-
 universe u
 variable {V E V' E' V'' E'' G H : Type u}
 
-/-- An isomorphism of named loopless graphs, allowing reversed endpoints. -/
+/-- Named-edge isomorphisms may reverse endpoints independently. -/
 structure Iso (D : EdgeGraph V E) (D' : EdgeGraph V' E') where
   vertex : V ≃ V'
   edge : E ≃ E'
   joins : ∀ e u v, D'.Joins (edge e) (vertex u) (vertex v) ↔ D.Joins e u v
 
 namespace Iso
-
 variable {D : EdgeGraph V E} {D' : EdgeGraph V' E'} {D'' : EdgeGraph V'' E''}
 
-/-- Identity and composition do not select edge orientations. -/
 def refl (D : EdgeGraph V E) : Iso D D where
   vertex := Equiv.refl _
   edge := Equiv.refl _
@@ -51,8 +45,8 @@ variable (F : G ≃* H)
 variable (hMN : ∀ e, f.edge e ∈ N ↔ e ∈ M)
 variable (hF : ∀ e ∈ M, F (a e) = b (f.edge e))
 
-/-- The incidence isomorphism and group map send actual lifted walks to walks. -/
 include hMN hF in
+/-- The map sends actual lifted walks to actual lifted walks. -/
 theorem map_cayleyWalk {u v : V} {g h : G}
     (p : D.CayleyWalk M a u g v h) :
     D'.CayleyWalk N b (f.vertex u) (F g) (f.vertex v) (F h) := by
@@ -75,8 +69,8 @@ theorem inverse_generator (e : E') (he : e ∈ N) :
   have h := hF (f.edge.symm e) ((inverse_membership f M N hMN e).2 he)
   simpa using h.symm
 
-/-- Both endpoints, not just existence of an unbased walk, are preserved. -/
 include hMN hF in
+/-- Both original lifted endpoints are retained. -/
 theorem cayleyWalk_iff (u v : V) (g h : G) :
     D'.CayleyWalk N b (f.vertex u) (F g) (f.vertex v) (F h) ↔
       D.CayleyWalk M a u g v h := by
@@ -90,7 +84,7 @@ theorem cayleyWalk_iff (u v : V) (g h : G) :
 
 variable (ha : ∀ e ∈ M, a e * a e = 1) (hb : ∀ e ∈ N, b e * b e = 1)
 
-/-- The map is defined on the quotient by actual lifted connectivity. -/
+/-- The quotient is by actual lifted connectivity. -/
 def mapComponent : D.Component M a ha → D'.Component N b hb :=
   Quotient.map (fun z : V × G => (f.vertex z.1, F z.2)) (by
     intro z z' p
@@ -100,7 +94,6 @@ def mapComponent : D.Component M a ha → D'.Component N b hb :=
     mapComponent f M N a b F hMN hF ha hb (D.component M a ha u g) =
       D'.component N b hb (f.vertex u) (F g) := rfl
 
-/-- The induced equivalence is obtained from the graph and group inverse maps. -/
 def componentEquiv : D.Component M a ha ≃ D'.Component N b hb where
   toFun := mapComponent f M N a b F hMN hF ha hb
   invFun := mapComponent f.symm N M b a F.symm
@@ -123,7 +116,6 @@ def componentEquiv : D.Component M a ha ≃ D'.Component N b hb where
     componentEquiv f M N a b F hMN hF ha hb (D.component M a ha u g) =
       D'.component N b hb (f.vertex u) (F g) := rfl
 
-/-- Conjugacy of deck translations is checked on actual quotient representatives. -/
 theorem componentEquiv_translation (k : G) (c : D.Component M a ha) :
     componentEquiv f M N a b F hMN hF ha hb
         (D.componentTranslation M a ha k c) =
@@ -135,7 +127,6 @@ theorem componentEquiv_translation (k : G) (c : D.Component M a ha) :
     D'.component N b hb (f.vertex u) (F k * F g)
   rw [map_mul]
 
-/-- Inverse left translation gives the same right action after relabelling. -/
 theorem componentEquiv_rightAction (k : G) (c : D.Component M a ha) :
     componentEquiv f M N a b F hMN hF ha hb (D.componentRightAction M a ha c k) =
       D'.componentRightAction N b hb
@@ -145,7 +136,7 @@ theorem componentEquiv_rightAction (k : G) (c : D.Component M a ha) :
 
 end Iso
 
-/-- Transporting a transposition does not require its marked points to differ. -/
+/-- Conjugacy of swaps does not require the marked points to differ. -/
 theorem equiv_swap_apply {X Y : Type u} (f : X ≃ Y) (x y z : X) :
     f (Equiv.swap x y z) = Equiv.swap (f x) (f y) (f z) := by
   classical
@@ -160,7 +151,6 @@ theorem equiv_swap_apply {X Y : Type u} (f : X ≃ Y) (x y z : X) :
       simp [Equiv.swap_apply_def, hx, hy, hx', hy']
 
 namespace Iso
-
 variable {D : EdgeGraph V E} {D' : EdgeGraph V' E'} (f : Iso D D')
 variable [Group G] [Group H]
 variable (M : Set E) (N : Set E') (a : E → G) (b : E' → H)
@@ -168,7 +158,7 @@ variable (F : G ≃* H) (hMN : ∀ e, f.edge e ∈ N ↔ e ∈ M)
 variable (hF : ∀ e ∈ M, F (a e) = b (f.edge e))
 variable (ha : ∀ e ∈ M, a e * a e = 1) (hb : ∀ e ∈ N, b e * b e = 1)
 
-/-- The component edge permutations commute with relabelling, even for a flipped edge. -/
+/-- Internal translations and external swaps both commute with relabelling. -/
 theorem componentEquiv_edgePerm (e : E) (c : D.Component M a ha) :
     componentEquiv f M N a b F hMN hF ha hb (D.componentEdgePerm M a ha e c) =
       D'.componentEdgePerm N b hb (f.edge e)
@@ -192,7 +182,7 @@ theorem componentEquiv_edgePerm (e : E) (c : D.Component M a ha) :
     · rw [← hs, ← ht]
     · rw [← ht, ← hs, Equiv.swap_comm]
 
-/-- Conjugacy holds for every word, not only for words of graph walks. -/
+/-- Arbitrary words, not merely walks, satisfy the conjugacy identity. -/
 theorem componentEquiv_wordPerm (w : List E) (c : D.Component M a ha) :
     componentEquiv f M N a b F hMN hF ha hb (D.componentWordPerm M a ha w c) =
       D'.componentWordPerm N b hb (w.map f.edge)

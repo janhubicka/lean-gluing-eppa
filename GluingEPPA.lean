@@ -4,7 +4,7 @@ import GluingEPPA.PrivateFiniteEPPA
 import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
-import GluingEPPA.Steiner.RecordIsomorphism
+import GluingEPPA.Steiner.FiniteIntersections
 
 /-!
 # The Gluing EPPA library

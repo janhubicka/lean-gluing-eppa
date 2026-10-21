@@ -80,7 +80,7 @@ jobs:
           mkdir -p proof-audit
           # Check the active current-draft module first; retain the full build
           # and every existing amalgamation-diagram audit below unchanged.
-          if ! lake build GluingEPPA.Steiner.RecursiveLinks > proof-audit/steiner-current-build.log 2>&1; then
+          if ! lake build GluingEPPA.Steiner.FiniteIntersections > proof-audit/steiner-current-build.log 2>&1; then
             cat proof-audit/steiner-current-build.log
             exit 1
           fi
@@ -135,6 +135,13 @@ jobs:
           git rev-parse HEAD > proof-audit/COMMIT
           cp lean-toolchain lakefile.toml proof-audit/
           if test -f lake-manifest.json; then cp lake-manifest.json proof-audit/; fi
+          mkdir -p proof-audit/steiner-source proof-audit/steiner-manifests
+          for module in CayleyIsomorphism WordHomomorphism RecordIsomorphism RecursiveNaturality FiniteIntersections; do
+            cp "GluingEPPA/Steiner/$module.lean" proof-audit/steiner-source/
+          done
+          for manifest in CayleyIsomorphism RecordIsomorphism RecursiveNaturality FiniteIntersections; do
+            cp "scripts/Check${manifest}Axioms.lean" proof-audit/steiner-manifests/
+          done
           git diff --check
           (cd proof-audit && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
 
