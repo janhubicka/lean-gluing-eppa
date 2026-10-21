@@ -52,6 +52,7 @@ variable (hMN : ∀ e, f.edge e ∈ N ↔ e ∈ M)
 variable (hF : ∀ e ∈ M, F (a e) = b (f.edge e))
 
 /-- The incidence isomorphism and group map send actual lifted walks to walks. -/
+include hMN hF in
 theorem map_cayleyWalk {u v : V} {g h : G}
     (p : D.CayleyWalk M a u g v h) :
     D'.CayleyWalk N b (f.vertex u) (F g) (f.vertex v) (F h) := by
@@ -63,9 +64,11 @@ theorem map_cayleyWalk {u v : V} {g h : G}
         simpa only [map_mul, hF e he] using ih
       exact CayleyWalk.cons ((hMN e).2 he) ((f.joins e u v).2 hj) ih'
 
+include hMN in
 theorem inverse_membership (e : E') : f.edge.symm e ∈ M ↔ e ∈ N := by
   simpa using (hMN (f.edge.symm e)).symm
 
+include hMN hF in
 theorem inverse_generator (e : E') (he : e ∈ N) :
     F.symm (b e) = a (f.edge.symm e) := by
   apply F.injective
@@ -73,6 +76,7 @@ theorem inverse_generator (e : E') (he : e ∈ N) :
   simpa using h.symm
 
 /-- Both endpoints, not just existence of an unbased walk, are preserved. -/
+include hMN hF in
 theorem cayleyWalk_iff (u v : V) (g h : G) :
     D'.CayleyWalk N b (f.vertex u) (F g) (f.vertex v) (F h) ↔
       D.CayleyWalk M a u g v h := by
