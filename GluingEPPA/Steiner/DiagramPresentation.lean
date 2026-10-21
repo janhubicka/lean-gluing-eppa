@@ -72,15 +72,15 @@ theorem wordPermutation_singleton_square (S : Finset E) (e : E)
     (g : (family D S).Carrier) :
     wordPermutation D S [e] (wordPermutation D S [e] g) = g := by
   change (g * wordValue D S [e]) * wordValue D S [e] = g
-  rw [wordValue_singleton, ← mul_assoc, family_square D S e, mul_one]
+  rw [wordValue_singleton, mul_assoc, family_square D S e, mul_one]
 
 /-- A symmetry of the labelled diagram is multiplication on the left. -/
 noncomputable def leftTranslate (S : Finset E) (g : (family D S).Carrier) :
     Equiv.Perm (family D S).Carrier where
   toFun x := g * x
   invFun x := g⁻¹ * x
-  left_inv x := by simp [mul_assoc]
-  right_inv x := by simp [mul_assoc]
+  left_inv x := by simp
+  right_inv x := by simp
 
 theorem leftTranslate_commutes_with_word (S : Finset E)
     (g x : (family D S).Carrier) (w : List E) :
