@@ -176,9 +176,9 @@ theorem naturalIso_comp (f : Iso D D') (g : Iso D' D'')
   change naturalIso D' D'' g T U hTU
       (naturalIso D D' f S T hST ((family D S).edge e)) = _
   rw [naturalIso_edge D D' f S T hST e he,
-    naturalIso_edge D' D'' g T U hTU (f.edge e) ((hST e).2 he),
-    naturalIso_edge D D'' (f.trans g) S U _ e he]
-  rfl
+    naturalIso_edge D' D'' g T U hTU (f.edge e) ((hST e).2 he)]
+  exact (naturalIso_edge D D'' (f.trans g) S U
+    (fun e => (hTU (f.edge e)).trans (hST e)) e he).symm
 
 /-- Inclusion commutes with relabelling, by its generator rule. -/
 theorem naturalIso_inclusion (f : Iso D D') (M S : Finset E) (N T : Finset E')
