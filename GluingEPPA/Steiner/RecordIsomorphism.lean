@@ -105,7 +105,8 @@ theorem preserves_word_equalities
       have htau : D.componentWordPerm (sets S i) (edges S old i)
           (involutions S old i) p =
         D.componentWordPerm (sets S i) (edges S old i) (involutions S old i) q :=
-          congrArg (fun r => MulOpposite.unop ((r i).2)) hval
+          congrArg (fun r : DirectRecord.Product D (sets S) (groups S old)
+            (edges S old) (involutions S old) => MulOpposite.unop ((r i).2)) hval
       calc
         D'.componentWordPerm (sets S' j) (edges S' old' j)
             (involutions S' old' j) (p.map f.edge) (Q c) =
