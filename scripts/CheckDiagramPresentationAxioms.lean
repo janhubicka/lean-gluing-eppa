@@ -1,0 +1,9 @@
+import GluingEPPA.Steiner.DiagramPresentation
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_eq_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_append
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_singleton_square
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.leftTranslate_commutes_with_word
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.leftTranslate_at_one
