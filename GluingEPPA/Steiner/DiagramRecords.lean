@@ -50,11 +50,15 @@ theorem diagramAction_eq_iff_value (p q : List E) :
   · intro h
     funext i
     apply Prod.ext
-    · have h1 := congrFun h ⟨i, Sum.inl (1 : K i)⟩
+    · change ((restrictWord (T i) p).map (a i)).prod =
+          ((restrictWord (T i) q).map (a i)).prod
+      have h1 := congrFun h ⟨i, Sum.inl (1 : K i)⟩
       simpa [diagramAction] using h1
     · apply MulOpposite.unop_injective
       apply Equiv.ext
       intro c
+      change D.componentWordPerm (T i) (a i) (ha i) p c =
+        D.componentWordPerm (T i) (a i) (ha i) q c
       have hc := congrFun h ⟨i, Sum.inr c⟩
       simpa [diagramAction] using hc
   · intro h
@@ -74,8 +78,10 @@ theorem diagramAction_eq_iff_value (p q : List E) :
         have hperm := congrArg MulOpposite.unop hp
         have hc := congrArg (fun f : Equiv.Perm (D.Component (T i) (a i) (ha i)) =>
           f c) hperm
-        simp only [diagramAction]
-        rw [hc]
+        change D.componentWordPerm (T i) (a i) (ha i) p c =
+          D.componentWordPerm (T i) (a i) (ha i) q c at hc
+        simpa only [diagramAction] using congrArg
+          (fun y => (⟨i, Sum.inr y⟩ : diagramVertices D T K a ha)) hc
 
 /-- The equality criterion on the recursive group's literal image of
     records, with no new quotient and no reliance on a single endpoint. -/
