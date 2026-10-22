@@ -16,3 +16,6 @@ import GluingEPPA.Steiner.DiagramIntersections
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.restrictWord_mem_inter
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.intersection_word
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.exact_intersection_walk_by_words
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pair_walk_carries_third
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.two_walks_carry_triple
