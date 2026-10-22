@@ -7,3 +7,6 @@ import GluingEPPA.Steiner.DiagramPresentation
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_singleton_square
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.leftTranslate_commutes_with_word
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.leftTranslate_at_one
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.DirectRecord.diagramAction_eq_iff_value
+#print axioms GluingEPPA.Steiner.EdgeGraph.DirectRecord.diagramAction_eq_iff_valuation
