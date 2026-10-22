@@ -71,7 +71,7 @@ theorem site_triple_distinct (P : Input A) (s : Site P.triple)
 /-- Every edge is a closed gluing inclusion in either direction.
 This is the concrete structure consumed by DiagramFreeQuotient. -/
 def localDiagram (P : Input A) :
-    RecursiveRecord.LabelledSteiner (graph P.triple) A where
+    EdgeGraph.RecursiveRecord.LabelledSteiner (graph P.triple) A where
   present := fun s x => x ∈ s.val.points
   triple := fun s x y z => s.val.triple x y z
   triple_present := by
