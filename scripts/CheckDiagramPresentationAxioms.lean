@@ -19,3 +19,6 @@ import GluingEPPA.Steiner.DiagramIntersections
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pair_walk_carries_third
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.two_walks_carry_triple
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pointAt_eq_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pointAt_injective
