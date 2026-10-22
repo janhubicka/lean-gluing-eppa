@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramInitialSymmetry
+import GluingEPPA.Steiner.DiagramPartialSite
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -103,3 +103,7 @@ import GluingEPPA.Steiner.DiagramInitialSymmetry
 #print axioms GluingEPPA.Steiner.InitialSites.relabel_points_ne
 #print axioms GluingEPPA.Steiner.InitialSites.edgeRelabel_refl
 #print axioms GluingEPPA.Steiner.InitialSites.edgeRelabel_trans
+
+#print axioms GluingEPPA.Steiner.InitialSites.SiteData.eq_of_fields
+#print axioms GluingEPPA.Steiner.InitialSites.relabel_induced_site
+#print axioms GluingEPPA.Steiner.InitialSites.totalCompletion_maps_site
