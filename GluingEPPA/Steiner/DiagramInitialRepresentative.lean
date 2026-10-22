@@ -48,7 +48,7 @@ theorem root_point_eq_subsystem (U : Set A) (hU : Closed P.triple U)
   let D := graph P.triple
   let e := rootEdge P.triple U hU hProper
   have he : e ∈ edgesCarrying (localDiagram P).overlap x := by
-    change x ∈ overlap P.triple e
+    change x ∈ overlap P.triple (rootEdge P.triple U hU hProper)
     simpa only [rootEdge_overlap] using hx
   have hj : D.Joins e (root P.triple)
       (siteOf P.triple U hU (Equiv.refl A)) := by
