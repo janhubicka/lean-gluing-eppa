@@ -47,6 +47,8 @@ def graph : EdgeGraph (Site R) (Edge R) where
 
 instance edge_finite [Finite A] : Finite (Edge R) := by
   classical
+  letI : Finite (Site R) := site_finite R
+  unfold Edge
   infer_instance
 
 /-- Gluing is the identity on the smaller system's point set. -/
@@ -78,6 +80,8 @@ theorem root_full : Full R (root R) := by
 
 theorem root_triple (x y z : A) :
     (root R).val.triple x y z ↔ R x y z := by
-  simp [root, siteOf, SiteData.relabel, induced]
+  change (R x y z ∧ x ∈ (Set.univ : Set A) ∧
+    y ∈ (Set.univ : Set A) ∧ z ∈ (Set.univ : Set A)) ↔ R x y z
+  simp
 
 end GluingEPPA.Steiner.InitialSites
