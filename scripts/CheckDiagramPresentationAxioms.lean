@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramPresentation
+import GluingEPPA.Steiner.DiagramIntersections
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
