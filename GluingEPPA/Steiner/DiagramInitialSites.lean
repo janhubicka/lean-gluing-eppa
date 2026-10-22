@@ -65,10 +65,11 @@ def siteOf (R : A → A → A → Prop) (U : Set A)
 
 /-- Relabelling a vertex preserves membership in the vertex set. -/
 def Site.relabel (R : A → A → A → Prop) (σ : Equiv.Perm A)
-    (s : Site R) : Site R := by
-  obtain ⟨τ, U, hU, hs⟩ := s.property
-  refine ⟨SiteData.relabel σ s.val, ⟨τ.trans σ, U, hU, ?_⟩⟩
-  rw [hs, SiteData.relabel_trans]
+    (s : Site R) : Site R :=
+  ⟨SiteData.relabel σ s.val, by
+    obtain ⟨τ, U, hU, hs⟩ := s.property
+    refine ⟨τ.trans σ, U, hU, ?_⟩
+    rw [hs, SiteData.relabel_trans]⟩
 
 /-- Relabelling depends on the labelled subsystem, not on its witness. -/
 theorem siteOf_relabel (R : A → A → A → Prop) (U : Set A)
@@ -76,11 +77,14 @@ theorem siteOf_relabel (R : A → A → A → Prop) (U : Set A)
     Site.relabel R τ (siteOf R U hU σ) =
       siteOf R U hU (σ.trans τ) := by
   apply Subtype.ext
+  change SiteData.relabel τ (SiteData.relabel σ (induced R U)) =
+    SiteData.relabel (σ.trans τ) (induced R U)
   exact SiteData.relabel_trans _ σ τ
 
 @[simp] theorem Site.relabel_refl (R : A → A → A → Prop) (s : Site R) :
     Site.relabel R (Equiv.refl A) s = s := by
   apply Subtype.ext
+  change SiteData.relabel (Equiv.refl A) s.val = s.val
   exact SiteData.relabel_refl s.val
 
 theorem Site.relabel_trans (R : A → A → A → Prop)
@@ -88,6 +92,8 @@ theorem Site.relabel_trans (R : A → A → A → Prop)
     Site.relabel R τ (Site.relabel R σ s) =
       Site.relabel R (σ.trans τ) s := by
   apply Subtype.ext
+  change SiteData.relabel τ (SiteData.relabel σ s.val) =
+    SiteData.relabel (σ.trans τ) s.val
   exact SiteData.relabel_trans s.val σ τ
 
 /-- The action on labelled subsystems is a genuine permutation. -/
