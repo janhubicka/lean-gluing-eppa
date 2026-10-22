@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramRelabellingAction
+import GluingEPPA.Steiner.DiagramRelabellingDeck
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -48,3 +48,6 @@ import GluingEPPA.Steiner.DiagramRelabellingAction
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelValuation_id
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelValuation_trans
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_deck
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedDeck_involutive
