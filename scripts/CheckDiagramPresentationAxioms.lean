@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramInitialRootEdge
+import GluingEPPA.Steiner.DiagramInitialSteiner
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -87,3 +87,9 @@ import GluingEPPA.Steiner.DiagramInitialRootEdge
 #print axioms GluingEPPA.Steiner.InitialSites.rootEdge_source
 #print axioms GluingEPPA.Steiner.InitialSites.rootEdge_target
 #print axioms GluingEPPA.Steiner.InitialSites.rootEdge_overlap
+
+#print axioms GluingEPPA.Steiner.InitialSites.site_triple_present
+#print axioms GluingEPPA.Steiner.InitialSites.site_triple_unique
+#print axioms GluingEPPA.Steiner.InitialSites.site_triple_swap
+#print axioms GluingEPPA.Steiner.InitialSites.site_triple_rotate
+#print axioms GluingEPPA.Steiner.InitialSites.site_triple_distinct
