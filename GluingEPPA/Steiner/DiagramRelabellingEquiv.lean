@@ -71,7 +71,10 @@ theorem relabelPoint_surjective (L : LabelledSteiner D Ω)
       refine ⟨canonicalPoint D L (t.graph.vertex.symm u)
         ((relabelValuation D L t).symm g) (t.labels.symm x) hpre, ?_⟩
       rw [relabelPoint_canonical]
-      simp
+      simp only [t.graph.vertex.apply_symm_apply, t.labels.apply_symm_apply,
+        (relabelValuation D L t).apply_symm_apply]
+      change canonicalPoint D L u g x _ = canonicalPoint D L u g x hx
+      rfl
 
 /-- The compatible relabelling induces an actual permutation, not
     merely a triple-preserving endomap. -/
