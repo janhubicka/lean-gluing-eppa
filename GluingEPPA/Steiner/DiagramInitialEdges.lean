@@ -55,8 +55,8 @@ def overlap (e : Edge R) : Set A := e.val.2.val.points
 /-- Every point in a gluing domain occurs in both local systems. -/
 theorem overlap_at_ends (e : Edge R) (x : A)
     (hx : x ∈ overlap R e) :
-    x ∈ (graph R).source e |>.val.points ∧
-    x ∈ (graph R).target e |>.val.points := by
+    x ∈ ((graph R).source e).val.points ∧
+    x ∈ ((graph R).target e).val.points := by
   exact ⟨e.property.2.1.subset_points hx, hx⟩
 
 /-- Closure and inducedness transport triples across an edge when it
