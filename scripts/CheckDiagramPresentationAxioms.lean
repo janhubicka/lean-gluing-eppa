@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramIntersections
+import GluingEPPA.Steiner.DiagramCompletion
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -22,3 +22,5 @@ import GluingEPPA.Steiner.DiagramIntersections
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pointAt_eq_iff
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pointAt_injective
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.completion_agrees_across_copies
