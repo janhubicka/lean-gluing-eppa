@@ -72,7 +72,7 @@ theorem intersection_word (M N S : Finset E)
       wordValue D S w = wordValue D S p := by
   let w := DirectRecord.restrictWord (M : Set E) q
   have hw : ∀ e ∈ w, e ∈ M ∩ N :=
-    restrictWord_mem_inter D M N q hq
+    restrictWord_mem_inter M N q hq
   have hwM : ∀ e ∈ w, e ∈ M :=
     fun e he => (Finset.mem_inter.mp (hw e he)).1
   have hwS : ∀ e ∈ w, e ∈ S :=
