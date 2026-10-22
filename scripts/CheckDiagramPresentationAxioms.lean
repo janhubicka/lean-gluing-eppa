@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramDeck
+import GluingEPPA.Steiner.DiagramRelabelling
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -37,3 +37,7 @@ import GluingEPPA.Steiner.DiagramDeck
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.freePointLeft_comp
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.freePointLeft_one
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedDeck_preserves_triple
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelOccurrence_respects
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_canonical
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_preserves_triple
