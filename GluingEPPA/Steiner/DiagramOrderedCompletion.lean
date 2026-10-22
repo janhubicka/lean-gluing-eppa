@@ -21,8 +21,8 @@ universe u v w
 noncomputable def increasingIso (A : Type u) (B : Type v)
     [Fintype A] [LinearOrder A] [Fintype B] [LinearOrder B]
     (h : Fintype.card A = Fintype.card B) : A ≃o B :=
-  (Fintype.monoEquivOfFin A rfl).symm.trans
-    (Fintype.monoEquivOfFin B h.symm)
+  (monoEquivOfFin A rfl).symm.trans
+    (monoEquivOfFin B h.symm)
 
 /-- An increasing bijection of a finite linear order to itself is the identity. -/
 theorem increasingIso_refl (A : Type u) [Fintype A] [LinearOrder A] :
