@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramRealizedSTS
+import GluingEPPA.Steiner.DiagramRealizationConsequences
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -29,3 +29,6 @@ import GluingEPPA.Steiner.DiagramRealizedSTS
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_swap
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_rotate
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_closed
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_distinct
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.canonicalPoint_triple_iff
