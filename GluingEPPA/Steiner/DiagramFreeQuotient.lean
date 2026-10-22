@@ -59,18 +59,18 @@ def pointSetoid (L : D.LabelledSteiner Ω)
     D.CayleyWalk (edgesCarrying L.overlap p.label)
       a p.site p.sheet q.site q.sheet
   iseqv := ⟨
-    (fun p => ⟨rfl, D.CayleyWalk.nil p.site p.sheet⟩),
+    (fun p => ⟨rfl, CayleyWalk.nil p.site p.sheet⟩),
     (by
       intro p q h
       refine ⟨h.1.symm, ?_⟩
       rw [← h.1]
-      exact D.CayleyWalk.symm (fun e _ => ha e) h.2),
+      exact CayleyWalk.symm (fun e _ => ha e) h.2),
     (by
       intro p q r hp hq
       refine ⟨hp.1.trans hq.1, ?_⟩
       have qr := hq.2
       rw [← hp.1] at qr
-      exact D.CayleyWalk.trans hp.2 qr)⟩
+      exact CayleyWalk.trans hp.2 qr)⟩
 
 /-- All the points of the finite free quotient. -/
 def FreePoint (L : D.LabelledSteiner Ω)
