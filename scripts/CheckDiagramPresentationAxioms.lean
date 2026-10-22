@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramRelabelling
+import GluingEPPA.Steiner.DiagramRelabellingEquiv
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -41,3 +41,7 @@ import GluingEPPA.Steiner.DiagramRelabelling
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelOccurrence_respects
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_canonical
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_preserves_triple
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_injective
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_surjective
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPointEquiv_preserves_triple
