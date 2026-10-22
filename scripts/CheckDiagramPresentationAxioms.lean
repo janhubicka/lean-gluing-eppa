@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramOrderedTotalCompletion
+import GluingEPPA.Steiner.DiagramInitialSites
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -69,3 +69,9 @@ import GluingEPPA.Steiner.DiagramOrderedTotalCompletion
 #print axioms GluingEPPA.Steiner.OrderedCompletion.totalCompletion_complement
 #print axioms GluingEPPA.Steiner.OrderedCompletion.totalCompletion_id
 #print axioms GluingEPPA.Steiner.OrderedCompletion.totalCompletion_trans
+
+#print axioms GluingEPPA.Steiner.InitialSites.SiteData.relabel_refl
+#print axioms GluingEPPA.Steiner.InitialSites.SiteData.relabel_trans
+#print axioms GluingEPPA.Steiner.InitialSites.siteOf_relabel
+#print axioms GluingEPPA.Steiner.InitialSites.Site.relabel_refl
+#print axioms GluingEPPA.Steiner.InitialSites.Site.relabel_trans
