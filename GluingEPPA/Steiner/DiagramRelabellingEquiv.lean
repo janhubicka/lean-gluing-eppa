@@ -69,7 +69,7 @@ theorem relabelPoint_surjective (L : LabelledSteiner D Ω)
         apply (t.present (t.graph.vertex.symm u) (t.labels.symm x)).1
         simpa using hx
       refine ⟨canonicalPoint D L (t.graph.vertex.symm u)
-        (relabelValuation D L t).symm g (t.labels.symm x) hpre, ?_⟩
+        ((relabelValuation D L t).symm g) (t.labels.symm x) hpre, ?_⟩
       rw [relabelPoint_canonical]
       simp
 
