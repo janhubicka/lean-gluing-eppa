@@ -48,12 +48,12 @@ theorem pair_walk_carries_third
   induction p with
   | nil u g =>
       intro ht
-      exact ⟨ht, D.CayleyWalk.nil u g⟩
+      exact ⟨ht, CayleyWalk.nil u g⟩
   | @cons u v w g h e he hj p ih =>
       intro ht
       obtain ⟨hz, hv⟩ := closed e u v x y z hj ht he.1 he.2
       obtain ⟨hw, q⟩ := ih hv
-      exact ⟨hw, D.CayleyWalk.cons hz hj q⟩
+      exact ⟨hw, CayleyWalk.cons hz hj q⟩
 
 /-- The intersection property synchronizes separate transports of the
 two labels; closedness then transports their third point. -/
