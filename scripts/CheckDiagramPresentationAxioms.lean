@@ -10,3 +10,9 @@ import GluingEPPA.Steiner.DiagramPresentation
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.DirectRecord.diagramAction_eq_iff_value
 #print axioms GluingEPPA.Steiner.EdgeGraph.DirectRecord.diagramAction_eq_iff_valuation
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_inclusion
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_deletion
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.restrictWord_mem_inter
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.intersection_word
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.exact_intersection_walk_by_words
