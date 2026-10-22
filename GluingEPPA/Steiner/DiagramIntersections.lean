@@ -118,7 +118,7 @@ theorem exact_intersection_walk_by_words (M N : Finset E)
       (Finset.subset_univ M) (Finset.subset_univ N) wp wq hp hq hv
   have pM : D.WalkValue (M : Set E) (family D M).edge u v
       (wordValue D M wp) :=
-    D.WordWalk.value (a := (family D M).edge) pWalk
+    WordWalk.value (D := D) (a := (family D M).edge) pWalk
   have pM' : D.WalkValue (M : Set E) (family D M).edge u v
       (inclusion D (M ∩ N) M Finset.inter_subset_left
         (wordValue D (M ∩ N) w)) := by
