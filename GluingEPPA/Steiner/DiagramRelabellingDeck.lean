@@ -33,18 +33,12 @@ theorem relabelPoint_deck (L : LabelledSteiner D Ω)
   | _ p =>
       cases p with
       | mk u g x hx =>
-          change relabelPoint D L t
-            (freePointLeft D L (family D Finset.univ).edge
-              (fun e => family_square D Finset.univ e) k
-              (canonicalPoint D L u g x hx)) =
-            freePointLeft D L (family D Finset.univ).edge
-              (fun e => family_square D Finset.univ e)
-              (relabelValuation D L t k)
-              (relabelPoint D L t (canonicalPoint D L u g x hx))
-          rw [freePointLeft_at]
-          rw [relabelPoint_canonical]
-          rw [relabelPoint_canonical]
-          rw [freePointLeft_at]
+          change canonicalPoint D L (t.graph.vertex u)
+            (relabelValuation D L t (k * g)) (t.labels x)
+              ((t.present u x).2 hx) =
+            canonicalPoint D L (t.graph.vertex u)
+              (relabelValuation D L t k * relabelValuation D L t g)
+              (t.labels x) ((t.present u x).2 hx)
           rw [map_mul]
 
 /-- A valuation involution induces an involution on every point
