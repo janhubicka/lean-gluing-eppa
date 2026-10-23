@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramUniformExtension
+import GluingEPPA.Steiner.DiagramRootWitness
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -127,3 +127,8 @@ import GluingEPPA.Steiner.DiagramUniformExtension
 
 #print axioms GluingEPPA.Steiner.InitialSites.full_domain_iff_full_range
 #print axioms GluingEPPA.Steiner.InitialSites.coherentExtension_on_root
+
+#print axioms GluingEPPA.Steiner.InitialSites.rootEmbedding_injective
+#print axioms GluingEPPA.Steiner.InitialSites.rootEmbedding_triple_iff
+#print axioms GluingEPPA.Steiner.InitialSites.rootEmbedding_closed
+#print axioms GluingEPPA.Steiner.InitialSites.coherentExtension_preserves_triple
