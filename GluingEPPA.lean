@@ -6,7 +6,7 @@ import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
-import GluingEPPA.Steiner.DiagramWordNaturality
+import GluingEPPA.Steiner.DiagramBooleanSupport
 
 /-!
 # The Gluing EPPA library
