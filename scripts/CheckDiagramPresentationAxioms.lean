@@ -150,3 +150,7 @@ import GluingEPPA.Steiner.DiagramExactProperties
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_word_deletion
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_word_inclusion
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_endpoint_repair
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_deletion
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_inclusion
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_endpoint_repair
