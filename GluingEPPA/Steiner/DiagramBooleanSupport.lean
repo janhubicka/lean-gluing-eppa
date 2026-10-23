@@ -41,13 +41,12 @@ the same adjacency; parity is computed *before* forgetting names. -/
 noncomputable def supportedGraph (M : Set E) : SimpleGraph V where
   Adj u v := ∃ e : E, e ∈ M ∧ D.Joins e u v
   symm := by
-    change ∀ u v, (∃ e : E, e ∈ M ∧ D.Joins e u v) →
-      ∃ e : E, e ∈ M ∧ D.Joins e v u
+    constructor
     intro u v h
     rcases h with ⟨e, he, hj⟩
     exact ⟨e, he, D.joins_symm hj⟩
   loopless := by
-    change ∀ u, ¬ (∃ e : E, e ∈ M ∧ D.Joins e u u)
+    constructor
     intro u h
     rcases h with ⟨e, he, hj⟩
     rcases hj with ⟨hs, ht⟩ | ⟨hs, ht⟩
