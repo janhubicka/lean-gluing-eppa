@@ -100,7 +100,8 @@ theorem singleton_edge_ne_one (e : E) :
       (Step.involutions S old i) (D.target e) 1
   have hcd : c ≠ d := by
     exact empty_components_distinct D
-      (Step.edges S old i) (Step.involutions S old i)
+      (Step.edges S old i)
+      (fun f hf => False.elim (by simpa using hf))
       (D.loopless e)
   have hstep :
       ((Step.data D S old).edge e) ≠ 1 := by
