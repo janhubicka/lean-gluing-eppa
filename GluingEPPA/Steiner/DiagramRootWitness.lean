@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramCoherentFamily
+import GluingEPPA.Steiner.DiagramUniformExtension
 
 /-!
 # The finite Steiner witness and its canonical closed embedding
