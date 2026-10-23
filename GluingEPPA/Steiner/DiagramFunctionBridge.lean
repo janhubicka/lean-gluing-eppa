@@ -78,8 +78,9 @@ theorem witness_extension_function (P : Input A)
   · intro hz
     refine ⟨e.symm z, ?_, ?_⟩
     · apply (C.extension_triple U W hU hW f x y (e.symm z)).mp
-      change C.triple (e x) (e y) z at hz
-      simpa only [e.apply_symm_apply] using hz
+      change C.triple (e x) (e y) (e (e.symm z))
+      rw [e.apply_symm_apply]
+      exact hz
     · exact e.apply_symm_apply z
 
 end GluingEPPA.Steiner.InitialSites
