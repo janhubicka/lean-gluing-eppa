@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramPartialSite
+import GluingEPPA.Steiner.DiagramExtensionPoints
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -107,3 +107,6 @@ import GluingEPPA.Steiner.DiagramPartialSite
 #print axioms GluingEPPA.Steiner.InitialSites.SiteData.eq_of_fields
 #print axioms GluingEPPA.Steiner.InitialSites.relabel_induced_site
 #print axioms GluingEPPA.Steiner.InitialSites.totalCompletion_maps_site
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.extensionMap_on_local_point
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.extensionMap_of_representatives
