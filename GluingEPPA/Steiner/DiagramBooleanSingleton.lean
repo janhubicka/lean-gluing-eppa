@@ -114,7 +114,7 @@ theorem singleton_edge_ne_one (e : E) :
         (Step.sets S i) (Step.edges S old i)
         (Step.involutions S old i) (D.joins_endpoints e)
     rw [hc] at ht
-    exact hcd ht.symm
+    exact hcd ht
   change (family D S).edge e ≠ 1
   rw [family_step D S]
   exact hstep
