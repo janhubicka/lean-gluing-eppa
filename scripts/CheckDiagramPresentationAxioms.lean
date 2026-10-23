@@ -1,6 +1,6 @@
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
-import GluingEPPA.Steiner.DiagramBooleanSupport
+import GluingEPPA.Steiner.DiagramBooleanQuotient
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -165,3 +165,13 @@ import GluingEPPA.Steiner.DiagramBooleanSupport
 #print axioms GluingEPPA.Steiner.EdgeGraph.boolean_support_reachable
 #print axioms GluingEPPA.Steiner.EdgeGraph.boolean_support_path
 #print axioms GluingEPPA.Steiner.EdgeGraph.boolean_lift_support_path
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_edge_ne_one
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_exactly_two
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanBit_generator
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_mul
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_word
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanWord_wellDefined
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_surjective
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_transition
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.exact_boolean_quotient
