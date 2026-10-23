@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramFullDomainExtension
+import GluingEPPA.Steiner.DiagramInputAction
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -115,3 +115,8 @@ import GluingEPPA.Steiner.DiagramFullDomainExtension
 
 #print axioms GluingEPPA.Steiner.InitialSites.inputSymmetry_fixes_root
 #print axioms GluingEPPA.Steiner.InitialSites.extension_on_full_domain
+
+#print axioms GluingEPPA.Steiner.InitialSites.graphRelabel_id
+#print axioms GluingEPPA.Steiner.InitialSites.graphRelabel_comp
+#print axioms GluingEPPA.Steiner.InitialSites.inputSymmetry_id
+#print axioms GluingEPPA.Steiner.InitialSites.inputSymmetry_comp
