@@ -5,6 +5,7 @@ import GluingEPPA.Sparsening.Saturated
 import GluingEPPA.Sparsening.Descent
 import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
+import GluingEPPA.Steiner.DiagramFreeRealizationTheorem
 
 /-!
 # The Gluing EPPA library
