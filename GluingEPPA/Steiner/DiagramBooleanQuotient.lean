@@ -214,7 +214,7 @@ theorem booleanCoordinates_surjective (S : Finset E) :
     rw [ht', extendBooleanCoordinates_at S χ a]
     simp [a.property]
   by_cases hzero : χ a = 0
-  · have hn' : a.val ∉ w := fun h => hzero (ht.mp h)
+  · have hn' : a.val ∉ w := fun h => (ht.mp h) hzero
     simp [hn', hzero]
   · have hm : a.val ∈ w := ht.mpr hzero
     have htwo : ∀ z : ZMod 2, z = 0 ∨ z = 1 := by decide
@@ -229,8 +229,8 @@ theorem booleanCoordinates_transition (S : Finset E)
     booleanCoordinates D S (g * (family D S).edge f) a =
       booleanCoordinates D S g a +
         (if f = a.val then (1 : ZMod 2) else 0) := by
-  rw [congrFun (booleanCoordinates_mul D S g _) a]
-  rw [booleanCoordinates_generator D S f hf a]
+  have hm := congrFun (booleanCoordinates_mul D S g ((family D S).edge f)) a
+  simpa only [Pi.add_apply, booleanCoordinates_generator D S f hf a] using hm
 
 /-- The complete Boolean-quotient assertion of the manuscript:
 well-defined on all recursive valuation vertices, onto the Boolean
