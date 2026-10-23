@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramExactProperties
+import GluingEPPA.Steiner.DiagramWordNaturality
 
 /-!
 # The singleton recursive valuation diagram has exactly two vertices
