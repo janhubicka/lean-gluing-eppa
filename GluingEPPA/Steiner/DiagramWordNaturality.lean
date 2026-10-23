@@ -36,7 +36,7 @@ theorem diagram_word_action_naturality
   have hw :
       naturalIso D D' f S T hST (wordValue D S w) =
         wordValue D' T (w.map f.edge) := by
-    simpa only [wordValue, List.map_map] using
+    simpa only [wordValue, List.map_map, Function.comp_def] using
       (naturalIso_word D D' f S T hST w)
   change naturalIso D D' f S T hST (g * wordValue D S w) =
       naturalIso D D' f S T hST g *
