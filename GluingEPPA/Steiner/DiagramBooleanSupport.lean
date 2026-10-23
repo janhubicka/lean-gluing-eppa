@@ -41,10 +41,13 @@ the same adjacency; parity is computed *before* forgetting names. -/
 noncomputable def supportedGraph (M : Set E) : SimpleGraph V where
   Adj u v := ∃ e : E, e ∈ M ∧ D.Joins e u v
   symm := by
+    change ∀ u v, (∃ e : E, e ∈ M ∧ D.Joins e u v) →
+      ∃ e : E, e ∈ M ∧ D.Joins e v u
     intro u v h
     rcases h with ⟨e, he, hj⟩
     exact ⟨e, he, D.joins_symm hj⟩
   loopless := by
+    change ∀ u, ¬ (∃ e : E, e ∈ M ∧ D.Joins e u u)
     intro u h
     rcases h with ⟨e, he, hj⟩
     rcases hj with ⟨hs, ht⟩ | ⟨hs, ht⟩
@@ -56,21 +59,22 @@ theorem wordWalk_concat {M : Set E} {u v z : V}
     {p q : List E} (hp : D.WordWalk M u p v)
     (hq : D.WordWalk M v q z) :
     D.WordWalk M u (p ++ q) z := by
-  induction hp with
+  induction hp generalizing z q with
   | nil => simpa using hq
   | cons he hj p ih =>
       simpa only [List.cons_append] using
-        (WordWalk.cons he hj ih)
+        (WordWalk.cons he hj (ih hq))
 
 /-- A named-edge walk projects to a walk in the ordinary graph
 supported by the same named edges. -/
-theorem wordWalk_toGraph {M : Set E} {u v : V} {w : List E}
+theorem wordWalk_toGraph_nonempty {M : Set E} {u v : V} {w : List E}
     (p : D.WordWalk M u w v) :
-    (D.supportedGraph M).Walk u v := by
+    Nonempty ((D.supportedGraph M).Walk u v) := by
   induction p with
-  | nil => exact SimpleGraph.Walk.nil
+  | nil => exact ⟨SimpleGraph.Walk.nil⟩
   | @cons u v z e w he hj p ih =>
-      exact SimpleGraph.Walk.cons ⟨e, he, hj⟩ ih
+      rcases ih with ⟨q⟩
+      exact ⟨SimpleGraph.Walk.cons ⟨e, he, hj⟩ q⟩
 
 private theorem zmodTwo_add_self (x : ZMod 2) : x + x = 0 := by
   have h2 : (2 : ZMod 2) = 0 := by decide
@@ -141,25 +145,25 @@ theorem wordWalk_cut_sum (R : V → Prop)
 of the graph of edge occurrences with odd multiplicity. -/
 theorem boolean_support_reachable {u v : V} {w : List E}
     (p : D.WordWalk Set.univ u w v) :
-    ∃ q : List E, D.WordWalk (D.oddEdges w) u q v := by
+    ∃ q : List E, D.WordWalk (oddEdges w) u q v := by
   classical
   let R : V → Prop :=
-    fun z => ∃ q : List E, D.WordWalk (D.oddEdges w) u q z
+    fun z => ∃ q : List E, D.WordWalk (oddEdges w) u q z
   by_contra hnot
   have hv : ¬ R v := hnot
   have hu : R u := ⟨[], WordWalk.nil u⟩
-  have hstep (e : E) (he : e ∈ D.oddEdges w)
+  have hstep (e : E) (he : e ∈ oddEdges w)
       {a b : V} (hj : D.Joins e a b) :
       R a → R b := by
     rintro ⟨q, hq⟩
     refine ⟨q ++ [e], ?_⟩
     exact D.wordWalk_concat hq
       (WordWalk.cons he hj (WordWalk.nil b))
-  have hsame (e : E) (he : e ∈ D.oddEdges w) :
+  have hsame (e : E) (he : e ∈ oddEdges w) :
       R (D.source e) ↔ R (D.target e) :=
     ⟨hstep e he (D.joins_endpoints e),
       hstep e he (D.joins_symm (D.joins_endpoints e))⟩
-  have cutzero (e : E) (he : e ∈ D.oddEdges w) :
+  have cutzero (e : E) (he : e ∈ oddEdges w) :
       D.cutEdge R e = 0 := by
     have hsides :
         cutSide R (D.source e) = cutSide R (D.target e) := by
@@ -173,10 +177,10 @@ theorem boolean_support_reachable {u v : V} {w : List E}
     rw [hsides]
     exact zmodTwo_add_self _
   have hsum : (w.map (D.cutEdge R)).sum = 0 := by
-    rw [← edgeParity_weighted_sum D w (D.cutEdge R)]
+    rw [← edgeParity_weighted_sum w (D.cutEdge R)]
     apply Finset.sum_eq_zero
     intro e he
-    by_cases hp : D.edgeParity w e = 0
+    by_cases hp : edgeParity w e = 0
     · simp [hp]
     · have hz : D.cutEdge R e = 0 := cutzero e hp
       simp [hz]
@@ -195,27 +199,28 @@ vertices from the obtained walk is handled by the standard path
 extraction from a finite graph walk. -/
 theorem boolean_support_path [DecidableEq V]
     {u v : V} {w : List E} (p : D.WordWalk Set.univ u w v) :
-    Nonempty ((D.supportedGraph (D.oddEdges w)).Path u v) := by
+    Nonempty ((D.supportedGraph (oddEdges w)).Path u v) := by
   obtain ⟨q, hq⟩ := D.boolean_support_reachable p
-  exact ⟨(D.wordWalk_toGraph hq).toPath⟩
+  obtain ⟨r⟩ := D.wordWalk_toGraph_nonempty hq
+  exact ⟨r.toPath⟩
 
 /-- If a Boolean lift starts at χ and ends at η, the support
 of χ+η is precisely the odd-edge support of the word. -/
 theorem boolean_lift_support_path [DecidableEq V]
     {u v : V} {w : List E} (p : D.WordWalk Set.univ u w v)
     (χ η : E → ZMod 2)
-    (hη : ∀ e, η e = χ e + D.edgeParity w e) :
+    (hη : ∀ e, η e = χ e + edgeParity w e) :
     Nonempty
       ((D.supportedGraph {e | χ e + η e ≠ 0}).Path u v) := by
-  have hs : {e : E | χ e + η e ≠ 0} = D.oddEdges w := by
+  have hs : {e : E | χ e + η e ≠ 0} = oddEdges w := by
     ext e
-    have hv : χ e + η e = D.edgeParity w e := by
+    have hv : χ e + η e = edgeParity w e := by
       rw [hη e]
       calc
-        χ e + (χ e + D.edgeParity w e) =
-          (χ e + χ e) + D.edgeParity w e := by abel
-        _ = D.edgeParity w e := by rw [zmodTwo_add_self]; simp
-    change (χ e + η e ≠ 0) ↔ (D.edgeParity w e ≠ 0)
+        χ e + (χ e + edgeParity w e) =
+          (χ e + χ e) + edgeParity w e := by abel
+        _ = edgeParity w e := by rw [zmodTwo_add_self]; simp
+    change (χ e + η e ≠ 0) ↔ (edgeParity w e ≠ 0)
     rw [hv]
   rw [hs]
   exact D.boolean_support_path p
