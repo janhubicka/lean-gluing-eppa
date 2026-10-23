@@ -1,5 +1,5 @@
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
-import GluingEPPA.Steiner.DiagramFreeRealizationTheorem
+import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramExactProperties
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
@@ -154,3 +154,5 @@ import GluingEPPA.Steiner.DiagramExactProperties
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_deletion
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_inclusion
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_endpoint_repair
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.canonicalPoint_completion_eq
