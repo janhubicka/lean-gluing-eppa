@@ -93,4 +93,47 @@ theorem diagram_endpoint_repair (M S : Finset E) (hMS : M ⊆ S)
       _ = wordValue D S p := hval.symm
   exact ⟨q, hqwalk, hqsmall, hfull⟩
 
+
+/-- The deletion requirement stated directly for the word-action
+permutations Q_S, rather than only for their group values. -/
+theorem diagram_permutation_deletion (M S : Finset E) (hMS : M ⊆ S)
+    (p q : List E)
+    (hp : ∀ e ∈ p, e ∈ S) (hq : ∀ e ∈ q, e ∈ S)
+    (h : wordPermutation D S p = wordPermutation D S q) :
+    wordPermutation D M (DirectRecord.restrictWord (M : Set E) p) =
+      wordPermutation D M (DirectRecord.restrictWord (M : Set E) q) := by
+  apply (wordPermutation_eq_iff D M _ _).2
+  exact diagram_word_deletion D M S hMS p q hp hq
+    ((wordPermutation_eq_iff D S p q).1 h)
+
+/-- Faithful inclusion of small word-action permutations is the
+other direction of requirement (a). -/
+theorem diagram_permutation_inclusion (M S : Finset E) (hMS : M ⊆ S)
+    (p q : List E)
+    (hp : ∀ e ∈ p, e ∈ M) (hq : ∀ e ∈ q, e ∈ M)
+    (h : wordPermutation D M p = wordPermutation D M q) :
+    wordPermutation D S p = wordPermutation D S q := by
+  apply (wordPermutation_eq_iff D S p q).2
+  exact diagram_word_inclusion D M S hMS p q hp hq
+    ((wordPermutation_eq_iff D M p q).1 h)
+
+/-- Endpoint repair in the language of valuation-diagram word
+actions: equal permutations replace the smaller word without
+changing the original projected walk endpoints or its full action. -/
+theorem diagram_permutation_endpoint_repair
+    (M S : Finset E) (hMS : M ⊆ S)
+    (u v : V) (p m : List E)
+    (hp : D.WordWalk (S : Set E) u p v)
+    (hm : ∀ e ∈ m, e ∈ M)
+    (hval : wordPermutation D S p = wordPermutation D S m) :
+    ∃ q : List E, D.WordWalk (M : Set E) u q v ∧
+      wordPermutation D M q = wordPermutation D M m ∧
+      wordPermutation D S q = wordPermutation D S p := by
+  obtain ⟨q, hqwalk, hqM, hqS⟩ :=
+    diagram_endpoint_repair D M S hMS u v p m hp hm
+      ((wordPermutation_eq_iff D S p m).1 hval)
+  exact ⟨q, hqwalk,
+    (wordPermutation_eq_iff D M q m).2 hqM,
+    (wordPermutation_eq_iff D S q p).2 hqS⟩
+
 end GluingEPPA.Steiner.EdgeGraph.RecursiveRecord
