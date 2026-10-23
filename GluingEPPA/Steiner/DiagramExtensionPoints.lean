@@ -35,7 +35,10 @@ theorem extensionMap_on_local_point
     (kW * relabelValuation D L t (kU * kU)) (t.labels x)
       ((t.present sU x).2 hx) =
     canonicalPoint D L sW kW y hy
-  rw [hkU, map_one, mul_one, hs, hxy]
+  rw [hkU, map_one, mul_one]
+  cases hs
+  cases hxy
+  rfl
 
 /-- Equivalent formulation when the original embedding is represented
 by a point in the source local system and a point in the target. -/
