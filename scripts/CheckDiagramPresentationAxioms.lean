@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
+import GluingEPPA.Steiner.DiagramFreeRealizationTheorem
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -142,3 +143,5 @@ import GluingEPPA.Steiner.DiagramFullEPPAStatement
 #print axioms GluingEPPA.Steiner.InitialSites.witness_extension_function
 
 #print axioms GluingEPPA.Steiner.InitialSites.coherentSteinerEPPA_function
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.closedSteinerFreeRealization
