@@ -155,53 +155,72 @@ theorem booleanWord_wellDefined (S : Finset E)
     _ = EdgeGraph.edgeParity q a.val :=
       booleanCoordinates_word D S q hq a
 
-/-- A product of pairwise differently named generators realizes
-the characteristic function of its chosen set of edge names. -/
-theorem booleanCoordinates_product (S : Finset E)
-    (T : Finset {e : E // e ∈ S}) (a : {e : E // e ∈ S}) :
-    booleanCoordinates D S
-      (T.prod (fun e => (family D S).edge e.val)) a =
-      (if a ∈ T then (1 : ZMod 2) else 0) := by
-  classical
-  induction T using Finset.induction_on with
-  | empty =>
-      simp only [Finset.prod_empty, Finset.not_mem_empty, ite_false]
-      exact congrFun (booleanCoordinates_one D S) a
-  | @insert b T hb ih =>
-      rw [Finset.prod_insert hb]
-      have hm := congrFun
-        (booleanCoordinates_mul D S
-          ((family D S).edge b.val)
-          (T.prod (fun e => (family D S).edge e.val))) a
-      rw [hm, booleanCoordinates_generator D S b.val b.property a, ih]
-      by_cases h : a = b
-      · subst a
-        simp [hb]
-      · have hne : b.val ≠ a.val := by
-          intro heq
-          apply h
-          exact Subtype.ext heq.symm
-        simp [hne, h]
+/-- An edge occurs with odd parity in a list without duplicate
+edge names exactly when it is a member of that list. -/
+theorem edgeParity_of_nodup (w : List E) (hn : w.Nodup) (e : E) :
+    EdgeGraph.edgeParity w e =
+      (if e ∈ w then (1 : ZMod 2) else 0) := by
+  revert hn
+  induction w with
+  | nil =>
+      intro _
+      simp [EdgeGraph.edgeParity]
+  | cons a w ih =>
+      intro hn
+      obtain ⟨ha, hw⟩ := List.nodup_cons.mp hn
+      have hrec := ih hw
+      by_cases he : e = a
+      · subst e
+        simp [EdgeGraph.edgeParity, ha, hrec]
+      · have hne : a ≠ e := Ne.symm he
+        simp [EdgeGraph.edgeParity, he, hne, hrec]
 
-/-- Every F₂ valuation on S is attained. -/
+/-- Extend a Boolean coordinate function by zero outside its mask. -/
+noncomputable def extendBooleanCoordinates (S : Finset E)
+    (χ : {e : E // e ∈ S} → ZMod 2) (e : E) : ZMod 2 :=
+  if he : e ∈ S then χ ⟨e, he⟩ else 0
+
+theorem extendBooleanCoordinates_at (S : Finset E)
+    (χ : {e : E // e ∈ S} → ZMod 2)
+    (e : {e : E // e ∈ S}) :
+    extendBooleanCoordinates S χ e.val = χ e := by
+  rcases e with ⟨e, he⟩
+  simp [extendBooleanCoordinates, he]
+
+/-- Every Boolean cube vertex is the parity of a list containing
+each selected named edge exactly once, hence comes from a
+genuine vertex of the recursive valuation group. -/
 theorem booleanCoordinates_surjective (S : Finset E) :
     Function.Surjective (booleanCoordinates D S) := by
   classical
   intro χ
-  let T : Finset {e : E // e ∈ S} :=
-    Finset.univ.filter (fun a => χ a ≠ 0)
-  refine ⟨T.prod (fun a => (family D S).edge a.val), ?_⟩
+  let T : Finset E :=
+    S.filter (fun e => extendBooleanCoordinates S χ e ≠ 0)
+  let w : List E := T.toList
+  have hw : ∀ e ∈ w, e ∈ S := by
+    intro e he
+    have ht : e ∈ T := by simpa [w] using he
+    exact (Finset.mem_filter.mp ht).1
+  refine ⟨wordValue D S w, ?_⟩
   funext a
-  rw [booleanCoordinates_product]
-  have ht : a ∈ T ↔ χ a ≠ 0 := by simp [T]
+  rw [booleanCoordinates_word D S w hw a]
+  have hn : w.Nodup := by
+    simpa [w] using T.nodup_toList
+  rw [edgeParity_of_nodup w hn a.val]
+  have ht : a.val ∈ w ↔ χ a ≠ 0 := by
+    have ht' : a.val ∈ w ↔
+        a.val ∈ S ∧ extendBooleanCoordinates S χ a.val ≠ 0 := by
+      simp [w, T, Finset.mem_filter]
+    rw [ht', extendBooleanCoordinates_at S χ a]
+    simp [a.property]
   by_cases hzero : χ a = 0
-  · have hn : a ∉ T := fun ha => hzero ((ht.mp ha))
-    simp [hn, hzero]
-  · have ht' : a ∈ T := ht.mpr hzero
+  · have hn' : a.val ∉ w := fun h => hzero (ht.mp h)
+    simp [hn', hzero]
+  · have hm : a.val ∈ w := ht.mpr hzero
     have htwo : ∀ z : ZMod 2, z = 0 ∨ z = 1 := by decide
     have hone : χ a = 1 :=
       (htwo (χ a)).resolve_left hzero
-    simp [ht', hone]
+    simp [hm, hone]
 
 /-- The quotient commutes with all named labelled transitions. -/
 theorem booleanCoordinates_transition (S : Finset E)
