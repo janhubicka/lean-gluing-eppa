@@ -1,6 +1,6 @@
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
-import GluingEPPA.Steiner.DiagramWordNaturality
+import GluingEPPA.Steiner.DiagramBooleanSingleton
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -159,3 +159,10 @@ import GluingEPPA.Steiner.DiagramWordNaturality
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_word_action_naturality
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_lift_walk_naturality
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.emptyCayleyWalk_same_base
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_word_value
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_covered
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.empty_components_distinct
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_edge_ne_one
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_exactly_two
