@@ -81,7 +81,7 @@ theorem empty_components_distinct
       D.component (∅ : Set E) a ha v 1 := by
   intro h
   have hp := (D.component_eq_iff (∅ : Set E) a ha u v 1 1).mp h
-  exact hne (D.emptyCayleyWalk_same_base a hp)
+  exact hne (emptyCayleyWalk_same_base D a hp)
 
 /-- The nontriviality of the singleton generator is detected
 by its genuine action on the empty-stage connected components.
@@ -99,7 +99,7 @@ theorem singleton_edge_ne_one (e : E) :
     D.component (Step.sets S i) (Step.edges S old i)
       (Step.involutions S old i) (D.target e) 1
   have hcd : c ≠ d := by
-    exact D.empty_components_distinct
+    exact empty_components_distinct D
       (Step.edges S old i) (Step.involutions S old i)
       (D.loopless e)
   have hstep :
