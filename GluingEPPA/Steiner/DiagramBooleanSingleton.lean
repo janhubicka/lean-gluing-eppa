@@ -99,10 +99,15 @@ theorem singleton_edge_ne_one (e : E) :
     D.component (Step.sets S i) (Step.edges S old i)
       (Step.involutions S old i) (D.target e) 1
   have hcd : c ≠ d := by
-    exact empty_components_distinct D
-      (Step.edges S old i)
-      (fun f hf => False.elim (by simpa using hf))
-      (D.loopless e)
+    intro h
+    have p : D.CayleyWalk (Step.sets S i) (Step.edges S old i)
+        (D.source e) 1 (D.target e) 1 :=
+      (D.component_eq_iff (Step.sets S i) (Step.edges S old i)
+        (Step.involutions S old i) (D.source e) (D.target e) 1 1).mp h
+    have hset : Step.sets S i = (∅ : Set E) := by
+      simp [Step.sets, i]
+    rw [hset] at p
+    exact D.loopless e (emptyCayleyWalk_same_base D (Step.edges S old i) p)
   have hstep :
       ((Step.data D S old).edge e) ≠ 1 := by
     intro hz
