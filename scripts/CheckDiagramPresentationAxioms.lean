@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.DiagramMainEPPA
+import GluingEPPA.Steiner.DiagramCompletionFunctions
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append
@@ -135,3 +135,6 @@ import GluingEPPA.Steiner.DiagramMainEPPA
 
 #print axioms GluingEPPA.Steiner.InitialSites.coherentExtension_triple_iff
 #print axioms GluingEPPA.Steiner.InitialSites.concreteCoherentEPPAWitness
+
+#print axioms GluingEPPA.Steiner.InitialSites.CoherentEPPAWitness.embedding_completion_eq
+#print axioms GluingEPPA.Steiner.InitialSites.CoherentEPPAWitness.extension_completion_eq
