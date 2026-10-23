@@ -51,7 +51,7 @@ noncomputable def supportedGraph (M : Set E) : SimpleGraph V where
     rcases h with ⟨e, he, hj⟩
     rcases hj with ⟨hs, ht⟩ | ⟨hs, ht⟩
     · exact D.loopless e (hs.trans ht.symm)
-    · exact D.loopless e (ht.trans hs.symm)
+    · exact D.loopless e (hs.trans ht.symm)
 
 /-- Concatenation of actual walks, with both endpoints retained. -/
 theorem wordWalk_concat {M : Set E} {u v z : V}
