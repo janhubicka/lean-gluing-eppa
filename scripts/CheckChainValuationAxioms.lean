@@ -111,3 +111,5 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.shared_edge
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.separatedList_three_iff
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.separatedList_three_iff
