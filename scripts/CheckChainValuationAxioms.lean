@@ -3,6 +3,7 @@ import GluingEPPA.Steiner.ChainValuation.ChainRestrictionCore
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 import GluingEPPA.Steiner.ChainValuation.Pushout
+import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 
 #print axioms GluingEPPA.Steiner.ChainValuation.self_mem_leftCoset
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_eq_of_mem
@@ -34,3 +35,9 @@ import GluingEPPA.Steiner.ChainValuation.Pushout
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutInr_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutInl_eq_inr_iff
 #print axioms GluingEPPA.Steiner.ChainValuation.pushout_attachment
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.value_cons
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.letter_involutive
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.generator_involutive
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_valuation
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_test_coordinate
