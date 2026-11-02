@@ -74,12 +74,25 @@ jobs:
       - name: Download Mathlib cache
         run: lake exe cache get
 
+      - name: Check chain reflection and axioms
+        id: chain-check
+        run: |
+          mkdir -p proof-audit
+          if ! lake build GluingEPPA.Steiner.ChainValuation.ComponentReflection > proof-audit/chain-reflection-build.log 2>&1; then
+            cat proof-audit/chain-reflection-build.log
+            exit 1
+          fi
+          if ! lake env lean scripts/CheckChainValuationAxioms.lean > proof-audit/CheckChainValuationAxioms.log 2>&1; then
+            cat proof-audit/CheckChainValuationAxioms.log
+            exit 1
+          fi
+          python3 scripts/check-axiom-log.py proof-audit/CheckChainValuationAxioms.log scripts/CheckChainValuationAxioms.lean
+
       - name: Build
         id: build
         run: |
           mkdir -p proof-audit
-          # Check the active current-draft module first; retain the full build
-          # and every existing amalgamation-diagram audit below unchanged.
+          # Retain the original main-text build and all existing audits.
           if ! lake build GluingEPPA.Steiner.FiniteIntersections > proof-audit/steiner-current-build.log 2>&1; then
             cat proof-audit/steiner-current-build.log
             exit 1
@@ -142,6 +155,8 @@ jobs:
           for manifest in CayleyIsomorphism RecordIsomorphism RecursiveNaturality FiniteIntersections; do
             cp "scripts/Check${manifest}Axioms.lean" proof-audit/steiner-manifests/
           done
+          cp -R GluingEPPA/Steiner/ChainValuation proof-audit/chain-source
+          cp scripts/CheckChainValuationAxioms.lean proof-audit/chain-source/
           git diff --check
           (cd proof-audit && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
 
