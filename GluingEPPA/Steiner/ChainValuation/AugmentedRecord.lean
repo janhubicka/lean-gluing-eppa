@@ -251,6 +251,21 @@ noncomputable def forget
   map_one' := rfl
   map_mul' _ _ := rfl
 
+theorem forget_totalGenerator
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) :
+    forget D T K a ha X τ hsquare S
+        (totalGenerator D T K a ha X τ hsquare S e) =
+      DirectRecord.totalGenerator D T K a ha S e := by
+  apply Subtype.ext
+  by_cases he : e ∈ S
+  · rw [totalGenerator_mem D T K a ha X τ hsquare S e he,
+      DirectRecord.totalGenerator_mem D T K a ha S e he]
+    rfl
+  · rw [totalGenerator_not_mem D T K a ha X τ hsquare S e he,
+      DirectRecord.totalGenerator_not_mem D T K a ha S e he]
+    rfl
+
 theorem forget_valuation
     (hsquare : ∀ j e, τ j e * τ j e = 1)
     (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
