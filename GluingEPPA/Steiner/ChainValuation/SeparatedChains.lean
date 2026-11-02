@@ -3,10 +3,6 @@ import GluingEPPA.Steiner.ChainValuation.Cosets
 
 /-!
 # The finite subtype of separated chain data
-
-The separation condition is evaluated on consecutive triples.  The middle
-block carries the outgoing parameter used in the next attachment.  A supplied
-subgroup family identifies the common smaller alphabets inside each block.
 -/
 
 namespace GluingEPPA.Steiner
@@ -16,15 +12,14 @@ namespace ChainValuation
 
 universe u
 variable {E : Type u} [Fintype E] [DecidableEq E]
-variable {S : Finset E} (old : ∀ i : Proper S, Data E i.val)
 
-/-- Subgroups inside each proper block, indexed by an edge set.  The actual
-recursive inclusions will instantiate this interface later. -/
-abbrev BlockSubgroups :=
+abbrev BlockSubgroups {S : Finset E}
+    (old : ∀ i : Proper S, Data E i.val) :=
   ∀ A : Proper S, Finset E → Subgroup (old A).Carrier
 
-/-- Separation at one internal block. -/
-def tripleSeparated (sub : BlockSubgroups old)
+def tripleSeparated {S : Finset E}
+    {old : ∀ i : Proper S, Data E i.val}
+    (sub : BlockSubgroups old)
     (x y z : ChainAtom S old) : Prop :=
   match x, y, z with
   | ⟨Aprev, _⟩, ⟨A, h⟩, ⟨Anext, _⟩ =>
@@ -32,34 +27,41 @@ def tripleSeparated (sub : BlockSubgroups old)
         (ChainValuation.leftCoset (sub A (Aprev.val ∩ A.val)) 1)
         (ChainValuation.leftCoset (sub A (A.val ∩ Anext.val)) h)
 
-/-- Every consecutive triple satisfies the internal attachment separation. -/
-def separatedList (sub : BlockSubgroups old) : List (ChainAtom S old) → Prop
+def separatedList {S : Finset E}
+    {old : ∀ i : Proper S, Data E i.val}
+    (sub : BlockSubgroups old) : List (ChainAtom S old) → Prop
   | x :: y :: z :: rest =>
-      tripleSeparated old sub x y z ∧ separatedList old sub (y :: z :: rest)
+      tripleSeparated sub x y z ∧ separatedList sub (y :: z :: rest)
   | _ => True
 
-def IsSeparated {N : Nat} (sub : BlockSubgroups old)
-    (c : RawChain N S old) : Prop :=
-  separatedList old sub (List.ofFn c.2)
+def IsSeparated {N : Nat} {S : Finset E}
+    {old : ∀ i : Proper S, Data E i.val}
+    (sub : BlockSubgroups old) (c : RawChain N S old) : Prop :=
+  separatedList sub (List.ofFn c.2)
 
-/-- The actual finite index type of separated tests of length at most N. -/
-abbrev SeparatedChains (N : Nat) (sub : BlockSubgroups old) :=
-  FilteredChains N S old (IsSeparated old sub)
+abbrev SeparatedChains (N : Nat) {S : Finset E}
+    (old : ∀ i : Proper S, Data E i.val)
+    (sub : BlockSubgroups old) :=
+  FilteredChains N S old (IsSeparated sub)
 
-instance separatedChainsFinite (N : Nat) (sub : BlockSubgroups old) :
-    Finite (SeparatedChains old N sub) := by
+instance separatedChainsFinite (N : Nat) {S : Finset E}
+    (old : ∀ i : Proper S, Data E i.val)
+    (sub : BlockSubgroups old) :
+    Finite (SeparatedChains N old sub) := by
   infer_instance
 
-theorem separatedList_three_iff (sub : BlockSubgroups old)
-    (x y z : ChainAtom S old) :
-    separatedList old sub [x, y, z] ↔ tripleSeparated old sub x y z := by
-  change (tripleSeparated old sub x y z ∧ True) ↔ tripleSeparated old sub x y z
+theorem separatedList_three_iff {S : Finset E}
+    {old : ∀ i : Proper S, Data E i.val}
+    (sub : BlockSubgroups old) (x y z : ChainAtom S old) :
+    separatedList sub [x, y, z] ↔ tripleSeparated sub x y z := by
+  change (tripleSeparated sub x y z ∧ True) ↔ tripleSeparated sub x y z
   simp
 
-/-- Chains of one or two blocks have no internal separation condition. -/
-theorem separatedList_short (sub : BlockSubgroups old)
+theorem separatedList_short {S : Finset E}
+    {old : ∀ i : Proper S, Data E i.val}
+    (sub : BlockSubgroups old)
     (l : List (ChainAtom S old)) (h : l.length ≤ 2) :
-    separatedList old sub l := by
+    separatedList sub l := by
   rcases l with _ | ⟨x, l⟩
   · trivial
   · rcases l with _ | ⟨y, l⟩
