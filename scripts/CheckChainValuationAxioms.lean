@@ -8,6 +8,7 @@ import GluingEPPA.Steiner.ChainValuation.ChainExtend
 import GluingEPPA.Steiner.ChainValuation.Matching
 import GluingEPPA.Steiner.ChainValuation.BlockMatching
 import GluingEPPA.Steiner.ChainValuation.ChainState
+import GluingEPPA.Steiner.ChainValuation.ChainAttach
 import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
@@ -97,3 +98,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.GroupBlock.matching_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.GroupBlock.matching_none
 #print axioms GluingEPPA.Steiner.ChainValuation.ChainState.first_perm
+
+#print axioms GluingEPPA.Steiner.ChainValuation.cross_endpoint
+#print axioms GluingEPPA.Steiner.ChainValuation.extendedMatching
