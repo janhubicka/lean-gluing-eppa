@@ -134,6 +134,71 @@ noncomputable def step (R : BuildResult D S old L) (y : Atom S old)
       state := Cnext
       entry_spec := rfl }
 
+
+def separatedList : List (Atom S old) → Prop
+  | x :: y :: z :: rest =>
+      tripleSeparated D S old L x y z ∧
+        separatedList (y :: z :: rest)
+  | _ => True
+
+structure PairResult (p c : Atom S old) where
+  state : ChainValuation.ChainState E (block old c.1)
+  entry_spec :
+    state.entry = Set.range (right D S old L p.1 c.1)
+
+noncomputable def pair (x y : Atom S old) : PairResult D S old L x y := by
+  let R0 := initial D S old L x
+  let R1 := step D S old L R0 y trivial
+  exact
+    { state := R1.state
+      entry_spec := by simpa using R1.entry_spec }
+
+noncomputable def next {p c : Atom S old}
+    (R : PairResult D S old L p c) (z : Atom S old)
+    (hsep : tripleSeparated D S old L p c z) :
+    PairResult D S old L c z := by
+  let BR : BuildResult D S old L :=
+    { previous := some p
+      current := c
+      state := R.state
+      entry_spec := R.entry_spec }
+  let R' := step D S old L BR z (by simpa using hsep)
+  exact
+    { state := R'.state
+      entry_spec := by simpa using R'.entry_spec }
+
+structure SomeState where
+  current : Atom S old
+  state : ChainValuation.ChainState E (block old current.1)
+
+noncomputable def buildTail (p c : Atom S old)
+    (R : PairResult D S old L p c)
+    (rest : List (Atom S old))
+    (hsep : separatedList D S old L (p :: c :: rest)) :
+    SomeState D S old L := by
+  induction rest generalizing p c with
+  | nil =>
+      exact ⟨c, R.state⟩
+  | cons z zs ih =>
+      have htriple : tripleSeparated D S old L p c z := hsep.1
+      have htail : separatedList D S old L (c :: z :: zs) := hsep.2
+      exact ih c z (next D S old L R z htriple) htail
+
+noncomputable def buildNonempty
+    (l : List (Atom S old)) (hne : l ≠ [])
+    (hsep : separatedList D S old L l) :
+    SomeState D S old L := by
+  rcases l with _ | ⟨x, xs⟩
+  · exact False.elim (hne rfl)
+  · rcases xs with _ | ⟨y, ys⟩
+    · exact ⟨x, (initial D S old L x).state⟩
+    · exact buildTail D S old L x y (pair D S old L x y) ys hsep
+
+theorem separatedList_three_iff (x y z : Atom S old) :
+    separatedList D S old L [x, y, z] ↔
+      tripleSeparated D S old L x y z := by
+  simp [separatedList]
+
 end LinkChain
 end RecursiveRecord
 end EdgeGraph
