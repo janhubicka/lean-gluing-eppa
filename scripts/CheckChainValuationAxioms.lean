@@ -4,6 +4,7 @@ import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 import GluingEPPA.Steiner.ChainValuation.Pushout
 import GluingEPPA.Steiner.ChainValuation.GroupAttachment
+import GluingEPPA.Steiner.ChainValuation.ChainExtend
 import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 
@@ -49,3 +50,8 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 #print axioms GluingEPPA.Steiner.ChainValuation.attachLeft_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.group_attachment_transition
 #print axioms GluingEPPA.Steiner.ChainValuation.group_attachment_overlap_iff
+
+#print axioms GluingEPPA.Steiner.ChainValuation.attachInto_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_old_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_new_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_overlap_iff
