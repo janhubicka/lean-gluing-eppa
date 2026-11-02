@@ -49,7 +49,7 @@ theorem chain_reflection_from_records
   obtain ⟨wp, hwp, hvp⟩ :=
     WalkValue.exists_word (D := D) (a := edgeValue) p
   have hvb' : (wb.map edgeValue).prod = i beta := by
-    rw [← D.chain_word_map_value B b hb edgeValue i hi wb hwb, hvb]
+    rw [← chain_word_map_value (B := B) (b := b) edgeValue i hi wb hwb, hvb]
   have hval : ((wp ++ wb).map edgeValue).prod = (wa.map edgeValue).prod := by
     simp only [List.map_append, List.prod_append, hvp, hvb', hva]
     exact hab.symm
