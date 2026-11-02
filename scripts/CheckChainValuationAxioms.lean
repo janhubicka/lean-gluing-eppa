@@ -4,6 +4,7 @@ import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 import GluingEPPA.Steiner.ChainValuation.Pushout
 import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
+import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 
 #print axioms GluingEPPA.Steiner.ChainValuation.self_mem_leftCoset
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_eq_of_mem
@@ -41,3 +42,5 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.generator_involutive
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_valuation
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_test_coordinate
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
