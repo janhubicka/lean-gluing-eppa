@@ -3,11 +3,10 @@ import GluingEPPA.Steiner.ChainValuation.Matching
 /-!
 # Recursive state for an actual finite chain test
 
-A state remembers the global labelled matchings together with the final Cayley
-block. The entry subset of the last block records its overlap with the
-previous block. Outside its own alphabet, a last-block point not in entry
-has no global edge of that colour. This is the invariant needed to attach
-the next block under the separation condition.
+A state remembers the global labelled matchings together with a fixed final
+Cayley block. The entry subset of that block records its overlap with the
+previous block. Outside its own alphabet, a last-block point not in entry has
+no global edge of that colour.
 -/
 
 namespace GluingEPPA.Steiner.ChainValuation
@@ -30,7 +29,6 @@ namespace GroupBlock
 
 variable (B : GroupBlock E)
 
-/-- The labelled Cayley edge relation of one block. -/
 def edgeRel (e : E) (x y : B.Carrier) : Prop :=
   e ∈ B.active ∧ y = x * B.edge e
 
@@ -59,35 +57,31 @@ theorem matching_none {e : E} (he : e ∉ B.active) (x : B.Carrier) :
 
 end GroupBlock
 
-/-- A partially built chain test with its global labelled matchings. -/
-structure ChainState (E : Type u) where
+/-- A partially built chain whose final block is B. -/
+structure ChainState (E : Type u) (B : GroupBlock E) where
   Space : Type v
   [finiteSpace : Finite Space]
-  last : GroupBlock E
-  lastEmbed : last.Carrier → Space
+  lastEmbed : B.Carrier → Space
   lastInjective : Function.Injective lastEmbed
-  entry : Set last.Carrier
+  entry : Set B.Carrier
   matching : E → Matching Space
-  last_active : ∀ e ∈ last.active, ∀ g,
-    (matching e).Rel (lastEmbed g) (lastEmbed (g * last.edge e))
-  last_external : ∀ e ∉ last.active, ∀ g,
+  last_active : ∀ e ∈ B.active, ∀ g,
+    (matching e).Rel (lastEmbed g) (lastEmbed (g * B.edge e))
+  last_external : ∀ e ∉ B.active, ∀ g,
     g ∉ entry → ¬ ∃ y, (matching e).Rel (lastEmbed g) y
 
 attribute [instance] ChainState.finiteSpace
 
 namespace ChainState
 
-/-- A one-block chain. -/
-def first (B : GroupBlock E) : ChainState E where
+def first (B : GroupBlock E) : ChainState E B where
   Space := B.Carrier
   finiteSpace := inferInstance
-  last := B
   lastEmbed := id
   lastInjective := Function.injective_id
   entry := ∅
   matching := B.matching
-  last_active e he g := by
-    simpa using B.matching_rel he g
+  last_active e he g := by simpa using B.matching_rel he g
   last_external e he g _ := B.matching_none he g
 
 @[simp] theorem first_lastEmbed (B : GroupBlock E) (g : B.Carrier) :
