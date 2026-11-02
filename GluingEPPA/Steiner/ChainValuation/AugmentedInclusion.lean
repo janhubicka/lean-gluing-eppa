@@ -85,7 +85,7 @@ variable (hA : ∀ j e, e ∈ T k → ∀ x,
 
 /-- The earlier group embeds into the augmented image whenever its generator
 actions agree on every added test. -/
-noncomputable def inclusion : K k →* imageGroup D T K a ha X τ S where
+noncomputable def inclusion : K k →* imageGroup D T K a ha X τ hτ S where
   toFun g := ⟨coordinateHom D T K a ha X τ k F A g, by
     obtain ⟨w, hw, hv⟩ := hgen g
     refine ⟨w, fun e he => hTS (hw e he), ?_⟩
@@ -97,7 +97,7 @@ noncomputable def inclusion : K k →* imageGroup D T K a ha X τ S where
 theorem inclusion_word (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
     inclusion D T K a ha X τ k F A S hTS hgen hF hA
         ((w.map (a k)).prod) =
-      valuation D T K a ha X τ S w (fun e he => hTS (hw e he)) := by
+      valuation D T K a ha X τ hτ S w (fun e he => hTS (hw e he)) := by
   apply Subtype.ext
   exact map_word D T K a ha X τ k F A hF hA w hw
 
@@ -111,7 +111,7 @@ theorem inclusion_injective (hFinj : Function.Injective F) :
 /-- Forgetting added tests recovers the old inclusion with the same first
 coordinate. -/
 theorem forget_inclusion (g : K k) :
-    forget D T K a ha X τ S
+    forget D T K a ha X τ hτ S
         (inclusion D T K a ha X τ k F A S hTS hgen hF hA g) =
       DirectRecord.inclusion D T K a ha k F hF S hTS hgen g := by
   apply Subtype.ext
@@ -121,7 +121,7 @@ theorem forget_inclusion (g : K k) :
 tests affect equality only by making it finer. -/
 theorem inclusion_replacement {u v : V} (w : List E)
     (hw : ∀ e ∈ w, e ∈ S) (p : D.WordWalk S u w v) (g : K k)
-    (hval : valuation D T K a ha X τ S w hw =
+    (hval : valuation D T K a ha X τ hτ S w hw =
       inclusion D T K a ha X τ k F A S hTS hgen hF hA g) :
     D.WalkValue (T k) (a k) u v g := by
   have hold :
