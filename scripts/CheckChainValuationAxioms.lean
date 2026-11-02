@@ -101,3 +101,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.cross_endpoint
 #print axioms GluingEPPA.Steiner.ChainValuation.extendedMatching
+
+#print axioms GluingEPPA.Steiner.ChainValuation.range_eq_leftCoset_one
+#print axioms GluingEPPA.Steiner.ChainValuation.translated_range_eq_leftCoset
