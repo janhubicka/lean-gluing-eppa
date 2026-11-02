@@ -50,6 +50,11 @@ instance separatedChainsFinite (N : Nat) (sub : BlockSubgroups old) :
     Finite (SeparatedChains old N sub) := by
   infer_instance
 
+theorem separatedList_three_iff (sub : BlockSubgroups old)
+    (x y z : ChainAtom S old) :
+    separatedList old sub [x, y, z] ↔ tripleSeparated old sub x y z := by
+  simp [separatedList]
+
 /-- Chains of one or two blocks have no internal separation condition. -/
 theorem separatedList_short (sub : BlockSubgroups old)
     (l : List (ChainAtom S old)) (h : l.length ≤ 2) :
