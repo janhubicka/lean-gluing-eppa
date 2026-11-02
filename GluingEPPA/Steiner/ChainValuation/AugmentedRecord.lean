@@ -3,10 +3,9 @@ import GluingEPPA.Steiner.RecursiveRecord
 /-!
 # Adding finite permutation tests to one recursive valuation step
 
-This is the exact operation used by the chain-augmented appendix: retain the
-old literal record and append finitely many permutation coordinates. The new
-group is the image of allowed words in the augmented record. No inclusion,
-endpoint repair, or acyclicity property is assumed here.
+The old literal record is retained as the first coordinate and finite
+permutation tests are appended. The involution proof is an explicit parameter
+exactly where closure under inverse is used.
 -/
 
 namespace GluingEPPA.Steiner
@@ -21,9 +20,7 @@ variable (D : EdgeGraph V E) (T : I → Set E) (K : I → Type w)
 variable [∀ i, Group (K i)]
 variable (a : ∀ i, E → K i) (ha : ∀ i e, e ∈ T i → a i e * a i e = 1)
 variable (X : J → Type q) (τ : ∀ j, E → Equiv.Perm (X j))
-variable (hτ : ∀ j e, τ j e * τ j e = 1)
 
-/-- The old record together with all added finite permutation tests. -/
 abbrev Product :=
   DirectRecord.Product D T K a ha × ∀ j, (Equiv.Perm (X j))ᵐᵒᵖ
 
@@ -58,17 +55,19 @@ theorem value_append (p q : List E) :
   | nil => simp only [List.nil_append, value_nil, one_mul]
   | cons e p ih => simp only [List.cons_append, value_cons, ih, mul_assoc]
 
-theorem letter_involutive (e : E) :
+theorem letter_involutive
+    (hsquare : ∀ j e, τ j e * τ j e = 1) (e : E) :
     letter D T K a ha X τ e * letter D T K a ha X τ e = 1 := by
   apply Prod.ext
   · exact DirectRecord.letter_involutive D T K a ha e
   · funext j
     apply MulOpposite.unop_injective
-    simpa using hτ j e
+    simpa using hsquare j e
 
-theorem letter_inv (e : E) :
+theorem letter_inv
+    (hsquare : ∀ j e, τ j e * τ j e = 1) (e : E) :
     (letter D T K a ha X τ e)⁻¹ = letter D T K a ha X τ e := by
-  have h := letter_involutive D T K a ha X τ hτ e
+  have h := letter_involutive D T K a ha X τ hsquare e
   calc
     (letter D T K a ha X τ e)⁻¹ =
         (letter D T K a ha X τ e)⁻¹ * 1 := (mul_one _).symm
@@ -76,17 +75,18 @@ theorem letter_inv (e : E) :
         (letter D T K a ha X τ e * letter D T K a ha X τ e) := by rw [h]
     _ = letter D T K a ha X τ e := by group
 
-theorem value_reverse (w : List E) :
+theorem value_reverse
+    (hsquare : ∀ j e, τ j e * τ j e = 1) (w : List E) :
     value D T K a ha X τ w.reverse =
       (value D T K a ha X τ w)⁻¹ := by
   induction w with
   | nil => simp only [List.reverse_nil, value_nil, inv_one]
   | cons e w ih =>
-      simp only [List.reverse_cons, value_append, value_cons, value_nil,
-        mul_one, ih, mul_inv_rev, letter_inv D T K a ha X τ hτ]
+      rw [List.reverse_cons, value_append, ih, value_cons, mul_inv_rev]
+      rw [letter_inv D T K a ha X τ hsquare e]
 
-/-- The new finite group is literally the image of the augmented word record. -/
-noncomputable def imageGroup (S : Set E) :
+noncomputable def imageGroup
+    (hsquare : ∀ j e, τ j e * τ j e = 1) (S : Set E) :
     Subgroup (Product D T K a ha X) where
   carrier := {g | ∃ w, (∀ e ∈ w, e ∈ S) ∧ value D T K a ha X τ w = g}
   one_mem' := ⟨[], by simp, value_nil D T K a ha X τ⟩
@@ -99,77 +99,86 @@ noncomputable def imageGroup (S : Set E) :
     · exact hq e he
   inv_mem' := by
     rintro g ⟨w, hw, rfl⟩
-    refine ⟨w.reverse, ?_, value_reverse D T K a ha X τ hτ w⟩
+    refine ⟨w.reverse, ?_, value_reverse D T K a ha X τ hsquare w⟩
     intro e he
     exact hw e (by simpa using he)
 
 instance finiteImageGroup [Finite I] [Finite J] [Finite V]
-    [∀ i, Finite (K i)] [∀ j, Finite (X j)] (S : Set E) :
-    Finite (imageGroup D T K a ha X τ S) := by
-  classical
-  letI : Fintype I := Fintype.ofFinite I
-  letI : Fintype J := Fintype.ofFinite J
-  letI : ∀ i, Fintype (K i) := fun i => Fintype.ofFinite (K i)
-  letI : ∀ j, Fintype (X j) := fun j => Fintype.ofFinite (X j)
-  letI : ∀ i, Fintype (D.Component (T i) (a i) (ha i)) :=
-    fun i => Fintype.ofFinite (D.Component (T i) (a i) (ha i))
-  letI : Fintype (DirectRecord.Product D T K a ha) := by
+    [∀ i, Finite (K i)] [∀ j, Finite (X j)]
+    (hsquare : ∀ j e, τ j e * τ j e = 1) (S : Set E) :
+    Finite (imageGroup D T K a ha X τ hsquare S) := by
+  letI : ∀ i, Finite (D.Component (T i) (a i) (ha i)) :=
+    fun i => inferInstance
+  letI : Finite (DirectRecord.Product D T K a ha) := by
     unfold DirectRecord.Product
     infer_instance
-  letI : ∀ j, Fintype ((Equiv.Perm (X j))ᵐᵒᵖ) :=
-    fun j => Fintype.ofEquiv (Equiv.Perm (X j)) MulOpposite.opEquiv
-  letI : Fintype (Product D T K a ha X) := by
+  letI : ∀ j, Finite ((Equiv.Perm (X j))ᵐᵒᵖ) :=
+    fun j => inferInstance
+  letI : Finite (Product D T K a ha X) := by
     unfold Product
     infer_instance
   exact Finite.of_injective
-    (fun g : imageGroup D T K a ha X τ S => (g.val : Product D T K a ha X))
+    (fun g : imageGroup D T K a ha X τ hsquare S =>
+      (g.val : Product D T K a ha X))
     Subtype.val_injective
 
-noncomputable def valuation (S : Set E) (w : List E)
-    (hw : ∀ e ∈ w, e ∈ S) :
-    imageGroup D T K a ha X τ S :=
+noncomputable def valuation
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
+    imageGroup D T K a ha X τ hsquare S :=
   ⟨value D T K a ha X τ w, ⟨w, hw, rfl⟩⟩
 
-noncomputable def generator (S : Set E) (e : E) (he : e ∈ S) :
-    imageGroup D T K a ha X τ S :=
+noncomputable def generator
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) (he : e ∈ S) :
+    imageGroup D T K a ha X τ hsquare S :=
   ⟨letter D T K a ha X τ e, ⟨[e], by
     intro f hf
     have hfe : f = e := by simpa only [List.mem_singleton] using hf
     simpa only [hfe] using he, by
     simp only [value_cons, value_nil, mul_one]⟩⟩
 
-theorem generator_involutive (S : Set E) (e : E) (he : e ∈ S) :
-    generator D T K a ha X τ S e he *
-      generator D T K a ha X τ S e he = 1 := by
+theorem generator_involutive
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) (he : e ∈ S) :
+    generator D T K a ha X τ hsquare S e he *
+      generator D T K a ha X τ hsquare S e he = 1 := by
   apply Subtype.ext
-  exact letter_involutive D T K a ha X τ hτ e
+  exact letter_involutive D T K a ha X τ hsquare e
 
-/-- Extend the named generators by the identity outside the current alphabet. -/
-noncomputable def totalGenerator (S : Set E) (e : E) :
-    imageGroup D T K a ha X τ S :=
-  if he : e ∈ S then generator D T K a ha X τ S e he else 1
+noncomputable def totalGenerator
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) :
+    imageGroup D T K a ha X τ hsquare S :=
+  if he : e ∈ S then generator D T K a ha X τ hsquare S e he else 1
 
-theorem totalGenerator_mem (S : Set E) (e : E) (he : e ∈ S) :
-    totalGenerator D T K a ha X τ S e =
-      generator D T K a ha X τ S e he := by
-  simp only [totalGenerator, dif_pos he]
+theorem totalGenerator_mem
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) (he : e ∈ S) :
+    totalGenerator D T K a ha X τ hsquare S e =
+      generator D T K a ha X τ hsquare S e he := by
+  simp [totalGenerator, he]
 
-theorem totalGenerator_not_mem (S : Set E) (e : E) (he : e ∉ S) :
-    totalGenerator D T K a ha X τ S e = 1 := by
-  simp only [totalGenerator, dif_neg he]
+theorem totalGenerator_not_mem
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) (he : e ∉ S) :
+    totalGenerator D T K a ha X τ hsquare S e = 1 := by
+  simp [totalGenerator, he]
 
-theorem totalGenerator_square (S : Set E) (e : E) :
-    totalGenerator D T K a ha X τ S e *
-      totalGenerator D T K a ha X τ S e = 1 := by
+theorem totalGenerator_square
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (e : E) :
+    totalGenerator D T K a ha X τ hsquare S e *
+      totalGenerator D T K a ha X τ hsquare S e = 1 := by
   by_cases he : e ∈ S
-  · rw [totalGenerator_mem D T K a ha X τ S e he]
-    exact generator_involutive D T K a ha X τ hτ S e he
-  · rw [totalGenerator_not_mem D T K a ha X τ S e he, one_mul]
+  · rw [totalGenerator_mem D T K a ha X τ hsquare S e he]
+    exact generator_involutive D T K a ha X τ hsquare S e he
+  · rw [totalGenerator_not_mem D T K a ha X τ hsquare S e he, one_mul]
 
-/-- Evaluation of an allowed word is its literal augmented record. -/
-theorem totalGenerator_product (S : Set E) (w : List E)
-    (hw : ∀ e ∈ w, e ∈ S) :
-    ((w.map (totalGenerator D T K a ha X τ S)).prod).val =
+theorem totalGenerator_product
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
+    ((w.map (totalGenerator D T K a ha X τ hsquare S)).prod).val =
       value D T K a ha X τ w := by
   induction w with
   | nil => rfl
@@ -177,57 +186,54 @@ theorem totalGenerator_product (S : Set E) (w : List E)
       have he : e ∈ S := hw e (by simp)
       have hw' : ∀ f ∈ w, f ∈ S :=
         fun f hf => hw f (by simp [hf])
-      change (totalGenerator D T K a ha X τ S e).val *
-        ((w.map (totalGenerator D T K a ha X τ S)).prod).val =
+      change (totalGenerator D T K a ha X τ hsquare S e).val *
+        ((w.map (totalGenerator D T K a ha X τ hsquare S)).prod).val =
           value D T K a ha X τ (e :: w)
-      rw [totalGenerator_mem D T K a ha X τ S e he]
+      rw [totalGenerator_mem D T K a ha X τ hsquare S e he]
       change letter D T K a ha X τ e *
-        ((w.map (totalGenerator D T K a ha X τ S)).prod).val =
+        ((w.map (totalGenerator D T K a ha X τ hsquare S)).prod).val =
           value D T K a ha X τ (e :: w)
       rw [ih hw', value_cons]
 
-/-- Every augmented-record element is generated by the allowed named edges. -/
-theorem image_generated (S : Set E)
-    (g : imageGroup D T K a ha X τ S) :
+theorem image_generated
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (g : imageGroup D T K a ha X τ hsquare S) :
     ∃ w : List E, (∀ e ∈ w, e ∈ S) ∧
-      (w.map (totalGenerator D T K a ha X τ S)).prod = g := by
+      (w.map (totalGenerator D T K a ha X τ hsquare S)).prod = g := by
   obtain ⟨w, hw, hv⟩ := g.property
   refine ⟨w, hw, ?_⟩
   apply Subtype.ext
-  exact (totalGenerator_product D T K a ha X τ S w hw).trans hv
+  exact (totalGenerator_product D T K a ha X τ hsquare S w hw).trans hv
 
-/-- Equality of augmented raw records implies equality on every retained old
-component-permutation coordinate. -/
 theorem component_coordinate_eq_of_value_eq
     (p q : List E) (hv :
       value D T K a ha X τ p = value D T K a ha X τ q)
     (i : I) :
     D.componentWordPerm (T i) (a i) (ha i) p =
       D.componentWordPerm (T i) (a i) (ha i) q := by
-  have h := congrArg
+  exact congrArg
     (fun z : Product D T K a ha X =>
       MulOpposite.unop ((z.1 i).2)) hv
-  exact h
 
-/-- Hence equality of allowed word values in the augmented group is already
-the record-compatibility hypothesis used by the reflection theorem. -/
 theorem component_record_of_word_eq
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
     (S : Set E) (p q : List E)
     (hp : ∀ e ∈ p, e ∈ S) (hq : ∀ e ∈ q, e ∈ S)
     (hv :
-      (p.map (totalGenerator D T K a ha X τ S)).prod =
-      (q.map (totalGenerator D T K a ha X τ S)).prod)
+      (p.map (totalGenerator D T K a ha X τ hsquare S)).prod =
+      (q.map (totalGenerator D T K a ha X τ hsquare S)).prod)
     (i : I) :
     D.componentWordPerm (T i) (a i) (ha i) p =
       D.componentWordPerm (T i) (a i) (ha i) q := by
   have hval := congrArg Subtype.val hv
-  rw [totalGenerator_product D T K a ha X τ S p hp,
-      totalGenerator_product D T K a ha X τ S q hq] at hval
+  rw [totalGenerator_product D T K a ha X τ hsquare S p hp,
+      totalGenerator_product D T K a ha X τ hsquare S q hq] at hval
   exact component_coordinate_eq_of_value_eq D T K a ha X τ p q hval i
 
-/-- Forgetting all new tests gives the old literal record group. -/
-noncomputable def forget (S : Set E) :
-    imageGroup D T K a ha X τ S →*
+noncomputable def forget
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) :
+    imageGroup D T K a ha X τ hsquare S →*
       DirectRecord.imageGroup D T K a ha S where
   toFun g := ⟨g.val.1, by
     obtain ⟨w, hw, hv⟩ := g.property
@@ -236,16 +242,18 @@ noncomputable def forget (S : Set E) :
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem forget_valuation (S : Set E) (w : List E)
-    (hw : ∀ e ∈ w, e ∈ S) :
-    forget D T K a ha X τ S (valuation D T K a ha X τ S w hw) =
+theorem forget_valuation
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
+    forget D T K a ha X τ hsquare S
+      (valuation D T K a ha X τ hsquare S w hw) =
       DirectRecord.valuation D T K a ha S w hw := rfl
 
-/-- The new test coordinate is exactly the word action supplied to this step. -/
-theorem valuation_test_coordinate (S : Set E) (w : List E)
-    (hw : ∀ e ∈ w, e ∈ S) (j : J) :
+theorem valuation_test_coordinate
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) (j : J) :
     MulOpposite.unop
-        ((valuation D T K a ha X τ S w hw).val.2 j) =
+        ((valuation D T K a ha X τ hsquare S w hw).val.2 j) =
       MulOpposite.unop (testValue X τ w j) := rfl
 
 end AugmentedRecord
