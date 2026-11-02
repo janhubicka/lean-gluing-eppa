@@ -78,7 +78,7 @@ internal separation condition. -/
 structure BuildResult where
   previous : Option (Atom S old)
   current : Atom S old
-  state : ChainValuation.ChainState E (block old current.1)
+  state : ChainValuation.ChainState E (block S old current.1)
   entry_spec :
     match previous with
     | none => state.entry = ∅
@@ -87,7 +87,7 @@ structure BuildResult where
 noncomputable def initial (x : Atom S old) : BuildResult D S old L where
   previous := none
   current := x
-  state := ChainValuation.ChainState.first (block old x.1)
+  state := ChainValuation.ChainState.first (block S old x.1)
   entry_spec := rfl
 
 /-- One left-to-right chain extension. For the first attachment there is no
@@ -105,7 +105,7 @@ noncomputable def step (R : BuildResult D S old L) (y : Atom S old)
   have hi : Function.Injective i := left_injective D S old L A B
   have hj : Function.Injective j := right_injective D S old L A B
   have hdisj : Disjoint R.state.entry
-      (ChainValuation.exitSet (block old A) R.current.2 i) := by
+      (ChainValuation.exitSet (block S old A) R.current.2 i) := by
     cases hp : R.previous with
     | none =>
         have he : R.state.entry = ∅ := by
@@ -121,12 +121,12 @@ noncomputable def step (R : BuildResult D S old L) (y : Atom S old)
         rw [he, ChainValuation.range_eq_leftCoset_one,
           ChainValuation.translated_range_eq_leftCoset]
         exact hs
-  have hshared : ∀ e, e ∈ (block old A).active → e ∈ (block old B).active →
+  have hshared : ∀ e, e ∈ (block S old A).active → e ∈ (block S old B).active →
       ∃ k : (old (common S A B)).Carrier,
-        i k = (block old A).edge e ∧ j k = (block old B).edge e := by
+        i k = (block S old A).edge e ∧ j k = (block S old B).edge e := by
     intro e heA heB
     exact shared_edge D S old L A B e heA heB
-  let Cnext := ChainValuation.extend (block old A) (block old B) R.state
+  let Cnext := ChainValuation.extend (block S old A) (block S old B) R.state
     R.current.2 i j hi hj hdisj hshared
   exact
     { previous := some R.current
@@ -142,7 +142,7 @@ def separatedList : List (Atom S old) → Prop
   | _ => True
 
 structure PairResult (p c : Atom S old) where
-  state : ChainValuation.ChainState E (block old c.1)
+  state : ChainValuation.ChainState E (block S old c.1)
   entry_spec :
     state.entry = Set.range (right D S old L p.1 c.1)
 
@@ -169,7 +169,7 @@ noncomputable def next {p c : Atom S old}
 
 structure SomeState where
   current : Atom S old
-  state : ChainValuation.ChainState E (block old current.1)
+  state : ChainValuation.ChainState E (block S old current.1)
 
 noncomputable def buildTail (p c : Atom S old)
     (R : PairResult D S old L p c)
