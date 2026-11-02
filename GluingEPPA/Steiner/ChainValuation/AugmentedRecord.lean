@@ -62,7 +62,8 @@ theorem letter_involutive
   · exact DirectRecord.letter_involutive D T K a ha e
   · funext j
     apply MulOpposite.unop_injective
-    simpa using hsquare j e
+    change τ j e * τ j e = 1
+    exact hsquare j e
 
 theorem letter_inv
     (hsquare : ∀ j e, τ j e * τ j e = 1) (e : E) :
@@ -82,8 +83,8 @@ theorem value_reverse
   induction w with
   | nil => simp only [List.reverse_nil, value_nil, inv_one]
   | cons e w ih =>
-      rw [List.reverse_cons, value_append, ih, value_cons, mul_inv_rev]
-      rw [letter_inv D T K a ha X τ hsquare e]
+      simp only [List.reverse_cons, value_append, value_cons, value_nil,
+        mul_one, ih, mul_inv_rev, letter_inv D T K a ha X τ hsquare]
 
 noncomputable def imageGroup
     (hsquare : ∀ j e, τ j e * τ j e = 1) (S : Set E) :
@@ -107,14 +108,22 @@ instance finiteImageGroup [Finite I] [Finite J] [Finite V]
     [∀ i, Finite (K i)] [∀ j, Finite (X j)]
     (hsquare : ∀ j e, τ j e * τ j e = 1) (S : Set E) :
     Finite (imageGroup D T K a ha X τ hsquare S) := by
-  letI : ∀ i, Finite (D.Component (T i) (a i) (ha i)) :=
-    fun i => inferInstance
-  letI : Finite (DirectRecord.Product D T K a ha) := by
+  classical
+  letI : Fintype I := Fintype.ofFinite I
+  letI : Fintype J := Fintype.ofFinite J
+  letI : ∀ i, Fintype (K i) := fun i => Fintype.ofFinite (K i)
+  letI : ∀ i, Fintype (D.Component (T i) (a i) (ha i)) :=
+    fun i => Fintype.ofFinite (D.Component (T i) (a i) (ha i))
+  letI : ∀ i, Fintype ((Equiv.Perm (D.Component (T i) (a i) (ha i)))ᵐᵒᵖ) :=
+    fun i => Fintype.ofEquiv
+      (Equiv.Perm (D.Component (T i) (a i) (ha i))) MulOpposite.opEquiv
+  letI : Fintype (DirectRecord.Product D T K a ha) := by
     unfold DirectRecord.Product
     infer_instance
-  letI : ∀ j, Finite ((Equiv.Perm (X j))ᵐᵒᵖ) :=
-    fun j => inferInstance
-  letI : Finite (Product D T K a ha X) := by
+  letI : ∀ j, Fintype (X j) := fun j => Fintype.ofFinite (X j)
+  letI : ∀ j, Fintype ((Equiv.Perm (X j))ᵐᵒᵖ) :=
+    fun j => Fintype.ofEquiv (Equiv.Perm (X j)) MulOpposite.opEquiv
+  letI : Fintype (Product D T K a ha X) := by
     unfold Product
     infer_instance
   exact Finite.of_injective
