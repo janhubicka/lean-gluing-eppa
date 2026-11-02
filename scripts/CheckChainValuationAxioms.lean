@@ -10,6 +10,7 @@ import GluingEPPA.Steiner.ChainValuation.BlockMatching
 import GluingEPPA.Steiner.ChainValuation.ChainState
 import GluingEPPA.Steiner.ChainValuation.ChainAttach
 import GluingEPPA.Steiner.ChainValuation.LinkChain
+import GluingEPPA.Steiner.ChainValuation.ChainTests
 import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
@@ -113,3 +114,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.separatedList_three_iff
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.separatedList_three_iff
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.rawChain_list_nonempty
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_involutive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_square
