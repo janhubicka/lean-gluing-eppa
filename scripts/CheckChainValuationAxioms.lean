@@ -7,6 +7,7 @@ import GluingEPPA.Steiner.ChainValuation.GroupAttachment
 import GluingEPPA.Steiner.ChainValuation.ChainExtend
 import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 import GluingEPPA.Steiner.ChainValuation.AugmentedStep
+import GluingEPPA.Steiner.ChainValuation.ParameterizedFamily
 
 #print axioms GluingEPPA.Steiner.ChainValuation.self_mem_leftCoset
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_eq_of_mem
@@ -58,3 +59,7 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.component_coordinate_eq_of_value_eq
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.component_record_of_word_eq
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.parameterizedFamily_step
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.parameterizedFamily_generated
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.parameterizedFamily_square
