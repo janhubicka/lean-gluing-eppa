@@ -21,6 +21,8 @@ structure Matching (X : Type u) where
 
 namespace Matching
 
+attribute [local instance] Classical.propDecidable
+
 noncomputable def next (M : Matching X) (x : X) : X :=
   if h : ∃ y, M.Rel x y then Classical.choose h else x
 
