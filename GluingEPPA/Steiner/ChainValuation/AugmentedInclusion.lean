@@ -5,9 +5,9 @@ import GluingEPPA.Steiner.RecordInclusion
 # Inclusion into an augmented recursive record
 
 Extra test coordinates only need a compatible right action of the earlier
-group.  Once that is supplied, the original direct-record inclusion extends
-to the augmented image group.  Endpoint repair then follows by forgetting the
-extra coordinates and invoking the already verified direct-record theorem.
+group. Once that is supplied, the original direct-record inclusion extends
+to the augmented image group. Endpoint repair follows by forgetting the
+extra coordinates and invoking the verified direct-record theorem.
 -/
 
 namespace GluingEPPA.Steiner
@@ -22,14 +22,11 @@ variable (D : EdgeGraph V E) (T : I → Set E) (K : I → Type w)
 variable [∀ i, Group (K i)]
 variable (a : ∀ i, E → K i) (ha : ∀ i e, e ∈ T i → a i e * a i e = 1)
 variable (X : J → Type q) (τ : ∀ j, E → Equiv.Perm (X j))
-variable (hτ : ∀ j e, τ j e * τ j e = 1)
 
-variable (k : I)
-variable (F : K k →* DirectRecord.Product D T K a ha)
-variable (A : ∀ j, RightAction (K k) (X j))
-
-/-- Append the test actions to the old coordinate homomorphism. -/
-def coordinateHom : K k →* Product D T K a ha X where
+def coordinateHom (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j)) :
+    K k →* Product D T K a ha X where
   toFun g := (F g, fun j => MulOpposite.op ((A j).perm g))
   map_one' := by
     apply Prod.ext
@@ -46,7 +43,9 @@ def coordinateHom : K k →* Product D T K a ha X where
       ext x
       exact ((A j).mul x g h).symm
 
-theorem coordinateHom_generator
+theorem coordinateHom_generator (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
     (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
     (hA : ∀ j e, e ∈ T k → ∀ x,
       (A j).act x (a k e) = τ j e x)
@@ -60,7 +59,9 @@ theorem coordinateHom_generator
     ext x
     exact hA j e he x
 
-theorem map_word
+theorem map_word (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
     (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
     (hA : ∀ j e, e ∈ T k → ∀ x,
       (A j).act x (a k e) = τ j e x)
@@ -76,16 +77,18 @@ theorem map_word
       rw [coordinateHom_generator D T K a ha X τ k F A hF hA e he,
         ih hw']
 
-variable (S : Set E) (hTS : T k ⊆ S)
-variable (hgen : ∀ g : K k, ∃ w : List E,
-  (∀ e ∈ w, e ∈ T k) ∧ (w.map (a k)).prod = g)
-variable (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
-variable (hA : ∀ j e, e ∈ T k → ∀ x,
-  (A j).act x (a k e) = τ j e x)
-
-/-- The earlier group embeds into the augmented image whenever its generator
-actions agree on every added test. -/
-noncomputable def inclusion : K k →* imageGroup D T K a ha X τ hτ S where
+noncomputable def inclusion
+    (hτ : ∀ j e, τ j e * τ j e = 1)
+    (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
+    (S : Set E) (hTS : T k ⊆ S)
+    (hgen : ∀ g : K k, ∃ w : List E,
+      (∀ e ∈ w, e ∈ T k) ∧ (w.map (a k)).prod = g)
+    (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
+    (hA : ∀ j e, e ∈ T k → ∀ x,
+      (A j).act x (a k e) = τ j e x) :
+    K k →* imageGroup D T K a ha X τ hτ S where
   toFun g := ⟨coordinateHom D T K a ha X τ k F A g, by
     obtain ⟨w, hw, hv⟩ := hgen g
     refine ⟨w, fun e he => hTS (hw e he), ?_⟩
@@ -94,43 +97,75 @@ noncomputable def inclusion : K k →* imageGroup D T K a ha X τ hτ S where
   map_one' := Subtype.ext (map_one _)
   map_mul' g h := Subtype.ext (map_mul _ g h)
 
-theorem inclusion_word (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
-    inclusion (D := D) (T := T) (K := K) (a := a) (ha := ha)
-      (X := X) (τ := τ) (hτ := hτ) (k := k) (F := F) (A := A)
-      (S := S) (hTS := hTS) (hgen := hgen) (hF := hF) (hA := hA)
+theorem inclusion_word
+    (hτ : ∀ j e, τ j e * τ j e = 1)
+    (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
+    (S : Set E) (hTS : T k ⊆ S)
+    (hgen : ∀ g : K k, ∃ w : List E,
+      (∀ e ∈ w, e ∈ T k) ∧ (w.map (a k)).prod = g)
+    (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
+    (hA : ∀ j e, e ∈ T k → ∀ x,
+      (A j).act x (a k e) = τ j e x)
+    (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
+    inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA
         ((w.map (a k)).prod) =
       valuation D T K a ha X τ hτ S w (fun e he => hTS (hw e he)) := by
   apply Subtype.ext
   exact map_word D T K a ha X τ k F A hF hA w hw
 
-theorem inclusion_injective (hFinj : Function.Injective F) :
+theorem inclusion_injective
+    (hτ : ∀ j e, τ j e * τ j e = 1)
+    (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
+    (S : Set E) (hTS : T k ⊆ S)
+    (hgen : ∀ g : K k, ∃ w : List E,
+      (∀ e ∈ w, e ∈ T k) ∧ (w.map (a k)).prod = g)
+    (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
+    (hA : ∀ j e, e ∈ T k → ∀ x,
+      (A j).act x (a k e) = τ j e x)
+    (hFinj : Function.Injective F) :
     Function.Injective
-      (inclusion (D := D) (T := T) (K := K) (a := a) (ha := ha)
-      (X := X) (τ := τ) (hτ := hτ) (k := k) (F := F) (A := A)
-      (S := S) (hTS := hTS) (hgen := hgen) (hF := hF) (hA := hA)) := by
+      (inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA) := by
   intro g h heq
   apply hFinj
   exact congrArg (fun z => z.val.1) heq
 
-/-- Forgetting added tests recovers the old inclusion with the same first
-coordinate. -/
-theorem forget_inclusion (g : K k) :
+theorem forget_inclusion
+    (hτ : ∀ j e, τ j e * τ j e = 1)
+    (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
+    (S : Set E) (hTS : T k ⊆ S)
+    (hgen : ∀ g : K k, ∃ w : List E,
+      (∀ e ∈ w, e ∈ T k) ∧ (w.map (a k)).prod = g)
+    (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
+    (hA : ∀ j e, e ∈ T k → ∀ x,
+      (A j).act x (a k e) = τ j e x)
+    (g : K k) :
     forget D T K a ha X τ hτ S
-        (inclusion (D := D) (T := T) (K := K) (a := a) (ha := ha)
-      (X := X) (τ := τ) (hτ := hτ) (k := k) (F := F) (A := A)
-      (S := S) (hTS := hTS) (hgen := hgen) (hF := hF) (hA := hA) g) =
+        (inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA g) =
       DirectRecord.inclusion D T K a ha k F hF S hTS hgen g := by
   apply Subtype.ext
   rfl
 
-/-- Endpoint repair is inherited from the old record coordinate.  The extra
-tests affect equality only by making it finer. -/
-theorem inclusion_replacement {u v : V} (w : List E)
+theorem inclusion_replacement
+    (hτ : ∀ j e, τ j e * τ j e = 1)
+    (k : I)
+    (F : K k →* DirectRecord.Product D T K a ha)
+    (A : ∀ j, RightAction (K k) (X j))
+    (S : Set E) (hTS : T k ⊆ S)
+    (hgen : ∀ g : K k, ∃ w : List E,
+      (∀ e ∈ w, e ∈ T k) ∧ (w.map (a k)).prod = g)
+    (hF : ∀ e ∈ T k, F (a k e) = DirectRecord.letter D T K a ha e)
+    (hA : ∀ j e, e ∈ T k → ∀ x,
+      (A j).act x (a k e) = τ j e x)
+    {u v : V} (w : List E)
     (hw : ∀ e ∈ w, e ∈ S) (p : D.WordWalk S u w v) (g : K k)
     (hval : valuation D T K a ha X τ hτ S w hw =
-      inclusion (D := D) (T := T) (K := K) (a := a) (ha := ha)
-      (X := X) (τ := τ) (hτ := hτ) (k := k) (F := F) (A := A)
-      (S := S) (hTS := hTS) (hgen := hgen) (hF := hF) (hA := hA) g) :
+      inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA g) :
     D.WalkValue (T k) (a k) u v g := by
   have hold :
       DirectRecord.valuation D T K a ha S w hw =
