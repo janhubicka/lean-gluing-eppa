@@ -56,6 +56,35 @@ theorem attachment_no_merge
   change (h * k₁)⁻¹ * (h * k₂) ∈ P
   convert hP using 1 <;> group
 
+/-- The range of a homomorphism is the left coset of its range subgroup at 1. -/
+theorem range_eq_leftCoset_one {H K : Type u} [Group H] [Group K]
+    (f : H →* K) :
+    Set.range f = leftCoset f.range 1 := by
+  ext x
+  constructor
+  · rintro ⟨h, rfl⟩
+    change f h ∈ f.range
+    exact ⟨h, rfl⟩
+  · intro hx
+    change x ∈ f.range at hx
+    exact hx
+
+/-- Translating the range is exactly the corresponding left coset. -/
+theorem translated_range_eq_leftCoset {H K : Type u} [Group H] [Group K]
+    (f : H →* K) (h : K) :
+    Set.range (fun k : H => h * f k) = leftCoset f.range h := by
+  ext x
+  constructor
+  · rintro ⟨k, rfl⟩
+    change h⁻¹ * (h * f k) ∈ f.range
+    simpa using (show f k ∈ f.range from ⟨k, rfl⟩)
+  · intro hx
+    change h⁻¹ * x ∈ f.range at hx
+    obtain ⟨k, hk⟩ := hx
+    refine ⟨k, ?_⟩
+    rw [← hk]
+    group
+
 /-- Restricting two disjoint attachment sets cannot make them intersect. -/
 theorem restricted_attachments_disjoint
     {X : Type u} {A B A' B' : Set X}
