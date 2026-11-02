@@ -35,12 +35,12 @@ def tripleSeparated (sub : BlockSubgroups old)
 /-- Every consecutive triple satisfies the internal attachment separation. -/
 def separatedList (sub : BlockSubgroups old) : List (ChainAtom S old) → Prop
   | x :: y :: z :: rest =>
-      tripleSeparated old sub x y z ∧ separatedList sub (y :: z :: rest)
+      tripleSeparated old sub x y z ∧ separatedList old sub (y :: z :: rest)
   | _ => True
 
 def IsSeparated {N : Nat} (sub : BlockSubgroups old)
     (c : RawChain N S old) : Prop :=
-  separatedList sub (List.ofFn c.2)
+  separatedList old sub (List.ofFn c.2)
 
 /-- The actual finite index type of separated tests of length at most N. -/
 abbrev SeparatedChains (N : Nat) (sub : BlockSubgroups old) :=
@@ -52,14 +52,14 @@ instance separatedChainsFinite (N : Nat) (sub : BlockSubgroups old) :
 
 theorem separatedList_three_iff (sub : BlockSubgroups old)
     (x y z : ChainAtom S old) :
-    separatedList sub [x, y, z] ↔ tripleSeparated old sub x y z := by
+    separatedList old sub [x, y, z] ↔ tripleSeparated old sub x y z := by
   change (tripleSeparated old sub x y z ∧ True) ↔ tripleSeparated old sub x y z
   simp
 
 /-- Chains of one or two blocks have no internal separation condition. -/
 theorem separatedList_short (sub : BlockSubgroups old)
     (l : List (ChainAtom S old)) (h : l.length ≤ 2) :
-    separatedList sub l := by
+    separatedList old sub l := by
   rcases l with _ | ⟨x, l⟩
   · trivial
   · rcases l with _ | ⟨y, l⟩
