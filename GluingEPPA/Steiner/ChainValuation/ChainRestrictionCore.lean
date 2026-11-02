@@ -61,13 +61,7 @@ theorem range_eq_leftCoset_one {H K : Type u} [Group H] [Group K]
     (f : H →* K) :
     Set.range f = leftCoset f.range 1 := by
   ext x
-  constructor
-  · rintro ⟨h, rfl⟩
-    change f h ∈ f.range
-    exact ⟨h, rfl⟩
-  · intro hx
-    change x ∈ f.range at hx
-    exact hx
+  simp [leftCoset]
 
 /-- Translating the range is exactly the corresponding left coset. -/
 theorem translated_range_eq_leftCoset {H K : Type u} [Group H] [Group K]
@@ -82,7 +76,7 @@ theorem translated_range_eq_leftCoset {H K : Type u} [Group H] [Group K]
     change h⁻¹ * x ∈ f.range at hx
     obtain ⟨k, hk⟩ := hx
     refine ⟨k, ?_⟩
-    rw [← hk]
+    rw [hk]
     group
 
 /-- Restricting two disjoint attachment sets cannot make them intersect. -/
