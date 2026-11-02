@@ -34,7 +34,6 @@ def tripleSeparated (sub : BlockSubgroups old)
 
 /-- Every consecutive triple satisfies the internal attachment separation. -/
 def separatedList (sub : BlockSubgroups old) : List (ChainAtom S old) → Prop
-  | _ :: _ :: _ :: [] => True
   | x :: y :: z :: rest =>
       tripleSeparated old sub x y z ∧ separatedList old sub (y :: z :: rest)
   | _ => True
