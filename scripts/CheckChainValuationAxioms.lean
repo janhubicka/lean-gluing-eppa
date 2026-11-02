@@ -2,6 +2,7 @@ import GluingEPPA.Steiner.ChainValuation.ComponentReflection
 import GluingEPPA.Steiner.ChainValuation.ChainRestrictionCore
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
+import GluingEPPA.Steiner.ChainValuation.Pushout
 
 #print axioms GluingEPPA.Steiner.ChainValuation.self_mem_leftCoset
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_eq_of_mem
@@ -28,3 +29,8 @@ import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 
 #print axioms GluingEPPA.Steiner.ChainValuation.separated_link_not_le
 #print axioms GluingEPPA.Steiner.ChainValuation.separated_link_not_ge
+
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutInl_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutInr_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutInl_eq_inr_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.pushout_attachment
