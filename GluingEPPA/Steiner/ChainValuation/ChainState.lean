@@ -40,7 +40,7 @@ def matching (e : E) : Matching B.Carrier where
     rw [mul_assoc, B.square e he, mul_one]
   unique := by
     rintro x y z ⟨_, hy⟩ ⟨_, hz⟩
-    exact hy.symm.trans hz
+    exact hy.trans hz.symm
 
 theorem matching_rel {e : E} (he : e ∈ B.active) (x : B.Carrier) :
     (B.matching e).Rel x (x * B.edge e) :=
@@ -48,7 +48,7 @@ theorem matching_rel {e : E} (he : e ∈ B.active) (x : B.Carrier) :
 
 theorem matching_perm {e : E} (he : e ∈ B.active) (x : B.Carrier) :
     (B.matching e).perm x = x * B.edge e :=
-  Matching.perm_eq_of_rel (B.matching_rel he x)
+  (B.matching e).perm_eq_of_rel (B.matching_rel he x)
 
 theorem matching_none {e : E} (he : e ∉ B.active) (x : B.Carrier) :
     ¬ ∃ y, (B.matching e).Rel x y := by
