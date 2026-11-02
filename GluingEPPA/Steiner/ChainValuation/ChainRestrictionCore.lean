@@ -76,6 +76,7 @@ theorem translated_range_eq_leftCoset {H K : Type u} [Group H] [Group K]
     change h⁻¹ * x ∈ f.range at hx
     obtain ⟨k, hk⟩ := hx
     refine ⟨k, ?_⟩
+    change h * f k = x
     rw [hk]
     group
 
