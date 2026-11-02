@@ -9,6 +9,7 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
 import GluingEPPA.Steiner.ChainValuation.ParameterizedFamily
+import GluingEPPA.Steiner.ChainValuation.WordAction
 import GluingEPPA.Steiner.ChainValuation.ChainIndex
 import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
@@ -77,3 +78,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_injective
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_inclusion
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_replacement
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_append
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordActionValue_word
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordRightAction_edge
