@@ -44,6 +44,8 @@ variable (hker : ∀ p q : List E,
   (p.map A.edge).prod = (q.map A.edge).prod →
   testWordPerm τ p = testWordPerm τ q)
 
+include hker
+
 noncomputable def chosenWord (g : A.Carrier) : List E :=
   Classical.choose (A.generated g)
 
