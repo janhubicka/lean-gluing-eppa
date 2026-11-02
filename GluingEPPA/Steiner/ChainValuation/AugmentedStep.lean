@@ -59,25 +59,14 @@ noncomputable def forget :
     (Step.edges S old) (Step.involutions S old)
     X τ hτ (S : Set E)
 
-/-- The forgetful map preserves every named generator in the current alphabet. -/
-theorem forget_edge (e : E) (he : e ∈ S) :
+/-- The forgetful map preserves every named generator. -/
+theorem forget_edge (e : E) :
     forget D S old X τ hτ ((data D S old X τ hτ).edge e) =
       (Step.data D S old).edge e := by
-  change AugmentedRecord.forget D
-      (Step.sets S) (Step.groups S old)
-      (Step.edges S old) (Step.involutions S old)
-      X τ hτ (S : Set E)
-      (AugmentedRecord.totalGenerator D
-        (Step.sets S) (Step.groups S old)
-        (Step.edges S old) (Step.involutions S old)
-        X τ hτ (S : Set E) e) =
-    DirectRecord.totalGenerator D
-      (Step.sets S) (Step.groups S old)
-      (Step.edges S old) (Step.involutions S old)
-      (S : Set E) e
-  rw [AugmentedRecord.totalGenerator_mem _ _ _ _ _ _ _ _ e he,
-    DirectRecord.totalGenerator_mem _ _ _ _ _ _ e he]
-  rfl
+  exact AugmentedRecord.forget_totalGenerator D
+    (Step.sets S) (Step.groups S old)
+    (Step.edges S old) (Step.involutions S old)
+    X τ hτ (S : Set E) e
 
 end AugmentedStep
 end RecursiveRecord
