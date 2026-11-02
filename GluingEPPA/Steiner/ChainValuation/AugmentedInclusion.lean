@@ -95,7 +95,7 @@ noncomputable def inclusion : K k →* imageGroup D T K a ha X τ hτ S where
   map_mul' g h := Subtype.ext (map_mul _ g h)
 
 theorem inclusion_word (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
-    inclusion D T K a ha X τ k F A S hTS hgen hF hA
+    inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA
         ((w.map (a k)).prod) =
       valuation D T K a ha X τ hτ S w (fun e he => hTS (hw e he)) := by
   apply Subtype.ext
@@ -103,7 +103,7 @@ theorem inclusion_word (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
 
 theorem inclusion_injective (hFinj : Function.Injective F) :
     Function.Injective
-      (inclusion D T K a ha X τ k F A S hTS hgen hF hA) := by
+      (inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA) := by
   intro g h heq
   apply hFinj
   exact congrArg (fun z => z.val.1) heq
@@ -112,7 +112,7 @@ theorem inclusion_injective (hFinj : Function.Injective F) :
 coordinate. -/
 theorem forget_inclusion (g : K k) :
     forget D T K a ha X τ hτ S
-        (inclusion D T K a ha X τ k F A S hTS hgen hF hA g) =
+        (inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA g) =
       DirectRecord.inclusion D T K a ha k F hF S hTS hgen g := by
   apply Subtype.ext
   rfl
@@ -122,7 +122,7 @@ tests affect equality only by making it finer. -/
 theorem inclusion_replacement {u v : V} (w : List E)
     (hw : ∀ e ∈ w, e ∈ S) (p : D.WordWalk S u w v) (g : K k)
     (hval : valuation D T K a ha X τ hτ S w hw =
-      inclusion D T K a ha X τ k F A S hTS hgen hF hA g) :
+      inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA g) :
     D.WalkValue (T k) (a k) u v g := by
   have hold :
       DirectRecord.valuation D T K a ha S w hw =
