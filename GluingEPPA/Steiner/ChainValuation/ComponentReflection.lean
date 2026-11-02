@@ -24,6 +24,8 @@ variable (D : EdgeGraph V E) (edgeValue : E → G)
 variable (B : Set E) (b : E → H) (hb : ∀ e ∈ B, b e * b e = 1)
 variable (i : H →* G) (hi : ∀ e ∈ B, i (b e) = edgeValue e)
 
+include hi
+
 /-- The normalized forward implication, including extraction of its actual walk. -/
 theorem chain_reflection_from_records
     (hinv : ∀ e, edgeValue e * edgeValue e = 1)
