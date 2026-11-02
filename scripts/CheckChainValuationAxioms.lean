@@ -7,6 +7,7 @@ import GluingEPPA.Steiner.ChainValuation.GroupAttachment
 import GluingEPPA.Steiner.ChainValuation.ChainExtend
 import GluingEPPA.Steiner.ChainValuation.AugmentedRecord
 import GluingEPPA.Steiner.ChainValuation.AugmentedStep
+import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
 import GluingEPPA.Steiner.ChainValuation.ParameterizedFamily
 import GluingEPPA.Steiner.ChainValuation.ChainIndex
 import GluingEPPA.Steiner.ChainValuation.SeparatedChains
@@ -70,3 +71,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.chainLength_pos
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.separatedList_short
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.coordinateHom_generator
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_word
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_injective
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_inclusion
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_replacement
