@@ -139,26 +139,10 @@ noncomputable def generator (S : Set E) (e : E) (he : e ∈ S) :
     simp only [value_cons, value_nil, mul_one]⟩⟩
 
 theorem generator_involutive (S : Set E) (e : E) (he : e ∈ S) :
-    generator D T K a ha X τ hτ S e he *
-      generator D T K a ha X τ hτ S e he = 1 := by
+    generator D T K a ha X τ S e he *
+      generator D T K a ha X τ S e he = 1 := by
   apply Subtype.ext
   exact letter_involutive D T K a ha X τ hτ e
-
-/-- Every element still has an allowed word representation. -/
-theorem generated (S : Set E) (g : imageGroup D T K a ha X τ S) :
-    ∃ w : List E, (∀ e ∈ w, e ∈ S) ∧
-      (w.map (fun e => generator D T K a ha X τ hτ S e
-        (Classical.byContradiction fun hn =>
-          by
-            exfalso
-            exact hn))).prod = g := by
-  -- A generator with a proof argument is awkward to map over an untyped word;
-  -- expose the literal augmented value instead. This theorem is refined below
-  -- to the total-generator interface used by the recursive Data structure.
-  obtain ⟨w, hw, hv⟩ := g.property
-  exact ⟨w, hw, by
-    apply Subtype.ext
-    simpa [generator] using hv.symm⟩
 
 /-- Forgetting all new tests gives the old literal record group. -/
 noncomputable def forget (S : Set E) :
@@ -173,14 +157,14 @@ noncomputable def forget (S : Set E) :
 
 theorem forget_valuation (S : Set E) (w : List E)
     (hw : ∀ e ∈ w, e ∈ S) :
-    forget D T K a ha X τ S (valuation D T K a ha X τ hτ S w hw) =
+    forget D T K a ha X τ S (valuation D T K a ha X τ S w hw) =
       DirectRecord.valuation D T K a ha S w hw := rfl
 
 /-- The new test coordinate is exactly the word action supplied to this step. -/
 theorem valuation_test_coordinate (S : Set E) (w : List E)
     (hw : ∀ e ∈ w, e ∈ S) (j : J) :
     MulOpposite.unop
-        ((valuation D T K a ha X τ hτ S w hw).val.2 j) =
+        ((valuation D T K a ha X τ S w hw).val.2 j) =
       MulOpposite.unop (testValue X τ w j) := rfl
 
 end AugmentedRecord
