@@ -7,6 +7,7 @@ import GluingEPPA.Sparsening.SparseningTheorem
 import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
+import GluingEPPA.Steiner.ChainValuation.ReflectionWitness
 
 /-!
 # The Gluing EPPA library
