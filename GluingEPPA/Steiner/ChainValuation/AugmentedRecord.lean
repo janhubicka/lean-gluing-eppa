@@ -196,6 +196,35 @@ theorem image_generated (S : Set E)
   apply Subtype.ext
   exact (totalGenerator_product D T K a ha X τ S w hw).trans hv
 
+/-- Equality of augmented raw records implies equality on every retained old
+component-permutation coordinate. -/
+theorem component_coordinate_eq_of_value_eq
+    (p q : List E) (hv :
+      value D T K a ha X τ p = value D T K a ha X τ q)
+    (i : I) :
+    D.componentWordPerm (T i) (a i) (ha i) p =
+      D.componentWordPerm (T i) (a i) (ha i) q := by
+  have h := congrArg
+    (fun z : Product D T K a ha X =>
+      MulOpposite.unop ((z.1 i).2)) hv
+  exact h
+
+/-- Hence equality of allowed word values in the augmented group is already
+the record-compatibility hypothesis used by the reflection theorem. -/
+theorem component_record_of_word_eq
+    (S : Set E) (p q : List E)
+    (hp : ∀ e ∈ p, e ∈ S) (hq : ∀ e ∈ q, e ∈ S)
+    (hv :
+      (p.map (totalGenerator D T K a ha X τ S)).prod =
+      (q.map (totalGenerator D T K a ha X τ S)).prod)
+    (i : I) :
+    D.componentWordPerm (T i) (a i) (ha i) p =
+      D.componentWordPerm (T i) (a i) (ha i) q := by
+  have hval := congrArg Subtype.val hv
+  rw [totalGenerator_product D T K a ha X τ S p hp,
+      totalGenerator_product D T K a ha X τ S q hq] at hval
+  exact component_coordinate_eq_of_value_eq D T K a ha X τ p q hval i
+
 /-- Forgetting all new tests gives the old literal record group. -/
 noncomputable def forget (S : Set E) :
     imageGroup D T K a ha X τ S →*
