@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.ChainValuation.ComponentReflection
+import GluingEPPA.Steiner.ChainValuation.ChainRestrictionCore
 
 #print axioms GluingEPPA.Steiner.ChainValuation.self_mem_leftCoset
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_eq_of_mem
@@ -14,3 +15,7 @@ import GluingEPPA.Steiner.ChainValuation.ComponentReflection
 #print axioms GluingEPPA.Steiner.EdgeGraph.chain_word_map_value
 #print axioms GluingEPPA.Steiner.EdgeGraph.chain_reflection_from_records
 #print axioms GluingEPPA.Steiner.EdgeGraph.chain_coset_component_reflection
+
+#print axioms GluingEPPA.Steiner.ChainValuation.attachment_same_intersection_coset
+#print axioms GluingEPPA.Steiner.ChainValuation.attachment_no_merge
+#print axioms GluingEPPA.Steiner.ChainValuation.restricted_attachments_disjoint
