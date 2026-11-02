@@ -44,8 +44,6 @@ variable (hker : ∀ p q : List E,
   (p.map A.edge).prod = (q.map A.edge).prod →
   testWordPerm τ p = testWordPerm τ q)
 
-include hker
-
 noncomputable def chosenWord (g : A.Carrier) : List E :=
   Classical.choose (A.generated g)
 
@@ -60,6 +58,8 @@ theorem chosenWord_value (g : A.Carrier) :
 /-- The action obtained from any chosen allowed word for the group element. -/
 noncomputable def wordActionValue (x : X) (g : A.Carrier) : X :=
   testWordPerm τ (chosenWord A g) x
+
+include hker
 
 theorem wordActionValue_word (w : List E) (hw : ∀ e ∈ w, e ∈ S)
     (x : X) :
