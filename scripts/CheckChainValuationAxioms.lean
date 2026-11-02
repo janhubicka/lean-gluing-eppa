@@ -55,3 +55,6 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedStep
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_old_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_new_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_overlap_iff
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.component_coordinate_eq_of_value_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.component_record_of_word_eq
