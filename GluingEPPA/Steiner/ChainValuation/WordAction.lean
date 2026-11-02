@@ -97,6 +97,7 @@ noncomputable def wordRightAction : RightAction A.Carrier X where
 theorem wordRightAction_edge (e : E) (he : e ∈ S) (x : X) :
     (wordRightAction A τ hker).act x (A.edge e) = τ e x := by
   change wordActionValue A τ x (A.edge e) = τ e x
+  change wordActionValue A τ x (A.edge e) = τ e x
   have h := wordActionValue_word A τ hker [e] (by
     intro f hf
     have hfe : f = e := by simpa using hf
