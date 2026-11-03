@@ -204,3 +204,4 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordConnected_symm
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordConnected_trans
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordComponent_eq_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.singleEquivariant_word
