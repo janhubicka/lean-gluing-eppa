@@ -51,7 +51,8 @@ theorem mask_pullbacks_agree (M A B : Proper S) :
     _ = (L (Step.meet S MA I) I Finset.inter_subset_right).incl.range :=
       hleft
     _ = (L (Step.meet S MB I) I Finset.inter_subset_right).incl.range := by
-      rw [hmask]
+      cases hmask
+      rfl
     _ = _ := hright.symm
 
 /-- The restricted component pieces across one actual chain attachment
