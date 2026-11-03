@@ -199,3 +199,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.regular_edges_survive_extension
 #print axioms GluingEPPA.Steiner.ChainValuation.regular_cover_survives_extension
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_reverse_cancel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordConnected_symm
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordConnected_trans
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordComponent_eq_iff
