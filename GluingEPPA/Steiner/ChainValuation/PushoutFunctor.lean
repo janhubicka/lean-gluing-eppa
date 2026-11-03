@@ -117,10 +117,10 @@ theorem pushoutMap_surjective
   | inl x =>
     obtain ⟨x0, hx⟩ := ha x
     refine ⟨pushoutInl f g hf hg x0, ?_⟩
-    simpa only [pushoutMap_inl, hx]
+    simpa [pushoutMap_inl, pushoutInl, hx]
   | inr y =>
     obtain ⟨y0, hy⟩ := hb y
     refine ⟨pushoutInr f g hf hg y0, ?_⟩
-    simpa only [pushoutMap_inr, hy]
+    simpa [pushoutMap_inr, pushoutInr, hy]
 
 end GluingEPPA.Steiner.ChainValuation
