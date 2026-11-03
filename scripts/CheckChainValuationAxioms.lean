@@ -161,3 +161,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_exit_not_new
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_last_not_new
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_last_propagates
+
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.component_old_or_unmatched_new
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.old_component_unique_of_match
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.new_component_unique_of_match
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.unmatched_new_not_old
