@@ -209,3 +209,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_inl
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_inr
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_surjective
+
+#print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
+#print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
