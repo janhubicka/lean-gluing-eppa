@@ -120,9 +120,14 @@ noncomputable def step (R : BuildResult D S old L) (y : Atom S old)
         change Disjoint
           (ChainValuation.leftCoset (right D S old L p.1 A).range 1)
           (ChainValuation.leftCoset i.range R.current.2) at hs
-        simpa only [he, ChainValuation.exitSet,
-          ChainValuation.range_eq_leftCoset_one,
-          ChainValuation.translated_range_eq_leftCoset] using hs
+        have hentry : Set.range (right D S old L p.1 A) =
+            ChainValuation.leftCoset (right D S old L p.1 A).range 1 :=
+          ChainValuation.range_eq_leftCoset_one _
+        have hexit : ChainValuation.exitSet (block S old A) R.current.2 i =
+            ChainValuation.leftCoset i.range R.current.2 :=
+          ChainValuation.translated_range_eq_leftCoset i R.current.2
+        rw [he, hentry, hexit]
+        exact hs
   have hshared : ∀ e, e ∈ (block S old A).active → e ∈ (block S old B).active →
       ∃ k : (old (common S A B)).Carrier,
         i k = (block S old A).edge e ∧ j k = (block S old B).edge e := by
