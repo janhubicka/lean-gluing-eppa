@@ -20,8 +20,6 @@ variable {P : Type u} {Q : Type v} {C : Type w}
 /-- Relabel the left vertices of a bipartite matching through an injection.
 Components not in the image of the injection remain unmatched. -/
 def Matching.relabelLeft (M : Matching (Sum P Q))
-    (hBipartite : (∀ p p' : P, ¬ M.Rel (.inl p) (.inl p')) ∧
-      (∀ q q' : Q, ¬ M.Rel (.inr q) (.inr q')))
     (f : P → C) (hf : Function.Injective f) :
     Matching (Sum C Q) where
   Rel x y :=
@@ -67,22 +65,18 @@ def Matching.relabelLeft (M : Matching (Sum P Q))
 old restricted coset relabelled by the containing old component. -/
 theorem Matching.relabelLeft_apply
     (M : Matching (Sum P Q))
-    (hBipartite : (∀ p p' : P, ¬ M.Rel (.inl p) (.inl p')) ∧
-      (∀ q q' : Q, ¬ M.Rel (.inr q) (.inr q')))
     (f : P → C) (hf : Function.Injective f)
     (p : P) (q : Q) (h : M.Rel (.inl p) (.inr q)) :
-    (M.relabelLeft hBipartite f hf).Rel (.inl (f p)) (.inr q) := by
+    (M.relabelLeft f hf).Rel (.inl (f p)) (.inr q) := by
   exact ⟨p, rfl, h⟩
 
 /-- Conversely, a matched old component has one actual last-block coset
 and an attachment to the new block. -/
 theorem Matching.relabelLeft_extract
     (M : Matching (Sum P Q))
-    (hBipartite : (∀ p p' : P, ¬ M.Rel (.inl p) (.inl p')) ∧
-      (∀ q q' : Q, ¬ M.Rel (.inr q) (.inr q')))
     (f : P → C) (hf : Function.Injective f)
     (c : C) (q : Q)
-    (h : (M.relabelLeft hBipartite f hf).Rel (.inl c) (.inr q)) :
+    (h : (M.relabelLeft f hf).Rel (.inl c) (.inr q)) :
     ∃ p, f p = c ∧ M.Rel (.inl p) (.inr q) := h
 
 end GluingEPPA.Steiner.ChainValuation
