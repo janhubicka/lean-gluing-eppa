@@ -86,12 +86,10 @@ theorem regular_cover_is_component
       f₀ (a * A.edge e) = τ e (f₀ a))
     (a : A.Carrier) :
     Set.range f₀ = wordReach τ (S := S) (f₀ a) := by
-  let R : PUnit → RightAction A.Carrier A.Carrier :=
-    fun _ => regularRightAction A.Carrier
-  let σ₀ : PUnit → E → Equiv.Perm A.Carrier :=
-    fun _ e => (R ⟨⟩).perm (A.edge e)
-  let f₁ : ∀ _ : PUnit, A.Carrier → X := fun _ => f₀
-  have hl : ∀ i e, e ∈ S → ∀ y : A.Carrier,
+  let σ₀ : PUnit.{0} → E → Equiv.Perm A.Carrier :=
+    fun _ e => (regularRightAction A.Carrier).perm (A.edge e)
+  let f₁ : ∀ _ : PUnit.{0}, A.Carrier → X := fun _ => f₀
+  have hl : ∀ (i : PUnit.{0}) e, e ∈ S → ∀ y : A.Carrier,
       f₁ i ((σ₀ i e) y) = τ e (f₁ i y) := by
     intro _ e he y
     exact hletter e he y
