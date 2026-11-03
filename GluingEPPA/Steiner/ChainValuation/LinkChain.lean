@@ -78,7 +78,7 @@ internal separation condition. -/
 structure BuildResult where
   previous : Option (Atom S old)
   current : Atom S old
-  state : ChainValuation.ChainState E (block S old current.1)
+  state : ChainValuation.ChainState.{u,u} E (block S old current.1)
   entry_spec :
     match previous with
     | none => state.entry = ∅
@@ -142,7 +142,7 @@ def separatedList : List (Atom S old) → Prop
   | _ => True
 
 structure PairResult (p c : Atom S old) where
-  state : ChainValuation.ChainState E (block S old c.1)
+  state : ChainValuation.ChainState.{u,u} E (block S old c.1)
   entry_spec :
     state.entry = Set.range (right D S old L p.1 c.1)
 
@@ -169,7 +169,7 @@ noncomputable def next {p c : Atom S old}
 
 structure SomeState where
   current : Atom S old
-  state : ChainValuation.ChainState E (block S old current.1)
+  state : ChainValuation.ChainState.{u,u} E (block S old current.1)
 
 noncomputable def buildTail (p c : Atom S old)
     (R : PairResult D S old L p c)
