@@ -33,7 +33,7 @@ def Matching.componentSetoid (M : Matching X) : Setoid X where
       rcases hyz with rfl | hyz
       · exact Or.inr hxy
       have hyx : M.Rel y x := M.symm hxy
-      exact Or.inl (M.unique hyx hyz).symm
+      exact Or.inl (M.unique hyx hyz)
 
 /-- In the quotient, two vertices agree exactly when they are equal or
 are joined by a single matching edge. -/
