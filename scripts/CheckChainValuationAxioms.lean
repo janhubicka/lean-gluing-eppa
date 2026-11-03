@@ -157,3 +157,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_one_test_fixed
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.moved_test_implies_nontrivial
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.impossible_identity_cycle_test
+
+#print axioms GluingEPPA.Steiner.ChainValuation.outside_exit_not_new
+#print axioms GluingEPPA.Steiner.ChainValuation.outside_last_not_new
+#print axioms GluingEPPA.Steiner.ChainValuation.outside_last_propagates
