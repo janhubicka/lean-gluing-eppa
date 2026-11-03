@@ -132,3 +132,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.twoGroupAttachment_new_unique
 #print axioms GluingEPPA.Steiner.ChainValuation.twoGroup_old_components_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.twoGroup_new_components_injective
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusion_comp
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.projector_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.mem_range_iff_projector
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.projector_inter
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.range_mono
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.range_inter
