@@ -51,8 +51,7 @@ theorem regular_cover_survives_extension
     Set.range (fun a : A.Carrier =>
       oldEmbed B C D h left right hleft hright (f a)) =
       EdgeGraph.RecursiveRecord.ChainValuation.wordReach
-        (fun e => ((extend B C D h left right hleft hright hsep hshared)
-          .matching e).perm) (S := M)
+        (fun e => (((extend B C D h left right hleft hright hsep hshared).matching e).perm)) (S := M)
         (oldEmbed B C D h left right hleft hright (f x)) := by
   let D' := extend B C D h left right hleft hright hsep hshared
   let f' : A.Carrier → D'.Space :=
