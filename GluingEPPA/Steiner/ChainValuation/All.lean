@@ -18,6 +18,9 @@ import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 import GluingEPPA.Steiner.ChainValuation.BlockMatching
 
+import GluingEPPA.Steiner.ChainValuation.MatchingComponentStep
+import GluingEPPA.Steiner.ChainValuation.MatchingGluing
+import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
 
@@ -30,6 +33,3 @@ In particular the global smaller-mask chain-restriction classification and
 the simultaneous augmented Link induction are still pending.
 -/
 
-import GluingEPPA.Steiner.ChainValuation.MatchingComponentStep
-import GluingEPPA.Steiner.ChainValuation.MatchingGluing
-import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
