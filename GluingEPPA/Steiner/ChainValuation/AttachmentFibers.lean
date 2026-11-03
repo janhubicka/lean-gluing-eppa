@@ -43,11 +43,11 @@ theorem two_group_attachment_fiber
     {z : H | h * i z ∈ leftCoset P (h * i k)} =
       {z : H | j z ∈ leftCoset Q (j k)} := by
   rw [attachment_fiber_coset]
-  have hr := attachment_fiber_coset j Q (1 : K) k
-  simpa only [one_mul] using
-    (show leftCoset (P.comap i) k =
-        {z : H | (1 : K) * j z ∈ leftCoset Q ((1 : K) * j k)} from
-      hcomap ▸ hr.symm)
+  calc
+    leftCoset (P.comap i) k = leftCoset (Q.comap j) k := by rw [hcomap]
+    _ = {z : H | j z ∈ leftCoset Q (j k)} := by
+      simpa only [one_mul] using
+        (attachment_fiber_coset j Q (1 : K) k).symm
 
 /-- Membership is preserved pointwise across a common attachment; no
 correspondence of arbitrary coset representatives is chosen. -/
@@ -82,7 +82,8 @@ theorem attachment_intersection_exact
         calc
           x = h * (h⁻¹ * x) := by group
           _ = h * i z := by rw [hz]
-      simpa only [heqx] using hp
+      change (h * i k)⁻¹ * x ∈ P at hp
+      rwa [heqx] at hp
     · calc
         x = h * (h⁻¹ * x) := by group
         _ = h * i z := by rw [hz]
