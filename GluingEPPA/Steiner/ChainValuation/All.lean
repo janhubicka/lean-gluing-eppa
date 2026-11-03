@@ -29,3 +29,5 @@ requires every source module to be reachable from the library umbrella.
 In particular the global smaller-mask chain-restriction classification and
 the simultaneous augmented Link induction are still pending.
 -/
+
+import GluingEPPA.Steiner.ChainValuation.MatchingComponentStep
