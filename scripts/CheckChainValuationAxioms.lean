@@ -121,3 +121,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_old_unique
 #print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_new_unique
+
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.quotient_eq_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.inl_component_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.inr_component_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.restrictedPiece_old_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.restrictedPiece_new_injective
