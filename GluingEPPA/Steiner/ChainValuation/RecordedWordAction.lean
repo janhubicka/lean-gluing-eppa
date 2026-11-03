@@ -30,7 +30,7 @@ theorem testValue_eq_testWordPerm (j : J) (w : List E) :
       ext x
       have h := congrArg (fun f : Equiv.Perm (X j) => f (τ j e x)) ih
       simpa only [testValue, List.map_cons, List.prod_cons,
-        MulOpposite.unop_mul, Equiv.Perm.mul_apply,
+        MulOpposite.unop_mul, MulOpposite.unop_op, Equiv.Perm.mul_apply,
         GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_cons]
         using h
 
