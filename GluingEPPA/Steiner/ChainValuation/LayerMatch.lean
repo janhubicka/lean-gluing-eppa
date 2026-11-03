@@ -126,5 +126,44 @@ theorem connected_same_layer (n : Nat) (x y : V n)
     (h : P.Connected ⟨n, x⟩ ⟨n, y⟩) : x = y :=
   P.root_injective n x y (P.root_of_connected h)
 
+/-- Every point is joined to its earliest predecessor by the matching edges.
+This is the converse direction to constancy of the root along paths. -/
+theorem connected_to_root : ∀ (n : Nat) (x : V n),
+    P.Connected (P.root n x) ⟨n, x⟩ := by
+  intro n
+  induction n with
+  | zero =>
+      intro x
+      change P.Connected ⟨0, x⟩ ⟨0, x⟩
+      exact Connected.refl _
+  | succ n ih =>
+      intro x
+      cases hb : P.backward n x with
+      | none =>
+          have hr : P.root (n + 1) x = ⟨n + 1, x⟩ := by
+            simp [root, hb]
+          rw [hr]
+          exact Connected.refl _
+      | some y =>
+          have hr : P.root (n + 1) x = P.root n y := by
+            simp [root, hb]
+          rw [hr]
+          exact Connected.trans (ih y)
+            (Connected.forward n y x ((P.inverse_iff n y x).2 hb))
+
+/-- The connected components of a line of partial matchings are classified
+exactly by their earliest roots. They cannot branch, merge, or revisit a
+layer. This theorem replaces repeated path-shortening arguments. -/
+theorem connected_iff_same_root (x y : Sigma V) :
+    P.Connected x y ↔ P.root x.1 x.2 = P.root y.1 y.2 := by
+  constructor
+  · exact P.root_of_connected
+  · intro h
+    have hx := P.connected_to_root x.1 x.2
+    have hy : P.Connected (P.root x.1 x.2) y := by
+      rw [h]
+      exact P.connected_to_root y.1 y.2
+    exact Connected.trans (Connected.symm hx) hy
+
 end LayerMatch
 end GluingEPPA.Steiner.ChainValuation
