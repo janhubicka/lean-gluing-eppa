@@ -170,3 +170,5 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.old_edge_survives_perm
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_eq_testWordPerm
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusion_range_congr
