@@ -176,3 +176,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.equivariantCover_word
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_equivariantCover
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightAction_of_equivariantCover_edge
+
+#print axioms GluingEPPA.Steiner.ChainValuation.attachment_fiber_coset
+#print axioms GluingEPPA.Steiner.ChainValuation.two_group_attachment_fiber
+#print axioms GluingEPPA.Steiner.ChainValuation.two_group_attachment_mem_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.attachment_intersection_exact
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_fibre_mem_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_fibre_inter
