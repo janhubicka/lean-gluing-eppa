@@ -31,3 +31,4 @@ the simultaneous augmented Link induction are still pending.
 -/
 
 import GluingEPPA.Steiner.ChainValuation.MatchingComponentStep
+import GluingEPPA.Steiner.ChainValuation.MatchingGluing
