@@ -93,7 +93,7 @@ theorem regular_cover_is_component
       f₁ i ((σ₀ i e) y) = τ e (f₁ i y) := by
     intro _ e he y
     exact hletter e he y
-  exact equivariant_image_eq_wordReach τ σ₀ f₁ hl ⟨⟩
+  exact equivariant_image_eq_wordReach τ σ₀ f₁ hl PUnit.unit
     (fun x y => regular_Cayley_word_transitive A x y) a
 
 end ChainValuation
