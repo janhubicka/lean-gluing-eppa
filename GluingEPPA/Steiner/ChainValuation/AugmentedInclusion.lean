@@ -130,8 +130,9 @@ theorem inclusion_injective
     Function.Injective
       (inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA) := by
   intro g h heq
-  apply hFinj
-  exact congrArg (fun z => z.val.1) heq
+  have hfirst := congrArg (fun z => z.val.1) heq
+  change F g = F h at hfirst
+  exact hFinj hfirst
 
 theorem forget_inclusion
     (hτ : ∀ j e, τ j e * τ j e = 1)
@@ -149,6 +150,7 @@ theorem forget_inclusion
         (inclusion D T K a ha X τ hτ k F A S hTS hgen hF hA g) =
       DirectRecord.inclusion D T K a ha k F hF S hTS hgen g := by
   apply Subtype.ext
+  change (coordinateHom D T K a ha X k F A g).1 = F g
   rfl
 
 theorem inclusion_replacement
@@ -170,8 +172,10 @@ theorem inclusion_replacement
   have hold :
       DirectRecord.valuation D T K a ha S w hw =
         DirectRecord.inclusion D T K a ha k F hF S hTS hgen g := by
+    have hfirst := congrArg (fun z => z.val.1) hval
+    change DirectRecord.value D T K a ha w = F g at hfirst
     apply Subtype.ext
-    exact congrArg (fun z => z.val.1) hval
+    exact hfirst
   exact DirectRecord.inclusion_replacement D T K a ha k F hF S hTS hgen
     w hw p g hold
 
