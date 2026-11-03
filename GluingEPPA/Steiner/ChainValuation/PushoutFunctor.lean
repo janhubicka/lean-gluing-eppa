@@ -117,10 +117,14 @@ theorem pushoutMap_surjective
   | inl x =>
     obtain ⟨x0, hx⟩ := ha x
     refine ⟨pushoutInl f g hf hg x0, ?_⟩
-    simpa [pushoutMap_inl, pushoutInl, hx]
+    change Quotient.mk (pushoutSetoid f' g' hf' hg') (Sum.inl (a x0)) =
+      Quotient.mk (pushoutSetoid f' g' hf' hg') (Sum.inl x)
+    rw [hx]
   | inr y =>
     obtain ⟨y0, hy⟩ := hb y
     refine ⟨pushoutInr f g hf hg y0, ?_⟩
-    simpa [pushoutMap_inr, pushoutInr, hy]
+    change Quotient.mk (pushoutSetoid f' g' hf' hg') (Sum.inr (b y0)) =
+      Quotient.mk (pushoutSetoid f' g' hf' hg') (Sum.inr y)
+    rw [hy]
 
 end GluingEPPA.Steiner.ChainValuation
