@@ -50,7 +50,7 @@ theorem coordinateHom_generator (k : I)
     (hA : ∀ j e, e ∈ T k → ∀ x,
       (A j).act x (a k e) = τ j e x)
     (e : E) (he : e ∈ T k) :
-    coordinateHom D T K a ha X τ k F A (a k e) =
+    coordinateHom D T K a ha X k F A (a k e) =
       letter D T K a ha X τ e := by
   apply Prod.ext
   · exact hF e he
@@ -66,7 +66,7 @@ theorem map_word (k : I)
     (hA : ∀ j e, e ∈ T k → ∀ x,
       (A j).act x (a k e) = τ j e x)
     (w : List E) (hw : ∀ e ∈ w, e ∈ T k) :
-    coordinateHom D T K a ha X τ k F A ((w.map (a k)).prod) =
+    coordinateHom D T K a ha X k F A ((w.map (a k)).prod) =
       value D T K a ha X τ w := by
   induction w with
   | nil => simp only [List.map_nil, List.prod_nil, map_one, value_nil]
@@ -89,7 +89,7 @@ noncomputable def inclusion
     (hA : ∀ j e, e ∈ T k → ∀ x,
       (A j).act x (a k e) = τ j e x) :
     K k →* imageGroup D T K a ha X τ hτ S where
-  toFun g := ⟨coordinateHom D T K a ha X τ k F A g, by
+  toFun g := ⟨coordinateHom D T K a ha X k F A g, by
     obtain ⟨w, hw, hv⟩ := hgen g
     refine ⟨w, fun e he => hTS (hw e he), ?_⟩
     simpa only [hv] using
