@@ -60,7 +60,7 @@ theorem testWordPerm_eq_of_equivariantCover
     (A : Data E S)
     (hcover : ∀ x : X, ∃ i : I, ∃ y : Y i, f i y = x)
     (hletter : ∀ i e, e ∈ S → ∀ y, f i ((σ i e) y) = τ e (f i y))
-    (hmodels : ∀ i p q : List E,
+    (hmodels : ∀ (i : I) (p q : List E),
       (∀ e ∈ p, e ∈ S) → (∀ e ∈ q, e ∈ S) →
       (p.map A.edge).prod = (q.map A.edge).prod →
       testWordPerm (σ i) p = testWordPerm (σ i) q)
@@ -86,7 +86,7 @@ noncomputable def rightAction_of_equivariantCover
     (A : Data E S)
     (hcover : ∀ x : X, ∃ i : I, ∃ y : Y i, f i y = x)
     (hletter : ∀ i e, e ∈ S → ∀ y, f i ((σ i e) y) = τ e (f i y))
-    (hmodels : ∀ i p q : List E,
+    (hmodels : ∀ (i : I) (p q : List E),
       (∀ e ∈ p, e ∈ S) → (∀ e ∈ q, e ∈ S) →
       (p.map A.edge).prod = (q.map A.edge).prod →
       testWordPerm (σ i) p = testWordPerm (σ i) q) :
@@ -99,7 +99,7 @@ theorem rightAction_of_equivariantCover_edge
     (A : Data E S)
     (hcover : ∀ x : X, ∃ i : I, ∃ y : Y i, f i y = x)
     (hletter : ∀ i e, e ∈ S → ∀ y, f i ((σ i e) y) = τ e (f i y))
-    (hmodels : ∀ i p q : List E,
+    (hmodels : ∀ (i : I) (p q : List E),
       (∀ e ∈ p, e ∈ S) → (∀ e ∈ q, e ∈ S) →
       (p.map A.edge).prod = (q.map A.edge).prod →
       testWordPerm (σ i) p = testWordPerm (σ i) q)
