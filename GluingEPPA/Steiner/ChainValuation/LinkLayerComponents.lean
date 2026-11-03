@@ -38,20 +38,20 @@ abbrev restrictedPieceLayer (n : Nat) : Type u :=
 /-- The literal matching between restricted pieces of adjacent blocks. -/
 noncomputable def restrictedBoundaryMatching (n : Nat) :
     ChainValuation.Matching
-      (Sum (restrictedPieceLayer old A n)
-        (restrictedPieceLayer old A (n + 1))) :=
+      (Sum (restrictedPieceLayer S old A n)
+        (restrictedPieceLayer S old A (n + 1))) :=
   restrictedLinkMatching D S old L M (A n) (A (n + 1)) (h n)
 
 /-- The path of such matchings, with no hypothetical ambient group K_S. -/
 noncomputable def restrictedLayerSystem :
-    ChainValuation.LayerMatch (restrictedPieceLayer old A) :=
+    ChainValuation.LayerMatch (restrictedPieceLayer S old A) :=
   ChainValuation.layerMatchOfMatchings
     (fun n => restrictedBoundaryMatching D S old L M A h n)
 
 /-- Every combinatorial restricted component meets a given original block
 in at most one piece, irrespective of the number of chain attachments. -/
 theorem restrictedLayers_no_merge
-    (n : Nat) (x y : restrictedPieceLayer old A n)
+    (n : Nat) (x y : restrictedPieceLayer S old A n)
     (hc : (restrictedLayerSystem D S old L M A h).Connected
       ⟨n, x⟩ ⟨n, y⟩) : x = y :=
   (restrictedLayerSystem D S old L M A h).connected_same_layer n x y hc
@@ -59,7 +59,7 @@ theorem restrictedLayers_no_merge
 /-- Two restricted pieces are joined across a sequence of attachments
 exactly when their canonical earliest roots agree. -/
 theorem restrictedLayers_connected_iff_roots
-    (x y : Sigma (restrictedPieceLayer old A)) :
+    (x y : Sigma (restrictedPieceLayer S old A)) :
     (restrictedLayerSystem D S old L M A h).Connected x y ↔
     (restrictedLayerSystem D S old L M A h).root x.1 x.2 =
       (restrictedLayerSystem D S old L M A h).root y.1 y.2 :=
