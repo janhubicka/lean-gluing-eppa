@@ -118,7 +118,11 @@ noncomputable def link (k : Proper S) :
   incl := inclusion D S old L A hA X τ hτ B hB k
   incl_edge := inclusion_edge D S old L A hA X τ hτ B hB k
   delete := deletion D S old X τ hτ k
-  delete_edge e he := deletion_edge D S old X τ hτ k e he
+  delete_edge e he := by
+    have h := deletion_edge D S old X τ hτ k e he
+    by_cases hm : e ∈ k.val
+    · simpa only [if_pos hm] using h
+    · simpa only [if_neg hm] using h
   replace := inclusion_replace D S old L A hA X τ hτ B hB k
 
 end AugmentedStep
