@@ -1,3 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.ChainEndpoint
 import GluingEPPA.Steiner.ChainValuation.CycleUnwindingCore
 import GluingEPPA.Steiner.ChainValuation.ChainTests
 import GluingEPPA.Steiner.ChainValuation.ComponentReflection
