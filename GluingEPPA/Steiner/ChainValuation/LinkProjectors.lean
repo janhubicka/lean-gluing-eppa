@@ -48,7 +48,7 @@ theorem projector_edge (m t : Proper S) (hmt : m.val ⊆ t.val)
   change (L m t hmt).incl ((L m t hmt).delete ((old t).edge e)) = _
   rw [(L m t hmt).delete_edge e he]
   by_cases hm : e ∈ m.val
-  · rw [if_pos hm, (L m t hmt).incl_edge e hm]
+  · simp only [if_pos hm, (L m t hmt).incl_edge e hm]
   · simp only [if_neg hm, map_one]
 
 /-- The image of inclusion is precisely the fixed-point subgroup of the
