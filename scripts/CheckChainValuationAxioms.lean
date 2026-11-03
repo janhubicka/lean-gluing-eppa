@@ -189,3 +189,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.root_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.root_of_connected
 #print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_same_layer
+
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.forwardOption_eq_some_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.backwardOption_eq_some_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.option_inverse_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.layerMatching_no_merging
