@@ -117,6 +117,9 @@ noncomputable def step (R : BuildResult D S old L) (y : Atom S old)
           simpa [hp] using R.entry_spec
         have hs : tripleSeparated D S old L p R.current y := by
           simpa [hp] using hsep
+        change Disjoint
+          (ChainValuation.leftCoset (right D S old L p.1 A).range 1)
+          (ChainValuation.leftCoset i.range R.current.2) at hs
         simpa only [he, ChainValuation.exitSet,
           ChainValuation.range_eq_leftCoset_one,
           ChainValuation.translated_range_eq_leftCoset] using hs
