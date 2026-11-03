@@ -62,6 +62,29 @@ theorem equivariant_image_eq_wordReach
     exact ⟨testWordPerm (σ i) w y,
       (equivariantCover_word τ σ f hletter i w hw y).trans hv⟩
 
+/-- Word transport for one equivariant map, without an artificial
+one-element family of model indices. -/
+theorem singleEquivariant_word {Z : Type z}
+    (σ₀ : E → Equiv.Perm Z) (f₀ : Z → X)
+    (hletter : ∀ e ∈ S, ∀ y : Z,
+      f₀ (σ₀ e y) = τ e (f₀ y))
+    (w : List E) (hw : ∀ e ∈ w, e ∈ S) (y : Z) :
+    f₀ (testWordPerm σ₀ w y) = testWordPerm τ w (f₀ y) := by
+  induction w generalizing y with
+  | nil => rfl
+  | cons e w ih =>
+      have he : e ∈ S := hw e (by simp)
+      have htail : ∀ a ∈ w, a ∈ S :=
+        fun a ha => hw a (by simp [ha])
+      change f₀ (testWordPerm σ₀ w (σ₀ e y)) =
+        testWordPerm τ w (τ e (f₀ y))
+      calc
+        f₀ (testWordPerm σ₀ w (σ₀ e y)) =
+            testWordPerm τ w (f₀ (σ₀ e y)) :=
+          ih htail (σ₀ e y)
+        _ = testWordPerm τ w (τ e (f₀ y)) := by
+          rw [hletter e he y]
+
 /-- A regular Cayley diagram of an already constructed smaller-mask group
 is connected under its allowed word transitions. -/
 theorem regular_Cayley_word_transitive (A : Data E S)
@@ -86,15 +109,25 @@ theorem regular_cover_is_component
       f₀ (a * A.edge e) = τ e (f₀ a))
     (a : A.Carrier) :
     Set.range f₀ = wordReach τ (S := S) (f₀ a) := by
-  let σ₀ : PUnit.{0} → E → Equiv.Perm A.Carrier :=
-    fun _ e => (regularRightAction A.Carrier).perm (A.edge e)
-  let f₁ : ∀ _ : PUnit.{0}, A.Carrier → X := fun _ => f₀
-  have hl : ∀ (i : PUnit.{0}) e, e ∈ S → ∀ y : A.Carrier,
-      f₁ i ((σ₀ i e) y) = τ e (f₁ i y) := by
-    intro _ e he y
+  let σ₀ : E → Equiv.Perm A.Carrier :=
+    fun e => (regularRightAction A.Carrier).perm (A.edge e)
+  have hl : ∀ e ∈ S, ∀ y : A.Carrier,
+      f₀ (σ₀ e y) = τ e (f₀ y) := by
+    intro e he y
     exact hletter e he y
-  exact equivariant_image_eq_wordReach τ σ₀ f₁ hl PUnit.unit
-    (fun x y => regular_Cayley_word_transitive A x y) a
+  ext z
+  constructor
+  · rintro ⟨b, rfl⟩
+    obtain ⟨w, hw, hv⟩ := regular_Cayley_word_transitive A a b
+    refine ⟨w, hw, ?_⟩
+    calc
+      testWordPerm τ w (f₀ a) =
+          f₀ (testWordPerm σ₀ w a) :=
+        (singleEquivariant_word τ σ₀ f₀ hl w hw a).symm
+      _ = f₀ b := congrArg f₀ hv
+  · rintro ⟨w, hw, hv⟩
+    exact ⟨testWordPerm σ₀ w a,
+      (singleEquivariant_word τ σ₀ f₀ hl w hw a).trans hv⟩
 
 end ChainValuation
 end RecursiveRecord
