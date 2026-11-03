@@ -158,7 +158,7 @@ noncomputable def pair (x y : Atom S old) : PairResult D S old L x y := by
   let R1 := step D S old L R0 y trivial
   exact
     { state := R1.state
-      entry_spec := by simpa [R1, step] using R1.entry_spec }
+      entry_spec := by rfl }
 
 noncomputable def next {p c : Atom S old}
     (R : PairResult D S old L p c) (z : Atom S old)
@@ -172,7 +172,7 @@ noncomputable def next {p c : Atom S old}
   let R' := step D S old L BR z (by simpa using hsep)
   exact
     { state := R'.state
-      entry_spec := by simpa [R', step] using R'.entry_spec }
+      entry_spec := by rfl }
 
 structure SomeState where
   current : Atom S old
