@@ -196,3 +196,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_regular_coset_letter
 #print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_regular_coset_component
+
+#print axioms GluingEPPA.Steiner.ChainValuation.regular_edges_survive_extension
+#print axioms GluingEPPA.Steiner.ChainValuation.regular_cover_survives_extension
