@@ -118,3 +118,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.rawChain_list_nonempty
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_involutive
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_square
+
+#print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_old_unique
+#print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_new_unique
