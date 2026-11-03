@@ -69,4 +69,43 @@ theorem matchingMap_word
           (fun e => (N e).perm) w ((N e).perm (f x)) := by
         rw [matchingMap_perm (M e) (N e) f (hforward e) (hlift e) x]
 
+
+/-- The actual chain-restriction interface: forward edge preservation and
+edge lifting are required **only for letters in the smaller mask S**.
+All words in S are therefore transported, without requiring equivariance
+for unrelated colours in the full diagram. -/
+theorem matchingMap_word_onMask
+    (S : Finset E)
+    (M : E → Matching X) (N : E → Matching Y) (f : X → Y)
+    (hforward : ∀ e, e ∈ S → ∀ {x x'}, (M e).Rel x x' →
+      (N e).Rel (f x) (f x'))
+    (hlift : ∀ e, e ∈ S → ∀ {x y'}, (N e).Rel (f x) y' →
+      ∃ x', (M e).Rel x x' ∧ f x' = y')
+    (w : List E) (hw : ∀ e ∈ w, e ∈ S) (x : X) :
+    f (EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+        (fun e => (M e).perm) w x) =
+      EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+        (fun e => (N e).perm) w (f x) := by
+  induction w generalizing x with
+  | nil => rfl
+  | cons e w ih =>
+      have he : e ∈ S := hw e (by simp)
+      have htail : ∀ a ∈ w, a ∈ S :=
+        fun a ha => hw a (by simp [ha])
+      change
+        f (EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+          (fun e => (M e).perm) w ((M e).perm x)) =
+        EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+          (fun e => (N e).perm) w ((N e).perm (f x))
+      calc
+        f (EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+            (fun e => (M e).perm) w ((M e).perm x)) =
+          EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+            (fun e => (N e).perm) w (f ((M e).perm x)) :=
+          ih htail ((M e).perm x)
+        _ = EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm
+            (fun e => (N e).perm) w ((N e).perm (f x)) := by
+          rw [matchingMap_perm (M e) (N e) f
+            (hforward e he) (hlift e he) x]
+
 end GluingEPPA.Steiner.ChainValuation
