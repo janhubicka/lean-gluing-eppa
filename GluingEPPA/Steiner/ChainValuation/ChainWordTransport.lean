@@ -68,7 +68,7 @@ theorem old_edge_survives_perm (e : E) {x y : D.Space}
     ((extend A B D h left right hleft hright hsep hshared).matching e).perm
       (oldEmbed A B D h left right hleft hright x) =
       oldEmbed A B D h left right hleft hright y := by
-  exact Matching.perm_eq_of_rel
+  exact ((extend A B D h left right hleft hright hsep hshared).matching e).perm_eq_of_rel
     (old_edge_survives B A D h left right hleft hright hsep hshared e hxy)
 
 end GluingEPPA.Steiner.ChainValuation
