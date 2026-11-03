@@ -110,17 +110,16 @@ noncomputable def step (R : BuildResult D S old L) (y : Atom S old)
     | none =>
         have he : R.state.entry = ∅ := by
           simpa [hp] using R.entry_spec
-        rw [he]
-        exact Set.disjoint_empty_left
+        simp [he]
     | some p =>
         have he : R.state.entry =
             Set.range (right D S old L p.1 A) := by
           simpa [hp] using R.entry_spec
         have hs : tripleSeparated D S old L p R.current y := by
           simpa [hp] using hsep
-        rw [he, ChainValuation.range_eq_leftCoset_one,
-          ChainValuation.translated_range_eq_leftCoset]
-        exact hs
+        simpa only [he, ChainValuation.exitSet,
+          ChainValuation.range_eq_leftCoset_one,
+          ChainValuation.translated_range_eq_leftCoset] using hs
   have hshared : ∀ e, e ∈ (block S old A).active → e ∈ (block S old B).active →
       ∃ k : (old (common S A B)).Carrier,
         i k = (block S old A).edge e ∧ j k = (block S old B).edge e := by
@@ -175,7 +174,7 @@ noncomputable def buildTail (p c : Atom S old)
     (R : PairResult D S old L p c)
     (rest : List (Atom S old))
     (hsep : separatedList D S old L (p :: c :: rest)) :
-    SomeState D S old L := by
+    SomeState S old := by
   induction rest generalizing p c with
   | nil =>
       exact ⟨c, R.state⟩
@@ -187,7 +186,7 @@ noncomputable def buildTail (p c : Atom S old)
 noncomputable def buildNonempty
     (l : List (Atom S old)) (hne : l ≠ [])
     (hsep : separatedList D S old L l) :
-    SomeState D S old L := by
+    SomeState S old := by
   rcases l with _ | ⟨x, xs⟩
   · exact False.elim (hne rfl)
   · rcases xs with _ | ⟨y, ys⟩
