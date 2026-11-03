@@ -183,3 +183,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.attachment_intersection_exact
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_fibre_mem_iff
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_fibre_inter
+
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.root_le
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.backward_same
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.root_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.root_of_connected
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_same_layer
