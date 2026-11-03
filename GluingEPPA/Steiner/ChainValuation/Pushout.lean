@@ -131,4 +131,18 @@ theorem pushoutInl_eq_inr_iff (f : Z → X) (g : Z → Y)
     pushoutInl f g hf hg (f z) = pushoutInr f g hf hg (g z) := by
   exact Quotient.sound ⟨z, rfl, rfl⟩
 
+/-- The exact pushout contains no extra vertices: every point has a
+representative in the old side or in the newly attached side. This is the
+surjectivity input for constructing restricted-component covering charts. -/
+theorem pushout_covered (f : Z → X) (g : Z → Y)
+    (hf : Function.Injective f) (hg : Function.Injective g)
+    (q : SetPushout f g hf hg) :
+    (∃ x : X, pushoutInl f g hf hg x = q) ∨
+      (∃ y : Y, pushoutInr f g hf hg y = q) := by
+  refine Quotient.inductionOn q ?_
+  intro t
+  cases t with
+  | inl x => exact Or.inl ⟨x, rfl⟩
+  | inr y => exact Or.inr ⟨y, rfl⟩
+
 end GluingEPPA.Steiner.ChainValuation
