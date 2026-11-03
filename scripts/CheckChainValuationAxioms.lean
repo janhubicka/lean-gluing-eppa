@@ -203,3 +203,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.pushout_covered
 #print axioms GluingEPPA.Steiner.ChainValuation.extendedSpace_covered
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLayers_no_merge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLayers_connected_iff_roots
