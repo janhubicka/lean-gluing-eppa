@@ -44,7 +44,7 @@ theorem rawChain_list_nonempty (c : ChainValuation.RawChain N S old) :
   omega
 
 noncomputable def chainState (c : SeparatedChains D N S old L) :
-    SomeState D S old L :=
+    SomeState S old :=
   buildNonempty D S old L (List.ofFn c.1.2)
     (rawChain_list_nonempty D N S old c.1) c.2
 
