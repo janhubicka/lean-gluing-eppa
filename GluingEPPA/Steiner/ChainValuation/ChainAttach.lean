@@ -152,4 +152,17 @@ noncomputable def extend
       exact hg ⟨q, hq⟩
     · exact he hek
 
+/-- Every vertex of one extended chain comes from its previous chain or
+from the new last block. This is the literal coverage statement needed to
+construct equivariant covers of restricted chain components. -/
+theorem extendedSpace_covered
+    (q : ExtendedSpace A B C h left right hleft hright) :
+    (∃ x : C.Space,
+      oldEmbed A B C h left right hleft hright x = q) ∨
+      (∃ y : B.Carrier,
+      newEmbed A B C h left right hleft hright y = q) :=
+  pushout_covered (attachInto C.lastEmbed h left) right
+    (attachInto_injective C.lastEmbed C.lastInjective h left hleft)
+    hright q
+
 end GluingEPPA.Steiner.ChainValuation
