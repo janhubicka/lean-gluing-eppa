@@ -139,3 +139,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.projector_inter
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.range_mono
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.range_inter
+
+#print axioms GluingEPPA.Steiner.ChainValuation.comap_range_of_exact_intersection
+#print axioms GluingEPPA.Steiner.ChainValuation.two_block_pullbacks_agree
