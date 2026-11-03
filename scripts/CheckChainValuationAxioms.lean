@@ -197,3 +197,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_to_root
 #print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_iff_same_root
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.TestCover.rightAction_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.linkFromCovers_replace
