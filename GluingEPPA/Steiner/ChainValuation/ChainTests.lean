@@ -46,7 +46,7 @@ theorem rawChain_list_nonempty (c : ChainValuation.RawChain N S old) :
 noncomputable def chainState (c : SeparatedChains D N S old L) :
     SomeState S old :=
   buildNonempty D S old L (List.ofFn c.1.2)
-    (rawChain_list_nonempty D N S old c.1) c.2
+    (rawChain_list_nonempty N S old c.1) c.2
 
 abbrev chainSpace (c : SeparatedChains D N S old L) :=
   (chainState D N S old L c).state.Space
