@@ -12,8 +12,8 @@ nontriviality lemma in CycleUnwindingCore.
 
 namespace GluingEPPA.Steiner.EdgeGraph.AugmentedRecord
 
-universe u v q
-variable {E : Type u} {J : Type v}
+universe u q
+variable {E : Type u} {J : Type q}
 variable (X : J → Type q) (τ : ∀ j, E → Equiv.Perm (X j))
 
 /-- Opposite multiplication in the permutation coordinate implements the
