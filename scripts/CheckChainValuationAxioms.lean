@@ -1,4 +1,4 @@
-import GluingEPPA.Steiner.ChainValuation.ComponentReflection
+import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Steiner.ChainValuation.ChainRestrictionCore
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
