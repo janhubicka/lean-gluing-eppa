@@ -37,7 +37,7 @@ theorem Matching.forwardOption_eq_some_iff (M : Matching (Sum X Y))
       subst y
       exact Classical.choose_spec h
     · intro hxy
-      exact M.unique (Classical.choose_spec h) hxy
+      exact Sum.inr.inj (M.unique (Classical.choose_spec h) hxy)
   · simp only [forwardOption, dif_neg h, reduceCtorEq, false_iff]
     exact fun hxy => h ⟨y, hxy⟩
 
@@ -52,7 +52,7 @@ theorem Matching.backwardOption_eq_some_iff (M : Matching (Sum X Y))
       subst x
       exact Classical.choose_spec h
     · intro hyx
-      exact M.unique (Classical.choose_spec h) hyx
+      exact Sum.inl.inj (M.unique (Classical.choose_spec h) hyx)
   · simp only [backwardOption, dif_neg h, reduceCtorEq, false_iff]
     exact fun hyx => h ⟨x, hyx⟩
 
