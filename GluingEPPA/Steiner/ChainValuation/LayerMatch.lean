@@ -32,7 +32,7 @@ def root : (n : Nat) → V n → Sigma V
   | n + 1, x =>
       match P.backward n x with
       | none => ⟨n + 1, x⟩
-      | some y => P.root n y
+      | some y => root P n y
 
 /-- The root of a layer-n point lies at a layer of index at most n. -/
 theorem root_le : ∀ (n : Nat) (x : V n), (P.root n x).1 ≤ n := by
@@ -77,8 +77,9 @@ theorem root_injective : ∀ (n : Nat) (x y : V n),
               have hroots : (⟨n + 1, x⟩ : Sigma V) = P.root n z := by
                 simpa [root, hx, hy] using h
               have hn : n + 1 ≤ n := by
-                have hindex := congrArg Sigma.fst hroots
-                have hle := P.root_le n z
+                have hindex : n + 1 = (P.root n z).1 :=
+                  congrArg Sigma.fst hroots
+                have hle : (P.root n z).1 ≤ n := P.root_le n z
                 omega
               omega
       | some z =>
@@ -87,8 +88,9 @@ theorem root_injective : ∀ (n : Nat) (x y : V n),
               have hroots : P.root n z = (⟨n + 1, y⟩ : Sigma V) := by
                 simpa [root, hx, hy] using h
               have hn : n + 1 ≤ n := by
-                have hindex := congrArg Sigma.fst hroots
-                have hle := P.root_le n z
+                have hindex : (P.root n z).1 = n + 1 :=
+                  congrArg Sigma.fst hroots
+                have hle : (P.root n z).1 ≤ n := P.root_le n z
                 omega
               omega
           | some z' =>
