@@ -164,3 +164,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.TailAnchor.start
 #print axioms GluingEPPA.Steiner.ChainValuation.TailAnchor.extend
+
+#print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_word
+#print axioms GluingEPPA.Steiner.ChainValuation.old_edge_survives
+#print axioms GluingEPPA.Steiner.ChainValuation.old_edge_survives_perm
