@@ -161,3 +161,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_exit_not_new
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_last_not_new
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_last_propagates
+
+#print axioms GluingEPPA.Steiner.ChainValuation.TailAnchor.start
+#print axioms GluingEPPA.Steiner.ChainValuation.TailAnchor.extend
