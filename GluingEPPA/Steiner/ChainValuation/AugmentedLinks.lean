@@ -85,7 +85,9 @@ theorem deletion_edge (k : Proper S) (e : E) (he : e ∈ S) :
   change (Step.projection D S old k)
       (forget D S old X τ hτ ((data D S old X τ hτ).edge e)) = _
   rw [forget_edge D S old X τ hτ e]
-  exact Step.projection_edge D S old k e he
+  by_cases hk : e ∈ k.val
+  · simpa [hk] using Step.projection_edge D S old k e he
+  · simpa [hk] using Step.projection_edge D S old k e he
 
 /-- The manuscript's exact endpoint repair is inherited from its old
 component record; the extra tests only refine equality of words. -/
