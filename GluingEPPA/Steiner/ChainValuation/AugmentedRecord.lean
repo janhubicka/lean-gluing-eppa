@@ -204,6 +204,15 @@ theorem totalGenerator_product
           value D T K a ha X τ (e :: w)
       rw [ih hw', value_cons]
 
+/-- An allowed word's valuation is its product of named generators. -/
+theorem valuation_eq_product
+    (hsquare : ∀ j e, τ j e * τ j e = 1)
+    (S : Set E) (w : List E) (hw : ∀ e ∈ w, e ∈ S) :
+    valuation D T K a ha X τ hsquare S w hw =
+      (w.map (totalGenerator D T K a ha X τ hsquare S)).prod := by
+  apply Subtype.ext
+  exact (totalGenerator_product D T K a ha X τ hsquare S w hw).symm
+
 theorem image_generated
     (hsquare : ∀ j e, τ j e * τ j e = 1)
     (S : Set E) (g : imageGroup D T K a ha X τ hsquare S) :
