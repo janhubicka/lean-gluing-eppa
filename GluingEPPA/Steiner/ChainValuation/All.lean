@@ -14,6 +14,7 @@ import GluingEPPA.Steiner.ChainValuation.RegularComponentCover
 import GluingEPPA.Steiner.ChainValuation.LastBlockRegularCover
 import GluingEPPA.Steiner.ChainValuation.RegularCoverPersistence
 import GluingEPPA.Steiner.ChainValuation.PushoutFunctor
+import GluingEPPA.Steiner.ChainValuation.MatchingMap
 import GluingEPPA.Steiner.ChainValuation.WordComponents
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.RestrictionLink
