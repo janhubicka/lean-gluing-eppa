@@ -4,6 +4,7 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
 import GluingEPPA.Steiner.ChainValuation.WordAction
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.RestrictionLink
+import GluingEPPA.Steiner.ChainValuation.MatchingComponents
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 import GluingEPPA.Steiner.ChainValuation.BlockMatching
