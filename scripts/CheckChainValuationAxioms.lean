@@ -188,3 +188,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightAction_model_word_kernel
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.regularRightAction_letter
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightAction_of_modelCover_edge
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.equivariant_image_word_closed
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.equivariant_image_eq_wordReach
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.regular_Cayley_word_transitive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.regular_cover_is_component
