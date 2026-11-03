@@ -132,6 +132,14 @@ theorem range_inter (n m t : Proper S)
     · exact (range_mono D S old L
         (Step.meet S n m) m t Finset.inter_subset_right hmt) h
 
+/-- Equal proper-mask indices have the same included subgroup, independently
+of the proof of the inclusion between finite edge sets. -/
+theorem inclusion_range_congr {m n t : Proper S}
+    (hmn : m = n) (hmt : m.val ⊆ t.val) (hnt : n.val ⊆ t.val) :
+    (L m t hmt).incl.range = (L n t hnt).incl.range := by
+  cases hmn
+  rfl
+
 end LinkChain
 end RecursiveRecord
 end EdgeGraph
