@@ -27,9 +27,9 @@ inductive GluedReach
     (f : Z → X) (g : Z → Y) :
     Sum X Y → Sum X Y → Prop
   | refl (a) : GluedReach RX RY f g a a
-  | old {x y} (h : RX.Rel x y) :
+  | old {x y} (h : RX.r x y) :
       GluedReach RX RY f g (.inl x) (.inl y)
-  | new {x y} (h : RY.Rel x y) :
+  | new {x y} (h : RY.r x y) :
       GluedReach RX RY f g (.inr x) (.inr y)
   | attach (z : Z) :
       GluedReach RX RY f g (.inl (f z)) (.inr (g z))
@@ -115,8 +115,8 @@ theorem gluedReach_complete
       rcases hrel with hEq | hEdge
       · cases hEq
       · obtain ⟨z, hx, hy⟩ := hComplete _ _ hEdge
-        have hxl : RX.Rel x (f z) := Quotient.exact hx.symm
-        have hyr : RY.Rel (g z) y := Quotient.exact hy
+        have hxl : RX.r x (f z) := Quotient.exact hx.symm
+        have hyr : RY.r (g z) y := Quotient.exact hy
         exact GluedReach.trans (GluedReach.old hxl)
           (GluedReach.trans (GluedReach.attach z) (GluedReach.new hyr))
   | inr y =>
@@ -126,8 +126,8 @@ theorem gluedReach_complete
       · cases hEq
       · have hReverse := M.symm hEdge
         obtain ⟨z, hx, hy⟩ := hComplete _ _ hReverse
-        have hyl : RY.Rel y (g z) := Quotient.exact hy.symm
-        have hxr : RX.Rel (f z) x := Quotient.exact hx
+        have hyl : RY.r y (g z) := Quotient.exact hy.symm
+        have hxr : RX.r (f z) x := Quotient.exact hx
         exact GluedReach.trans (GluedReach.new hyl)
           (GluedReach.trans (GluedReach.symm (GluedReach.attach z))
             (GluedReach.old hxr))
