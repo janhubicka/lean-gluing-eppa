@@ -166,3 +166,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.old_component_unique_of_match
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.new_component_unique_of_match
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.unmatched_new_not_old
+
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_sound
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_complete
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_iff_matching_class_eq
