@@ -172,3 +172,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_eq_testWordPerm
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusion_range_congr
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.equivariantCover_word
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_equivariantCover
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightAction_of_equivariantCover_edge
