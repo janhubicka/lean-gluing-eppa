@@ -25,6 +25,8 @@ variable (i : A.Carrier →* B.Carrier)
 variable (hM : ∀ e ∈ M, e ∈ B.active)
 variable (hi : ∀ e ∈ M, i (A.edge e) = B.edge e)
 
+include hM hi
+
 /-- The inclusion of a translated smaller-mask coset is equivariant
 for every M-letter in the complete chain test. -/
 theorem lastBlock_regular_coset_letter
