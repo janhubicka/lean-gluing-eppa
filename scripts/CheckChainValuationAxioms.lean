@@ -183,3 +183,33 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.attachment_intersection_exact
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_fibre_mem_iff
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_fibre_inter
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_of_rightAction
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightAction_model_word_kernel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.regularRightAction_letter
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightAction_of_modelCover_edge
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.equivariant_image_word_closed
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.equivariant_image_eq_wordReach
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.regular_Cayley_word_transitive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.regular_cover_is_component
+
+#print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_regular_coset_letter
+#print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_regular_coset_component
+
+#print axioms GluingEPPA.Steiner.ChainValuation.regular_edges_survive_extension
+#print axioms GluingEPPA.Steiner.ChainValuation.regular_cover_survives_extension
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_reverse_cancel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordConnected_symm
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordConnected_trans
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordComponent_eq_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.singleEquivariant_word
+
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_inl
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_inr
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_surjective
+
+#print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
+#print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
+#print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word_onMask
