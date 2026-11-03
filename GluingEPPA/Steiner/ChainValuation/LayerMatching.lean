@@ -11,6 +11,8 @@ so the layer-root theorem can be applied without choosing global components.
 
 namespace GluingEPPA.Steiner.ChainValuation
 
+attribute [local instance] Classical.propDecidable
+
 universe u v
 variable {X : Type u} {Y : Type v}
 
