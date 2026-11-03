@@ -151,3 +151,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.inclusion_edge
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.deletion_edge
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.inclusion_replace
+
+#print axioms GluingEPPA.Steiner.ChainValuation.differenceProduct_to_last
+#print axioms GluingEPPA.Steiner.ChainValuation.differenceProduct_cycle
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_one_test_fixed
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.moved_test_implies_nontrivial
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.impossible_identity_cycle_test
