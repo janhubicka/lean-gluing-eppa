@@ -27,12 +27,12 @@ namespace LayerMatch
 variable (P : LayerMatch V)
 
 /-- The earliest point reached by moving backwards along matching edges. -/
-def root : (n : Nat) → V n → Sigma V
+def root (Q : LayerMatch V) : (n : Nat) → V n → Sigma V
   | 0, x => ⟨0, x⟩
   | n + 1, x =>
-      match P.backward n x with
+      match Q.backward n x with
       | none => ⟨n + 1, x⟩
-      | some y => root P n y
+      | some y => root Q n y
 
 /-- The root of a layer-n point lies at a layer of index at most n. -/
 theorem root_le : ∀ (n : Nat) (x : V n), (P.root n x).1 ≤ n := by
