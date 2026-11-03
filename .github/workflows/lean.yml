@@ -78,17 +78,7 @@ jobs:
         id: chain-check
         run: |
           mkdir -p proof-audit
-          if ! lake build \
-            GluingEPPA.Steiner.ChainValuation.ComponentReflection \
-            GluingEPPA.Steiner.ChainValuation.ChainTests \
-            GluingEPPA.Steiner.ChainValuation.AugmentedInclusion \
-            GluingEPPA.Steiner.ChainValuation.WordAction \
-            GluingEPPA.Steiner.ChainValuation.MaskRestriction \
-            GluingEPPA.Steiner.ChainValuation.CosetCycleCore \
-            GluingEPPA.Steiner.ChainValuation.GroupAttachment \
-            GluingEPPA.Steiner.ChainValuation.BlockMatching \
-            GluingEPPA.Steiner.ChainValuation.SeparatedChains \
-            > proof-audit/chain-reflection-build.log 2>&1; then
+          if ! lake build GluingEPPA.Steiner.ChainValuation.All > proof-audit/chain-reflection-build.log 2>&1; then
             cat proof-audit/chain-reflection-build.log
             exit 1
           fi
