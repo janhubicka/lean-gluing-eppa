@@ -147,3 +147,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.comap_range
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.mask_pullbacks_agree
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.inclusion_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.deletion_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.inclusion_replace
