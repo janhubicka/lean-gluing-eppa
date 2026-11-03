@@ -54,7 +54,11 @@ theorem mask_pullbacks_agree (M A B : Proper S) :
       let F (n : Proper S) : Subgroup (old I).Carrier :=
         if h : n.val ⊆ I.val then (L n I h).incl.range else ⊥
       have hF := congrArg F hmask
-      simpa [F] using hF
+      have hl : (Step.meet S MA I).val ⊆ I.val :=
+        Finset.inter_subset_right
+      have hr : (Step.meet S MB I).val ⊆ I.val :=
+        Finset.inter_subset_right
+      simpa only [F, dif_pos hl, dif_pos hr] using hF
     _ = _ := hright.symm
 
 /-- The restricted component pieces across one actual chain attachment
