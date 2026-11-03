@@ -10,6 +10,7 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedLinks
 import GluingEPPA.Steiner.ChainValuation.WordAction
 import GluingEPPA.Steiner.ChainValuation.EquivariantCover
 import GluingEPPA.Steiner.ChainValuation.ModelCoverAction
+import GluingEPPA.Steiner.ChainValuation.RegularComponentCover
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.RestrictionLink
 import GluingEPPA.Steiner.ChainValuation.MatchingComponents
