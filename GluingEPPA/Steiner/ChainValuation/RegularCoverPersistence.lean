@@ -29,6 +29,8 @@ variable (f : A.Carrier → D.Space)
 variable (hreal : ∀ e ∈ M, ∀ x : A.Carrier,
   (D.matching e).Rel (f x) (f (x * A.edge e)))
 
+include hreal
+
 /-- All genuine regular coset edges remain genuine edges in the enlarged
 chain. This uses the actual quotient and its matching, not an invented
 equivalence relation. -/
