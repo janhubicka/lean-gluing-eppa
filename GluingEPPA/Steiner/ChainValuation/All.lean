@@ -19,6 +19,7 @@ import GluingEPPA.Steiner.ChainValuation.ProjectorNaturality
 import GluingEPPA.Steiner.ChainValuation.LinkRestrictedMatching
 import GluingEPPA.Steiner.ChainValuation.LinkAttachmentFibers
 import GluingEPPA.Steiner.ChainValuation.LayerMatch
+import GluingEPPA.Steiner.ChainValuation.LayerMatching
 import GluingEPPA.Steiner.ChainValuation.CosetCycleCore
 import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 import GluingEPPA.Steiner.ChainValuation.BlockMatching
