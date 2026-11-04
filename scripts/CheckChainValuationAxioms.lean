@@ -220,6 +220,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_slice_empty_or_coset
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalCover_component_coset
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalCover_component_iff_coset_piece
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_attachment_compatible
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyInitial
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyStep
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
