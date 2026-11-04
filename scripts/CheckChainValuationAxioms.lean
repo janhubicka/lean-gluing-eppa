@@ -223,6 +223,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.GroupBlock.leftCoset_closed_under_mask
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_generator_mem
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_edges_closed
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedLink_common_comap_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_triple_interface_iff
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
