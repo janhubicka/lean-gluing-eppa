@@ -30,6 +30,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkCayleyMask
 import GluingEPPA.Steiner.ChainValuation.LinkLastCoset
 import GluingEPPA.Steiner.ChainValuation.LinkStepCoset
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
+import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
