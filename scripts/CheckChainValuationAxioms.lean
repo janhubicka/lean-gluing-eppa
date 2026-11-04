@@ -211,6 +211,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_surjective
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquiv
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_bijective_of_equiv
+#print axioms GluingEPPA.Steiner.ChainValuation.leftCosetChart
+#print axioms GluingEPPA.Steiner.ChainValuation.leftCosetChart_right_mul
+#print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_fibre_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_fibres_agree
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
