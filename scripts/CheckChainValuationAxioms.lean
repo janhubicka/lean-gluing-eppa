@@ -195,6 +195,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.attachment_compatible_of_cosets
 #print axioms GluingEPPA.Steiner.ChainValuation.extended_new_reach_iff_original
 #print axioms GluingEPPA.Steiner.ChainValuation.extend_lastBlockCosetInvariant
+#print axioms GluingEPPA.Steiner.ChainValuation.cayley_mask_reach_iff_coset
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restricted_block_reach_iff_coset
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedSubgroup_pullback
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.link_extend_lastCoset
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
