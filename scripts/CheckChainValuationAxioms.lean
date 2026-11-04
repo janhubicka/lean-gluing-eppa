@@ -212,6 +212,12 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquiv
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_bijective_of_equiv
 
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.leftAttach_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.rightAttach_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.intoFull_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.intoFull_surjective_covered
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivCovered
+
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word_onMask
