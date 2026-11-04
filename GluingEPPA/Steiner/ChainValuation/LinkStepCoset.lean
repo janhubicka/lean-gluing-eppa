@@ -79,7 +79,7 @@ def LastMaskCoset (M : Proper S) (R : BuildResult D S old L) : Prop :=
 theorem initial_lastMaskCoset (M : Proper S) (x : Atom S old) :
     LastMaskCoset D S old L M (initial D S old L x) := by
   intro a b
-  simpa [LastMaskCoset, initial,
+  simpa [LastMaskCoset, initial, restrictedSubgroup, id,
     GluingEPPA.Steiner.ChainValuation.ChainState.first] using
     (restricted_block_reach_iff_coset D S old L M x.1 a b)
 
