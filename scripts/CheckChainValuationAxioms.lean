@@ -191,6 +191,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.pullbackSum
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.componentCosetMap_injective
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedActualComponentMatching
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.componentCosetMap_mk
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedActualComponentMatching_attach
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedActualComponentMatching_complete
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
