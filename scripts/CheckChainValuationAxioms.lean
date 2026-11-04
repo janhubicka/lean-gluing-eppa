@@ -210,6 +210,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalLastChart
 #print axioms GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_preimage
 #print axioms GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.extend
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlock_last
+#print axioms GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_length
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
