@@ -38,7 +38,6 @@ theorem two_group_coset_pullback
     group
   have hright : (j k)⁻¹ * j l = j (k⁻¹ * l) := by
     simp only [map_mul, map_inv]
-    group
   rw [hleft, hright]
   change k⁻¹ * l ∈ P.comap i ↔ k⁻¹ * l ∈ Q.comap j
   rw [hcomap]
