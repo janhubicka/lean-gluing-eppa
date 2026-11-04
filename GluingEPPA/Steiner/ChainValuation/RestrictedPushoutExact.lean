@@ -65,7 +65,7 @@ abbrev Space (hf : Function.Injective f) (hg : Function.Injective g) :=
     (R.leftAttach_injective hf) (R.rightAttach_injective hg)
 
 /-- The obvious map into the complete original pushout. -/
-def include (hf : Function.Injective f) (hg : Function.Injective g) :
+def intoFull (hf : Function.Injective f) (hg : Function.Injective g) :
     R.Space hf hg → SetPushout f g hf hg :=
   pushoutMap R.leftAttach R.rightAttach
     (R.leftAttach_injective hf) (R.rightAttach_injective hg)
@@ -76,9 +76,9 @@ def include (hf : Function.Injective f) (hg : Function.Injective g) :
 /-- An inclusion of the exact restricted pushout into the entire
 pushout cannot identify points. The key is the exact attachment
 relation in the quotient, plus agreement of interface preimages. -/
-theorem include_injective (hf : Function.Injective f)
+theorem intoFull_injective (hf : Function.Injective f)
     (hg : Function.Injective g) :
-    Function.Injective (R.include hf hg) := by
+    Function.Injective (R.intoFull hf hg) := by
   intro q r hqr
   refine Quotient.inductionOn₂ q r ?_
   intro t s h
@@ -132,9 +132,9 @@ def Covered (hf : Function.Injective f) (hg : Function.Injective g) :
         (∃ y : R.Right, pushoutInr f g hf hg y.val = q)}
 
 /-- The exact restricted pushout lands in the specified union. -/
-theorem include_mem_covered (hf : Function.Injective f)
+theorem intoFull_mem_covered (hf : Function.Injective f)
     (hg : Function.Injective g) (q : R.Space hf hg) :
-    R.include hf hg q ∈ R.Covered hf hg := by
+    R.intoFull hf hg q ∈ R.Covered hf hg := by
   refine Quotient.inductionOn q ?_
   intro t
   cases t with
@@ -145,10 +145,10 @@ theorem include_mem_covered (hf : Function.Injective f)
 
 /-- Conversely, the image is the entire union of the two
 restricted pieces, including all points in their overlap. -/
-theorem include_surjective_covered (hf : Function.Injective f)
+theorem intoFull_surjective_covered (hf : Function.Injective f)
     (hg : Function.Injective g) :
     ∀ q : {q : SetPushout f g hf hg // q ∈ R.Covered hf hg},
-      ∃ p : R.Space hf hg, R.include hf hg p = q.val := by
+      ∃ p : R.Space hf hg, R.intoFull hf hg p = q.val := by
   rintro ⟨q, hq⟩
   rcases hq with ⟨x, hx⟩ | ⟨y, hy⟩
   · refine ⟨pushoutInl R.leftAttach R.rightAttach
@@ -168,14 +168,14 @@ noncomputable def equivCovered (hf : Function.Injective f)
       {q : SetPushout f g hf hg // q ∈ R.Covered hf hg} := by
   let F : R.Space hf hg →
       {q : SetPushout f g hf hg // q ∈ R.Covered hf hg} :=
-    fun q => ⟨R.include hf hg q, R.include_mem_covered hf hg q⟩
+    fun q => ⟨R.intoFull hf hg q, R.intoFull_mem_covered hf hg q⟩
   apply Equiv.ofBijective F
   constructor
   · intro x y h
-    apply R.include_injective hf hg
+    apply R.intoFull_injective hf hg
     exact congrArg Subtype.val h
   · intro q
-    obtain ⟨x, hx⟩ := R.include_surjective_covered hf hg q
+    obtain ⟨x, hx⟩ := R.intoFull_surjective_covered hf hg q
     exact ⟨x, Subtype.ext hx⟩
 
 end MatchedRestriction
