@@ -217,6 +217,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_surjective_covered
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivCovered
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.inl_mem_covered_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.inr_mem_covered_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_edges_iff
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
