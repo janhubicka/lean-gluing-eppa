@@ -36,7 +36,7 @@ definitionally the edge relation of the actual extended chain. -/
 theorem chainExtend_edge_iff_pushout
     (e : E) (p q : ExtendedSpace A B C h left right hleft hright) :
     (extendedMatching A B C h left right hleft hright hsep hshared e).Rel p q ↔
-    pushoutLabelRel (oldRelation C) (newRelation B)
+    pushoutLabelRel (oldRelation A C) (newRelation B)
       (attachInto C.lastEmbed h left) right
       (attachInto_injective C.lastEmbed C.lastInjective h left hleft)
       hright e p q := by
@@ -66,13 +66,13 @@ theorem chainExtend_reach_iff_glued
       (pushoutPoint (attachInto C.lastEmbed h left) right
         (attachInto_injective C.lastEmbed C.lastInjective h left hleft)
         hright b) ↔
-    GluedReach (labelReachSetoid (oldRelation C) M)
+    GluedReach (labelReachSetoid (oldRelation A C) M)
       (labelReachSetoid (newRelation B) M)
       (attachInto C.lastEmbed h left) right a b := by
   have hrel : ∀ (e : E) (p q : ExtendedSpace A B C h left right hleft hright),
       (extendedMatching A B C h left right hleft hright
         hsep hshared e).Rel p q ↔
-      pushoutLabelRel (oldRelation C) (newRelation B)
+      pushoutLabelRel (oldRelation A C) (newRelation B)
         (attachInto C.lastEmbed h left) right
         (attachInto_injective C.lastEmbed C.lastInjective h left hleft)
         hright e p q :=
@@ -80,7 +80,7 @@ theorem chainExtend_reach_iff_glued
       A B C h left right hleft hright hsep hshared e p q
   exact (LabelReach.congr _ _ M hrel _ _).trans
     (pushoutReach_iff_gluedReach
-      (oldRelation C) (newRelation B) M
+      (oldRelation A C) (newRelation B) M
       (attachInto C.lastEmbed h left) right
       (attachInto_injective C.lastEmbed C.lastInjective h left hleft)
       hright a b)
@@ -98,7 +98,7 @@ theorem chainState_extend_reach_iff_glued
       (pushoutPoint (attachInto C.lastEmbed h left) right
         (attachInto_injective C.lastEmbed C.lastInjective h left hleft)
         hright b) ↔
-    GluedReach (labelReachSetoid (oldRelation C) M)
+    GluedReach (labelReachSetoid (oldRelation A C) M)
       (labelReachSetoid (newRelation B) M)
       (attachInto C.lastEmbed h left) right a b :=
   chainExtend_reach_iff_glued
