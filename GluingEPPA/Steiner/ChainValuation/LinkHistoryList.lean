@@ -5,7 +5,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 # Historical component charts for every complete separated LinkChain list
 
 This file extends the actual checked one-step history constructor along
-the same one-/two-/many-block pattern used by LinkChain.buildNonempty.
+the same one-, two-, and many-block cases as LinkChain.buildNonempty.
 No common ambient larger group is introduced: every historical block
 retains its own earlier Cayley group and exact restricted subgroup.
 
@@ -105,7 +105,7 @@ noncomputable def historyBuildTail
         history := H.history
         covered := H.covered }
   | z :: zs =>
-      historyBuildTail D S old L M c z
+      historyBuildTail M c z
         (historyNext D S old L M H z hsep.1)
         zs hsep.2
 
