@@ -56,6 +56,25 @@ theorem LabelReach.map (R : E → X → X → Prop) (S : E → Y → Y → Prop)
   | symm h ih => exact LabelReach.symm ih
   | trans h k ih ik => exact LabelReach.trans ih ik
 
+/-- Pointwise equivalence of genuine-edge relations induces the same
+undirected M-components, with no assumption about unused colours. -/
+theorem LabelReach.congr (R S : E → X → X → Prop) (M : Finset E)
+    (hiff : ∀ e x y, R e x y ↔ S e x y) (x y : X) :
+    LabelReach R M x y ↔ LabelReach S M x y := by
+  constructor
+  · intro h
+    induction h with
+    | refl x => exact LabelReach.refl _
+    | edge e he hr => exact LabelReach.edge e he ((hiff e _ _).mp hr)
+    | symm h ih => exact LabelReach.symm ih
+    | trans h k ih ik => exact LabelReach.trans ih ik
+  · intro h
+    induction h with
+    | refl x => exact LabelReach.refl _
+    | edge e he hr => exact LabelReach.edge e he ((hiff e _ _).mpr hr)
+    | symm h ih => exact LabelReach.symm ih
+    | trans h k ih ik => exact LabelReach.trans ih ik
+
 /-- The literal quotient map, with no choice of representative. -/
 def pushoutPoint (f : Z → X) (g : Z → Y)
     (hf : Function.Injective f) (hg : Function.Injective g) :
