@@ -213,6 +213,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlock_last
 #print axioms GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_length
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_first_cover
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_cover
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
