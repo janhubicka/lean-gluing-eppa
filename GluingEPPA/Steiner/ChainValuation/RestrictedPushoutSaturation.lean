@@ -77,9 +77,9 @@ theorem mask_edge_lifts_from_image
     (p : R.Space hf hg)
     (q : SetPushout f g hf hg)
     (hEdge : quotientEdges leftEdges rightEdges f g hf hg
-      letter (R.include hf hg p) q) :
+      letter (R.intoFull hf hg p) q) :
     ∃ p' : R.Space hf hg,
-      R.include hf hg p' = q ∧
+      R.intoFull hf hg p' = q ∧
       quotientEdges
         (fun e (x y : R.Left) => leftEdges e x.val y.val)
         (fun e (x y : R.Right) => rightEdges e x.val y.val)
@@ -88,10 +88,10 @@ theorem mask_edge_lifts_from_image
         letter p p' := by
   have hq : q ∈ R.Covered hf hg :=
     R.covered_closed_under_mask hf hg M leftEdges rightEdges
-      hleft hright letter he (R.include hf hg p) q
-      (R.include_mem_covered hf hg p) hEdge
+      hleft hright letter he (R.intoFull hf hg p) q
+      (R.intoFull_mem_covered hf hg p) hEdge
   obtain ⟨p', hp'⟩ :=
-    R.include_surjective_covered hf hg (⟨q, hq⟩)
+    R.intoFull_surjective_covered hf hg (⟨q, hq⟩)
   refine ⟨p', hp', ?_⟩
   exact (R.include_edges_iff hf hg leftEdges rightEdges
     letter p p').mpr (by
