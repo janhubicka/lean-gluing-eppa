@@ -206,6 +206,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.next_lastCoset
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildTail_lastCoset
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_lastCoset
+#print axioms GluingEPPA.Steiner.ChainValuation.extended_old_reach_iff_original
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
