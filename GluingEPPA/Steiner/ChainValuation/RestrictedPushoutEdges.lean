@@ -111,62 +111,62 @@ theorem include_edges_iff
       (R.leftAttach_injective hf) (R.rightAttach_injective hg)
       letter p q ↔
     quotientEdges leftEdges rightEdges f g hf hg letter
-      (R.include hf hg p) (R.include hf hg q) := by
+      (R.intoFull hf hg p) (R.intoFull hf hg q) := by
   constructor
   · intro h
     rcases h with ⟨x, y, hxy, hp, hq⟩ | ⟨x, y, hxy, hp, hq⟩
     · refine Or.inl ⟨x.val, y.val, hxy, ?_, ?_⟩
-      · exact (congrArg (R.include hf hg) hp)
-      · exact (congrArg (R.include hf hg) hq)
+      · exact (congrArg (R.intoFull hf hg) hp)
+      · exact (congrArg (R.intoFull hf hg) hq)
     · refine Or.inr ⟨x.val, y.val, hxy, ?_, ?_⟩
-      · exact (congrArg (R.include hf hg) hp)
-      · exact (congrArg (R.include hf hg) hq)
+      · exact (congrArg (R.intoFull hf hg) hp)
+      · exact (congrArg (R.intoFull hf hg) hq)
   · intro h
     rcases h with ⟨x, y, hxy, hp, hq⟩ | ⟨x, y, hxy, hp, hq⟩
     · have hx : x ∈ R.left :=
         (R.inl_mem_covered_iff hf hg x).mp (by
           rw [hp]
-          exact R.include_mem_covered hf hg p)
+          exact R.intoFull_mem_covered hf hg p)
       have hy : y ∈ R.left :=
         (R.inl_mem_covered_iff hf hg y).mp (by
           rw [hq]
-          exact R.include_mem_covered hf hg q)
+          exact R.intoFull_mem_covered hf hg q)
       let x0 : R.Left := ⟨x, hx⟩
       let y0 : R.Left := ⟨y, hy⟩
       have hp0 : pushoutInl R.leftAttach R.rightAttach
           (R.leftAttach_injective hf) (R.rightAttach_injective hg) x0 =
           p := by
-        apply R.include_injective hf hg
-        change pushoutInl f g hf hg x = R.include hf hg p
+        apply R.intoFull_injective hf hg
+        change pushoutInl f g hf hg x = R.intoFull hf hg p
         exact hp
       have hq0 : pushoutInl R.leftAttach R.rightAttach
           (R.leftAttach_injective hf) (R.rightAttach_injective hg) y0 =
           q := by
-        apply R.include_injective hf hg
-        change pushoutInl f g hf hg y = R.include hf hg q
+        apply R.intoFull_injective hf hg
+        change pushoutInl f g hf hg y = R.intoFull hf hg q
         exact hq
       exact Or.inl ⟨x0, y0, hxy, hp0, hq0⟩
     · have hx : x ∈ R.right :=
         (R.inr_mem_covered_iff hf hg x).mp (by
           rw [hp]
-          exact R.include_mem_covered hf hg p)
+          exact R.intoFull_mem_covered hf hg p)
       have hy : y ∈ R.right :=
         (R.inr_mem_covered_iff hf hg y).mp (by
           rw [hq]
-          exact R.include_mem_covered hf hg q)
+          exact R.intoFull_mem_covered hf hg q)
       let x0 : R.Right := ⟨x, hx⟩
       let y0 : R.Right := ⟨y, hy⟩
       have hp0 : pushoutInr R.leftAttach R.rightAttach
           (R.leftAttach_injective hf) (R.rightAttach_injective hg) x0 =
           p := by
-        apply R.include_injective hf hg
-        change pushoutInr f g hf hg x = R.include hf hg p
+        apply R.intoFull_injective hf hg
+        change pushoutInr f g hf hg x = R.intoFull hf hg p
         exact hp
       have hq0 : pushoutInr R.leftAttach R.rightAttach
           (R.leftAttach_injective hf) (R.rightAttach_injective hg) y0 =
           q := by
-        apply R.include_injective hf hg
-        change pushoutInr f g hf hg y = R.include hf hg q
+        apply R.intoFull_injective hf hg
+        change pushoutInr f g hf hg y = R.intoFull hf hg q
         exact hq
       exact Or.inr ⟨x0, y0, hxy, hp0, hq0⟩
 
