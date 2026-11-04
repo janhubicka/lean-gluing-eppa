@@ -73,11 +73,9 @@ theorem restricted_block_reach_iff_coset
     · intro e he
       have heT : e ∈ T.val := hw e he
       exact (Finset.mem_inter.mp heT)
-    · calc
-        (w.map (block S old A).edge).prod =
-            i ((w.map (old T).edge).prod) := hwordMap w hw
-        _ = i k := congrArg i hprod
-        _ = p := hk
+    · have hmap := hwordMap w hw
+      rw [hprod] at hmap
+      exact hmap.trans hk
   exact cayley_mask_reach_iff_coset
     (block S old A) M.val P hgen hwords x y
 
