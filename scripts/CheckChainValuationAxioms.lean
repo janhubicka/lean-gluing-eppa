@@ -216,5 +216,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_first_cover
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_cover
 
+#print axioms GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_slice_of_meets
+#print axioms GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_slice_empty_or_coset
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalCover_component_coset
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalCover_component_iff_coset_piece
+
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
