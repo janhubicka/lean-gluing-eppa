@@ -67,7 +67,7 @@ def HistoricalCosetChart.extend
     (hpull : AttachmentReachCompatible A B C h left right M)
     (P : Subgroup H) (T : HistoricalCosetChart A C M P) :
     HistoricalCosetChart B
-      (ChainValuation.extend A B C h left right hleft hright hsep hshared)
+      (GluingEPPA.Steiner.ChainValuation.extend A B C h left right hleft hright hsep hshared)
       M P where
   embed := fun x => oldEmbed A B C h left right hleft hright (T.embed x)
   injective := by
