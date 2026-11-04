@@ -225,6 +225,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_right_edge_closed
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_interface_subgroup
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_interface_exact_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_edges_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.covered_closed_under_mask
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.mask_edge_lifts_from_image
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCosetCovered_mask_closed
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
