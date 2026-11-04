@@ -72,7 +72,7 @@ theorem HistoricalCosetChart.component_slice_empty_or_coset
     · intro hy
       exact False.elim (h ⟨y, hy⟩)
     · intro hy
-      exact False.elim (Set.not_mem_empty y hy)
+      simp at hy
 
 /-- Joint coverage turns the pointwise coset law into a statement
 about every vertex of every actual M-component of a finite chain.
