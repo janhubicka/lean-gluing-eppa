@@ -79,7 +79,7 @@ relation in the quotient, plus agreement of interface preimages. -/
 theorem intoFull_injective (hf : Function.Injective f)
     (hg : Function.Injective g) :
     Function.Injective (R.intoFull hf hg) := by
-  intro q r hqr
+  intro q r
   refine Quotient.inductionOn₂ q r ?_
   intro t s h
   have hFull :
