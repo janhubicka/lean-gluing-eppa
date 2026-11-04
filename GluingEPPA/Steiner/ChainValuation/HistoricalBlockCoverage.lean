@@ -64,33 +64,37 @@ theorem historicalBlocks_extend_cover
       (historicalBlocks_extend A B C h left right hleft hright
         hsep hshared M hpull Q hnew history) := by
   intro q
-  rcases extendedSpace_covered A B C h left right hleft hright q with
-    ⟨x, hx⟩ | ⟨y, hy⟩
-  · obtain ⟨T, hT, z, hz⟩ := hcover x
-    let T' := T.transport A B C h left right hleft hright
-      hsep hshared M hpull
-    have hmap : T' ∈ history.map
-        (fun U => U.transport A B C h left right hleft hright
-          hsep hshared M hpull) := by
-      exact List.mem_map.mpr ⟨T, hT, rfl⟩
-    have hmember : T' ∈ historicalBlocks_extend
-        A B C h left right hleft hright hsep hshared
-        M hpull Q hnew history := by
-      exact List.mem_append.mpr (Or.inl hmap)
-    refine ⟨T', hmember, z, ?_⟩
-    change oldEmbed A B C h left right hleft hright (T.chart.embed z) = q
-    rw [hz]
-    exact hx
-  · let T' := historicalBlock_last B
-        (GluingEPPA.Steiner.ChainValuation.extend
-          A B C h left right hleft hright hsep hshared)
-        M Q hnew
-    have hmember : T' ∈ historicalBlocks_extend
-        A B C h left right hleft hright hsep hshared
-        M hpull Q hnew history := by
-      simp [historicalBlocks_extend, T']
-    refine ⟨T', hmember, y, ?_⟩
-    change newEmbed A B C h left right hleft hright y = q
-    exact hy
+  refine Quotient.inductionOn q ?_
+  intro t
+  cases t with
+  | inl x =>
+      obtain ⟨T, hT, z, hz⟩ := hcover x
+      let T' := T.transport A B C h left right hleft hright
+        hsep hshared M hpull
+      have hmap : T' ∈ history.map
+          (fun U => U.transport A B C h left right hleft hright
+            hsep hshared M hpull) := by
+        exact List.mem_map.mpr ⟨T, hT, rfl⟩
+      have hmember : T' ∈ historicalBlocks_extend
+          A B C h left right hleft hright hsep hshared
+          M hpull Q hnew history := by
+        exact List.mem_append.mpr (Or.inl hmap)
+      refine ⟨T', hmember, z, ?_⟩
+      change oldEmbed A B C h left right hleft hright
+        (T.chart.embed z) = _
+      rw [hz]
+      rfl
+  | inr y =>
+      let T' := historicalBlock_last B
+          (GluingEPPA.Steiner.ChainValuation.extend
+            A B C h left right hleft hright hsep hshared)
+          M Q hnew
+      have hmember : T' ∈ historicalBlocks_extend
+          A B C h left right hleft hright hsep hshared
+          M hpull Q hnew history := by
+        simp [historicalBlocks_extend, T']
+      refine ⟨T', hmember, y, ?_⟩
+      change newEmbed A B C h left right hleft hright y = _
+      rfl
 
 end GluingEPPA.Steiner.ChainValuation
