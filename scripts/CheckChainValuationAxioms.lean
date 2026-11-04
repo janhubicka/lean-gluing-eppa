@@ -181,5 +181,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_glued
 #print axioms GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued
 
+#print axioms GluingEPPA.Steiner.ChainValuation.cayley_mask_word_reach
+#print axioms GluingEPPA.Steiner.ChainValuation.cayley_mask_reach_subgroup
+#print axioms GluingEPPA.Steiner.ChainValuation.cayley_mask_reach_iff_coset
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restricted_block_reach_iff_coset
+
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
