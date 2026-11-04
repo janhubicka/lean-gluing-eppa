@@ -170,6 +170,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_sound
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_complete
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_iff_matching_class_eq
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.exists_intermediate_root
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_intermediate
 
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_of_pushoutPoint_eq
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_to_pushoutReach
