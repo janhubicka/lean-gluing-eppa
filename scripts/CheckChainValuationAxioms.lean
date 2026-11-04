@@ -181,5 +181,15 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_glued
 #print axioms GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued
 
+#print axioms GluingEPPA.Steiner.ChainValuation.attachmentPair_new_unique
+#print axioms GluingEPPA.Steiner.ChainValuation.attachmentPair_old_unique
+#print axioms GluingEPPA.Steiner.ChainValuation.canonicalAttachmentMatching
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_iff_canonical_matching
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_old_reflect
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_new_reflect
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_component_matching
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_old_components_reflect
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_new_components_reflect
+
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
