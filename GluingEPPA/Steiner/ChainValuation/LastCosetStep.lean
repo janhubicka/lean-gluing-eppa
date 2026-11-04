@@ -104,7 +104,7 @@ theorem extended_new_reach_iff_original
     · intro e x y hr
       change e ∈ B.active ∧ y = x * B.edge e at hr
       rcases hr with ⟨he, hval⟩
-      subst y
+      rw [hval]
       exact Or.inr ⟨x, he, rfl, rfl⟩
     · exact hxy
 
