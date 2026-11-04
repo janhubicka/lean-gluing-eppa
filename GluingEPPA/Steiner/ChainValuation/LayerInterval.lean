@@ -26,7 +26,7 @@ theorem LayerMatch.exists_intermediate_root
     (n : Nat) (x : V n) (k : Nat)
     (hroot : (P.root n x).1 ≤ k) (hkn : k ≤ n) :
     ∃ z : V k, P.Connected ⟨k, z⟩ ⟨n, x⟩ := by
-  induction n generalizing x k with
+  induction n generalizing k with
   | zero =>
       have hk : k = 0 := by omega
       subst k
