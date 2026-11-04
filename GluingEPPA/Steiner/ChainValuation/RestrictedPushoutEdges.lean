@@ -104,13 +104,13 @@ theorem include_edges_iff
     (rightEdges : E → Y → Y → Prop)
     (letter : E)
     (p q : R.Space hf hg) :
-    quotientEdges R
+    quotientEdges
       (fun e (x y : R.Left) => leftEdges e x.val y.val)
       (fun e (x y : R.Right) => rightEdges e x.val y.val)
       R.leftAttach R.rightAttach
       (R.leftAttach_injective hf) (R.rightAttach_injective hg)
       letter p q ↔
-    quotientEdges R leftEdges rightEdges f g hf hg letter
+    quotientEdges leftEdges rightEdges f g hf hg letter
       (R.include hf hg p) (R.include hf hg q) := by
   constructor
   · intro h
