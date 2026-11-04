@@ -79,9 +79,11 @@ def LastMaskCoset (M : Proper S) (R : BuildResult D S old L) : Prop :=
 theorem initial_lastMaskCoset (M : Proper S) (x : Atom S old) :
     LastMaskCoset D S old L M (initial D S old L x) := by
   intro a b
-  simpa [LastMaskCoset, initial, restrictedSubgroup, id,
-    GluingEPPA.Steiner.ChainValuation.ChainState.first] using
-    (restricted_block_reach_iff_coset D S old L M x.1 a b)
+  change GluingEPPA.Steiner.ChainValuation.LabelReach
+      (fun e => ((block S old x.1).matching e).Rel) M.val a b ↔
+    b ∈ GluingEPPA.Steiner.ChainValuation.leftCoset
+      (L (Step.meet S M x.1) x.1 Finset.inter_subset_right).incl.range a
+  exact restricted_block_reach_iff_coset D S old L M x.1 a b
 
 /-- One existing chain-building step preserves the invariant.
 This is the direct instantiation for `LinkChain.step`. -/
