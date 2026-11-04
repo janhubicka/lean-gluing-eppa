@@ -191,5 +191,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_old_components_reflect
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_new_components_reflect
 
+#print axioms GluingEPPA.Steiner.ChainValuation.two_group_coset_pullback
+#print axioms GluingEPPA.Steiner.ChainValuation.attachment_compatible_of_cosets
+#print axioms GluingEPPA.Steiner.ChainValuation.extended_new_reach_iff_original
+#print axioms GluingEPPA.Steiner.ChainValuation.extend_lastBlockCosetInvariant
+
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
