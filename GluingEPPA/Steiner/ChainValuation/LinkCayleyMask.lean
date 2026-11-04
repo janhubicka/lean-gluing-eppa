@@ -28,7 +28,7 @@ variable (D : EdgeGraph V E) [Finite V] [Fintype E] [DecidableEq E]
 variable (S : Finset E) (old : ∀ i : Proper S, Data E i.val)
 variable (L : ∀ m t : Proper S, m.val ⊆ t.val → Link D (old m) (old t))
 
-open ChainValuation
+open GluingEPPA.Steiner.ChainValuation
 
 /-- Every point of the M-restricted Cayley graph of an earlier K_A has
 a component given by the coset of the literal K_(M∩A) inclusion. -/
