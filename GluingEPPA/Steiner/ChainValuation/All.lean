@@ -22,6 +22,8 @@ import GluingEPPA.Steiner.ChainValuation.MatchingComponentStep
 import GluingEPPA.Steiner.ChainValuation.MatchingGluing
 import GluingEPPA.Steiner.ChainValuation.PushoutReachBridge
 import GluingEPPA.Steiner.ChainValuation.ChainAttachReach
+import GluingEPPA.Steiner.ChainValuation.CanonicalAttachmentMatching
+import GluingEPPA.Steiner.ChainValuation.ChainComponentPullback
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
