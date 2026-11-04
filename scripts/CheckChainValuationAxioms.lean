@@ -199,6 +199,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restricted_block_reach_iff_coset
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedSubgroup_pullback
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.link_extend_lastCoset
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_attachment_disjoint
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.initial_lastMaskCoset
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_lastMaskCoset
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
