@@ -70,7 +70,7 @@ def HistoricalBlock.transport
 /-- An extension keeps *all* previous charts and appends exactly one
 new historical block. This construction is independent of whether
 different earlier groups have the same cardinality. -/
-def historicalBlocks_extend
+noncomputable def historicalBlocks_extend
     (A B : GroupBlock E) (C : ChainState E A)
     (h : A.Carrier) (left : K →* A.Carrier) (right : K →* B.Carrier)
     (hleft : Function.Injective left) (hright : Function.Injective right)
