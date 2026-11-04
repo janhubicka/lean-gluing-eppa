@@ -35,6 +35,8 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
 import GluingEPPA.Steiner.ChainValuation.HistoricalBlockFamily
 import GluingEPPA.Steiner.ChainValuation.HistoricalBlockCoverage
 import GluingEPPA.Steiner.ChainValuation.HistoricalComponentSlices
+import GluingEPPA.Steiner.ChainValuation.LinkStepComponentMatching
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryStep
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
