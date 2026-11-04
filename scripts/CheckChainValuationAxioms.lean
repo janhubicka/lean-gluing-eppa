@@ -176,6 +176,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutReach_to_gluedReach
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutReach_iff_gluedReach
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutReach_iff_matchingClass_eq
+#print axioms GluingEPPA.Steiner.ChainValuation.LabelReach.congr
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_edge_iff_pushout
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_glued
+#print axioms GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
