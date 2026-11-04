@@ -62,7 +62,7 @@ theorem cayley_mask_reach_subgroup
   | edge e he hxy =>
       change e ∈ B.active ∧ _ at hxy
       obtain ⟨hb, heq⟩ := hxy
-      subst y
+      rw [heq]
       convert hgen e he hb using 1 <;> group
   | symm h ih =>
       convert P.inv_mem ih using 1 <;> group
