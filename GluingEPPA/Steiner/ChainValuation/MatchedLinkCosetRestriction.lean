@@ -1,6 +1,7 @@
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutExact
 import GluingEPPA.Steiner.ChainValuation.LinkAttachmentFibers
 import GluingEPPA.Steiner.ChainValuation.GroupAttachment
+import GluingEPPA.Steiner.ChainValuation.LinkChain
 
 /-!
 # Matched restrictions for the literal earlier-stage Link cosets
