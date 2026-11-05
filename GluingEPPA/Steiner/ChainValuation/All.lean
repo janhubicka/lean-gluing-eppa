@@ -31,6 +31,9 @@ import GluingEPPA.Steiner.ChainValuation.LinkLastCoset
 import GluingEPPA.Steiner.ChainValuation.LinkStepCoset
 import GluingEPPA.Steiner.ChainValuation.LinkAttachmentFibers
 import GluingEPPA.Steiner.ChainValuation.OldComponentLinkFibre
+import GluingEPPA.Steiner.ChainValuation.PushoutFunctor
+import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutExact
+import GluingEPPA.Steiner.ChainValuation.StepMatchedOldComponent
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
