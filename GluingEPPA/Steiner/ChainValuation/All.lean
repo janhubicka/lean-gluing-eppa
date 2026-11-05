@@ -29,6 +29,8 @@ import GluingEPPA.Steiner.ChainValuation.CayleyMaskReach
 import GluingEPPA.Steiner.ChainValuation.LinkCayleyMask
 import GluingEPPA.Steiner.ChainValuation.LinkLastCoset
 import GluingEPPA.Steiner.ChainValuation.LinkStepCoset
+import GluingEPPA.Steiner.ChainValuation.LinkAttachmentFibers
+import GluingEPPA.Steiner.ChainValuation.OldComponentLinkFibre
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
