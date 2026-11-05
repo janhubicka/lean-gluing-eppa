@@ -211,6 +211,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_surjective
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquiv
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_bijective_of_equiv
+#print axioms GluingEPPA.Steiner.ChainValuation.normalized_old_boundary
+#print axioms GluingEPPA.Steiner.ChainValuation.normalized_new_boundary
+#print axioms GluingEPPA.Steiner.ChainValuation.normalized_boundary_pushout
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
