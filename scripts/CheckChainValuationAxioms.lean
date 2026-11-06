@@ -235,3 +235,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.matchedComponentRestriction
 #print axioms GluingEPPA.Steiner.ChainValuation.matchedComponent_covered_iff_reach
 #print axioms GluingEPPA.Steiner.ChainValuation.matchedComponent_equivReach
+
+#print axioms GluingEPPA.Steiner.ChainValuation.unmatchedOldComponent_iff_reach
+#print axioms GluingEPPA.Steiner.ChainValuation.unmatchedNewComponent_iff_reach
