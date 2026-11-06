@@ -26,6 +26,11 @@ def templateRel (x y : Fin 6) : Prop :=
   (x = 4 ∧ (y = 4 ∨ y = 5)) ∨
   (x = 5 ∧ (y = 5 ∨ y = 2))
 
+/-- The finite template relation has a computable decision procedure. -/
+instance (x y : Fin 6) : Decidable (templateRel x y) := by
+  unfold templateRel
+  infer_instance
+
 /-- A b-colour y that has a loop and receives an arrow from a1
     cannot have its edge with b0 symmetric. This is a finite
     decidable truth-table certificate, with six possible values of y. -/
