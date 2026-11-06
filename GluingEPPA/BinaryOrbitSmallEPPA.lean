@@ -121,4 +121,71 @@ theorem eight_point_exact_overlap_certificate :
            p x = some y) := by
   decide
 
+/-- The colour-pattern of an ordered triple. -/
+def tripleColours (a b c : Fin 6) (i : Fin 3) : Fin 6 :=
+  if i = 0 then a else if i = 1 then b else c
+
+/-- Any triple inducing the same binary relation as (a0,a1,b0)
+    has a single global C4-shift carrying its three colours to
+    (a0,a1,b0). The finite test covers ALL 6^3 colour triples. -/
+theorem induced_triple_palette_alignment :
+    ∀ a b c : Fin 6,
+      (∀ i j : Fin 3,
+        (templateRel (tripleColours a b c i) (tripleColours a b c j) ↔
+         inputRel i j)) →
+      ∃ k : Fin 4,
+        shift6 k a = 0 ∧ shift6 k b = 1 ∧ shift6 k c = 2 := by
+  decide
+
+/-- The ordered list of three marked points inside an arbitrary
+    relation-preserving blowup. -/
+def triplePoint {V : Type*} (x0 x1 z : V) (i : Fin 3) : V :=
+  if i = 0 then x0 else if i = 1 then x1 else z
+
+/-- A stronger no-coherence certificate: the embedded three-point
+    input need only have the correct induced *binary relation*, not a
+    prescribed palette colouring. No finiteness or injectivity of h is
+    needed. -/
+theorem no_involution_on_any_induced_input
+    {V : Type*} (colour : V → Fin 6) (h : V → V)
+    (x0 x1 z : V)
+    (input_induced : ∀ i j : Fin 3,
+      (templateRel
+         (colour (triplePoint x0 x1 z i))
+         (colour (triplePoint x0 x1 z j)) ↔ inputRel i j))
+    (hx0_swap : h x0 = x1)
+    (h_square_z : h (h z) = z)
+    (h_preserves : ∀ x y : V,
+      templateRel (colour x) (colour y) ↔
+      templateRel (colour (h x)) (colour (h y))) :
+    False := by
+  have aligned_pattern :
+      ∀ i j : Fin 3,
+        (templateRel
+          (tripleColours (colour x0) (colour x1) (colour z) i)
+          (tripleColours (colour x0) (colour x1) (colour z) j) ↔
+          inputRel i j) := by
+    intro i j
+    simpa only [tripleColours, triplePoint] using input_induced i j
+  obtain ⟨k, h0, h1, h2⟩ :=
+    induced_triple_palette_alignment (colour x0) (colour x1)
+      (colour z) aligned_pattern
+  let recolour : V → Fin 6 := fun x => shift6 k (colour x)
+  have h_preserves_recolour :
+      ∀ x y : V,
+        templateRel (recolour x) (recolour y) ↔
+        templateRel (recolour (h x)) (recolour (h y)) := by
+    intro x y
+    dsimp [recolour]
+    calc
+      templateRel (shift6 k (colour x)) (shift6 k (colour y))
+          ↔ templateRel (colour x) (colour y) :=
+            shift6_preserves k (colour x) (colour y)
+      _ ↔ templateRel (colour (h x)) (colour (h y)) := h_preserves x y
+      _ ↔ templateRel (shift6 k (colour (h x)))
+                     (shift6 k (colour (h y))) :=
+            (shift6_preserves k (colour (h x)) (colour (h y))).symm
+  exact no_involutive_extension recolour h x0 x1 z
+    h0 h1 h2 hx0_swap h_square_z h_preserves_recolour
+
 end GluingEPPA.BinaryOrbitNoncoherence
