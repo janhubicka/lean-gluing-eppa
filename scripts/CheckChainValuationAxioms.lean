@@ -229,3 +229,5 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word_onMask
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_interface_equiv
