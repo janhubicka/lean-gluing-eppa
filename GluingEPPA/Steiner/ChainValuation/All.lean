@@ -17,6 +17,7 @@ import GluingEPPA.Steiner.ChainValuation.PushoutFunctor
 import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
 import GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary
+import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
 import GluingEPPA.Steiner.ChainValuation.MatchingMap
 import GluingEPPA.Steiner.ChainValuation.WordComponents
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
