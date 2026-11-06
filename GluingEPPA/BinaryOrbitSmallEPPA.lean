@@ -166,7 +166,8 @@ theorem no_involution_on_any_induced_input
           (tripleColours (colour x0) (colour x1) (colour z) j) ↔
           inputRel i j) := by
     intro i j
-    simpa only [tripleColours, triplePoint] using input_induced i j
+    fin_cases i <;> fin_cases j <;>
+      simpa [tripleColours, triplePoint] using (input_induced i j)
   obtain ⟨k, h0, h1, h2⟩ :=
     induced_triple_palette_alignment (colour x0) (colour x1)
       (colour z) aligned_pattern
