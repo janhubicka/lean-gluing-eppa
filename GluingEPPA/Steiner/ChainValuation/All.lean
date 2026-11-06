@@ -19,6 +19,7 @@ import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutExact
 import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetRestriction
 import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetSaturation
 import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceMask
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceEquiv
 import GluingEPPA.Steiner.ChainValuation.MatchingMap
 import GluingEPPA.Steiner.ChainValuation.WordComponents
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
