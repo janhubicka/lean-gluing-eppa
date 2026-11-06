@@ -32,6 +32,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkStepCoset
 import GluingEPPA.Steiner.ChainValuation.LinkAttachmentFibers
 import GluingEPPA.Steiner.ChainValuation.OldComponentLinkFibre
 import GluingEPPA.Steiner.ChainValuation.PushoutFunctor
+import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutExact
 import GluingEPPA.Steiner.ChainValuation.StepMatchedOldComponent
 import GluingEPPA.Steiner.ChainValuation.MatchedComponentPushout
