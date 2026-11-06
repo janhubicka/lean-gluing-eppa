@@ -1,3 +1,4 @@
+import GluingEPPA.BinaryOrbitNoncoherence
 import GluingEPPA.FiniteEPPA
 import GluingEPPA.UnorderedFiniteEPPA
 import GluingEPPA.PrivateFiniteEPPA
@@ -8,7 +9,7 @@ import GluingEPPA.Sparsening.SparseningTheorem
 /-!
 # The Gluing EPPA library
 
-This public umbrella intentionally imports the six *terminal* local modules
+This public umbrella intentionally imports the seven *terminal* local modules
 covering all 88 source modules. Earlier versions listed every module by
 name, adding no semantics but obscuring the actual dependency structure.
 
