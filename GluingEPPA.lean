@@ -1,4 +1,4 @@
-import GluingEPPA.BinaryOrbitFiberPadding
+import GluingEPPA.BinaryOrbitPaddedWitness
 import GluingEPPA.FiniteEPPA
 import GluingEPPA.UnorderedFiniteEPPA
 import GluingEPPA.PrivateFiniteEPPA
