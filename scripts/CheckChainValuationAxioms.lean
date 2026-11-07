@@ -240,3 +240,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.unmatchedNewComponent_iff_reach
 
 #print axioms GluingEPPA.Steiner.ChainValuation.extend_matchedComponent_covered_iff_reach
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_matchedOldComponent_covered_iff_reach
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_matchedOldComponent_equivFull
