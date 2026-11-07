@@ -42,6 +42,7 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalSupportTransport
 import GluingEPPA.Steiner.ChainValuation.ConsecutiveHistoricalSupport
 import GluingEPPA.Steiner.ChainValuation.ConsecutiveSupportFinal
 import GluingEPPA.Steiner.ChainValuation.HistoricalSupportLastChart
+import GluingEPPA.Steiner.ChainValuation.HistoricalNewRootSupport
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
