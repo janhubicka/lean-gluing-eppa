@@ -52,6 +52,7 @@ theorem exists_colour_shift_extension
           _ = σ ((src y.val).1) := congrArg σ y.property.symm
           _ = (tgt y.val).1 := (hc y.val).symm
       · exact hxy
+    letI : Finite (Fibre c) := Finite.of_injective srcIndex hsi
     obtain ⟨p, hp⟩ :=
       Equiv.Perm.exists_extending_pair srcIndex tgtIndex hsi hti
     exact ⟨p, hp⟩
