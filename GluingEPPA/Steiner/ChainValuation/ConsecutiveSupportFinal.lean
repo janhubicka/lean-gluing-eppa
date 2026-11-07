@@ -20,10 +20,10 @@ namespace GluingEPPA.Steiner.ChainValuation
 universe u
 variable {α : Type u}
 
-/-- Every nonempty finite list has a final element and a prefix. -/
+/-- Every nonempty finite list has a final element and a pref. -/
 private theorem exists_snoc :
     ∀ (xs : List α), xs ≠ [] →
-      ∃ prefix : List α, ∃ last : α, xs = prefix ++ [last] := by
+      ∃ pref : List α, ∃ last : α, xs = pref ++ [last] := by
   intro xs
   induction xs with
   | nil =>
@@ -34,12 +34,12 @@ private theorem exists_snoc :
     by_cases hempty : xs = []
     · subst xs
       exact ⟨[], a, rfl⟩
-    · obtain ⟨prefix, last, hlast⟩ := ih hempty
-      refine ⟨a :: prefix, last, ?_⟩
+    · obtain ⟨pref, last, hlast⟩ := ih hempty
+      refine ⟨a :: pref, last, ?_⟩
       simp [hlast]
 
 /-- Equality of two lists written with a singleton final element
-forces equality of those final elements, regardless of prefix lengths. -/
+forces equality of those final elements, regardless of pref lengths. -/
 private theorem append_singleton_last_eq
     (xs ys : List α) (x y : α)
     (h : xs ++ [x] = ys ++ [y]) : x = y := by
@@ -49,7 +49,7 @@ private theorem append_singleton_last_eq
 
 /-- When the last historical support bit is true and all active
 bits form one interval, no inactive suffix can remain. Thus the
-support is a prefix of inactive blocks followed by an active suffix. -/
+support is a pref of inactive blocks followed by an active suffix. -/
 theorem consecutive_activeSuffix_of_last
     (xs : List Prop) (P : Prop)
     (hinterval : IsConsecutiveSupport (xs ++ [P]))
