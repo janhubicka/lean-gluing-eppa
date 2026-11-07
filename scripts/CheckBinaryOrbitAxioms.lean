@@ -1,4 +1,4 @@
-import GluingEPPA.BinaryOrbitPaddedWitness
+import GluingEPPA.BinaryOrbitColourShift
 
 /-!
 Axiom manifest for the one-relation EPPA counterexample.
@@ -25,3 +25,8 @@ certificates from the unformalized general padding theorem.
 #print axioms GluingEPPA.BinaryOrbitNoncoherence.paddedRoot_injective
 #print axioms GluingEPPA.BinaryOrbitNoncoherence.paddedTarget_injective
 #print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_padded_exact_extension
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.palette_point_transitive
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.palette_long_anchor_determines
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.palette_short_anchor_determines
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.partial_relation_map_has_global_shift
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_exact_extension_of_partial_relation_map
