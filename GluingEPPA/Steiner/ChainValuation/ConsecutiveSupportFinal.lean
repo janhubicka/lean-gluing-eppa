@@ -73,12 +73,11 @@ consecutive-support step. -/
 theorem consecutive_append_of_last_witness
     (xs : List Prop) (P Q : Prop)
     (hinterval : IsConsecutiveSupport (xs ++ [Q]))
-    (hQ : Q)
-    (hcondition : P → IsConsecutiveSupport (xs ++ [Q])) :
+    (hQ : Q) :
     IsConsecutiveSupport ((xs ++ [Q]) ++ [P]) := by
   apply consecutive_append_of_interface
     (xs ++ [Q]) P hinterval
   intro _
-  exact consecutive_activeSuffix_of_last xs Q (hcondition ‹P›) hQ
+  exact consecutive_activeSuffix_of_last xs Q hinterval hQ
 
 end GluingEPPA.Steiner.ChainValuation
