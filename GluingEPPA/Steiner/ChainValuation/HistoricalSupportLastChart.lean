@@ -29,9 +29,9 @@ def HasLastHistoricalChart
     (A : GroupBlock E) (C : ChainState E A)
     (M : Finset E) (history : List (HistoricalBlock A C M)) : Prop :=
   ∀ q : C.Space,
-    ∃ prefix : List Prop,
+    ∃ pref : List Prop,
       historicalSupport A C M history q =
-        prefix ++
+        pref ++
           [∃ x : A.Carrier,
             LabelReach (fun e => (C.matching e).Rel)
               M q (C.lastEmbed x)]
@@ -95,9 +95,9 @@ theorem activeSuffix_of_lastChart_and_exit
     (hqx : LabelReach (fun e => (C.matching e).Rel)
       M q (C.lastEmbed x)) :
     IsActiveSuffixSupport (historicalSupport A C M history q) := by
-  obtain ⟨prefix, hpref⟩ := hlast q
+  obtain ⟨pref, hpref⟩ := hlast q
   rw [hpref]
-  apply consecutive_activeSuffix_of_last prefix
+  apply consecutive_activeSuffix_of_last pref
     (∃ y : A.Carrier,
       LabelReach (fun e => (C.matching e).Rel)
         M q (C.lastEmbed y))
