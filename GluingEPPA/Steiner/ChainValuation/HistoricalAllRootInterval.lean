@@ -120,6 +120,7 @@ theorem historicalBlocks_extend_allConsecutive
                 (newEmbed A B C h left right hl hr y)) oldHist) ++
               [lastP]
           simp only [List.map_append, List.map_singleton]
+          rfl
         have hEq : lastP = True := propext
           ⟨fun _ => True.intro, fun _ => hLastP⟩
         rw [hsplit, hEq]
