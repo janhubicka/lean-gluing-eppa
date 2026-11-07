@@ -250,3 +250,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_transport_old
 #print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_meets_iff_attachment
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_old
+
+#print axioms GluingEPPA.Steiner.ChainValuation.consecutive_append_inactive
+#print axioms GluingEPPA.Steiner.ChainValuation.activeSuffix_append_active
+#print axioms GluingEPPA.Steiner.ChainValuation.consecutive_append_of_interface
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_consecutive
