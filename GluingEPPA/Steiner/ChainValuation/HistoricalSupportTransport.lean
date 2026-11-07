@@ -194,21 +194,24 @@ theorem historicalSupport_extend_old
       [∃ k : K,
         LabelReach (fun e => (C.matching e).Rel) M
           q (attachInto C.lastEmbed h left k)] := by
-  change
-    historicalSupport B
-      (extend A B C h left right hl hr hsep hshared) M
-      (history.map (fun T => T.transport A B C h left right
-        hl hr hsep hshared M hpull))
-      (oldEmbed A B C h left right hl hr q) ++
-      [(historicalBlock_last B
-        (extend A B C h left right hl hr hsep hshared)
-        M Q hnew).Meets B
-        (extend A B C h left right hl hr hsep hshared)
-        M (oldEmbed A B C h left right hl hr q)] =
-    historicalSupport A C M history q ++
-      [∃ k : K,
-        LabelReach (fun e => (C.matching e).Rel) M
-          q (attachInto C.lastEmbed h left k)]
+  have hsplit :
+      historicalSupport B
+        (extend A B C h left right hl hr hsep hshared) M
+        (historicalBlocks_extend A B C h left right hl hr
+          hsep hshared M hpull Q hnew history)
+        (oldEmbed A B C h left right hl hr q) =
+      historicalSupport B
+        (extend A B C h left right hl hr hsep hshared) M
+        (history.map (fun T => T.transport A B C h left right
+          hl hr hsep hshared M hpull))
+        (oldEmbed A B C h left right hl hr q) ++
+        [(historicalBlock_last B
+          (extend A B C h left right hl hr hsep hshared)
+          M Q hnew).Meets B
+          (extend A B C h left right hl hr hsep hshared)
+          M (oldEmbed A B C h left right hl hr q)] := by
+    simp [historicalSupport, historicalBlocks_extend]
+  rw [hsplit]
   rw [historicalSupport_transport_old
     A B C h left right hl hr hsep hshared M hpull history q]
   exact congrArg (List.append (historicalSupport A C M history q))
