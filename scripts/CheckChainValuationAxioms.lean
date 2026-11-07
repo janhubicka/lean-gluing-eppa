@@ -271,3 +271,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.AllComponentsConsecutive
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_allConsecutive
+
+#print axioms GluingEPPA.Steiner.ChainValuation.singletonHistorical_allConsecutive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyInitial_allConsecutive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyInitial_hasLast
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyStep_allConsecutive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyStep_hasLast
