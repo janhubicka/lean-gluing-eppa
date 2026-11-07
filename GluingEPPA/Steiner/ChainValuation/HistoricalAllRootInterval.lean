@@ -91,25 +91,19 @@ theorem historicalBlocks_extend_allConsecutive
         let pref := historicalSupport B C' M oldHist
           (newEmbed A B C h left right hl hr y)
         have hInactive : AllInactive pref := by
-          unfold AllInactive pref oldHist
-          induction history with
-          | nil =>
-              intro p hp
-              simp [historicalSupport] at hp
-          | cons T ts ih =>
-              intro p hp
-              change p ∈
-                ((T.transport A B C h left right hl hr hsep hshared M hpull).Meets
-                   B C' M (newEmbed A B C h left right hl hr y)) ::
-                  historicalSupport B C' M
-                    (ts.map (fun T => T.transport A B C h left right
-                      hl hr hsep hshared M hpull))
-                    (newEmbed A B C h left right hl hr y) at hp
-              rcases List.mem_cons.mp hp with heq | htail
-              · subst p
-                exact T.transport_new_unmatched
-                  A B C h left right hl hr hsep hshared M hpull y hnomatch
-              · exact ih p htail
+          intro p hp
+          change p ∈
+            (history.map (fun T => T.transport A B C h left right
+              hl hr hsep hshared M hpull)).map
+              (fun U => U.Meets B C' M
+                (newEmbed A B C h left right hl hr y)) at hp
+          rw [List.map_map] at hp
+          obtain ⟨T, _hT, hEq⟩ := List.mem_map.mp hp
+          have hnone := T.transport_new_unmatched
+            A B C h left right hl hr hsep hshared M hpull y hnomatch
+          intro hP
+          rw [← hEq] at hP
+          exact hnone hP
         let lastP : Prop :=
           (historicalBlock_last B C' M Q hnew).Meets
             B C' M (newEmbed A B C h left right hl hr y)
@@ -118,7 +112,14 @@ theorem historicalBlocks_extend_allConsecutive
             historicalSupport B C' M hist'
               (newEmbed A B C h left right hl hr y) =
             pref ++ [lastP] := by
-          simp [historicalSupport, historicalBlocks_extend, pref, oldHist, hist']
+          change
+            (List.map (fun T => T.Meets B C' M
+                (newEmbed A B C h left right hl hr y))
+              (oldHist ++ [historicalBlock_last B C' M Q hnew])) =
+            (List.map (fun T => T.Meets B C' M
+                (newEmbed A B C h left right hl hr y)) oldHist) ++
+              [lastP]
+          simp only [List.map_append, List.map_singleton]
         have hEq : lastP = True := propext
           ⟨fun _ => True.intro, fun _ => hLastP⟩
         rw [hsplit, hEq]
