@@ -108,3 +108,46 @@ theorem consecutive_append_of_interface
   · simpa [hp] using consecutive_append_inactive l hconsecutive
 
 end GluingEPPA.Steiner.ChainValuation
+
+namespace GluingEPPA.Steiner.ChainValuation
+
+universe u v
+variable {E : Type u} {K : Type v} [Group K]
+
+/-- The concrete chain's historical M-support remains consecutive after
+a genuine attachment, provided the old induction invariant includes
+the correct active-suffix condition for components reaching the exit.
+The latter is kept explicit as the sole remaining support obligation. -/
+theorem historicalSupport_extend_consecutive
+    (A B : GroupBlock E) (C : ChainState E A)
+    (h : A.Carrier) (left : K →* A.Carrier) (right : K →* B.Carrier)
+    (hl : Function.Injective left) (hr : Function.Injective right)
+    (hsep : Disjoint C.entry (exitSet A h left))
+    (hshared : ∀ e, e ∈ A.active → e ∈ B.active →
+      ∃ k : K, left k = A.edge e ∧ right k = B.edge e)
+    (M : Finset E)
+    (hpull : AttachmentReachCompatible A B C h left right M)
+    (Q : Subgroup B.Carrier)
+    (hnew : LastBlockCosetInvariant B
+      (extend A B C h left right hl hr hsep hshared) M Q)
+    (history : List (HistoricalBlock A C M)) (q : C.Space)
+    (hinterval : IsConsecutiveSupport (historicalSupport A C M history q))
+    (hsuffix :
+      (∃ k : K, LabelReach (fun e => (C.matching e).Rel) M
+        q (attachInto C.lastEmbed h left k)) →
+      IsActiveSuffixSupport (historicalSupport A C M history q)) :
+    IsConsecutiveSupport
+      (historicalSupport B
+        (extend A B C h left right hl hr hsep hshared) M
+        (historicalBlocks_extend A B C h left right hl hr
+          hsep hshared M hpull Q hnew history)
+        (oldEmbed A B C h left right hl hr q)) := by
+  rw [historicalSupport_extend_old
+    A B C h left right hl hr hsep hshared
+    M hpull Q hnew history q]
+  exact consecutive_append_of_interface
+    (historicalSupport A C M history q)
+    (∃ k : K, LabelReach (fun e => (C.matching e).Rel) M
+      q (attachInto C.lastEmbed h left k)) hinterval hsuffix
+
+end GluingEPPA.Steiner.ChainValuation
