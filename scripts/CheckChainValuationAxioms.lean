@@ -268,3 +268,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.extended_newToOldReach_has_interface
 #print axioms GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport_new_unmatched
 #print axioms GluingEPPA.Steiner.ChainValuation.extended_newRoot_reach_old_interface
+
+#print axioms GluingEPPA.Steiner.ChainValuation.AllComponentsConsecutive
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_allConsecutive
