@@ -21,11 +21,16 @@ universe u
 variable {α : Type u}
 
 /-- Every nonempty finite list has a final element and a prefix. -/
-private theorem exists_snoc (xs : List α) (hne : xs ≠ []) :
-    ∃ prefix : List α, ∃ last : α, xs = prefix ++ [last] := by
+private theorem exists_snoc :
+    ∀ (xs : List α), xs ≠ [] →
+      ∃ prefix : List α, ∃ last : α, xs = prefix ++ [last] := by
+  intro xs
   induction xs with
-  | nil => exact False.elim (hne rfl)
+  | nil =>
+    intro hne
+    exact False.elim (hne rfl)
   | cons a xs ih =>
+    intro _
     by_cases hempty : xs = []
     · subst xs
       exact ⟨[], a, rfl⟩
