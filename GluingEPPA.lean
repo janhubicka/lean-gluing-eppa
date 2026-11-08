@@ -1,4 +1,4 @@
-import GluingEPPA.BinaryOrbitColourShift
+import GluingEPPA.BinaryOrbitRelationalEPPA
 import GluingEPPA.FiniteEPPA
 import GluingEPPA.UnorderedFiniteEPPA
 import GluingEPPA.PrivateFiniteEPPA
