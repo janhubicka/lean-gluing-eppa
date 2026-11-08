@@ -1,4 +1,4 @@
-import GluingEPPA.BinaryOrbitSaturatedWitness
+import GluingEPPA.BinaryOrbitSaturatedRelationalEPPA
 
 /-!
 Axiom manifest for the one-relation EPPA counterexample.
@@ -43,3 +43,5 @@ certificates from the unformalized general padding theorem.
 #print axioms GluingEPPA.BinaryOrbitNoncoherence.activeTarget_injective
 #print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_active_exact_extension
 #print axioms GluingEPPA.BinaryOrbitNoncoherence.active_orbit_covers
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.finite_binary_orbit_eppa_with_covering
