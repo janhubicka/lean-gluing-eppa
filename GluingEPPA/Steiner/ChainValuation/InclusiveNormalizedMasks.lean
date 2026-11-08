@@ -38,7 +38,7 @@ def inclusiveLift (M : Proper S) (T : InclusiveMask S M) : Proper S :=
 
 /-- The maximum inclusive mask. Its group is the already constructed K_M. -/
 def inclusiveTop (M : Proper S) : InclusiveMask S M :=
-  ⟨M.val, Subset.rfl⟩
+  ⟨M.val, fun _ h => h⟩
 
 /-- The historical block indexed by A normalizes to M ∩ A. -/
 def inclusiveMeet (M A : Proper S) : InclusiveMask S M :=
