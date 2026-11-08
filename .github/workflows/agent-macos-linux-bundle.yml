@@ -58,6 +58,8 @@ jobs:
           echo "Downloading official Linux Lean release: $URL"
           curl -fL --retry 4 --retry-all-errors --connect-timeout 20 "$URL" -o "$BUNDLE/lean-linux-release.tar.zst"
           zstd -t "$BUNDLE/lean-linux-release.tar.zst"
+          split -b 300000000 -d -a 2 "$BUNDLE/lean-linux-release.tar.zst" "$BUNDLE/lean-linux-release.tar.zst.part-"
+          (cd "$BUNDLE" && shasum -a 256 lean-linux-release.tar.zst.part-* > LEAN_PART_SHA256SUMS)
           echo "First entries of Linux toolchain archive:"
           zstd -dc "$BUNDLE/lean-linux-release.tar.zst" | tar -tf - | sed -n '1,5p'
 
@@ -75,6 +77,9 @@ jobs:
           # package Git checkouts, precompiled mathlib oleans and generated C.
           find .lake -type f \( -name '*.o' -o -name '*.a' -o -name '*.dylib' \) -delete
           tar -cf - .lake | zstd -T2 -1 -o "$BUNDLE/lake.tar.zst"
+          split -b 384m -d -a 2 "$BUNDLE/lake.tar.zst" "$BUNDLE/lake.tar.zst.part-"
+          (cd "$BUNDLE" && shasum -a 256 lake.tar.zst.part-* > LAKE_PART_SHA256SUMS)
+          test ! -e "$BUNDLE/lake.tar.zst.part-08" || { echo "Too many workspace parts; extend workflow"; exit 1; }
           (cd "$BUNDLE" && shasum -a 256 source.tar.zst lean-linux-release.tar.zst lake.tar.zst > SHA256SUMS)
           (cd "$BUNDLE" && shasum -a 256 -c SHA256SUMS)
           ls -lh "$BUNDLE"
@@ -92,24 +97,99 @@ jobs:
             ${{ runner.temp }}/lean-transport/lakefile.toml
             ${{ runner.temp }}/lean-transport/lake-manifest.json
             ${{ runner.temp }}/lean-transport/SHA256SUMS
+            ${{ runner.temp }}/lean-transport/LEAN_PART_SHA256SUMS
+            ${{ runner.temp }}/lean-transport/LAKE_PART_SHA256SUMS
           if-no-files-found: error
           compression-level: 0
           retention-days: 3
 
-      - name: Upload official Linux Lean toolchain
+      - name: Upload Linux compiler chunk 00
         uses: actions/upload-artifact@v4
         with:
-          name: agent-macos-linux-lean-20261108
-          path: ${{ runner.temp }}/lean-transport/lean-linux-release.tar.zst
+          name: agent-macos-linux-lean-part-00-20261108
+          path: ${{ runner.temp }}/lean-transport/lean-linux-release.tar.zst.part-00
           if-no-files-found: error
           compression-level: 0
           retention-days: 3
 
-      - name: Upload portable mathlib dependency workspace
+      - name: Upload Linux compiler chunk 01
         uses: actions/upload-artifact@v4
         with:
-          name: agent-macos-lake-20261108
-          path: ${{ runner.temp }}/lean-transport/lake.tar.zst
+          name: agent-macos-linux-lean-part-01-20261108
+          path: ${{ runner.temp }}/lean-transport/lean-linux-release.tar.zst.part-01
           if-no-files-found: error
           compression-level: 0
           retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 00
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-00-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-00
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-01-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-01
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-02-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-02
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 03
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-03-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-03
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 04
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-04-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-04
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 05
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-05-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-05
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 06
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-06-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-06
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload macOS-prepared mathlib workspace chunk 07
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-part-07-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-07
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+
