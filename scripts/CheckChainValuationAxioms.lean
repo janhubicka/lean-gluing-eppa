@@ -309,3 +309,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs_edge_iff
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_genuine_edge_iff
+
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivFullReachOfCharts
+#print axioms GluingEPPA.Steiner.ChainValuation.matchedComponent_equivFullReachOfCharts
