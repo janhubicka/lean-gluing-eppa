@@ -68,6 +68,7 @@ import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceMask
 import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceEquiv
 import GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary
+import GluingEPPA.Steiner.ChainValuation.ChainNormalizedBoundaryShift
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
 /-!
