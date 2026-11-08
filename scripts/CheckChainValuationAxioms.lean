@@ -289,3 +289,13 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildNonempty_result_eq
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_consecutive_history
+
+-- Cross-branch checked normalization inputs (all original heads passed Lean CI).
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlock_cosetEquiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlock_cosetEquiv_edge_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.matchedLinkCoset_interface_equiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedCommon_left_square
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.actualLink_normalized_boundary
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_preimage_separated
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_edges_iff
