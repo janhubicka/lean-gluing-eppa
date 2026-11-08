@@ -1,0 +1,115 @@
+name: Temporary macOS to Linux Lean transport (do not merge)
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/agent-macos-linux-bundle.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-lean-macos-transport-${{ github.event.pull_request.number || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  cross-host-cache:
+    runs-on: macos-15
+    timeout-minutes: 90
+    steps:
+      - name: Check out exact PR revision
+        uses: actions/checkout@v4
+
+      - name: Install tools for preparing portable artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew list zstd >/dev/null 2>&1 || brew install zstd
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain none --no-modify-path
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          elan toolchain install "$(tr -d '\r\n' < lean-toolchain)"
+          lean --version
+          lake --version
+
+      - name: Resolve pinned mathlib and fetch platform-neutral cache files
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! test -s lake-manifest.json; then lake --keep-toolchain update; fi
+          lake exe cache get
+          printf 'import Mathlib.Data.Finset.Basic\n#check Nat.add_comm\nexample : (2 : Nat) + 2 = 4 := by decide\n' > /tmp/LeanOfflineSmoke.lean
+          lake env lean /tmp/LeanOfflineSmoke.lean
+          echo "Mathlib cache from upstream includes oleans, ileans, traces, hashes and generated C."
+          du -sh .lake "$HOME/.cache/mathlib" || true
+
+      - name: Download official Linux x86-64 toolchain (not macOS binaries)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/lean-transport"
+          BUNDLE="$RUNNER_TEMP/lean-transport"
+          TAG="$(tr -d '\r\n' < lean-toolchain)"
+          TAG="${TAG##*:}"
+          test "${TAG#v}" != "$TAG" || { echo "Expected pinned v-tag: $TAG"; exit 1; }
+          VERSION="${TAG#v}"
+          URL="https://github.com/leanprover/lean4/releases/download/$TAG/lean-$VERSION-linux.tar.zst"
+          echo "Downloading official Linux Lean release: $URL"
+          curl -fL --retry 4 --retry-all-errors --connect-timeout 20 "$URL" -o "$BUNDLE/lean-linux-release.tar.zst"
+          zstd -t "$BUNDLE/lean-linux-release.tar.zst"
+          echo "First entries of Linux toolchain archive:"
+          zstd -dc "$BUNDLE/lean-linux-release.tar.zst" | tar -tf - | sed -n '1,5p'
+
+      - name: Package source and platform-neutral Lake dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          export COPYFILE_DISABLE=1
+          BUNDLE="$RUNNER_TEMP/lean-transport"
+          git rev-parse HEAD > "$BUNDLE/SOURCE_SHA"
+          cp lean-toolchain lakefile.toml lake-manifest.json "$BUNDLE/"
+          git status --short > "$BUNDLE/SOURCE_STATUS"
+          tar --exclude=.git --exclude=.lake -cf - . | zstd -T2 -1 -o "$BUNDLE/source.tar.zst"
+          # Do not ship native macOS objects or dynamic libraries: only exact
+          # package Git checkouts, precompiled mathlib oleans and generated C.
+          find .lake -type f \( -name '*.o' -o -name '*.a' -o -name '*.dylib' \) -delete
+          tar -cf - .lake | zstd -T2 -1 -o "$BUNDLE/lake.tar.zst"
+          (cd "$BUNDLE" && shasum -a 256 source.tar.zst lean-linux-release.tar.zst lake.tar.zst > SHA256SUMS)
+          (cd "$BUNDLE" && shasum -a 256 -c SHA256SUMS)
+          ls -lh "$BUNDLE"
+          echo "The Linux toolchain must be unpacked at the destination; do not use the native macOS elan tree."
+
+      - name: Upload exact source and manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-source-20261108
+          path: |
+            ${{ runner.temp }}/lean-transport/source.tar.zst
+            ${{ runner.temp }}/lean-transport/SOURCE_SHA
+            ${{ runner.temp }}/lean-transport/SOURCE_STATUS
+            ${{ runner.temp }}/lean-transport/lean-toolchain
+            ${{ runner.temp }}/lean-transport/lakefile.toml
+            ${{ runner.temp }}/lean-transport/lake-manifest.json
+            ${{ runner.temp }}/lean-transport/SHA256SUMS
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload official Linux Lean toolchain
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-linux-lean-20261108
+          path: ${{ runner.temp }}/lean-transport/lean-linux-release.tar.zst
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload portable mathlib dependency workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-macos-lake-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
