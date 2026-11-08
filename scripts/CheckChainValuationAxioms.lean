@@ -278,3 +278,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryStep_allEmbedded
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_allEmbedded
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allEmbedded
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_boundary_count
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_complete_boundary_certificates
