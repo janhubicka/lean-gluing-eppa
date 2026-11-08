@@ -244,3 +244,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushout_cross_reach_iff_attachment
 #print axioms GluingEPPA.Steiner.ChainValuation.extend_cross_reach_iff_attachment
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_cross_reach_iff_attachment
+
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlock_newBlock_common_interface_witness
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_previous_new_common_interface_witness
