@@ -57,9 +57,15 @@ theorem matchedLinkCoset_interface_subgroup
       (L (Step.meet S MA I) I Finset.inter_subset_right).incl.range :=
         hcomap
     _ =
-      (L (Step.meet S M I) I Finset.inter_subset_right).incl.range :=
-        inclusion_range_congr D S old L hindex
-          Finset.inter_subset_right Finset.inter_subset_right
+      (L (Step.meet S M I) I Finset.inter_subset_right).incl.range := by
+        let F (n : Proper S) : Subgroup (old I).Carrier :=
+          if h : n.val ⊆ I.val then (L n I h).incl.range else ⊥
+        have hF := congrArg F hindex
+        have hl : (Step.meet S MA I).val ⊆ I.val :=
+          Finset.inter_subset_right
+        have hr : (Step.meet S M I).val ⊆ I.val :=
+          Finset.inter_subset_right
+        simpa only [F, dif_pos hl, dif_pos hr] using hF
 
 /-- Every attaching point in the matched component pieces is
 indexed by exactly one coset of the genuine earlier group
