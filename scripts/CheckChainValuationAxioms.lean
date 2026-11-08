@@ -225,3 +225,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlockChart
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_separated_of_maps
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_preimage_separated
+
+#print axioms GluingEPPA.Steiner.ChainValuation.normalized_interface_coset_maps_into
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.actual_normalizedTripleSeparated
