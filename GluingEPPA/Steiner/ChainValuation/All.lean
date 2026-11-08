@@ -40,6 +40,7 @@ import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
 import GluingEPPA.Steiner.ChainValuation.AdjacentCayleyInterfaceWitness
+import GluingEPPA.Steiner.ChainValuation.PersistentHistoricalBoundaries
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
