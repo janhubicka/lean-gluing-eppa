@@ -295,3 +295,12 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_parametersInjective
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_parametersInjective
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allParametersInjective
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.ExactOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step_exactOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_exactOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_exactOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_exactOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allExactOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.uniqueOverlap
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_unique_actual_boundaries
