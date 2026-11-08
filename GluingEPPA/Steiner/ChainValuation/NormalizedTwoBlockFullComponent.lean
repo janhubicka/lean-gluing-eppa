@@ -172,8 +172,8 @@ noncomputable def normalized_twoBlock_equivFullComponent
             (fun e => ((block S old B).matching e).Rel)
             (attachLeft h i) j hf hj)
           M.val
-          (pushoutInl (attachLeft h i) j hf hj (h * i k)) v} where
-    toFun := fun z => ⟨z.val,
+          (pushoutInl (attachLeft h i) j hf hj (h * i k)) v} :=
+    { toFun := fun z => ⟨z.val,
       (matchedLinkCoset_covered_iff_full_component
         D S old L M A B h k z.val).mp z.property⟩
     invFun := fun z => ⟨z.val,
@@ -183,10 +183,10 @@ noncomputable def normalized_twoBlock_equivFullComponent
       intro z
       apply Subtype.ext
       rfl
-    right_inv := by
-      intro z
-      apply Subtype.ext
-      rfl
+      right_inv := by
+        intro z
+        apply Subtype.ext
+        rfl }
   exact F.trans G
 
 end LinkChain
