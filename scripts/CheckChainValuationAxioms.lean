@@ -306,3 +306,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_right_square
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_equivRestricted
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_equivCovered
+
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs_edge_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_genuine_edge_iff
