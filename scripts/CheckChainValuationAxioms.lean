@@ -299,3 +299,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.actualLink_normalized_boundary
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_preimage_separated
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_edges_iff
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_normalizedShift_exists
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_normalizedBoundary_all
