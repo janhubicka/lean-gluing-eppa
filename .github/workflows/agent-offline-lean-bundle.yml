@@ -1,0 +1,111 @@
+name: Temporary offline Lean bundle (agent transport)
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/agent-offline-lean-bundle.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-offline-lean-${{ github.event.pull_request.number || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  bundle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Restore matching pinned Lean toolchain
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+
+      - name: Restore matching mathlib workspace
+        uses: actions/cache/restore@v4
+        with:
+          path: .lake
+          key: lake-v3-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+
+      - name: Install elan and pinned Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain none --no-modify-path
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          elan toolchain install "$(tr -d '\r\n' < lean-toolchain)"
+          lean --version
+          lake --version
+
+      - name: Resolve exact dependencies and obtain precompiled mathlib
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! test -s lake-manifest.json; then
+            lake --keep-toolchain update
+          fi
+          lake exe cache get
+          echo "Available disk space and bundle source sizes:"
+          df -h .
+          du -sh "$HOME/.elan" .lake
+          lake env lean --version
+          printf 'import Mathlib.Data.Finset.Basic\n#check Finset.card\n' > /tmp/LeanOfflineSmoke.lean
+          lake env lean /tmp/LeanOfflineSmoke.lean
+
+      - name: Archive exact source, toolchain and Lake workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/lean-transport"
+          BUNDLE="$RUNNER_TEMP/lean-transport"
+          git rev-parse HEAD > "$BUNDLE/SOURCE_SHA"
+          cp lean-toolchain lakefile.toml lake-manifest.json "$BUNDLE/"
+          git status --short > "$BUNDLE/SOURCE_STATUS"
+          tar -I 'zstd -T2 -3' -cf "$BUNDLE/source.tar.zst" --exclude=.git --exclude=.lake .
+          tar -I 'zstd -T2 -3' -cf "$BUNDLE/elan.tar.zst" -C "$HOME" .elan
+          tar -I 'zstd -T2 -3' -cf "$BUNDLE/lake.tar.zst" .lake
+          (cd "$BUNDLE" && sha256sum source.tar.zst elan.tar.zst lake.tar.zst > SHA256SUMS)
+          ls -lh "$BUNDLE"
+          (cd "$BUNDLE" && sha256sum -c SHA256SUMS)
+
+      - name: Upload source and verification manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-source-20261108
+          path: |
+            ${{ runner.temp }}/lean-transport/source.tar.zst
+            ${{ runner.temp }}/lean-transport/SOURCE_SHA
+            ${{ runner.temp }}/lean-transport/SOURCE_STATUS
+            ${{ runner.temp }}/lean-transport/lean-toolchain
+            ${{ runner.temp }}/lean-transport/lakefile.toml
+            ${{ runner.temp }}/lean-transport/lake-manifest.json
+            ${{ runner.temp }}/lean-transport/SHA256SUMS
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload Lean toolchain
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-toolchain-20261108
+          path: ${{ runner.temp }}/lean-transport/elan.tar.zst
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload pinned mathlib workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-workspace-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
