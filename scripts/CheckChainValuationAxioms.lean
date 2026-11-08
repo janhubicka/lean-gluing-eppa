@@ -282,3 +282,14 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryNext
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildTail
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildNonempty
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveLift
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveLift_meet
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveMeet_eq_top_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveMeet_strict_or_full
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveAtomToAtom
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveRawToRaw
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveChainState
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveChainPerm_square
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusiveTestPackage

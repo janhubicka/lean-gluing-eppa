@@ -47,6 +47,8 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalAllRootInterval
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
+import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedMasks
+import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedChains
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
