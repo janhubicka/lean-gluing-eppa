@@ -59,6 +59,17 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalComponentSlices
 import GluingEPPA.Steiner.ChainValuation.LinkStepComponentMatching
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryStep
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
+import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkCosetEdgeEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetRestriction
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetSaturation
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceMask
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceEquiv
+import GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare
+import GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary
+import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
+import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
 /-!
 # Chain valuation proof development
 
