@@ -57,7 +57,7 @@ jobs:
           df -h .
           du -sh "$HOME/.elan" .lake
           lake env lean --version
-          printf 'import Mathlib.Data.Finset.Basic\n#check Finset.card\n' > /tmp/LeanOfflineSmoke.lean
+          printf 'import Mathlib.Data.Finset.Basic\n#check Nat.add_comm\nexample : (2 : Nat) + 2 = 4 := by decide\n' > /tmp/LeanOfflineSmoke.lean
           lake env lean /tmp/LeanOfflineSmoke.lean
 
       - name: Archive exact source, toolchain and Lake workspace
