@@ -152,7 +152,7 @@ theorem namedHistoricalStep_sourceList
       history).map NamedHistoricalBlock.source =
     history.map NamedHistoricalBlock.source ++ [y.1] := by
   simp [namedHistoricalStepList, namedHistoricalTransport,
-    namedHistoricalLast]
+    namedHistoricalLast] <;> rfl
 
 end LinkChain
 end RecursiveRecord
