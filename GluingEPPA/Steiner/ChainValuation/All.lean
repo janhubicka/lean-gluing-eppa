@@ -26,6 +26,8 @@ import GluingEPPA.Steiner.ChainValuation.CayleyMaskReach
 import GluingEPPA.Steiner.ChainValuation.LinkCayleyMask
 import GluingEPPA.Steiner.ChainValuation.ComponentCosetQuotient
 import GluingEPPA.Steiner.ChainValuation.RestrictedComponentMatching
+import GluingEPPA.Steiner.ChainValuation.ActualAttachmentWitness
+import GluingEPPA.Steiner.ChainValuation.TwoBlockComponentClassification
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
