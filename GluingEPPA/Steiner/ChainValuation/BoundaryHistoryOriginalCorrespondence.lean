@@ -144,6 +144,26 @@ theorem boundaryHistoryBuildNonempty_original
           exact boundaryHistoryBuildTail_asOriginal
             D S old L M x y H1 hp hc ys hsep
 
+/-- The *original* finite separated LinkChain realization admits
+one complete witnessed boundary history, whose precise state,
+boundary order, and source-chart injectivity are simultaneously
+certified. This makes the enrichment available without replacing
+the manuscript's quotient by an auxiliary model. -/
+theorem buildNonempty_has_certified_boundary_history
+    (M : Proper S) (atoms : List (Atom S old))
+    (hne : atoms ≠ [])
+    (hsep : separatedList D S old L atoms) :
+    ∃ H : BoundaryHistoryBuildResult D S old L M,
+      (⟨H.chain.current, H.chain.state⟩ : SomeState S old) =
+        buildNonempty D S old L atoms hne hsep ∧
+      H.boundaries.map (fun T => (T.leftMask, T.rightMask)) =
+        consecutiveSourceMaskPairs S old atoms ∧
+      H.AllEmbedded D S old L := by
+  refine ⟨boundaryHistoryBuildNonempty D S old L M atoms hne hsep,
+    boundaryHistoryBuildNonempty_original D S old L M atoms hne hsep,
+    boundaryHistoryBuildNonempty_sourcePairs D S old L M atoms hne hsep,
+    boundaryHistoryBuildNonempty_allEmbedded D S old L M atoms hne hsep⟩
+
 end LinkChain
 end RecursiveRecord
 end EdgeGraph
