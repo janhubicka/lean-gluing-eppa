@@ -1,4 +1,4 @@
-import GluingEPPA.BinaryOrbitSaturatedWitness
+import GluingEPPA.BinaryOrbitSaturatedRelationalEPPA
 import GluingEPPA.FiniteEPPA
 import GluingEPPA.UnorderedFiniteEPPA
 import GluingEPPA.PrivateFiniteEPPA
