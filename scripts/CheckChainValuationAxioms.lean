@@ -250,3 +250,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_adjacentCayley_reach_iff_interface
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_adjacentCayley_meets_witness
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_masks
