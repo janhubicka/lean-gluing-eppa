@@ -85,7 +85,9 @@ theorem deletion_edge (k : Proper S) (e : E) (he : e ∈ S) :
   change (Step.projection D S old k)
       (forget D S old X τ hτ ((data D S old X τ hτ).edge e)) = _
   rw [forget_edge D S old X τ hτ e]
-  exact Step.projection_edge D S old k e he
+  by_cases hk : e ∈ k.val
+  · simpa [hk] using Step.projection_edge D S old k e he
+  · simpa [hk] using Step.projection_edge D S old k e he
 
 /-- The manuscript's exact endpoint repair is inherited from its old
 component record; the extra tests only refine equality of words. -/
@@ -118,7 +120,11 @@ noncomputable def link (k : Proper S) :
   incl := inclusion D S old L A hA X τ hτ B hB k
   incl_edge := inclusion_edge D S old L A hA X τ hτ B hB k
   delete := deletion D S old X τ hτ k
-  delete_edge e he := deletion_edge D S old X τ hτ k e he
+  delete_edge e he := by
+    have h := deletion_edge D S old X τ hτ k e he
+    by_cases hm : e ∈ k.val
+    · simpa only [if_pos hm] using h
+    · simpa only [if_neg hm] using h
   replace := inclusion_replace D S old L A hA X τ hτ B hB k
 
 end AugmentedStep
