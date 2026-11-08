@@ -1,0 +1,92 @@
+name: Temporary Lean 4 local-build transport
+
+on:
+  push:
+    branches: [agent-local-lean-transport-20261108]
+    paths:
+      - '.github/workflows/agent-local-lean-transport.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export-local-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Checkout immutable proof revision
+        uses: actions/checkout@v4
+        with:
+          ref: d4534e97e017bad618202e518e7a0f3241406a99
+          fetch-depth: 1
+
+      - name: Restore shared pinned Lake workspace
+        uses: actions/cache/restore@v4
+        with:
+          path: .lake
+          key: lake-v3-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+          restore-keys: |
+            lake-v3-${{ runner.os }}-${{ runner.arch }}-
+
+      - name: Install pinned Lean using elan
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/lean" --version
+          "$HOME/.elan/bin/lake" --version
+
+      - name: Export toolchain (before dependency setup)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/toolchain"
+          tar -I 'zstd -T0 -3' -cf "$RUNNER_TEMP/toolchain/lean-toolchain.tar.zst" -C "$HOME/.elan" toolchains
+          sha256sum "$RUNNER_TEMP/toolchain/lean-toolchain.tar.zst" > "$RUNNER_TEMP/toolchain/SHA256SUMS"
+          cat "$RUNNER_TEMP/toolchain/SHA256SUMS"
+          ls -lh "$RUNNER_TEMP/toolchain/"
+
+      - name: Upload exact toolchain
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-toolchain-20261108
+          path: ${{ runner.temp }}/toolchain
+          retention-days: 3
+          compression-level: 0
+
+      - name: Resolve exact Mathlib dependencies and download cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          if test ! -s lake-manifest.json; then lake update; fi
+          lake exe cache get
+          du -sh .lake
+
+      - name: Package local Mathlib workspace and original source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/lake-parts" "$RUNNER_TEMP/source"
+          tar -cf - .lake lake-manifest.json | zstd -T0 -3 > "$RUNNER_TEMP/lake-workspace.tar.zst"
+          split -b 450m -d -a 3 "$RUNNER_TEMP/lake-workspace.tar.zst" "$RUNNER_TEMP/lake-parts/lake-"
+          (cd "$RUNNER_TEMP/lake-parts" && sha256sum lake-* > SHA256SUMS)
+          tar --exclude=.git --exclude=.lake -I 'zstd -T0 -3' -cf "$RUNNER_TEMP/source/lean-source.tar.zst" .
+          (cd "$RUNNER_TEMP/source" && sha256sum lean-source.tar.zst > SHA256SUMS)
+          du -sh "$RUNNER_TEMP"/{lake-parts,source}
+
+      - name: Upload pinned Mathlib/Lake workspace parts
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-workspace-20261108
+          path: ${{ runner.temp }}/lake-parts/
+          retention-days: 3
+          compression-level: 0
+
+      - name: Upload exact proof source checkout
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-source-20261108
+          path: ${{ runner.temp }}/source/
+          retention-days: 3
+          compression-level: 0
