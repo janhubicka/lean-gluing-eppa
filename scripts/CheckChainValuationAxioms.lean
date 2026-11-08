@@ -175,11 +175,27 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_to_pushoutReach
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutReach_to_gluedReach
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutReach_iff_gluedReach
+#print axioms GluingEPPA.Steiner.ChainValuation.saturated_connected_set_eq_component
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutReach_iff_matchingClass_eq
 #print axioms GluingEPPA.Steiner.ChainValuation.LabelReach.congr
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_edge_iff_pushout
 #print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_glued
 #print axioms GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued
+
+#print axioms GluingEPPA.Steiner.ChainValuation.attachmentPair_new_unique
+#print axioms GluingEPPA.Steiner.ChainValuation.attachmentPair_old_unique
+#print axioms GluingEPPA.Steiner.ChainValuation.canonicalAttachmentMatching
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_iff_canonical_matching
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_old_reflect
+#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_new_reflect
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_component_matching
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_old_components_reflect
+#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_new_components_reflect
+
+#print axioms GluingEPPA.Steiner.ChainValuation.two_group_coset_pullback
+#print axioms GluingEPPA.Steiner.ChainValuation.attachment_compatible_of_cosets
+#print axioms GluingEPPA.Steiner.ChainValuation.extended_new_reach_iff_original
+#print axioms GluingEPPA.Steiner.ChainValuation.extend_lastBlockCosetInvariant
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
