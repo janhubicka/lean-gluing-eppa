@@ -1,0 +1,49 @@
+import GluingEPPA.BinaryOrbitRelationalNoCoherence
+
+/-!
+Axiom manifest for the one-relation EPPA counterexample.
+The existing CI checks every #print axioms declaration against the
+standard-axiom whitelist (propext, Classical.choice, Quot.sound).
+This deliberately separates the finite obstruction and small-witness
+certificates from the unformalized general padding theorem.
+-/
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.template_forbidden_pair
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.no_involutive_extension
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift6_bijective
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift6_preserves
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.six_point_eppa_certificate
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.root8_colours
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift8_bijective
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift8_preserves
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.eight_point_exact_overlap_certificate
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.induced_triple_palette_alignment
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.no_involution_on_any_induced_input
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_colour_shift_extension
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.paddedRoot_injective
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.paddedTarget_injective
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_padded_exact_extension
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.palette_point_transitive
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.palette_long_anchor_determines
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.palette_short_anchor_determines
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.partial_relation_map_has_global_shift
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_exact_extension_of_partial_relation_map
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.pairwise_of_relPartialAut
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.injective_of_relPartialAut
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.finite_binary_eppa_exact_overlaps
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift6_comp
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift6_inverse_left
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.shift6_inverse_right
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.active_shift_closed
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.activeRoot_injective
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.activeTarget_injective
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.exists_active_exact_extension
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.active_orbit_covers
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.finite_binary_orbit_eppa_with_covering
+
+#print axioms GluingEPPA.BinaryOrbitNoncoherence.no_relational_involutive_swap
