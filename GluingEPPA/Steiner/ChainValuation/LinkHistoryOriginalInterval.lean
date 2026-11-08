@@ -59,7 +59,7 @@ theorem buildNonempty_has_consecutive_history
     (hsep : separatedList D S old L atoms) :
     let R := buildNonempty D S old L atoms hne hsep
     ∃ history : List
-        (GluingEPPA.Steiner.ChainValuation.HistoricalBlock
+        (GluingEPPA.Steiner.ChainValuation.HistoricalBlock.{u,u}
           (block S old R.current.1) R.state M.val),
       GluingEPPA.Steiner.ChainValuation.HistoricalBlocksCover
         (block S old R.current.1) R.state M.val history ∧
