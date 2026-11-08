@@ -43,6 +43,7 @@ import GluingEPPA.Steiner.ChainValuation.AdjacentCayleyInterfaceWitness
 import GluingEPPA.Steiner.ChainValuation.PersistentHistoricalBoundaries
 import GluingEPPA.Steiner.ChainValuation.FiniteWitnessedHistoricalBoundaries
 import GluingEPPA.Steiner.ChainValuation.FiniteBoundarySourcePairs
+import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryInjectivity
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
