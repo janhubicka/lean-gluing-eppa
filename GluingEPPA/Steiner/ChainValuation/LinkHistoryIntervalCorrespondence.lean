@@ -4,7 +4,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
 # The interval-enriched history is literally the original finite builder
 
 The interval-enriched recursive history was deliberately defined by
-the very same one-/two-/many-block cases as the already checked
+the very same one-, two-, and many-block cases as the already checked
 `LinkHistoryList.historyBuildNonempty`. Here we establish equality
 of the *underlying records*, including their full pushout carrier,
 historical chart list, and coverage/coset invariants.
@@ -39,20 +39,21 @@ theorem intervalHistoryBuildTail_data_eq
     (hsep : separatedList D S old L (p :: c :: rest)) :
     (intervalHistoryBuildTail D S old L M p c H rest hsep).data =
       historyBuildTail D S old L M p c H.data rest hsep := by
-  cases rest with
-  | nil => rfl
-  | cons z zs =>
+  induction rest generalizing p c with
+  | nil =>
+      rfl
+  | cons z zs ih =>
+      have htriple : tripleSeparated D S old L p c z := hsep.1
+      have htail : separatedList D S old L (c :: z :: zs) := hsep.2
       change
         (intervalHistoryBuildTail D S old L M c z
-          (intervalHistoryNext D S old L M H z hsep.1)
-          zs hsep.2).data =
+          (intervalHistoryNext D S old L M H z htriple)
+          zs htail).data =
         historyBuildTail D S old L M c z
-          (historyNext D S old L M H.data z hsep.1)
-          zs hsep.2
-      exact intervalHistoryBuildTail_data_eq
-        D S old L M c z
-        (intervalHistoryNext D S old L M H z hsep.1) zs hsep.2
-termination_by rest.length
+          (historyNext D S old L M H.data z htriple)
+          zs htail
+      exact ih c z
+        (intervalHistoryNext D S old L M H z htriple) htail
 
 /-- The original manuscript's concrete nonempty separated-list builder
 is definitionally recovered from the interval-enriched constructor
