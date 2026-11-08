@@ -53,7 +53,8 @@ theorem historicalLinkBoundary_step_parametersInjective
     right_injective D S old L R.current.1 y.1
   constructor
   · intro k k' heq
-    have hmul : R.current.2 * i k = R.current.2 * i k' := heq
+    have hmul : R.current.2 * i k = R.current.2 * i k' := by
+      exact heq
     exact hi (mul_left_cancel hmul)
   · exact hj
 
@@ -111,6 +112,47 @@ theorem historicalBoundaries_step_parametersInjective
     exact historicalLinkBoundary_step_parametersInjective
       D S old L M R y hsep hcoset
 
+/-- The literal tail recursor preserves injectivity of all historical
+parameter interfaces. -/
+theorem boundaryHistoryBuildTail_parametersInjective
+    (M : Proper S) (p c : Atom S old)
+    (H : BoundaryHistoryBuildResult D S old L M)
+    (hp : H.chain.previous = some p)
+    (hc : H.chain.current = c)
+    (rest : List (Atom S old))
+    (hsep : separatedList D S old L (p :: c :: rest))
+    (hOld : HistoricalBoundariesParametersInjective
+      D S old L M H.chain H.boundaries) :
+    let H' := boundaryHistoryBuildTail D S old L M p c H hp hc rest hsep
+    HistoricalBoundariesParametersInjective
+      D S old L M H'.chain H'.boundaries := by
+  induction rest generalizing p c H with
+  | nil =>
+      exact hOld
+  | cons z zs ih =>
+      have hs :
+          (match H.chain.previous with
+          | none => True
+          | some previous =>
+              tripleSeparated D S old L previous H.chain.current z) := by
+        rw [hp, hc]
+        exact hsep.1
+      let HN := boundaryHistoryStep D S old L M H z hs
+      have hnp : HN.chain.previous = some c := by
+        change some H.chain.current = some c
+        rw [hc]
+      have hnc : HN.chain.current = z := rfl
+      change HistoricalBoundariesParametersInjective
+        D S old L M
+        (boundaryHistoryBuildTail D S old L M c z HN
+          hnp hnc zs hsep.2).chain
+        (boundaryHistoryBuildTail D S old L M c z HN
+          hnp hnc zs hsep.2).boundaries
+      exact ih c z HN hnp hnc hsep.2
+        (historicalBoundaries_step_parametersInjective
+          D S old L M H.chain z hs H.lastInv
+          H.boundaries hOld)
+
 /-- The finite witnessed history has injectively parameterized
 interfaces at each of its literal original consecutive boundaries. -/
 theorem boundaryHistoryBuildNonempty_allParametersInjective
@@ -154,46 +196,6 @@ theorem boundaryHistoryBuildNonempty_allParametersInjective
           exact boundaryHistoryBuildTail_parametersInjective
             D S old L M x y H1 hp hc ys hsep hFirst
 
-/-- The literal tail recursor preserves injectivity of all historical
-parameter interfaces. -/
-theorem boundaryHistoryBuildTail_parametersInjective
-    (M : Proper S) (p c : Atom S old)
-    (H : BoundaryHistoryBuildResult D S old L M)
-    (hp : H.chain.previous = some p)
-    (hc : H.chain.current = c)
-    (rest : List (Atom S old))
-    (hsep : separatedList D S old L (p :: c :: rest))
-    (hOld : HistoricalBoundariesParametersInjective
-      D S old L M H.chain H.boundaries) :
-    let H' := boundaryHistoryBuildTail D S old L M p c H hp hc rest hsep
-    HistoricalBoundariesParametersInjective
-      D S old L M H'.chain H'.boundaries := by
-  induction rest generalizing p c H with
-  | nil =>
-      exact hOld
-  | cons z zs ih =>
-      have hs :
-          (match H.chain.previous with
-          | none => True
-          | some previous =>
-              tripleSeparated D S old L previous H.chain.current z) := by
-        rw [hp, hc]
-        exact hsep.1
-      let HN := boundaryHistoryStep D S old L M H z hs
-      have hnp : HN.chain.previous = some c := by
-        change some H.chain.current = some c
-        rw [hc]
-      have hnc : HN.chain.current = z := rfl
-      change HistoricalBoundariesParametersInjective
-        D S old L M
-        (boundaryHistoryBuildTail D S old L M c z HN
-          hnp hnc zs hsep.2).chain
-        (boundaryHistoryBuildTail D S old L M c z HN
-          hnp hnc zs hsep.2).boundaries
-      exact ih c z HN hnp hnc hsep.2
-        (historicalBoundaries_step_parametersInjective
-          D S old L M H.chain z hs H.lastInv
-          H.boundaries hOld)
 
 end LinkChain
 end RecursiveRecord
