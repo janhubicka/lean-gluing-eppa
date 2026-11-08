@@ -90,7 +90,20 @@ theorem extend_cross_reach_iff_attachment
       LabelReach (fun e => (C.matching e).Rel) M
         x (attachInto C.lastEmbed h left k) ∧
       LabelReach (fun e => (B.matching e).Rel) M (right k) y := by
-  rw [chainState_extend_reach_iff_glued
+  -- The endpoint notation of the statement uses oldEmbed/newEmbed;
+  -- the bridge theorem uses pushoutPoint. Normalize before rewriting.
+  change
+    LabelReach
+      (fun e => (extendedMatching A B C h left right hl hr
+        hsep hshared e).Rel) M
+      (pushoutPoint (attachInto C.lastEmbed h left) right
+        (attachInto_injective C.lastEmbed C.lastInjective h left hl) hr (.inl x))
+      (pushoutPoint (attachInto C.lastEmbed h left) right
+        (attachInto_injective C.lastEmbed C.lastInjective h left hl) hr (.inr y)) ↔
+    ∃ k : K, LabelReach (fun e => (C.matching e).Rel) M
+      x (attachInto C.lastEmbed h left k) ∧
+      LabelReach (fun e => (B.matching e).Rel) M (right k) y
+  rw [chainExtend_reach_iff_glued
     A B C h left right hl hr hsep hshared M (.inl x) (.inr y)]
   constructor
   · intro hxy
