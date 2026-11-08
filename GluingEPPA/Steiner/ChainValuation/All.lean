@@ -72,6 +72,7 @@ import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
 import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockComponent
 import GluingEPPA.Steiner.ChainValuation.PushoutChartEdgeEquiv
 import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockEdges
+import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockFullComponent
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
 /-!
 # Chain valuation proof development
