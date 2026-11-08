@@ -282,3 +282,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryNext
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildTail
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildNonempty
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.toHistorical
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalLast
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalTransport
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalStep_sourceList
