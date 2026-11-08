@@ -255,3 +255,11 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_masks
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.BoundaryHistoryBuildResult
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryInitial
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryStep
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistory_connected_boundary_has_real_parameter
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_all_interfaces_witnessed
