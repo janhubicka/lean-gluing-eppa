@@ -38,6 +38,7 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalComponentSlices
 import GluingEPPA.Steiner.ChainValuation.LinkStepComponentMatching
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryStep
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
