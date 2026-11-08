@@ -121,18 +121,12 @@ theorem exists_active_exact_extension
       (by intro x; rfl)
   refine ⟨h, ?_, ?_⟩
   · intro v w
-    have hv := congrArg Subtype.val (hshift v)
-    have hw := congrArg Subtype.val (hshift w)
-    exact (by
-      simpa [activeShift] using
-        (show templateRel (shift6 k v.1.val) (shift6 k w.1.val) ↔
-              templateRel v.1.val w.1.val from
-          shift6_preserves k v.1.val w.1.val)) |>.mpr (by
-        rw [← hv, ← hw]
-        exact (shift6_preserves k v.1.val w.1.val).mp
-          (by simpa [hv, hw] using
-            (shift6_preserves k v.1.val w.1.val).mpr
-              (by simp [shift6_preserves])))
+    have hv : (h v).1.val = shift6 k v.1.val := by
+      simpa [activeShift] using congrArg Subtype.val (hshift v)
+    have hw : (h w).1.val = shift6 k w.1.val := by
+      simpa [activeShift] using congrArg Subtype.val (hshift w)
+    rw [hv, hw]
+    exact shift6_preserves k v.1.val w.1.val
   · intro x y
     rw [hmatch x]
     cases hx : p x with
