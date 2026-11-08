@@ -217,6 +217,11 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.intoFull_injective
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.intoFull_surjective_covered
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivCovered
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.inl_mem_covered_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.inr_mem_covered_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_edges_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.covered_closed_under_mask
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.mask_edge_lifts_from_image
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
