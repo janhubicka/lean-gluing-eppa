@@ -24,6 +24,8 @@ import GluingEPPA.Steiner.ChainValuation.PushoutReachBridge
 import GluingEPPA.Steiner.ChainValuation.ChainAttachReach
 import GluingEPPA.Steiner.ChainValuation.CayleyMaskReach
 import GluingEPPA.Steiner.ChainValuation.LinkCayleyMask
+import GluingEPPA.Steiner.ChainValuation.LinkCosetEdgeEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
