@@ -231,3 +231,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
+
+#print axioms GluingEPPA.Steiner.ChainValuation.matchedComponentRestriction
+#print axioms GluingEPPA.Steiner.ChainValuation.matchedComponent_covered_iff_reach
+#print axioms GluingEPPA.Steiner.ChainValuation.matchedComponent_equivReach
+
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_injective_of_equivs
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs
