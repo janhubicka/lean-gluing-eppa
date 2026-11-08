@@ -247,3 +247,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlock_newBlock_common_interface_witness
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_previous_new_common_interface_witness
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_adjacentCayley_reach_iff_interface
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_adjacentCayley_meets_witness
