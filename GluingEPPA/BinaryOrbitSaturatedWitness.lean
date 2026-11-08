@@ -95,10 +95,22 @@ theorem activeTarget_injective {A : Type u}
     (hp : ∀ x y z, p x = some z → p y = some z → x = y) :
     Function.Injective (activeTarget colour k p) := by
   intro x y h
-  have hh := congrArg (fun v : ActiveWitness colour => (v.1.val, v.2)) h
-  have hpadded : paddedTarget colour k p x = paddedTarget colour k p y := by
-    simpa [activeTarget, paddedTarget, activeRoot, activeShift] using hh
-  exact paddedTarget_injective colour k p hp hpadded
+  have hs := congrArg Prod.snd h
+  cases hx : p x with
+  | none =>
+    cases hy : p y with
+    | none =>
+      simpa [activeTarget, hx, hy] using hs
+    | some z =>
+      simp [activeTarget, hx, hy] at hs
+  | some z =>
+    cases hy : p y with
+    | none =>
+      simp [activeTarget, hx, hy] at hs
+    | some w =>
+      have hzw : z = w := by
+        simpa [activeTarget, hx, hy] using hs
+      exact hp x y z hx (by simpa [hzw] using hy)
 
 /-- Exact partial-map extension on the restricted, colour-saturated witness. -/
 theorem exists_active_exact_extension
@@ -121,17 +133,19 @@ theorem exists_active_exact_extension
       (by intro x; rfl)
   refine ⟨h, ?_, ?_⟩
   · intro v w
-    have hv : (h v).1.val = shift6 k v.1.val := by
-      simpa [activeShift] using congrArg Subtype.val (hshift v)
-    have hw : (h w).1.val = shift6 k w.1.val := by
-      simpa [activeShift] using congrArg Subtype.val (hshift w)
+    have hv := congrArg Subtype.val (hshift v)
+    have hw := congrArg Subtype.val (hshift w)
+    change (h v).1.val = shift6 k v.1.val at hv
+    change (h w).1.val = shift6 k w.1.val at hw
     rw [hv, hw]
     exact shift6_preserves k v.1.val w.1.val
   · intro x y
     rw [hmatch x]
     cases hx : p x with
     | none =>
-      simp [activeTarget, activeRoot, hx]
+      intro hxy
+      have htags := congrArg Prod.snd hxy
+      simp [activeTarget, activeRoot, hx] at htags
     | some z =>
       constructor
       · intro hxy
@@ -158,15 +172,15 @@ theorem active_orbit_covers
   classical
   intro v
   obtain ⟨a, k, hc⟩ := v.1.property
-  let src : PUnit → ActiveWitness colour := fun _ => activeRoot colour a
-  let tgt : PUnit → ActiveWitness colour := fun _ => v
+  let src : Unit → ActiveWitness colour := fun _ => activeRoot colour a
+  let tgt : Unit → ActiveWitness colour := fun _ => v
   have src_inj : Function.Injective src := by
     intro x y _
     exact Subsingleton.elim x y
   have tgt_inj : Function.Injective tgt := by
     intro x y _
     exact Subsingleton.elim x y
-  have hcol : ∀ d, (tgt d).1 = activeShift colour k (src d).1 := by
+  have hcol : ∀ d : Unit, (tgt d).1 = activeShift colour k (src d).1 := by
     intro d
     apply Subtype.ext
     exact hc.symm
@@ -181,6 +195,6 @@ theorem active_orbit_covers
     change (h y).1.val = shift6 k y.1.val at hy
     rw [hx, hy]
     exact shift6_preserves k x.1.val y.1.val
-  · simpa [src, tgt] using hhit PUnit.unit
+  · simpa [src, tgt] using hhit ()
 
 end GluingEPPA.BinaryOrbitNoncoherence
