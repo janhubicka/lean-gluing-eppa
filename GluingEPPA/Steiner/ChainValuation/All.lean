@@ -17,6 +17,7 @@ import GluingEPPA.Steiner.ChainValuation.PushoutFunctor
 import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
 import GluingEPPA.Steiner.ChainValuation.RestrictedCosetChart
 import GluingEPPA.Steiner.ChainValuation.MatchingEquiv
+import GluingEPPA.Steiner.ChainValuation.PushoutEdgeReflection
 import GluingEPPA.Steiner.ChainValuation.MatchingMap
 import GluingEPPA.Steiner.ChainValuation.WordComponents
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction

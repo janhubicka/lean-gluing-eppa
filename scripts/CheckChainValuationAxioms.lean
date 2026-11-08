@@ -217,6 +217,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.restrictedAttachment_fibres_agree
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingEquiv_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingEquiv_word_onMask
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquiv_edges_iff
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
