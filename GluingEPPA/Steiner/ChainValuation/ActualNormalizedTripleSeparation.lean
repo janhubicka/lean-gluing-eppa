@@ -41,9 +41,9 @@ theorem normalized_interface_coset_maps_into
   change shift⁻¹ * t ∈ a.range at ht
   obtain ⟨c, hc⟩ := ht
   have ht' : t = shift * a c := by
-    have eq : shift * (shift⁻¹ * t) = t := by group
-    rw [hc] at eq
-    exact eq.symm
+    calc
+      t = shift * (shift⁻¹ * t) := by group
+      _ = shift * a c := by rw [← hc]
   rw [ht']
   have hpoint : g * p (shift * a c) = h * i (k * r c) :=
     normalized_old_boundary i p r a hcomm g h k shift hbase c
