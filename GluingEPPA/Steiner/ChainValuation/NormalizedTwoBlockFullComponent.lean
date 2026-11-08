@@ -183,10 +183,10 @@ noncomputable def normalized_twoBlock_equivFullComponent
       intro z
       apply Subtype.ext
       rfl
-      right_inv := by
-        intro z
-        apply Subtype.ext
-        rfl }
+    right_inv := by
+      intro z
+      apply Subtype.ext
+      rfl }
   exact F.trans G
 
 end LinkChain
