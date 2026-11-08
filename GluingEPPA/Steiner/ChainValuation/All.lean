@@ -48,7 +48,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence
-import GluingEPPA.Steiner.ChainValuation.LinkIntervalHistoryCorrespondence
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
