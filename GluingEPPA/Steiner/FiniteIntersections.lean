@@ -94,6 +94,7 @@ theorem component_finite_intersection (J : Finset I) (hJ : J.Nonempty) (M : I �
   constructor
   · exact finite_intersection_walk D J hJ M z.1 y.1 z.2 y.2
   · intro p i hi
-    exact p.mono (fun e he => he i hi)
+    exact p.mono (show {e : E | ∀ j ∈ J, e ∈ M j} ⊆ M i from
+      fun e he => he i hi)
 
 end GluingEPPA.Steiner.EdgeGraph.RecursiveRecord
