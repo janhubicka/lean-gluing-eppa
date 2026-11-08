@@ -37,6 +37,7 @@ import GluingEPPA.Steiner.ChainValuation.StepMatchedOldComponent
 import GluingEPPA.Steiner.ChainValuation.MatchedComponentPushout
 import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentPushout
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
+import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
