@@ -47,6 +47,7 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryInjectivity
 import GluingEPPA.Steiner.ChainValuation.FiniteBoundaryInjectivity
 import GluingEPPA.Steiner.ChainValuation.FiniteBoundaryCertificates
 import GluingEPPA.Steiner.ChainValuation.BoundaryHistoryOriginalCorrespondence
+import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryParameterInjectivity
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
