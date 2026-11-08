@@ -60,6 +60,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkStepComponentMatching
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryStep
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
+import GluingEPPA.Steiner.ChainValuation.PushoutChartEdgeEquiv
 import GluingEPPA.Steiner.ChainValuation.LinkCosetEdgeEquiv
 import GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv
 import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetRestriction
