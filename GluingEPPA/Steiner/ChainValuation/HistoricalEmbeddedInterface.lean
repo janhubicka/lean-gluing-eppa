@@ -95,6 +95,56 @@ theorem boundaryHistoryBuildNonempty_allInterfacesEmbedded
         D S old L M atoms hne hsep T hT)
   · exact T.interfaceMap_eq_right D S old L
 
+/-- The literal set-theoretic intersection of the two embedded
+historic Cayley blocks is exactly their genuine common-interface
+image. Unlike an M-component intersection, this concerns equality
+of points and uses no reachability assumptions. -/
+theorem HistoricalLinkBoundary.exactRangeIntersection
+    {M : Proper S} {R : BuildResult D S old L}
+    (T : HistoricalLinkBoundary D S old L M R)
+    (hExact : T.ExactOverlap D S old L) :
+    Set.range T.leftChart ∩ Set.range T.rightChart =
+      Set.range (T.interfaceMap D S old L) := by
+  ext q
+  constructor
+  · intro h
+    obtain ⟨⟨x, hx⟩, ⟨y, hy⟩⟩ := h
+    obtain ⟨k, hk, _⟩ := (hExact x y).mp (hx.trans hy.symm)
+    refine ⟨k, ?_⟩
+    change T.leftChart (T.leftParam k) = q
+    rw [hk]
+    exact hx
+  · rintro ⟨k, hk⟩
+    have hleft : T.leftChart (T.leftParam k) = q := hk
+    refine ⟨⟨T.leftParam k, hleft⟩, ⟨T.rightParam k, ?_⟩⟩
+    exact (T.attached k).symm.trans hleft
+
+/-- Every real historical boundary of the finite original chain
+has its exact set intersection described by an injective earlier
+intersection-group interface, rather than by a proper superset
+created through subsequent gluing. -/
+theorem boundaryHistoryBuildNonempty_allExactEmbeddedInterfaces
+    (M : Proper S) (atoms : List (Atom S old))
+    (hne : atoms ≠ [])
+    (hsep : separatedList D S old L atoms) :
+    let H := boundaryHistoryBuildNonempty D S old L M atoms hne hsep
+    ∀ T : HistoricalLinkBoundary D S old L M H.chain,
+      T ∈ H.boundaries →
+        (Set.range T.leftChart ∩ Set.range T.rightChart =
+          Set.range (T.interfaceMap D S old L)) ∧
+        Function.Injective (T.interfaceMap D S old L) := by
+  intro T hT
+  constructor
+  · exact T.exactRangeIntersection D S old L
+      (boundaryHistoryBuildNonempty_allExactOverlap
+        D S old L M atoms hne hsep T hT)
+  · exact T.interfaceMap_injective D S old L
+      (boundaryHistoryBuildNonempty_allEmbedded
+        D S old L M atoms hne hsep T hT)
+      (boundaryHistoryBuildNonempty_allParametersInjective
+        D S old L M atoms hne hsep T hT)
+
+
 end LinkChain
 end RecursiveRecord
 end EdgeGraph
