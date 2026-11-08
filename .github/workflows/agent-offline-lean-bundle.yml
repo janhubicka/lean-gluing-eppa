@@ -20,6 +20,51 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          persist-credentials: false
+
+      # The connector rejects artifact ZIPs larger than 512 MiB.
+      # Publish two verified compiler parts BEFORE any Mathlib step can fail.
+      - name: Prepare exact official compiler in transferable parts
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(tr -d '\r\n' < lean-toolchain)" = 'leanprover/lean4:v4.35.0-rc3'
+          mkdir -p "$RUNNER_TEMP/lean-transport"
+          cd "$RUNNER_TEMP/lean-transport"
+          curl --fail --location --retry 3 -o lean-4.35.0-rc3-linux.tar.zst \
+            https://github.com/leanprover/lean4/releases/download/v4.35.0-rc3/lean-4.35.0-rc3-linux.tar.zst
+          test "$(stat -c %s lean-4.35.0-rc3-linux.tar.zst)" = '595611952'
+          printf '%s  %s\n' \
+            '1526de16c0496f16b46a168f26c990af4e3796505273c3342fec17d72d763997' \
+            'lean-4.35.0-rc3-linux.tar.zst' > LEAN_SHA256SUMS
+          sha256sum -c LEAN_SHA256SUMS
+          split -b 300000000 -d -a 2 lean-4.35.0-rc3-linux.tar.zst lean.tar.zst.part-
+          test -s lean.tar.zst.part-00
+          test -s lean.tar.zst.part-01
+          test ! -e lean.tar.zst.part-02
+          sha256sum lean.tar.zst.part-* > LEAN_PART_SHA256SUMS
+          ls -lh lean.tar.zst.part-*
+
+      - name: Upload official compiler part 00
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-official-part-00-20261108
+          path: |
+            ${{ runner.temp }}/lean-transport/lean.tar.zst.part-00
+            ${{ runner.temp }}/lean-transport/LEAN_SHA256SUMS
+            ${{ runner.temp }}/lean-transport/LEAN_PART_SHA256SUMS
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
+
+      - name: Upload official compiler part 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-lean-official-part-01-20261108
+          path: ${{ runner.temp }}/lean-transport/lean.tar.zst.part-01
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 3
 
       - name: Restore matching pinned Lean toolchain
         uses: actions/cache/restore@v4
@@ -60,21 +105,23 @@ jobs:
           printf 'import Mathlib.Data.Finset.Basic\n#check Nat.add_comm\nexample : (2 : Nat) + 2 = 4 := by decide\n' > /tmp/LeanOfflineSmoke.lean
           lake env lean /tmp/LeanOfflineSmoke.lean
 
-      - name: Archive exact source, toolchain and Lake workspace
+      - name: Archive exact source and split Lake workspace
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/lean-transport"
           BUNDLE="$RUNNER_TEMP/lean-transport"
           git rev-parse HEAD > "$BUNDLE/SOURCE_SHA"
           cp lean-toolchain lakefile.toml lake-manifest.json "$BUNDLE/"
           git status --short > "$BUNDLE/SOURCE_STATUS"
           tar -I 'zstd -T2 -3' -cf "$BUNDLE/source.tar.zst" --exclude=.git --exclude=.lake .
-          tar -I 'zstd -T2 -3' -cf "$BUNDLE/elan.tar.zst" -C "$HOME" .elan
           tar -I 'zstd -T2 -3' -cf "$BUNDLE/lake.tar.zst" .lake
-          (cd "$BUNDLE" && sha256sum source.tar.zst elan.tar.zst lake.tar.zst > SHA256SUMS)
-          ls -lh "$BUNDLE"
-          (cd "$BUNDLE" && sha256sum -c SHA256SUMS)
+          cd "$BUNDLE"
+          split -b 384M -d -a 2 lake.tar.zst lake.tar.zst.part-
+          test ! -e lake.tar.zst.part-08
+          sha256sum source.tar.zst lake.tar.zst lean-4.35.0-rc3-linux.tar.zst > SHA256SUMS
+          sha256sum lake.tar.zst.part-* > LAKE_PART_SHA256SUMS
+          ls -lh .
+          sha256sum -c SHA256SUMS
 
       - name: Upload source and verification manifest
         uses: actions/upload-artifact@v4
@@ -88,24 +135,72 @@ jobs:
             ${{ runner.temp }}/lean-transport/lakefile.toml
             ${{ runner.temp }}/lean-transport/lake-manifest.json
             ${{ runner.temp }}/lean-transport/SHA256SUMS
+            ${{ runner.temp }}/lean-transport/LAKE_PART_SHA256SUMS
           if-no-files-found: error
           compression-level: 0
           retention-days: 3
 
-      - name: Upload Lean toolchain
+      - name: Upload mathlib workspace part 00
         uses: actions/upload-artifact@v4
         with:
-          name: agent-lean-toolchain-20261108
-          path: ${{ runner.temp }}/lean-transport/elan.tar.zst
+          name: agent-mathlib-part-00-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-00
           if-no-files-found: error
           compression-level: 0
           retention-days: 3
-
-      - name: Upload pinned mathlib workspace
+      - name: Upload mathlib workspace part 01
         uses: actions/upload-artifact@v4
         with:
-          name: agent-mathlib-workspace-20261108
-          path: ${{ runner.temp }}/lean-transport/lake.tar.zst
-          if-no-files-found: error
+          name: agent-mathlib-part-01-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-01
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+      - name: Upload mathlib workspace part 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-part-02-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-02
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+      - name: Upload mathlib workspace part 03
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-part-03-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-03
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+      - name: Upload mathlib workspace part 04
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-part-04-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-04
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+      - name: Upload mathlib workspace part 05
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-part-05-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-05
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+      - name: Upload mathlib workspace part 06
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-part-06-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-06
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 3
+      - name: Upload mathlib workspace part 07
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-mathlib-part-07-20261108
+          path: ${{ runner.temp }}/lean-transport/lake.tar.zst.part-07
+          if-no-files-found: ignore
           compression-level: 0
           retention-days: 3
