@@ -123,7 +123,7 @@ theorem HistoricalLinkBoundary.interfaceEquivIntersection_right
     hExact hCharts hParams k).trans (T.attached k)
 
 /-- On the literal finite separated LinkChain, all recorded
-historical boundaries admit the exact interface equivalence.
+historical boundaries have the exact interface equivalence.
 This does not require choosing a hypothetical top-stage group. -/
 theorem boundaryHistoryBuildNonempty_allInterfaceEquivalences
     (M : Proper S) (atoms : List (Atom S old))
