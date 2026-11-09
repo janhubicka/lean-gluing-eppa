@@ -93,6 +93,35 @@ noncomputable def HistoricalLinkBoundary.interfaceEquivIntersection
     exact hk
   exact Equiv.ofBijective F ⟨hInj, hSurj⟩
 
+/-- The interface equivalence commutes *definitionally* with the
+historical left Cayley embedding. This is one required normalization
+boundary square, with no arbitrary choice of gluing point. -/
+theorem HistoricalLinkBoundary.interfaceEquivIntersection_left
+    {M : Proper S} {R : BuildResult D S old L}
+    (T : HistoricalLinkBoundary D S old L M R)
+    (hExact : T.ExactOverlap D S old L)
+    (hCharts : T.Embeds D S old L)
+    (hParams : T.ParametersInjective D S old L)
+    (k : (old (common S T.leftMask T.rightMask)).Carrier) :
+    (T.interfaceEquivIntersection D S old L
+      hExact hCharts hParams k).val =
+        T.leftChart (T.leftParam k) := rfl
+
+/-- The same exact interface chart also commutes with the right
+Cayley embedding, using the genuine Link attachment equation. -/
+theorem HistoricalLinkBoundary.interfaceEquivIntersection_right
+    {M : Proper S} {R : BuildResult D S old L}
+    (T : HistoricalLinkBoundary D S old L M R)
+    (hExact : T.ExactOverlap D S old L)
+    (hCharts : T.Embeds D S old L)
+    (hParams : T.ParametersInjective D S old L)
+    (k : (old (common S T.leftMask T.rightMask)).Carrier) :
+    (T.interfaceEquivIntersection D S old L
+      hExact hCharts hParams k).val =
+        T.rightChart (T.rightParam k) := by
+  exact (T.interfaceEquivIntersection_left D S old L
+    hExact hCharts hParams k).trans (T.attached k)
+
 /-- On the literal finite separated LinkChain, all recorded
 historical boundaries admit the exact interface equivalence.
 This does not require choosing a hypothetical top-stage group. -/
