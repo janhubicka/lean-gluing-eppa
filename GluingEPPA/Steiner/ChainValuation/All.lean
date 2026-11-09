@@ -9,6 +9,7 @@ import GluingEPPA.Steiner.ChainValuation.WordAction
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.RestrictionLink
 import GluingEPPA.Steiner.ChainValuation.MatchingComponents
+import GluingEPPA.Steiner.ChainValuation.MatchingActionEquiv
 import GluingEPPA.Steiner.ChainValuation.TwoGroupRestriction
 import GluingEPPA.Steiner.ChainValuation.LinkProjectors
 import GluingEPPA.Steiner.ChainValuation.ComapSquare
@@ -47,6 +48,9 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalAllRootInterval
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
