@@ -255,3 +255,6 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.activeSuffix_append_active
 #print axioms GluingEPPA.Steiner.ChainValuation.consecutive_append_of_interface
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_consecutive
+
+#print axioms GluingEPPA.Steiner.ChainValuation.consecutive_activeSuffix_of_last
+#print axioms GluingEPPA.Steiner.ChainValuation.consecutive_append_of_last_witness
