@@ -145,6 +145,72 @@ theorem boundaryHistoryBuildNonempty_allInterfaceEquivalences
     (boundaryHistoryBuildNonempty_allParametersInjective
       D S old L M atoms hne hsep T hT)⟩
 
+/-- If an actual M-component meets both historical sides of a
+genuine boundary, it also meets their *literal* common-interface
+image. This strengthens the existing two-sided path witness from
+the source groups to a point in the final quotient lying on the
+original K_(A∩B) interface. -/
+theorem HistoricalLinkBoundary.component_meets_interface
+    {M : Proper S} {R : BuildResult D S old L}
+    (T : HistoricalLinkBoundary D S old L M R)
+    (q : R.state.Space)
+    (hLeft : ∃ x : (old T.leftMask).Carrier,
+      GluingEPPA.Steiner.ChainValuation.LabelReach
+        (fun e => (R.state.matching e).Rel) M.val
+        q (T.leftChart x))
+    (hRight : ∃ y : (old T.rightMask).Carrier,
+      GluingEPPA.Steiner.ChainValuation.LabelReach
+        (fun e => (R.state.matching e).Rel) M.val
+        q (T.rightChart y)) :
+    ∃ k : (old (common S T.leftMask T.rightMask)).Carrier,
+      GluingEPPA.Steiner.ChainValuation.LabelReach
+        (fun e => (R.state.matching e).Rel) M.val
+        q (T.interfaceMap D S old L k) := by
+  obtain ⟨x, hx⟩ := hLeft
+  obtain ⟨y, hy⟩ := hRight
+  have hxy :
+      GluingEPPA.Steiner.ChainValuation.LabelReach
+        (fun e => (R.state.matching e).Rel) M.val
+        (T.leftChart x) (T.rightChart y) :=
+    GluingEPPA.Steiner.ChainValuation.LabelReach.trans
+      (GluingEPPA.Steiner.ChainValuation.LabelReach.symm hx) hy
+  obtain ⟨k, hOld, _⟩ := (T.reach_iff x y).mp hxy
+  have hCross :
+      GluingEPPA.Steiner.ChainValuation.LabelReach
+        (fun e => (R.state.matching e).Rel) M.val
+        (T.leftChart x) (T.rightChart (T.rightParam k)) :=
+    (T.reach_iff x (T.rightParam k)).mpr
+      ⟨k, hOld,
+        GluingEPPA.Steiner.ChainValuation.LabelReach.refl _⟩
+  refine ⟨k, ?_⟩
+  rw [T.interfaceMap_eq_right D S old L k]
+  exact GluingEPPA.Steiner.ChainValuation.LabelReach.trans hx hCross
+
+/-- The exact-interface meeting property applies at every
+recorded consecutive boundary of the finite true LinkChain. -/
+theorem boundaryHistoryBuildNonempty_every_active_boundary_met
+    (M : Proper S) (atoms : List (Atom S old))
+    (hne : atoms ≠ [])
+    (hsep : separatedList D S old L atoms) :
+    let H := boundaryHistoryBuildNonempty D S old L M atoms hne hsep
+    ∀ T : HistoricalLinkBoundary D S old L M H.chain,
+      T ∈ H.boundaries →
+        ∀ q : H.chain.state.Space,
+          (∃ x : (old T.leftMask).Carrier,
+            GluingEPPA.Steiner.ChainValuation.LabelReach
+              (fun e => (H.chain.state.matching e).Rel) M.val
+              q (T.leftChart x)) →
+          (∃ y : (old T.rightMask).Carrier,
+            GluingEPPA.Steiner.ChainValuation.LabelReach
+              (fun e => (H.chain.state.matching e).Rel) M.val
+              q (T.rightChart y)) →
+          ∃ k : (old (common S T.leftMask T.rightMask)).Carrier,
+            GluingEPPA.Steiner.ChainValuation.LabelReach
+              (fun e => (H.chain.state.matching e).Rel) M.val
+              q (T.interfaceMap D S old L k) := by
+  intro T _ q hLeft hRight
+  exact T.component_meets_interface D S old L q hLeft hRight
+
 end LinkChain
 end RecursiveRecord
 end EdgeGraph
