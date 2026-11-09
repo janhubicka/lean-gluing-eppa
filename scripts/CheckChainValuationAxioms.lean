@@ -313,3 +313,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.exactRangeIntersection
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allExactEmbeddedInterfaces
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.mem_intersection_iff_unique_parameter
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceEquivIntersection
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allInterfaceEquivalences
