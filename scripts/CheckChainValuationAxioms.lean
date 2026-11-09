@@ -263,3 +263,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_hasLast
 #print axioms GluingEPPA.Steiner.ChainValuation.activeSuffix_of_lastChart_and_exit
 #print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_old_consecutive_of_lastChart
+
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_eq_of_reach
+#print axioms GluingEPPA.Steiner.ChainValuation.extended_newToOldReach_has_interface
+#print axioms GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport_new_unmatched
+#print axioms GluingEPPA.Steiner.ChainValuation.extended_newRoot_reach_old_interface
