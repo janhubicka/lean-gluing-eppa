@@ -214,7 +214,17 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.normalized_old_boundary
 #print axioms GluingEPPA.Steiner.ChainValuation.normalized_new_boundary
 #print axioms GluingEPPA.Steiner.ChainValuation.normalized_boundary_pushout
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedCommon_left_square
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedCommon_right_square
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.actualLink_normalized_boundary
 
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word
 #print axioms GluingEPPA.Steiner.ChainValuation.matchingMap_word_onMask
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlockChart
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_separated_of_maps
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_preimage_separated
+
+#print axioms GluingEPPA.Steiner.ChainValuation.normalized_interface_coset_maps_into
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.actual_normalizedTripleSeparated
