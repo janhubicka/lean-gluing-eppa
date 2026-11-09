@@ -258,3 +258,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.ChainValuation.consecutive_activeSuffix_of_last
 #print axioms GluingEPPA.Steiner.ChainValuation.consecutive_append_of_last_witness
+
+#print axioms GluingEPPA.Steiner.ChainValuation.singletonLast_hasLastHistoricalChart
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_hasLast
+#print axioms GluingEPPA.Steiner.ChainValuation.activeSuffix_of_lastChart_and_exit
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_old_consecutive_of_lastChart
