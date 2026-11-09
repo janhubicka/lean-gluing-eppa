@@ -243,3 +243,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_matchedOldComponent_covered_iff_reach
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_matchedOldComponent_equivFull
+
+#print axioms GluingEPPA.Steiner.ChainValuation.HistoricalBlock.Meets
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport
+#print axioms GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport_meets_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_transport_old
+#print axioms GluingEPPA.Steiner.ChainValuation.lastBlock_meets_iff_attachment
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_old
