@@ -47,14 +47,14 @@ theorem HistoricalLinkBoundary.mem_intersection_iff_unique_parameter
   have hInj := T.interfaceMap_injective D S old L hCharts hParams
   constructor
   · intro h
-    have hrange : q ∈ Set.range (T.interfaceMap D S old L) :=
-      hRange.mp h
+    rw [hRange] at h
+    have hrange : q ∈ Set.range (T.interfaceMap D S old L) := h
     obtain ⟨k, hk⟩ := hrange
     refine ⟨k, hk, ?_⟩
     intro k' hk'
     exact hInj (hk'.trans hk.symm)
   · rintro ⟨k, hk, _⟩
-    apply hRange.mpr
+    rw [hRange]
     exact ⟨k, hk⟩
 
 /-- A concrete equivalence between the earlier genuine intersection
@@ -84,8 +84,9 @@ noncomputable def HistoricalLinkBoundary.interfaceEquivIntersection
       (congrArg Subtype.val h)
   have hSurj : Function.Surjective F := by
     intro q
-    have hmem : q.val ∈ Set.range (T.interfaceMap D S old L) :=
-      (T.exactRangeIntersection D S old L hExact).mp q.property
+    have hmem : q.val ∈ Set.range (T.interfaceMap D S old L) := by
+      rw [← T.exactRangeIntersection D S old L hExact]
+      exact q.property
     obtain ⟨k, hk⟩ := hmem
     refine ⟨k, ?_⟩
     apply Subtype.ext
