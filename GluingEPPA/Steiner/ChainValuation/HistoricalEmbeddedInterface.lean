@@ -86,7 +86,7 @@ theorem boundaryHistoryBuildNonempty_allInterfacesEmbedded
         (∀ k : (old (common S T.leftMask T.rightMask)).Carrier,
           T.interfaceMap D S old L k =
             T.rightChart (T.rightParam k)) := by
-  intro T hT
+  intro H T hT
   constructor
   · exact T.interfaceMap_injective D S old L
       (boundaryHistoryBuildNonempty_allEmbedded
@@ -133,7 +133,7 @@ theorem boundaryHistoryBuildNonempty_allExactEmbeddedInterfaces
         (Set.range T.leftChart ∩ Set.range T.rightChart =
           Set.range (T.interfaceMap D S old L)) ∧
         Function.Injective (T.interfaceMap D S old L) := by
-  intro T hT
+  intro H T hT
   constructor
   · exact T.exactRangeIntersection D S old L
       (boundaryHistoryBuildNonempty_allExactOverlap
