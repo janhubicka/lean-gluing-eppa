@@ -168,9 +168,12 @@ theorem boundaryHistoryBuildNonempty_allParametersInjective
   | cons x xs =>
       cases xs with
       | nil =>
+          change HistoricalBoundariesParametersInjective
+            D S old L M
+            (boundaryHistoryInitial D S old L M x).chain
+            (boundaryHistoryInitial D S old L M x).boundaries
           intro T hT
-          simp [boundaryHistoryBuildNonempty, boundaryHistoryInitial,
-            HistoricalBoundariesParametersInjective] at hT
+          cases hT
       | cons y ys =>
           let H0 := boundaryHistoryInitial D S old L M x
           let H1 := boundaryHistoryStep D S old L M H0 y trivial
@@ -180,7 +183,7 @@ theorem boundaryHistoryBuildNonempty_allParametersInjective
               HistoricalBoundariesParametersInjective
                 D S old L M H0.chain H0.boundaries := by
             intro T hT
-            simp [H0, boundaryHistoryInitial] at hT
+            cases hT
           have hFirst :
               HistoricalBoundariesParametersInjective
                 D S old L M H1.chain H1.boundaries :=
