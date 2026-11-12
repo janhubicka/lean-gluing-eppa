@@ -1,0 +1,83 @@
+name: Lean Part II equivariant-test-cover kernel transfer
+
+on:
+  pull_request:
+    paths:
+      - "GluingEPPA/Steiner/ChainValuation/EquivariantTestCovers.lean"
+      - ".github/workflows/agent-equivariant-cover-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  equivariant-cover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore Lean compiler
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - name: Restore pinned Lake workspace
+        uses: actions/cache/restore@v4
+        with:
+          path: .lake
+          key: lake-v3-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+          restore-keys: |
+            lake-v3-${{ runner.os }}-${{ runner.arch }}-
+      - name: Install elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore pinned Mathlib
+        shell: bash
+        run: |
+          set -euo pipefail
+          if test -s lake-manifest.json; then
+            echo "Using pinned Lake manifest"
+          else
+            lake update
+          fi
+          lake exe cache get
+      - name: Compile only the independent cover lemma
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof-audit
+          lake build GluingEPPA.Steiner.ChainValuation.EquivariantTestCovers > proof-audit/equivariant-cover-build.log 2>&1 || {
+            cat proof-audit/equivariant-cover-build.log
+            exit 1
+          }
+          tail -n 20 proof-audit/equivariant-cover-build.log
+      - name: Audit theorem axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > proof-audit/CheckEquivariantCoverAxioms.lean <<'LEAN'
+          import GluingEPPA.Steiner.ChainValuation.EquivariantTestCovers
+          #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_map_of_generator_intertwining
+          #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_joint_equivariant_cover
+          LEAN
+          lake env lean proof-audit/CheckEquivariantCoverAxioms.lean > proof-audit/axioms.log 2>&1 || {
+            cat proof-audit/axioms.log
+            exit 1
+          }
+          python3 scripts/check-axiom-log.py proof-audit/axioms.log proof-audit/CheckEquivariantCoverAxioms.lean
+      - name: Save exact source and diagnostic logs
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p proof-audit
+          git rev-parse HEAD > proof-audit/SOURCE_SHA
+          cp lean-toolchain lakefile.toml proof-audit/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: equivariant-cover-proof-audit
+          path: proof-audit/
+          retention-days: 7
