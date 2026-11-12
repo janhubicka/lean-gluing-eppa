@@ -102,6 +102,7 @@ theorem boundaryHistoryBuildTail_sourcePairs
       -- Reassociate the appended source pair without the recursive
       -- append_cons simplifier rule.
       simp only [tailSourceMaskPairs, List.append_assoc]
+      rfl
 
 /-- The entire finite boundary witness history has **exactly** one
 record for each consecutive pair of the original input masks,
@@ -139,7 +140,8 @@ theorem boundaryHistoryBuildNonempty_sourcePairs
             have h := historicalBoundaries_step_masks
               D S old L M (initial D S old L x) y trivial
               (initial_lastMaskCoset D S old L M x) []
-            simpa only [List.map_nil, List.nil_append] using h
+            have hcurrent : (initial D S old L x).current.1 = x.1 := rfl
+            simpa only [List.map_nil, List.nil_append, hcurrent] using h
           change
             (boundaryHistoryBuildTail D S old L M
               x y H1 hp hc ys hsep).boundaries.map
@@ -147,7 +149,7 @@ theorem boundaryHistoryBuildNonempty_sourcePairs
             consecutiveSourceMaskPairs S old (x :: y :: ys)
           rw [boundaryHistoryBuildTail_sourcePairs
             D S old L M x y H1 hp hc ys hsep, hFirst]
-           rfl
+          rfl
 
 end LinkChain
 end RecursiveRecord
