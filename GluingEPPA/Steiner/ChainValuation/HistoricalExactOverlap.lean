@@ -54,8 +54,8 @@ theorem historicalLinkBoundary_step_exactOverlap
       | none => True
       | some p => tripleSeparated D S old L p R.current y)
     (hcoset : LastMaskCoset D S old L M R) :
-    (historicalLinkBoundary_step D S old L M R y hsep hcoset).
-      ExactOverlap D S old L := by
+    HistoricalLinkBoundary.ExactOverlap D S old L
+      (historicalLinkBoundary_step D S old L M R y hsep hcoset) := by
   let A := block S old R.current.1
   let B := block S old y.1
   let i := left D S old L R.current.1 y.1
@@ -94,8 +94,8 @@ theorem HistoricalLinkBoundary.transport_exactOverlap
       | some p => tripleSeparated D S old L p R.current y)
     (hcoset : LastMaskCoset D S old L M R)
     (hExact : T.ExactOverlap D S old L) :
-    (T.transport D S old L y hsep hcoset).
-      ExactOverlap D S old L := by
+    HistoricalLinkBoundary.ExactOverlap D S old L
+      (T.transport D S old L y hsep hcoset) := by
   let A := block S old R.current.1
   let B := block S old y.1
   let i := left D S old L R.current.1 y.1
@@ -208,9 +208,12 @@ theorem boundaryHistoryBuildNonempty_allExactOverlap
   | cons x xs =>
       cases xs with
       | nil =>
+          change HistoricalBoundariesExactOverlap
+            D S old L M
+            (boundaryHistoryInitial D S old L M x).chain
+            (boundaryHistoryInitial D S old L M x).boundaries
           intro T hT
-          simp [boundaryHistoryBuildNonempty, boundaryHistoryInitial,
-            HistoricalBoundariesExactOverlap] at hT
+          cases hT
       | cons y ys =>
           let H0 := boundaryHistoryInitial D S old L M x
           let H1 := boundaryHistoryStep D S old L M H0 y trivial
@@ -220,7 +223,7 @@ theorem boundaryHistoryBuildNonempty_allExactOverlap
               HistoricalBoundariesExactOverlap
                 D S old L M H0.chain H0.boundaries := by
             intro T hT
-            simp [H0, boundaryHistoryInitial] at hT
+            cases hT
           have hFirst :
               HistoricalBoundariesExactOverlap
                 D S old L M H1.chain H1.boundaries :=
