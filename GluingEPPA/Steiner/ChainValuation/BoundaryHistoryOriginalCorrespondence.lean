@@ -54,9 +54,16 @@ theorem boundaryHistoryStep_asPair
     (boundaryHistoryStep D S old L M H z hstep).asPair
        D S old L M c z hnprev hncurr =
       next D S old L (H.asPair D S old L M p c hp hc) z htriple := by
-  subst c
-  cases hp
-  rfl
+  -- Rewrite the dependent fields only after exposing the two records.
+  -- Eliminating hp while H.chain is opaque attempts to rewrite a projection
+  -- (some p = H.chain.previous), which Lean's dependent eliminator rejects.
+  cases H with
+  | mk chain lastInv boundaries =>
+      cases chain with
+      | mk previous current state entry_spec =>
+          cases hc
+          cases hp
+          rfl
 
 /-- Forgetting every remembered boundary and mask-coset invariant
 during a true tail construction yields the *original* buildTail state. -/
