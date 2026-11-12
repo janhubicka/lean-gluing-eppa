@@ -6,6 +6,7 @@ import GluingEPPA.Steiner.ChainValuation.ComponentReflection
 import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
 import GluingEPPA.Steiner.ChainValuation.AugmentedLinks
 import GluingEPPA.Steiner.ChainValuation.WordAction
+import GluingEPPA.Steiner.ChainValuation.EquivariantTestCovers
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.RestrictionLink
 import GluingEPPA.Steiner.ChainValuation.MatchingComponents
