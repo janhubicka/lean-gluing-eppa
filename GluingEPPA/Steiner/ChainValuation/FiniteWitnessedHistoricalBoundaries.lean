@@ -178,9 +178,11 @@ theorem boundaryHistoryBuildNonempty_all_interfaces_witnessed
           LabelReach
             (fun e => ((block S old T.rightMask).matching e).Rel)
             M.val (T.rightParam k) y := by
-  intro T _ q hLeft hRight
+  -- The outer `let H := ...` is introduced before the boundary variable.
+  -- Name it explicitly, rather than accidentally using `T` for the history.
+  intro H T _ q hLeft hRight
   exact boundaryHistory_connected_boundary_has_real_parameter
-    D S old L M _ T q hLeft hRight
+    D S old L M H T q hLeft hRight
 
 end LinkChain
 end RecursiveRecord
