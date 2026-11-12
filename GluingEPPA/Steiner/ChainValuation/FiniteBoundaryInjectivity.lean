@@ -39,8 +39,8 @@ theorem boundaryHistoryInitial_allEmbedded
     (M : Proper S) (x : Atom S old) :
     (boundaryHistoryInitial D S old L M x).AllEmbedded D S old L := by
   intro T hT
-  -- The one-block history has no recorded interfaces.
-  simp at hT
+  -- This history has no boundaries, so membership is impossible.
+  cases hT
 
 /-- One genuine separated Link step preserves injectivity of
 every original boundary and appends a fresh injective pair. -/
