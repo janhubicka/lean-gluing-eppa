@@ -39,8 +39,8 @@ theorem boundaryHistoryInitial_allEmbedded
     (M : Proper S) (x : Atom S old) :
     (boundaryHistoryInitial D S old L M x).AllEmbedded D S old L := by
   intro T hT
-  simp [BoundaryHistoryBuildResult.AllEmbedded,
-    HistoricalBoundariesEmbedded, boundaryHistoryInitial] at hT
+  -- The one-block history has no recorded interfaces.
+  simp at hT
 
 /-- One genuine separated Link step preserves injectivity of
 every original boundary and appends a fresh injective pair. -/
