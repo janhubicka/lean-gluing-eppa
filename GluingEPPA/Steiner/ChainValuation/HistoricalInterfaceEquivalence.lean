@@ -136,7 +136,7 @@ theorem boundaryHistoryBuildNonempty_allInterfaceEquivalences
           ((old (common S T.leftMask T.rightMask)).Carrier ≃
             {q : H.chain.state.Space //
               q ∈ Set.range T.leftChart ∩ Set.range T.rightChart}) := by
-  intro T hT
+  intro H T hT
   exact ⟨T.interfaceEquivIntersection D S old L
     (boundaryHistoryBuildNonempty_allExactOverlap
       D S old L M atoms hne hsep T hT)
@@ -208,7 +208,7 @@ theorem boundaryHistoryBuildNonempty_every_active_boundary_met
             GluingEPPA.Steiner.ChainValuation.LabelReach
               (fun e => (H.chain.state.matching e).Rel) M.val
               q (T.interfaceMap D S old L k) := by
-  intro T _ q hLeft hRight
+  intro H T _ q hLeft hRight
   exact T.component_meets_interface D S old L q hLeft hRight
 
 end LinkChain
