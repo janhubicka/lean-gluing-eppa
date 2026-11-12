@@ -54,8 +54,8 @@ theorem historicalLinkBoundary_step_exactOverlap
       | none => True
       | some p => tripleSeparated D S old L p R.current y)
     (hcoset : LastMaskCoset D S old L M R) :
-    (historicalLinkBoundary_step D S old L M R y hsep hcoset).
-      ExactOverlap D S old L := by
+    HistoricalLinkBoundary.ExactOverlap D S old L
+      (historicalLinkBoundary_step D S old L M R y hsep hcoset) := by
   let A := block S old R.current.1
   let B := block S old y.1
   let i := left D S old L R.current.1 y.1
@@ -94,8 +94,8 @@ theorem HistoricalLinkBoundary.transport_exactOverlap
       | some p => tripleSeparated D S old L p R.current y)
     (hcoset : LastMaskCoset D S old L M R)
     (hExact : T.ExactOverlap D S old L) :
-    (T.transport D S old L y hsep hcoset).
-      ExactOverlap D S old L := by
+    HistoricalLinkBoundary.ExactOverlap D S old L
+      (T.transport D S old L y hsep hcoset) := by
   let A := block S old R.current.1
   let B := block S old y.1
   let i := left D S old L R.current.1 y.1
