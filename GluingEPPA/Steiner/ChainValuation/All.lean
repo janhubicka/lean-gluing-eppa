@@ -50,6 +50,7 @@ import GluingEPPA.Steiner.ChainValuation.BoundaryHistoryOriginalCorrespondence
 import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryParameterInjectivity
 import GluingEPPA.Steiner.ChainValuation.HistoricalExactOverlap
 import GluingEPPA.Steiner.ChainValuation.HistoricalEmbeddedInterface
+import GluingEPPA.Steiner.ChainValuation.HistoricalInterfaceEquivalence
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
 import GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts
