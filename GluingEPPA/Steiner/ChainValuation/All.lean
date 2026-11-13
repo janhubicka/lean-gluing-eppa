@@ -6,6 +6,7 @@ import GluingEPPA.Steiner.ChainValuation.ComponentReflection
 import GluingEPPA.Steiner.ChainValuation.AugmentedInclusion
 import GluingEPPA.Steiner.ChainValuation.AugmentedLinks
 import GluingEPPA.Steiner.ChainValuation.WordAction
+import GluingEPPA.Steiner.ChainValuation.CoverRightAction
 import GluingEPPA.Steiner.ChainValuation.MaskRestriction
 import GluingEPPA.Steiner.ChainValuation.RestrictionLink
 import GluingEPPA.Steiner.ChainValuation.MatchingComponents
@@ -63,12 +64,11 @@ import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
 /-!
 # Chain valuation proof development
 
-This terminal import collects the checked construction infrastructure and
-conditional component-reflection interface. The structural import audit
-requires every source module to be reachable from the library umbrella.
+This terminal import collects construction infrastructure and conditional
+interfaces. Import reachability is a compilation-coverage check, not a
+proof-dependency certificate for the manuscript's main theorem.
 
 **This import is not a theorem of N-acyclicity or high-girth EPPA.**
-In particular the global smaller-mask chain-restriction classification and
-the simultaneous augmented Link induction are still pending.
+The global smaller-mask chain-restriction classification, actual test
+covers, and simultaneous augmented Link induction remain pending.
 -/
-
