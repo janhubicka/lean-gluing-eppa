@@ -42,7 +42,7 @@ theorem mask_pullbacks_agree (M A B : Proper S) :
   have hmask : Step.meet S MA I = Step.meet S MB I := by
     apply Subtype.ext
     ext e
-    simp [Step.meet, MA, MB, I, Finset.mem_inter] <;> tauto
+    simp [Step.meet, MA, MB, I, Finset.mem_inter]
   change (L MA A Finset.inter_subset_right).incl.range.comap
       (L I A Finset.inter_subset_left).incl =
     (L MB B Finset.inter_subset_right).incl.range.comap
