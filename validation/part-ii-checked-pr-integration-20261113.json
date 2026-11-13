@@ -1,0 +1,226 @@
+{
+  "status": "COMBINED_BUILD_REQUIRED",
+  "records": [
+    {
+      "pr": 145,
+      "status": "integrated-pending-combined-build",
+      "head": "b54424990fed436bc726bebe976a30c6b4aae246",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42481954529
+    },
+    {
+      "pr": 142,
+      "status": "integrated-pending-combined-build",
+      "head": "f0e8679fb62cda68d85647022b02e611a86e582b",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487065187
+    },
+    {
+      "pr": 138,
+      "status": "integrated-pending-combined-build",
+      "head": "5042f7b46988a25df2d430d3e53bad6f1a2ea016",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42475433712
+    },
+    {
+      "pr": 118,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "d7778c650ed7738b48c1d189ff03715b43ca23a8"
+    },
+    {
+      "pr": 115,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/MatchedLinkInterfaceMask.lean",
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "78996752d25f7d16ebcb260740ca24c68e0f0027"
+    },
+    {
+      "pr": 106,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "01f41e60f63d8dd4382995729c8dc512f011534b"
+    },
+    {
+      "pr": 104,
+      "status": "integrated-pending-combined-build",
+      "head": "fbdc17a26ca20f38808eda03cafd13cf5812876e",
+      "resolved_lists": [
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487237136
+    },
+    {
+      "pr": 98,
+      "status": "integrated-pending-combined-build",
+      "head": "9dee1a8c6675ba975150619684bf59263a5c5965",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487294812
+    },
+    {
+      "pr": 93,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "851b340f70913f81c9f82a95a9ca83aef30447e3"
+    },
+    {
+      "pr": 91,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "210bb28098f2c14d8eb4f71ee6930e2683ed3281"
+    },
+    {
+      "pr": 88,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "e7507ef59d8e411e55a181fe1e76b63465889300"
+    },
+    {
+      "pr": 82,
+      "status": "integrated-pending-combined-build",
+      "head": "2d87134b7bf1ccd7909c4b07ad96f3f4658379d0",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 41642776250
+    },
+    {
+      "pr": 123,
+      "status": "integrated-pending-combined-build",
+      "head": "9323526b1e8a2b2b12ce4adde68a52af3748404c",
+      "resolved_lists": [
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487189337
+    },
+    {
+      "pr": 117,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "8b48af7ce4f4370605545ecc99fc4f01fb63c11c"
+    },
+    {
+      "pr": 114,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/MatchedLinkInterfaceMask.lean",
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "a27f939648a4a72c04dcdf178352d14024345195"
+    },
+    {
+      "pr": 113,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "0d373d01a2d94b9ec6b2caff1ae40c56d7c41f84"
+    },
+    {
+      "pr": 109,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "f60415b9ae8181ed4907aa8f5dd8a7aab2c30458"
+    },
+    {
+      "pr": 105,
+      "status": "requires-manual-reconciliation",
+      "files": [
+        "GluingEPPA/Steiner/ChainValuation/PushoutEquiv.lean"
+      ],
+      "head": "398eff7008f2fefb36384ae104484f62678c502f"
+    },
+    {
+      "pr": 97,
+      "status": "already-in-integration"
+    },
+    {
+      "pr": 96,
+      "status": "already-in-integration"
+    },
+    {
+      "pr": 92,
+      "status": "integrated-pending-combined-build",
+      "head": "dc5a0f48dd08c3587d473c938b406cf98fcee9c8",
+      "resolved_lists": [],
+      "prior_run": 41792325285
+    },
+    {
+      "pr": 86,
+      "status": "integrated-pending-combined-build",
+      "head": "382df3d72e36e286ca702d3067a34aa717af29db",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487285833
+    },
+    {
+      "pr": 84,
+      "status": "integrated-pending-combined-build",
+      "head": "bba38c6407184a4fb7649c99a96b90e3a837ad39",
+      "resolved_lists": [
+        "GluingEPPA/Steiner/ChainValuation/All.lean",
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487219734
+    },
+    {
+      "pr": 83,
+      "status": "integrated-pending-combined-build",
+      "head": "72de4ae2b4369a110f98c7955d40476fef39a0e2",
+      "resolved_lists": [],
+      "prior_run": 42487198444
+    },
+    {
+      "pr": 81,
+      "status": "integrated-pending-combined-build",
+      "head": "8dfc9a54fffd206b4b2e328ba9c0e27be57bf9d5",
+      "resolved_lists": [
+        "scripts/CheckChainValuationAxioms.lean"
+      ],
+      "prior_run": 42487310818
+    },
+    {
+      "pr": 65,
+      "status": "integrated-pending-combined-build",
+      "head": "f6075c69040e607f5278fcc3b72cf8ca87c373dd",
+      "resolved_lists": [],
+      "prior_run": 42486828440
+    },
+    {
+      "pr": 161,
+      "status": "skip-closed-or-head-moved"
+    }
+  ],
+  "redundant_root_imports_removed": []
+}
