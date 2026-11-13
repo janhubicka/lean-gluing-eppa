@@ -88,11 +88,20 @@ import GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
-import GluingEPPA.Steiner.ChainValuation.BlockMatching
 import GluingEPPA.Steiner.ChainValuation.ComponentCosetQuotient
 import GluingEPPA.Steiner.ChainValuation.RestrictedComponentMatching
 import GluingEPPA.Steiner.ChainValuation.ActualAttachmentWitness
 import GluingEPPA.Steiner.ChainValuation.TwoBlockComponentClassification
+import GluingEPPA.Steiner.ChainValuation.RecordedWordAction
+import GluingEPPA.Steiner.ChainValuation.ChainWordTransport
+import GluingEPPA.Steiner.ChainValuation.EquivariantCover
+import GluingEPPA.Steiner.ChainValuation.ModelCoverAction
+import GluingEPPA.Steiner.ChainValuation.RegularComponentCover
+import GluingEPPA.Steiner.ChainValuation.LastBlockRegularCover
+import GluingEPPA.Steiner.ChainValuation.RegularCoverPersistence
+import GluingEPPA.Steiner.ChainValuation.MatchingMap
+import GluingEPPA.Steiner.ChainValuation.WordComponents
+import GluingEPPA.Steiner.ChainValuation.BlockMatching
 
 /-!
 # Chain valuation proof development
