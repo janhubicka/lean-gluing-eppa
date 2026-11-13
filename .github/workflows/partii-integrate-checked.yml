@@ -1,0 +1,79 @@
+name: Consolidate checked Part II proofs
+
+on:
+  push:
+    branches: [partii-postmerge-validation-20261113]
+    paths: ['scripts/integrate_checked_partii_prs.py', '.github/workflows/partii-integrate-checked.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+  pull-requests: read
+
+concurrency:
+  group: partii-checked-consolidation
+  cancel-in-progress: false
+
+jobs:
+  integrate-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: partii-postmerge-validation-20261113
+          fetch-depth: 0
+      - name: Integrate only pinned green heads; never resolve conflicting proof code
+        run: python3 scripts/integrate_checked_partii_prs.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - uses: actions/cache/restore@v4
+        with:
+          path: .lake
+          key: lake-v3-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+          restore-keys: |
+            lake-v3-${{ runner.os }}-${{ runner.arch }}-
+      - name: Install pinned Lean and Mathlib
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          if ! test -s lake-manifest.json; then lake update; fi
+          lake exe cache get
+      - name: Full combined proof build and every named axiom manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof-audit
+          git rev-parse HEAD | tee proof-audit/CHECKED_SOURCE_SHA
+          lake build > proof-audit/build.log 2>&1 || { tail -n 160 proof-audit/build.log; exit 1; }
+          for manifest in scripts/Check*Axioms.lean; do
+            log="proof-audit/$(basename "$manifest" .lean).log"
+            lake env lean "$manifest" > "$log" 2>&1 || { tail -n 100 "$log"; exit 1; }
+            python3 scripts/check-axiom-log.py "$log" "$manifest"
+          done
+          python3 scripts/audit_library_imports.py > proof-audit/import-graph.json
+          python3 scripts/audit_part_ii_source_use.py --output proof-audit/source-use.json > proof-audit/source-use.log
+          python3 scripts/check_wiki_docs.py > proof-audit/wiki-links.json
+          git diff --check
+          echo 'PASS: combined source, full build, named axioms and structural audits'
+      - name: Record source and integration decisions
+        if: always()
+        run: |
+          mkdir -p proof-audit
+          git rev-parse HEAD > proof-audit/SOURCE_SHA
+          test ! -f validation/part-ii-checked-pr-integration-20261113.json || cp validation/part-ii-checked-pr-integration-20261113.json proof-audit/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: partii-combined-proof-validation
+          path: proof-audit/
+          retention-days: 30
