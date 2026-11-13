@@ -70,13 +70,10 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalSupportLastChart
 import GluingEPPA.Steiner.ChainValuation.HistoricalNewRootSupport
 import GluingEPPA.Steiner.ChainValuation.HistoricalAllRootInterval
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
-import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
 import GluingEPPA.Steiner.ChainValuation.NamedHistoricalLinkBlocks
 import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedMasks
 import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedChains
-import GluingEPPA.Steiner.ChainValuation.BlockMatching
-import GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
 import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
@@ -91,6 +88,11 @@ import GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary
 import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
+import GluingEPPA.Steiner.ChainValuation.BlockMatching
+import GluingEPPA.Steiner.ChainValuation.ComponentCosetQuotient
+import GluingEPPA.Steiner.ChainValuation.RestrictedComponentMatching
+import GluingEPPA.Steiner.ChainValuation.ActualAttachmentWitness
+import GluingEPPA.Steiner.ChainValuation.TwoBlockComponentClassification
 
 /-!
 # Chain valuation proof development

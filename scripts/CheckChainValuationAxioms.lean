@@ -322,6 +322,14 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBlock_preimage_separated
 #print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.include_edges_iff
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs_edge_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyPair
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyNext
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildTail
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildNonempty
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyPair_result_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyNext_result_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildTail_result_eq
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
 #print axioms GluingEPPA.Steiner.EdgeGraph.chain_coset_component_reflection
 #print axioms GluingEPPA.Steiner.ChainValuation.restricted_attachments_disjoint
 #print axioms GluingEPPA.Steiner.ChainValuation.mask_attachment_no_merge
@@ -359,16 +367,18 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.unmatched_new_not_old
 #print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_iff_matching_class_eq
 #print axioms GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued
-#print axioms GluingEPPA.Steiner.ChainValuation.chainExtend_new_components_reflect
-#print axioms GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_cover
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyPair
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyNext
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildTail
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildNonempty
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyPair_result_eq
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyNext_result_eq
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildTail_result_eq
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildNonempty_result_eq
+#print axioms GluingEPPA.Steiner.ChainValuation.cayley_mask_word_reach
+#print axioms GluingEPPA.Steiner.ChainValuation.cayley_mask_reach_subgroup
+#print axioms GluingEPPA.Steiner.ChainValuation.reachQuotientEquivLeftCosets
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlockComponentsEquiv
+#print axioms GluingEPPA.Steiner.ChainValuation.sumComponentMap_injective
+#print axioms GluingEPPA.Steiner.ChainValuation.Matching.pullbackSum
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.componentCosetMap_injective
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedActualComponentMatching
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.componentCosetMap_mk
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedActualComponentMatching_attach
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedActualComponentMatching_complete
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.twoBlock_reach_iff_matching_class
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
 
 
