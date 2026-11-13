@@ -384,7 +384,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_injective_of_equivs
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepComponentMatching
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_reach_iff_componentMatching
-#print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlock_translation_edge_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlock_cosetEquiv_edge_iff
 #print axioms GluingEPPA.Steiner.EdgeGraph.chain_coset_component_reflection
 #print axioms GluingEPPA.Steiner.ChainValuation.restricted_attachments_disjoint
 #print axioms GluingEPPA.Steiner.ChainValuation.mask_attachment_no_merge
@@ -420,10 +421,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.impossible_identity_cycle_test
 #print axioms GluingEPPA.Steiner.ChainValuation.outside_last_propagates
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.unmatched_new_not_old
-#print axioms GluingEPPA.Steiner.ChainValuation.gluedReach_iff_matching_class_eq
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_iff_same_root
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.exists_intermediate_root
+#print axioms GluingEPPA.Steiner.ChainValuation.LayerMatch.connected_intermediate
 #print axioms GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlock_translation_edge_iff
 #print axioms GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract
-#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedBlock_cosetEquiv_edge_iff
 
 
