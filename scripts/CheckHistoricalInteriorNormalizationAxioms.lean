@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.HistoricalInteriorNormalization
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalInterior_blockPath_of_component
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalInterior_unique_shift_and_separation
