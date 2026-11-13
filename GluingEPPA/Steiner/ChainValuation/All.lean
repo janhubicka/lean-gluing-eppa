@@ -77,7 +77,6 @@ import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedMasks
 import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedChains
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
-import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
 import GluingEPPA.Steiner.ChainValuation.PushoutChartEdgeEquiv
 import GluingEPPA.Steiner.ChainValuation.LinkCosetEdgeEquiv
 import GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv
