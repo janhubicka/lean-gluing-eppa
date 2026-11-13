@@ -1,0 +1,8 @@
+import GluingEPPA.Steiner.ChainValuation.CoverRightAction
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_map_of_generator_intertwining
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_joint_equivariant_cover
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.coveredTest_kernel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightActionOfEquivariantCover
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightActionOfEquivariantCover_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightActionOfEquivariantCover_word

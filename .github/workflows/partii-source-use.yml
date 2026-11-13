@@ -1,0 +1,34 @@
+name: Part II source-use inventory
+
+on:
+  pull_request:
+    paths:
+      - 'GluingEPPA/Steiner/ChainValuation/**'
+      - 'scripts/audit_part_ii_source_use.py'
+      - '.github/workflows/partii-source-use.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inventory named proof roots and source-use candidates
+        run: |
+          python3 scripts/audit_part_ii_source_use.py --output proof-audit/part-ii-source-use.json
+          git diff --check
+      - name: Record exact source
+        if: always()
+        run: |
+          mkdir -p proof-audit
+          git rev-parse HEAD > proof-audit/SOURCE_SHA
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: part-ii-source-use-inventory
+          path: proof-audit/
+          retention-days: 14
