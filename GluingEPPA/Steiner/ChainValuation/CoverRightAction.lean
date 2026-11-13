@@ -26,6 +26,8 @@ variable (hsource : ∀ j (p q : List E),
   (p.map A.edge).prod = (q.map A.edge).prod →
   testWordPerm (σ j) p = testWordPerm (σ j) q)
 
+include hcover hmap hsource
+
 /-- Every relation in the earlier group acts identically on the covered test. -/
 theorem coveredTest_kernel (p q : List E)
     (hp : ∀ e ∈ p, e ∈ M) (hq : ∀ e ∈ q, e ∈ M)
