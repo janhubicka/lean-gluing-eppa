@@ -1,0 +1,55 @@
+name: Close incorporated Part II PRs
+
+on:
+  push:
+    branches: [integration/partii-release-audit-20261113]
+    paths: ['.github/workflows/close-integrated-partii-prs.yml']
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  close-ancestors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const {execFileSync} = require('node:child_process');
+            const fs = require('node:fs');
+            const owner = 'janhubicka', repo = 'lean-gluing-eppa';
+            if (context.repo.owner !== owner || context.repo.repo !== repo) throw new Error('Unexpected repository');
+            const included = '2a73cbf1e7d7f21ff1193cbb37a3079d27415494';
+            const expected = [162,160,158,157,156,155,154,151,150,149,148,147,120,119,102,100,94,90,89,87,85];
+            execFileSync('git',['fetch','--quiet','origin','main']);
+            const main = execFileSync('git',['rev-parse','origin/main'],{encoding:'utf8'}).trim();
+            execFileSync('git',['merge-base','--is-ancestor',included,main]);
+            const report = [];
+            for (const pull_number of expected) {
+              const p = (await github.rest.pulls.get({owner,repo,pull_number})).data;
+              if (p.state !== 'open') { report.push({pr:pull_number,status:p.merged?'already-merged':'already-closed'}); continue; }
+              const head = p.head.sha;
+              try { execFileSync('git',['merge-base','--is-ancestor',head,main]); }
+              catch (_) { report.push({pr:pull_number,status:'retained-not-an-ancestor',head}); continue; }
+              const fresh = (await github.rest.pulls.get({owner,repo,pull_number})).data;
+              if (fresh.head.sha !== head || fresh.state !== 'open') { report.push({pr:pull_number,status:'retained-concurrent-change'}); continue; }
+              await github.rest.issues.createComment({owner,repo,issue_number:pull_number,
+                body:`Integrated in main by #163 (merge ${included}). The exact PR head ${head} is a Git ancestor of main ${main}; its work and subsequent compiler repairs are retained. Closing this obsolete stack entry, not deleting its branch or proof history. Full integration build and named axiom audit succeeded in run 43384605490. This does not mark the global Part II theorem proved.`});
+              await github.rest.pulls.update({owner,repo,pull_number,state:'closed'});
+              report.push({pr:pull_number,status:'closed-as-incorporated',head,main});
+            }
+            fs.mkdirSync('proof-audit',{recursive:true});
+            fs.writeFileSync('proof-audit/closed-integrated-prs.json',JSON.stringify(report,null,2));
+            console.log(JSON.stringify(report,null,2));
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: incorporated-pr-closure-record
+          path: proof-audit/closed-integrated-prs.json
+          retention-days: 30
