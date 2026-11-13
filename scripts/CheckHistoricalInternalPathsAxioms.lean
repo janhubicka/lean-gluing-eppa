@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.HistoricalInternalPaths
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historical_chart_reach_iff_block_reach
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historical_chart_common_component_has_internal_path
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historical_chart_unique_displacement
