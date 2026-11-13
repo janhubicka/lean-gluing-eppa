@@ -1,0 +1,72 @@
+name: Part II release measurement
+
+on:
+  push:
+    branches: [integration/partii-release-audit-20261113]
+    paths:
+      - 'scripts/audit_partii_release.py'
+      - '.github/workflows/partii-release-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/audit_partii_release.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manuscript-source-length
+          path: |
+            proof-audit/release/*.json
+            proof-audit/release/*.log
+          retention-days: 14
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/audit_partii_release.py --inventory
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recursive-valuation-pr-inventory
+          path: proof-audit/release/pull-inventory.json
+          retention-days: 14
+  pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install the same TeX engine for both snapshots
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-science lmodern poppler-utils
+      - name: Compile both immutable manuscript snapshots
+        run: python3 scripts/audit_partii_release.py --pdf
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recursive-valuation-length-comparison
+          path: |
+            proof-audit/release/*.json
+            proof-audit/release/*.log
+            proof-audit/release/*-pdf-text.txt
+            proof-audit/release/*-build/*.pdf
+            proof-audit/release/*-build/*.log
+          retention-days: 14
