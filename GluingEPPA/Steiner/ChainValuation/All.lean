@@ -71,6 +71,9 @@ import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
 import GluingEPPA.Steiner.ChainValuation.NamedHistoricalLinkBlocks
+import GluingEPPA.Steiner.ChainValuation.BlockMatching
+import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedMasks
+import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedChains
 
 /-!
 # Chain valuation proof development
