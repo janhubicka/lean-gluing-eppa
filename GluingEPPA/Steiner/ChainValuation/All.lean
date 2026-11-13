@@ -62,6 +62,21 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalComponentSlices
 import GluingEPPA.Steiner.ChainValuation.LinkStepComponentMatching
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryStep
 import GluingEPPA.Steiner.ChainValuation.LeftInducedMatching
+import GluingEPPA.Steiner.ChainValuation.MatchingActionEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkStepExactComponent
+import GluingEPPA.Steiner.ChainValuation.HistoricalSupportTransport
+import GluingEPPA.Steiner.ChainValuation.ConsecutiveHistoricalSupport
+import GluingEPPA.Steiner.ChainValuation.ConsecutiveSupportFinal
+import GluingEPPA.Steiner.ChainValuation.HistoricalSupportLastChart
+import GluingEPPA.Steiner.ChainValuation.HistoricalNewRootSupport
+import GluingEPPA.Steiner.ChainValuation.HistoricalAllRootInterval
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
+
 /-!
 # Chain valuation proof development
 
