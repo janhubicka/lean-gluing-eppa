@@ -71,9 +71,24 @@ import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryList
 import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList
 import GluingEPPA.Steiner.ChainValuation.NamedHistoricalLinkBlocks
-import GluingEPPA.Steiner.ChainValuation.BlockMatching
 import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedMasks
 import GluingEPPA.Steiner.ChainValuation.InclusiveNormalizedChains
+import GluingEPPA.Steiner.ChainValuation.BlockMatching
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval
+import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
+import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
+import GluingEPPA.Steiner.ChainValuation.PushoutChartEdgeEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkCosetEdgeEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetRestriction
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetSaturation
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceMask
+import GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceEquiv
+import GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare
+import GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary
+import GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation
+import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
 
 /-!
 # Chain valuation proof development
