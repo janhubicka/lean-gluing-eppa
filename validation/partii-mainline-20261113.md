@@ -31,6 +31,15 @@ There are 21 entries. Their returned closure head SHAs match the inventory.
 The old failing intermediate builds do not override the successful later
 repairs present on main. Closing the PR shells does not discard their work.
 
+PR #161 was also closed as content-superseded, on a different basis:
+`EquivariantTestCovers.lean` at its checked head
+`0f36d38bd87338a05ecdab5c0dced327123a4120` and on main has the identical
+blob `71e3375ec596b864180d49f3c3a9fe3d3a1edb67`. Both declarations are
+included in the checked `CheckCoverRightActionAxioms.lean` manifest and
+consumed by `CoverRightAction`. Its separate historical branch and note
+remain available. This is exact content inclusion, not Git ancestry.
+Thus 22 obsolete Lean PRs have been closed, in addition to merging #163.
+
 Distinct nonancestor branches remain open. In particular, failed normalization
 candidates are not merged just because GitHub can combine their text.
 A separate consolidation check on `partii-postmerge-validation-20261113`
