@@ -48,6 +48,27 @@ noncomputable def coupledHistoryInitial (M : Proper S) (x : Atom S old) :
   boundary := boundaryHistoryInitial D S old L M x
   sameChain := rfl
 
+/-- The original step depends on the separation witness only as a
+proof of the required proposition. Equal original histories therefore
+give equal dependent next states, even when their witnesses are written
+using different historical records. -/
+private theorem step_eq_of_chain_eq
+    (y : Atom S old)
+    {R R' : BuildResult D S old L}
+    (heq : R = R')
+    (hsep :
+      match R.previous with
+      | none => True
+      | some p => tripleSeparated D S old L p R.current y)
+    (hsep' :
+      match R'.previous with
+      | none => True
+      | some p => tripleSeparated D S old L p R'.current y) :
+    step D S old L R y hsep =
+      step D S old L R' y hsep' := by
+  cases heq
+  rfl
+
 /-- Every genuine LinkChain attachment transports both histories
 together. The dependent proof that permits the attachment is
 transported through the equality of their *original* chains.
@@ -75,7 +96,7 @@ noncomputable def coupledHistoryStep
   change
     step D S old L H.named.data.chain y hsep =
       step D S old L H.boundary.chain y hBoundarySep
-  rw [H.sameChain]
+  exact step_eq_of_chain_eq D S old L y H.sameChain hsep hBoundarySep
 
 /-- The coupled state inherits quotient coverage from the genuine
 source-named history, without needing to recompute an abstract
