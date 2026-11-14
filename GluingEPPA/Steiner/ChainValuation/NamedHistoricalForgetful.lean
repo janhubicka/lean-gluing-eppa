@@ -54,8 +54,8 @@ theorem namedHistoricalTransport_forget
       | some p => tripleSeparated D S old L p R.current y)
     (hcoset : LastMaskCoset D S old L M R)
     (T : NamedHistoricalBlock D S old L M R) :
-    (namedHistoricalTransport D S old L M R y hsep hcoset T).
-        toHistorical D S old L =
+    NamedHistoricalBlock.toHistorical D S old L
+      (namedHistoricalTransport D S old L M R y hsep hcoset T) =
       (T.toHistorical D S old L).transport
         (block S old R.current.1) (block S old y.1) R.state
         R.current.2
