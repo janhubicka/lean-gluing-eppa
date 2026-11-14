@@ -86,10 +86,8 @@ theorem coupledHistoryBuildNonempty_sameChain
     (M : Proper S) (atoms : List (Atom S old))
     (hne : atoms ≠ [])
     (hsep : separatedList D S old L atoms) :
-    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-        named.data.chain =
-      (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-        boundary.chain :=
+    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).named.data.chain =
+      (coupledHistoryBuildNonempty D S old L M atoms hne hsep).boundary.chain :=
   (coupledHistoryBuildNonempty D S old L M atoms hne hsep).sameChain
 
 /-- The *same* final state is covered by named genuine historical
