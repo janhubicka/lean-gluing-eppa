@@ -45,7 +45,7 @@ theorem involution_fixes_parts {V : Type u} (S : Semigeneric V)
   · have hforward := hEdge x (f x)
     rw [h2 x] at hforward
     have hreverse := S.reverse x (f x) hp
-    have hbad : !(S.edge x (f x)) = S.edge x (f x) :=
+    have hbad : Bool.not (S.edge x (f x)) = S.edge x (f x) :=
       hreverse.symm.trans hforward
     cases hv : S.edge x (f x) <;> simp [hv] at hbad
 
