@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.MatchedComponentChartExtension
+
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutMap_injective_of_equivs
+#print axioms GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivFullReachOfCharts
+#print axioms GluingEPPA.Steiner.ChainValuation.matchedComponent_equivFullReachOfCharts
