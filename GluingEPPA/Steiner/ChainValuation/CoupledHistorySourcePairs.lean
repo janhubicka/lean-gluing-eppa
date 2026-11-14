@@ -38,8 +38,7 @@ theorem coupledHistoryBuildTail_sources
     (hc : H.named.data.chain.current = c)
     (rest : List (Atom S old))
     (hsep : separatedList D S old L (p :: c :: rest)) :
-    (coupledHistoryBuildTail D S old L M p c H hp hc rest hsep).
-        named.sourceMasks =
+    (coupledHistoryBuildTail D S old L M p c H hp hc rest hsep).named.sourceMasks =
       H.named.sourceMasks ++ rest.map (fun a => a.1) := by
   induction rest generalizing p c H with
   | nil =>
@@ -73,8 +72,7 @@ theorem coupledHistoryBuildNonempty_sourceMasks
     (M : Proper S) (atoms : List (Atom S old))
     (hne : atoms ≠ [])
     (hsep : separatedList D S old L atoms) :
-    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-        named.sourceMasks =
+    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).named.sourceMasks =
       atoms.map (fun a => a.1) := by
   cases atoms with
   | nil =>
@@ -106,23 +104,18 @@ theorem coupledHistoryBuildNonempty_boundaryPairs
     (M : Proper S) (atoms : List (Atom S old))
     (hne : atoms ≠ [])
     (hsep : separatedList D S old L atoms) :
-    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-        boundary.boundaries.map (fun T => (T.leftMask, T.rightMask)) =
+    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).boundary.boundaries.map (fun T => (T.leftMask, T.rightMask)) =
       adjacentMaskPairs S
-        (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-          named.sourceMasks := by
+        (coupledHistoryBuildNonempty D S old L M atoms hne hsep).named.sourceMasks := by
   calc
-    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-        boundary.boundaries.map (fun T => (T.leftMask, T.rightMask)) =
-      (boundaryHistoryBuildNonempty D S old L M atoms hne hsep).
-        boundaries.map (fun T => (T.leftMask, T.rightMask)) := by
+    (coupledHistoryBuildNonempty D S old L M atoms hne hsep).boundary.boundaries.map (fun T => (T.leftMask, T.rightMask)) =
+      (boundaryHistoryBuildNonempty D S old L M atoms hne hsep).boundaries.map (fun T => (T.leftMask, T.rightMask)) := by
           rw [coupledHistoryBuildNonempty_boundary_eq D S old L M
             atoms hne hsep]
     _ = consecutiveSourceMaskPairs S old atoms :=
       boundaryHistoryBuildNonempty_sourcePairs D S old L M atoms hne hsep
     _ = adjacentMaskPairs S
-          (coupledHistoryBuildNonempty D S old L M atoms hne hsep).
-            named.sourceMasks := by
+          (coupledHistoryBuildNonempty D S old L M atoms hne hsep).named.sourceMasks := by
       rw [coupledHistoryBuildNonempty_sourceMasks D S old L M
         atoms hne hsep]
       exact (adjacentMaskPairs_atoms S old atoms).symm
