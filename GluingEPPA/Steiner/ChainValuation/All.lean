@@ -41,6 +41,7 @@ import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentCharts
 import GluingEPPA.Steiner.ChainValuation.SaturatedMatchingComponent
 import GluingEPPA.Steiner.ChainValuation.NamedHistoricalLetterEdges
 import GluingEPPA.Steiner.ChainValuation.NamedHistoryLetterEdgesFinite
+import GluingEPPA.Steiner.ChainValuation.NamedHistoryOriginalCorrespondence
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
