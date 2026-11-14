@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.NamedHistoricalForgetful
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalLast_forget
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalTransport_forget
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalStepList_forget
