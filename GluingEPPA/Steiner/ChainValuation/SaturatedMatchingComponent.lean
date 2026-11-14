@@ -79,7 +79,7 @@ theorem MatchingSaturated.component_iff
     LabelReach (fun e => (P e).Rel) M q y ↔ y ∈ W := by
   constructor
   · intro h
-    exact (hsat.reach_mem_iff P M W h).mp hq
+    exact (MatchingSaturated.reach_mem_iff P M W hsat h).mp hq
   · intro hy
     exact hconnected q hq y hy
 
@@ -149,6 +149,8 @@ theorem extend_oldSaturated_component_iff
       M F
       (fun e p r hpr => Or.inl ⟨p, r, hpr, rfl, rfl⟩)
       (hconnected a ha b hb)
-  exact hs.component_iff _ M (F '' W) hc (F q) ⟨q, hq, rfl⟩ v
+  exact MatchingSaturated.component_iff
+    (extend A B C h left right hl hr hsep hshared).matching
+    M (F '' W) hs hc (F q) ⟨q, hq, rfl⟩ v
 
 end GluingEPPA.Steiner.ChainValuation
