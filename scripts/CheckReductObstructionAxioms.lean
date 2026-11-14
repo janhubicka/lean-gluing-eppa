@@ -1,0 +1,10 @@
+import GluingEPPA.Reducts.SemigenericObstruction
+
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.involution_fixes_parts
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.pattern_forces_part_movement
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.no_involution_on_pattern
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.Four.model
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.Four.swap_involutive
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.Four.swap_preserves
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.four_no_involutive_extension
+#print axioms GluingEPPA.Reducts.SemigenericObstruction.four_no_coherent_C2_lift

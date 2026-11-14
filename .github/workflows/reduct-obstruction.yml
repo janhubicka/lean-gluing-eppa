@@ -1,0 +1,75 @@
+name: Reduct obstruction
+
+on:
+  push:
+    branches: [research/semigeneric-involution-obstruction-20261114]
+    paths:
+      - 'GluingEPPA/Reducts/SemigenericObstruction.lean'
+      - '.github/workflows/reduct-obstruction.yml'
+      - 'lean-toolchain'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reduct-obstruction-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lean-core:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+      - name: Cache Lean toolchain
+        uses: actions/cache@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile the concrete obstruction without Mathlib
+        run: |
+          mkdir -p proof-audit
+          git rev-parse HEAD | tee proof-audit/source-sha.txt
+          lean --version | tee proof-audit/lean-version.txt
+          if ! lean GluingEPPA/Reducts/SemigenericObstruction.lean > proof-audit/semigeneric-obstruction.log 2>&1; then
+            cat proof-audit/semigeneric-obstruction.log
+            exit 1
+          fi
+          cat proof-audit/semigeneric-obstruction.log
+      - name: Match all eight declarations and audit dependencies
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          src = Path('GluingEPPA/Reducts/SemigenericObstruction.lean').read_text()
+          code = re.sub(r'/\-.*?\-/', '', src, flags=re.S)
+          log = Path('proof-audit/semigeneric-obstruction.log').read_text()
+          assert not re.search(r'\b(sorry|admit|axiom)\b', code)
+          prefix = 'GluingEPPA.Reducts.SemigenericObstruction.'
+          names = ['involution_fixes_parts', 'pattern_forces_part_movement',
+                   'no_involution_on_pattern', 'Four.model', 'Four.swap_involutive',
+                   'Four.swap_preserves', 'four_no_involutive_extension',
+                   'four_no_coherent_C2_lift']
+          expected = {prefix + n for n in names}
+          found = re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log, re.S)
+          found += [(n, '') for n in re.findall(r"'([^']+)' does not depend on any axioms", log)]
+          assert len(found) == len(expected), (found, expected)
+          assert {n for n, _ in found} == expected, found
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          for name, raw in found:
+              deps = {x.strip() for x in raw.split(',') if x.strip()}
+              assert deps <= allowed, (name, deps)
+          assert 'sorryAx' not in log and 'error:' not in log
+          print('PASS: exact eight-declaration Lean-core audit; standard axioms only')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: semigeneric-obstruction-${{ github.sha }}
+          path: proof-audit/
