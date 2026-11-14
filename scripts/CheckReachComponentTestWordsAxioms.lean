@@ -1,0 +1,3 @@
+import GluingEPPA.Steiner.ChainValuation.ReachComponentTestWords
+
+#print axioms GluingEPPA.Steiner.ChainValuation.componentChart_testWordPerm_val
