@@ -86,24 +86,9 @@ noncomputable def namedHistoryStep
       _ = H.sourceMasks ++ [y.1] := by rw [H.sources]
   · have hfor := namedHistoricalStepList_forget D S old L M
         H.data.chain y hsep H.data.lastInv H.named
-    calc
-      named'.map (fun T => T.toHistorical D S old L) =
-          historicalBlocks_extend
-            (block S old H.data.chain.current.1) (block S old y.1)
-            H.data.chain.state H.data.chain.current.2
-            (left D S old L H.data.chain.current.1 y.1)
-            (right D S old L H.data.chain.current.1 y.1)
-            (left_injective D S old L H.data.chain.current.1 y.1)
-            (right_injective D S old L H.data.chain.current.1 y.1)
-            (step_attachment_disjoint D S old L H.data.chain y hsep)
-            (fun e heA heB =>
-              shared_edge D S old L H.data.chain.current.1 y.1 e heA heB)
-            M.val
-            (step_attachment_compatible D S old L M H.data.chain y H.data.lastInv)
-            (restrictedSubgroup D S old L M y.1)
-            (step_lastMaskCoset D S old L M H.data.chain y hsep H.data.lastInv)
-            (H.named.map (fun T => T.toHistorical D S old L)) := hfor
-      _ = H'.history := by rw [H.forget]; rfl
+    -- Apply the checked named-to-generic chart equality directly;
+    -- the two history lists have dependent carrier types.
+    simpa only [H.forget] using hfor
 
 /-- The source-masked family covers the genuine current quotient
 because its forgetful list is the already proven covered history. -/
