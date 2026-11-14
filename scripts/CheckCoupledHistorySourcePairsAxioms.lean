@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.CoupledHistorySourcePairs
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildTail_sources
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_sourceMasks
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_boundaryPairs

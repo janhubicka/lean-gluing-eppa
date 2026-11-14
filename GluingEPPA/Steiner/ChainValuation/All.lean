@@ -85,6 +85,7 @@ import GluingEPPA.Steiner.ChainValuation.NamedBoundaryMaskAlignment
 import GluingEPPA.Steiner.ChainValuation.CoupledNamedBoundaryStep
 import GluingEPPA.Steiner.ChainValuation.CoupledHistoryFinite
 import GluingEPPA.Steiner.ChainValuation.CoupledHistoryOriginalCorrespondence
+import GluingEPPA.Steiner.ChainValuation.CoupledHistorySourcePairs
 
 /-!
 # Chain valuation proof development
