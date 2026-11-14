@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.CoupledHistoryOriginalCorrespondence
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildTail_boundary_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_boundary_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_original
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_named_original
