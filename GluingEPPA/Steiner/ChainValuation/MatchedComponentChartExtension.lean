@@ -74,7 +74,9 @@ noncomputable def equivFullReachOfCharts
     fun v => ⟨v.val, (hcover v.val).mp v.property⟩
   have hInj : Function.Injective G := by
     intro v w hvw
-    exact Subtype.ext (congrArg Subtype.val hvw)
+    have hval : v.val = w.val :=
+      congrArg (fun t => t.val) hvw
+    exact Subtype.ext hval
   have hSurj : Function.Surjective G := by
     intro v
     refine ⟨⟨v.val, (hcover v.val).mpr v.property⟩, ?_⟩
