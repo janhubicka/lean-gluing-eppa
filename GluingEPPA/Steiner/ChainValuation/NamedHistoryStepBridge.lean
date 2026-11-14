@@ -86,8 +86,15 @@ noncomputable def namedHistoryStep
       _ = H.sourceMasks ++ [y.1] := by rw [H.sources]
   · have hfor := namedHistoricalStepList_forget D S old L M
         H.data.chain y hsep H.data.lastInv H.named
-    -- The original generic historical list is recovered by forgetfulness.
-    simpa only [H.forget] using hfor
+    -- Apply the checked named-to-generic chart equality directly;
+    -- the two history lists have dependent carrier types.
+    -- Expand the dependent history record once, so both sides are
+    -- expressed over the same original LinkChain.step state.
+    change
+      (namedHistoricalStepList D S old L M H.data.chain y hsep
+        H.data.lastInv H.named).map (fun T => T.toHistorical D S old L) =
+        (historyStep D S old L M H.data y hsep).history
+    simpa only [historyStep, H.forget] using hfor
 
 /-- The source-masked family covers the genuine current quotient
 because its forgetful list is the already proven covered history. -/
