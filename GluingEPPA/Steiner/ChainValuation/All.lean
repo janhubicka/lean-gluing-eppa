@@ -101,6 +101,7 @@ import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
 import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockEdges
 import GluingEPPA.Steiner.ChainValuation.MatchedComponentChartEdges
 import GluingEPPA.Steiner.ChainValuation.ReachComponentAction
+import GluingEPPA.Steiner.ChainValuation.ReachComponentWords
 
 /-!
 # Chain valuation proof development
