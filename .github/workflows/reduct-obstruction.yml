@@ -48,8 +48,9 @@ jobs:
           import re
           from pathlib import Path
           src = Path('GluingEPPA/Reducts/SemigenericObstruction.lean').read_text()
+          code = re.sub(r'/\-.*?\-/', '', src, flags=re.S)
           log = Path('proof-audit/semigeneric-obstruction.log').read_text()
-          assert not re.search(r'\b(sorry|admit|axiom)\b', src)
+          assert not re.search(r'\b(sorry|admit|axiom)\b', code)
           prefix = 'GluingEPPA.Reducts.SemigenericObstruction.'
           names = ['involution_fixes_parts', 'pattern_forces_part_movement',
                    'no_involution_on_pattern', 'Four.model', 'Four.swap_involutive',
