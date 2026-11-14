@@ -77,13 +77,11 @@ theorem namedHistory_boundaries_align_masks
     (M : Proper S) (atoms : List (Atom S old))
     (hne : atoms ≠ [])
     (hsep : separatedList D S old L atoms) :
-    (boundaryHistoryBuildNonempty D S old L M atoms hne hsep).
-        boundaries.map (fun T => (T.leftMask, T.rightMask)) =
+    (boundaryHistoryBuildNonempty D S old L M atoms hne hsep).boundaries.map (fun T => (T.leftMask, T.rightMask)) =
       adjacentMaskPairs S
         (namedHistoryBuildNonempty D S old L M atoms hne hsep).sourceMasks := by
   calc
-    (boundaryHistoryBuildNonempty D S old L M atoms hne hsep).
-        boundaries.map (fun T => (T.leftMask, T.rightMask)) =
+    (boundaryHistoryBuildNonempty D S old L M atoms hne hsep).boundaries.map (fun T => (T.leftMask, T.rightMask)) =
         consecutiveSourceMaskPairs S old atoms :=
       boundaryHistoryBuildNonempty_sourcePairs D S old L M atoms hne hsep
     _ = adjacentMaskPairs S
