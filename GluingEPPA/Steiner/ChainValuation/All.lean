@@ -80,6 +80,7 @@ import GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence
 
 import GluingEPPA.Steiner.ChainValuation.NamedHistoricalForgetful
 import GluingEPPA.Steiner.ChainValuation.NamedHistoryStepBridge
+import GluingEPPA.Steiner.ChainValuation.NamedHistoryFinite
 
 /-!
 # Chain valuation proof development
