@@ -99,6 +99,7 @@ import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockComponent
 import GluingEPPA.Steiner.ChainValuation.PushoutChartEdgeEquiv
 import GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges
 import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockEdges
+import GluingEPPA.Steiner.ChainValuation.MatchedComponentChartEdges
 
 /-!
 # Chain valuation proof development
