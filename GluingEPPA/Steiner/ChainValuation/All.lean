@@ -39,6 +39,7 @@ import GluingEPPA.Steiner.ChainValuation.MatchedComponentPushout
 import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentPushout
 import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentCharts
 import GluingEPPA.Steiner.ChainValuation.SaturatedMatchingComponent
+import GluingEPPA.Steiner.ChainValuation.NormalizedProperMaskReindex
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
