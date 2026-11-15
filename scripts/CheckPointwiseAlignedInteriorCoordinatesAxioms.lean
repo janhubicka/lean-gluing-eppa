@@ -1,0 +1,8 @@
+import GluingEPPA.Steiner.ChainValuation.PointwiseAlignedInteriorCoordinates
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.leftNamedCoordinate
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.rightNamedCoordinate
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.leftCoordinate_image
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.rightCoordinate_image
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedChart_apply_cast_of_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.adjacent_exact_coordinate_shift
