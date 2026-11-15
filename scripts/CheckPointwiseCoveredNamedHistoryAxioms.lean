@@ -1,0 +1,7 @@
+import GluingEPPA.Steiner.ChainValuation.PointwiseCoveredNamedHistory
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.AllPointwise
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedStep_allPointwise
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.pointwiseCoveredNamedBuildNonempty
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.pointwiseCoveredNamedBuildNonempty_data_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_allPointwise
