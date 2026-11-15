@@ -1,0 +1,10 @@
+import GluingEPPA.Reducts.MultipartitePartialLifts
+
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.prescribed_defect
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.shifts_pair
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.extension
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.extension_part
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.extension_reading
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.extension_color
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.extension_agrees
+#print axioms GluingEPPA.Reducts.MultipartitePartialLifts.finite_ordinary_witness
