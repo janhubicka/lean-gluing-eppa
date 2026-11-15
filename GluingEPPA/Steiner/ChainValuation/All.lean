@@ -54,6 +54,7 @@ import GluingEPPA.Steiner.ChainValuation.NamedHistoryConsecutiveSupport
 import GluingEPPA.Steiner.ChainValuation.NamedHistoryActiveInterval
 import GluingEPPA.Steiner.ChainValuation.CoveredNamedAlignedHistory
 import GluingEPPA.Steiner.ChainValuation.LinkedCoveredNamedHistory
+import GluingEPPA.Steiner.ChainValuation.PointwiseCoveredNamedHistory
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
