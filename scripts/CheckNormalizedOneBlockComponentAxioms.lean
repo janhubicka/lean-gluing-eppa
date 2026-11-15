@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.NormalizedOneBlockComponent
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedOneBlock_equiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedOneBlock_equiv_val
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedOneBlock_edge_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedOneBlock_word_val
