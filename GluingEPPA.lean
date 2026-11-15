@@ -9,7 +9,7 @@ import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.CoherentDomainAssembly
-import GluingEPPA.Reducts.MultipartiteLocalWitness
+import GluingEPPA.Reducts.MultipartiteWitnessScope
 
 /-!
 # The Gluing EPPA library

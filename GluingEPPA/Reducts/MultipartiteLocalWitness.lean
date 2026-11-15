@@ -24,11 +24,9 @@ def decode (o : A → I) (w : Base A I) : Option A :=
   if h : ∃ a, inputEmbedding o a = w then some (Classical.choose h) else none
 
 theorem decode_input (o : A → I) (a : A) : decode o (inputEmbedding o a) = some a := by
-  unfold decode
-  rw [dif_pos (show ∃ x, inputEmbedding o x = inputEmbedding o a from ⟨a, rfl⟩)]
-  congr 1
-  apply (inputEmbedding o).injective
-  exact Classical.choose_spec _
+  have hw : ∃ x, inputEmbedding o x = inputEmbedding o a := ⟨a, rfl⟩
+  rw [decode, dif_pos hw]
+  exact congrArg some ((inputEmbedding o).injective (Classical.choose_spec hw))
 
 theorem decode_sound (o : A → I) (w : Base A I) (a : A) (h : decode o w = some a) :
     inputEmbedding o a = w := by
@@ -60,7 +58,7 @@ theorem initialTable_reverse (S : Input A I) (x y : Base A I) (h : x.1 ≠ y.1) 
     | some b =>
       have ha := decode_sound S.owner x a hx
       have hb := decode_sound S.owner y b hy
-      have hab : S.owner a ≠ S.owner b := by simpa only [← ha, ← hb] using h
+      have hab : S.owner a ≠ S.owner b := by simpa [← ha, ← hb, inputEmbedding] using h
       simpa only [initialTable, hx, hy] using S.reverse a b hab
 
 def rows (S : Input A I) : Base A I → Base A I → Bool :=

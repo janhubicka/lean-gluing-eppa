@@ -1,0 +1,6 @@
+import GluingEPPA.Reducts.MultipartiteWitnessScope
+
+#print axioms GluingEPPA.Reducts.MultipartiteWitnessScope.same_part_iff
+#print axioms GluingEPPA.Reducts.MultipartiteWitnessScope.localAutOfColor
+#print axioms GluingEPPA.Reducts.MultipartiteWitnessScope.witness_owner_surjective
+#print axioms GluingEPPA.Reducts.MultipartiteWitnessScope.witness_card
