@@ -10,7 +10,7 @@ import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.MultipartiteCoherentEPPA
 import GluingEPPA.Reducts.AnchorMultipartiteTransfer
-import GluingEPPA.Reducts.AnchorFamily
+import GluingEPPA.Reducts.AnchorGeneralTheorem
 
-/-! The public umbrella imports terminal local modules. The complete closure
-and absence of redundant umbrella imports are audited in CI. -/
+/-! Public imports cover the existing results and the general anchor/pullback
+transfer. No geometric existence proof is replaced by the transfer theorem. -/
