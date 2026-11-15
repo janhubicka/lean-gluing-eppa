@@ -69,9 +69,14 @@ theorem AlignedNamedBoundary.adjacent_unique_interior_shift
           P.rightNamed.source Finset.inter_subset_right).incl shift = y := by
   obtain ⟨x, hx⟩ :=
     (P.interface_has_named_endpoints D S old L k).2
-  obtain ⟨y, hy⟩ :=
-    (Q.interface_has_named_endpoints D S old L l).1
-  rw [← hMiddle] at hy
+  -- Transport the existential middle-coordinate statement first:
+  -- rewriting after choosing y would give a dependent-carrier mismatch.
+  have hRight : ∃ y : (old P.rightNamed.source).Carrier,
+      P.rightNamed.chart.embed y =
+        Q.boundary.interfaceMap D S old L l := by
+    rw [hMiddle]
+    exact (Q.interface_has_named_endpoints D S old L l).1
+  obtain ⟨y, hy⟩ := hRight
   have hxReach : LabelReach
       (fun e => (R.state.matching e).Rel) M.val
       q (P.rightNamed.chart.embed x) := by
