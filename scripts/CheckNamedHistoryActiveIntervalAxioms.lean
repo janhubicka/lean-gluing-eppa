@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.NamedHistoryActiveInterval
+
+#print axioms GluingEPPA.Steiner.ChainValuation.list_active_interval_of_consecutive_map
+#print axioms GluingEPPA.Steiner.ChainValuation.historicalSupport_has_active_of_cover
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_active_interval
