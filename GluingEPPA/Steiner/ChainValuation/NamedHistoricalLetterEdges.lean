@@ -52,10 +52,14 @@ theorem namedHistoricalLast_hasGenuineLetterEdges
     (hcoset : LastMaskCoset D S old L M R) :
     (namedHistoricalLast D S old L M R hcoset).HasGenuineLetterEdges
       D S old L := by
+  -- Reduce the *dependent* source name before introducing x: otherwise
+  -- x and the current-block generator elaborate at different carrier types.
+  change ∀ (e : E), e ∈ R.current.1.val →
+    ∀ x : (old R.current.1).Carrier,
+      (R.state.matching e).Rel
+        (R.state.lastEmbed x)
+        (R.state.lastEmbed (x * (old R.current.1).edge e))
   intro e he x
-  change (R.state.matching e).Rel
-    (R.state.lastEmbed x)
-    (R.state.lastEmbed (x * (block S old R.current.1).edge e))
   exact R.state.last_active e he x
 
 /-- Subsequent literal LinkChain steps do not destroy an active
@@ -73,6 +77,32 @@ theorem namedHistoricalTransport_hasGenuineLetterEdges
     (hT : T.HasGenuineLetterEdges D S old L) :
     (namedHistoricalTransport D S old L M R y hsep hcoset T).HasGenuineLetterEdges
       D S old L := by
+  -- The transported chart's source is definitionally T.source.
+  -- Establish that equality in the goal before elaborating its
+  -- source-generator multiplication.
+  change ∀ (e : E), e ∈ T.source.val →
+    ∀ x : (old T.source).Carrier,
+      extendedEdgeRel
+        (block S old R.current.1) (block S old y.1)
+        R.state R.current.2
+        (left D S old L R.current.1 y.1)
+        (right D S old L R.current.1 y.1)
+        (left_injective D S old L R.current.1 y.1)
+        (right_injective D S old L R.current.1 y.1) e
+        (oldEmbed (block S old R.current.1) (block S old y.1)
+          R.state R.current.2
+          (left D S old L R.current.1 y.1)
+          (right D S old L R.current.1 y.1)
+          (left_injective D S old L R.current.1 y.1)
+          (right_injective D S old L R.current.1 y.1)
+          (T.chart.embed x))
+        (oldEmbed (block S old R.current.1) (block S old y.1)
+          R.state R.current.2
+          (left D S old L R.current.1 y.1)
+          (right D S old L R.current.1 y.1)
+          (left_injective D S old L R.current.1 y.1)
+          (right_injective D S old L R.current.1 y.1)
+          (T.chart.embed (x * (old T.source).edge e)))
   intro e he x
   let A := block S old R.current.1
   let B := block S old y.1
