@@ -52,6 +52,7 @@ import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryFinite
 import GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryHistory
 import GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryFinite
 import GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryPairs
+import GluingEPPA.Steiner.ChainValuation.FiniteAlignedInteriorShift
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
