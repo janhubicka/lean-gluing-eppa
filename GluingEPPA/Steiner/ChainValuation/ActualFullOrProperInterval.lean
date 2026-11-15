@@ -133,7 +133,7 @@ theorem coveredBuildNonempty_full_or_proper_interval_with_interfaces
       have hTnamed : T ∈ H.named.named := by
         rw [hdecomp]
         exact List.mem_append.mpr
-          (Or.inr (List.mem_append.mpr (Or.inl hT)))
+          (Or.inl (List.mem_append.mpr (Or.inr hT)))
       exact hproper T hTnamed (hactive T hT)
     exact ⟨front, active, back, hdecomp, hne,
       hmask, hactive, choices, hlength⟩
