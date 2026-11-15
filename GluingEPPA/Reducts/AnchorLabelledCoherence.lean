@@ -59,7 +59,7 @@ theorem empty_comp : relComp (emptyRel A) (emptyRel A) = emptyRel A := by
   simp [relComp,emptyRel]
 
 variable {e : A ↪ V} {L : Rel A → Prop} {H : Subgroup (Equiv.Perm V)}
-variable (S : System e L (fun h => h ∈ H) Z J)
+variable (S : System e L (fun h => h ∈ H) Z J) [Nonempty V]
 
 /-- Precisely the coherent extension data on the augmented set. All laws
 concern incoming permutations of Z, not the desired extracted projection. -/
@@ -74,6 +74,14 @@ structure CoherentRaw where
     extend (partialId D) hr = 1
   composition : ∀ r s hr hs (hc : Allowed e L (fun h => h ∈ H) (relComp r s)),
     Matching r s → extend (relComp r s) hc = extend s hs * extend r hr
+
+/-- Changing the graph transports only a proof-valued admissibility witness. -/
+theorem CoherentRaw.extend_congr (R : CoherentRaw S)
+    {r s : Rel (Sum A V)} (hr : Allowed e L (fun h => h ∈ H) r)
+    (hs : Allowed e L (fun h => h ∈ H) s) (heq : r = s) :
+    R.extend r hr = R.extend s hs := by
+  cases heq
+  rfl
 
 def CoherentRaw.ordinary (R : CoherentRaw S) : RawData S where
   realizes := R.realizes
@@ -96,6 +104,12 @@ def labelledLift (R : CoherentRaw S) (f : Rel A) (hf : L f) (h : H)
     (hc : Compatible e f h.val) : RealGroup S :=
   ⟨realHom S (stabilizerOfSymmetry S (liftedSymmetry S R f hf h hc)),
     ⟨stabilizerOfSymmetry S (liftedSymmetry S R f hf h hc),rfl⟩⟩
+
+theorem labelledLift_label_congr (R : CoherentRaw S) (f : Rel A) (hf : L f)
+    (h k : H) (hc : Compatible e f h.val) (kc : Compatible e f k.val) (heq : h = k) :
+    labelledLift S R f hf h hc = labelledLift S R f hf k kc := by
+  cases heq
+  rfl
 
 theorem labelledLift_perm (R : CoherentRaw S) (f : Rel A) (hf : L f) (h : H)
     (hc : Compatible e f h.val) :
@@ -129,9 +143,10 @@ theorem labelledLift_identity (R : CoherentRaw S) (D : A → Prop) (hf : L (part
         (partialId (fun x : Sum A V => match x with | .inl a => D a | .inr _ => True)) := by
       rw [← decorated_identity D]
       exact labelledAllowed _ hf 1 (identityCompatible D)
-    simpa only [decorated_identity] using R.identity _ ha
+    exact (R.extend_congr _ ha (decorated_identity D)).trans (R.identity _ ha)
   apply Subtype.ext
-  ext y
+  apply Equiv.ext
+  intro y
   apply Subtype.ext
   rw [labelledLift_value S R (partialId D) hf 1 (identityCompatible D),hi]
   rfl
@@ -144,27 +159,29 @@ theorem labelledLift_comp (R : CoherentRaw S) (f g : Rel A)
   have ha : Allowed e L (fun h => h ∈ H) (relComp (decorated f h.val) (decorated g k.val)) := by
     rw [decorated_comp]
     exact labelledAllowed _ hfg (k*h) (compatible_comp e f g h.val k.val hc kc)
-  have hp := R.composition (decorated f h.val) (decorated g k.val)
+  have hp0 := R.composition (decorated f h.val) (decorated g k.val)
     (labelledAllowed f hf h hc) (labelledAllowed g hg k kc) ha (decorated_matching f g h.val k.val hm)
-  rw [decorated_comp] at hp
+  have hp := (R.extend_congr ha
+    (labelledAllowed (relComp f g) hfg (k*h) (compatible_comp e f g h.val k.val hc kc))
+    (decorated_comp f g h.val k.val)).symm.trans hp0
   apply Subtype.ext
-  ext y
+  apply Equiv.ext
+  intro y
   apply Subtype.ext
   change ((labelledLift S R (relComp f g) hfg (k*h) _).val y).val =
     ((labelledLift S R g hg k kc).val ((labelledLift S R f hf h hc).val y)).val
   rw [labelledLift_value, labelledLift_value, labelledLift_value]
   exact congrArg (fun p : Equiv.Perm Z => p y.val) hp
 
-variable [Nonempty V]
 def ambientDescent (hs : Function.Surjective (projection S)) : RealGroup S →* H where
   toFun g := ⟨(descent S hs g).val,anchor_range_allowed S (descent S hs g)⟩
   map_one' := by
     apply Subtype.ext
-    exact congrArg Subtype.val (descent S hs).map_one
+    exact congrArg (fun q : (anchorHom S).range => q.val) (descent S hs).map_one
   map_mul' := by
     intro g f
     apply Subtype.ext
-    exact congrArg Subtype.val ((descent S hs).map_mul g f)
+    exact congrArg (fun q : (anchorHom S).range => q.val) ((descent S hs).map_mul g f)
 
 theorem ambientDescent_equivariant (hs : Function.Surjective (projection S))
     (g : RealGroup S) (y : Real S) :

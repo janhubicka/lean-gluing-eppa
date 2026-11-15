@@ -18,6 +18,18 @@ def pullbackInput {Y : Type u} (T : Input V I) (p : Y → V) : Input Y I where
   within x y h := T.within (p x) (p y) h
   reverse x y h := T.reverse (p x) (p y) h
 
+/-- This basic relation fact does not require a finite carrier or named parts. -/
+theorem part_iff_nonadjacent {X I : Type u} (T : Input X I) (x y : X) :
+    T.owner x = T.owner y ↔ T.color x y = false ∧ T.color y x = false := by
+  constructor
+  · intro h
+    exact ⟨T.within x y h,T.within y x h.symm⟩
+  · intro h
+    by_contra hn
+    have hr := T.reverse x y hn
+    rw [h.1,h.2] at hr
+    cases hr
+
 noncomputable section
 variable {e : A ↪ V} {L : Rel A → Prop} {H : Equiv.Perm V → Prop}
 variable (S : System e L H Z J) [Nonempty V]
@@ -38,7 +50,7 @@ theorem extracted_copy_part (T : Input V I) (B : Input A K)
     (j : J) (hj : retained S j) (a b : A) :
     (extractedInput S T).owner (chart S j hj a) = (extractedInput S T).owner (chart S j hj b) ↔
       B.owner a = B.owner b := by
-  rw [same_part_iff,same_part_iff,extracted_copy_color S T B he hH j hj a b,
+  rw [part_iff_nonadjacent,part_iff_nonadjacent,extracted_copy_color S T B he hH j hj a b,
     extracted_copy_color S T B he hH j hj b a]
 
 theorem extracted_action_color (T : Input V I)
@@ -54,7 +66,7 @@ theorem extracted_action_part (T : Input V I)
     (g : (realHom S).range) (x y : Real S) :
     (extractedInput S T).owner (g.val x) = (extractedInput S T).owner (g.val y) ↔
       (extractedInput S T).owner x = (extractedInput S T).owner y := by
-  rw [same_part_iff,same_part_iff,extracted_action_color S T hH g x y,
+  rw [part_iff_nonadjacent,part_iff_nonadjacent,extracted_action_color S T hH g x y,
     extracted_action_color S T hH g y x]
 
 theorem extracted_parts_surjective (T : Input V I)

@@ -10,6 +10,6 @@ import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.MultipartiteCoherentEPPA
 import GluingEPPA.Reducts.AnchorMultipartiteTransfer
-import GluingEPPA.Reducts.AnchorLabelledCoherence
+import GluingEPPA.Reducts.AnchorUniformTheorem
 
-/-! Existing proof coverage and the general labelled/structural refinement. -/
+/-! Existing proof coverage and the uniform labelled/structural refinement. -/
