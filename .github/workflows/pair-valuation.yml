@@ -6,6 +6,7 @@ on:
       - 'GluingEPPA/Reducts/**'
       - 'scripts/CheckPairValuationAxioms.lean'
       - 'scripts/CheckMultipartitePreparationAxioms.lean'
+      - 'scripts/CheckFixedCarrierAssemblyAxioms.lean'
       - '.github/workflows/pair-valuation.yml'
       - 'lean-toolchain'
   workflow_dispatch:
@@ -33,13 +34,13 @@ jobs:
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Compile concrete replication and valuation maps
+      - name: Compile concrete replication, transport and valuation maps
         run: |
           mkdir -p proof-audit
           git rev-parse HEAD | tee proof-audit/source-sha.txt
           lean --version | tee proof-audit/lean-version.txt
           export LEAN_PATH="$PWD"
-          for module in PairValuationConjugation PairRowCompletion MultipartiteReplication; do
+          for module in PairValuationConjugation PairRowCompletion MultipartiteReplication FixedCarrierTransport CoherentDomainAssembly; do
             path="GluingEPPA/Reducts/$module"
             if ! lean -o "$path.olean" "$path.lean" > "proof-audit/$module.log" 2>&1; then
               cat "proof-audit/$module.log"
@@ -47,7 +48,7 @@ jobs:
             fi
             cat "proof-audit/$module.log"
           done
-          for manifest in CheckPairValuationAxioms CheckMultipartitePreparationAxioms; do
+          for manifest in CheckPairValuationAxioms CheckMultipartitePreparationAxioms CheckFixedCarrierAssemblyAxioms; do
             lean "scripts/$manifest.lean" > "proof-audit/$manifest.log" 2>&1 || { cat "proof-audit/$manifest.log"; exit 1; }
             python3 scripts/check-axiom-log.py "proof-audit/$manifest.log" "scripts/$manifest.lean"
           done
@@ -56,12 +57,12 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import re
-          for name in ('PairValuationConjugation', 'PairRowCompletion', 'MultipartiteReplication'):
+          for name in ('PairValuationConjugation', 'PairRowCompletion', 'MultipartiteReplication', 'FixedCarrierTransport', 'CoherentDomainAssembly'):
               source = Path(f'GluingEPPA/Reducts/{name}.lean').read_text()
               code = re.sub(r'/\-.*?\-/', '', source, flags=re.S)
               code = re.sub(r'--[^\n]*', '', code)
               assert not re.search(r'\b(sorry|admit|axiom|native_decide|unsafe)\b', code), name
-          print('PASS: concrete replication and row completion; common finite atlas and full EPPA not claimed')
+          print('PASS: local preparation, transport and conditional domain assembly; full finite EPPA not claimed')
           PY
       - uses: actions/upload-artifact@v4
         if: always()
