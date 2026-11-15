@@ -1,0 +1,8 @@
+import GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryFinite
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedBoundaryList.Linked
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryList_transport_linked
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryList_append
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.linkedAlignedStep
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.linkedAlignedBuildNonempty_data_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_linked_named_boundaries
