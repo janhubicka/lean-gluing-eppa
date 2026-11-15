@@ -31,7 +31,7 @@ def inputIndex : A ↪ Fin (padding A) where
     intro a b h
     apply (Fintype.equivFin A).injective
     apply Fin.ext
-    exact congrArg Fin.val h
+    exact congrArg (fun z : Fin (padding A) => z.val) h
 
 def inputEmbedding (o : A → I) : A ↪ Base A I where
   toFun a := (o a, inputIndex a)
@@ -69,7 +69,7 @@ theorem exists_part_atlas (o : A → I) (D : Set A) (i : I) (hi : occupied o D i
     ∃ e : (Trace o D i × Fin (layers o D i)) ≃ Fin (padding A),
       ∀ d, e (d, ⟨0, layers_pos o D i hi⟩) = inputIndex d.val.val := by
   apply replica_atlas (traceIndex o D i) (layers o D i) (layers_pos o D i hi)
-  simpa only [Fintype.card_fin] using Nat.mul_div_cancel' (trace_card_dvd o D i hi)
+  simpa only [Fintype.card_fin, layers] using Nat.mul_div_cancel' (trace_card_dvd o D i hi)
 
 def partAtlas (o : A → I) (D : Set A) (i : I) (hi : occupied o D i) :
     (Trace o D i × Fin (layers o D i)) ≃ Fin (padding A) :=
