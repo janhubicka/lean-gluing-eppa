@@ -1,0 +1,8 @@
+import GluingEPPA.Reducts.MultipartiteFiniteAtlas
+
+#print axioms GluingEPPA.Reducts.MultipartiteFiniteAtlas.equiv_extending_embeddings
+#print axioms GluingEPPA.Reducts.MultipartiteFiniteAtlas.replica_atlas
+#print axioms GluingEPPA.Reducts.MultipartiteFiniteAtlas.replica_atlas_of_dvd
+#print axioms GluingEPPA.Reducts.MultipartiteFiniteAtlas.copiesEquivSigma
+#print axioms GluingEPPA.Reducts.MultipartiteFiniteAtlas.copies_card
+#print axioms GluingEPPA.Reducts.MultipartiteFiniteAtlas.finite_replication

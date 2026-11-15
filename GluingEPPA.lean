@@ -9,7 +9,7 @@ import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.PairRowCompletion
-import GluingEPPA.Reducts.MultipartiteReplication
+import GluingEPPA.Reducts.MultipartiteFiniteAtlas
 
 /-!
 # The Gluing EPPA library
