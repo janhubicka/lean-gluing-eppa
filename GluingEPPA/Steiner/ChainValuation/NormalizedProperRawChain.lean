@@ -35,27 +35,28 @@ variable (L : ∀ m t : Proper S, m.val ⊆ t.val →
 /-- One original historical source mask, certified to give a
 proper submask of M, together with its genuine normalized
 outgoing parameter in the existing older group K_(M intersection A). -/
-abbrev NormalizedProperSource (M : Proper S) :=
-  Σ A : Proper S,
-    (¬ M.val ⊆ A.val) × (old (Step.meet S M A)).Carrier
+structure NormalizedProperSource (M : Proper S) where
+  mask : Proper S
+  proper : ¬ M.val ⊆ mask.val
+  shift : (old (Step.meet S M mask)).Carrier
 
 /-- Convert exactly those original data into an actual atom
 for the smaller-alphabet chain constructor. -/
 def normalizedProperAtom
     (M : Proper S) (a : NormalizedProperSource S old M) :
     ChainValuation.ChainAtom M.val (smallerOld S old M) :=
-  ⟨normalizedProperMask S M a.1 a.2.1, a.2.2⟩
+  ⟨normalizedProperMask S M a.mask a.proper, a.shift⟩
 
 @[simp] theorem normalizedProperAtom_mask
     (M : Proper S) (a : NormalizedProperSource S old M) :
     (normalizedProperAtom S old M a).1.val =
-      M.val ∩ a.1.val := rfl
+      M.val ∩ a.mask.val := rfl
 
 /-- The converted atom carries the actual group element of the
 same original earlier-stage group, not a chosen isomorphic value. -/
 theorem normalizedProperAtom_value
     (M : Proper S) (a : NormalizedProperSource S old M) :
-    (normalizedProperAtom S old M a).2 = a.2.2 := rfl
+    (normalizedProperAtom S old M a).2 = a.shift := rfl
 
 /-- A finite original interval, after supplying one normalized
 parameter in each earlier source group, becomes a literal bounded
@@ -86,7 +87,7 @@ theorem normalizedProperRawChain_mask
     (a : Fin r.val → NormalizedProperSource S old M)
     (i : Fin r.val) :
     ((normalizedProperRawChain S old M N r a).2 i).1.val =
-      M.val ∩ (a i).1.val := rfl
+      M.val ∩ (a i).mask.val := rfl
 
 end LinkChain
 end RecursiveRecord
