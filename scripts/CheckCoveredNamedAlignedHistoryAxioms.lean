@@ -1,0 +1,8 @@
+import GluingEPPA.Steiner.ChainValuation.CoveredNamedAlignedHistory
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedInitial
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedStep
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_named_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_sameBlocks
