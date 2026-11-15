@@ -1,0 +1,6 @@
+import GluingEPPA.Reducts.AnchorExistenceReduction
+
+#print axioms GluingEPPA.Reducts.AnchorExistenceReduction.decorated_closed
+#print axioms GluingEPPA.Reducts.AnchorExistenceReduction.asAnchor
+#print axioms GluingEPPA.Reducts.AnchorExistenceReduction.asCoherentRaw
+#print axioms GluingEPPA.Reducts.AnchorExistenceReduction.general_theorem_from_set_realization

@@ -76,6 +76,7 @@ structure CoherentRaw where
     Matching r s → extend (relComp r s) hc = extend s hs * extend r hr
 
 /-- Changing the graph transports only a proof-valued admissibility witness. -/
+variable {S} in
 theorem CoherentRaw.extend_congr (R : CoherentRaw S)
     {r s : Rel (Sum A V)} (hr : Allowed e L (fun h => h ∈ H) r)
     (hs : Allowed e L (fun h => h ∈ H) s) (heq : r = s) :
@@ -83,6 +84,7 @@ theorem CoherentRaw.extend_congr (R : CoherentRaw S)
   cases heq
   rfl
 
+variable {S} in
 def CoherentRaw.ordinary (R : CoherentRaw S) : RawData S where
   realizes := R.realizes
   extensions := fun r hr => ⟨R.extend r hr,R.copies r hr,R.agrees r hr⟩
