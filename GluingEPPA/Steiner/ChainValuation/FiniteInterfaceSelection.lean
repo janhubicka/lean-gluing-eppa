@@ -71,9 +71,14 @@ noncomputable def AlignedNamedBoundary.chooseInterface
     (q : R.state.Space)
     (h : P.BothSidesActive D S old L q) :
     P.InterfaceChoice D S old L q := by
-  obtain ⟨k, hk⟩ :=
+  -- Eliminating an existential proof directly into this Type-valued
+  -- certificate is not permitted; use finite classical choice.
+  have hex : ∃ k : (old (common S P.boundary.leftMask
+      P.boundary.rightMask)).Carrier,
+      LabelReach (fun e => (R.state.matching e).Rel) M.val
+        q (P.boundary.interfaceMap D S old L k) :=
     (P.meets_interface_iff_named D S old L q).mpr h
-  exact ⟨k, hk⟩
+  exact ⟨Classical.choose hex, Classical.choose_spec hex⟩
 
 /-- A list of selected true historical interfaces, in its original
 order and with repetition retained, whose both named source blocks
@@ -109,7 +114,7 @@ theorem ActiveBoundarySelection.chosenInterfaces_length
     {M : Proper S} {H : AlignedNamedHistory D S old L M}
     {q : H.boundaryHistory.chain.state.Space}
     (B : ActiveBoundarySelection D S old L M H q) :
-    B.chosenInterfaces D S old L |>.length = B.boundaries.length := by
+    (B.chosenInterfaces D S old L).length = B.boundaries.length := by
   simp [ActiveBoundarySelection.chosenInterfaces]
 
 end LinkChain
