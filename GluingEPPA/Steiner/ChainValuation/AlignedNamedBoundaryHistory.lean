@@ -137,7 +137,7 @@ noncomputable def alignedNamedStep
       B.transport D S old L y hsep hcoset) ++
       [historicalLinkBoundary_step D S old L M R y hsep hcoset]
   rw [← H.forget]
-  rfl
+  simp only [List.map_map]
 
 end LinkChain
 end RecursiveRecord
