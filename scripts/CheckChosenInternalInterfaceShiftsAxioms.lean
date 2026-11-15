@@ -1,0 +1,7 @@
+import GluingEPPA.Steiner.ChainValuation.ChosenInternalInterfaceShifts
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryLinked_drop
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryLinked_take
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.internal_boundaries_linked
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.internal_pair_unique_shift
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_internal_pair_unique_shift
