@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.BoundedActiveIntervalLength
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedBuildNonempty_block_count
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedBuildNonempty_active_length_le
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedBuildNonempty_active_ChainLength
