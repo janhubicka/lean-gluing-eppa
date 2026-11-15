@@ -41,12 +41,12 @@ jobs:
           export PATH="$HOME/.elan/bin:$PATH"
           test -s lake-manifest.json || lake update
           lake exe cache get
-      - name: Build anchor extraction and action
+      - name: Build anchor extraction, descent and transfer
         run: |
           mkdir -p anchor-audit
           git rev-parse HEAD > anchor-audit/source-sha.txt
           lean --version > anchor-audit/lean-version.txt
-          lake build GluingEPPA.Reducts.AnchorActions GluingEPPA.Reducts.AnchorFamily > anchor-audit/build.log 2>&1 || { cat anchor-audit/build.log; exit 1; }
+          lake build GluingEPPA.Reducts.AnchorMultipartiteTransfer GluingEPPA.Reducts.AnchorFamily > anchor-audit/build.log 2>&1 || { cat anchor-audit/build.log; exit 1; }
           for manifest in scripts/CheckAnchor*Axioms.lean; do
             log="anchor-audit/$(basename "$manifest" .lean).log"
             lake env lean "$manifest" > "$log" 2>&1 || { cat "$log"; exit 1; }

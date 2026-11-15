@@ -33,7 +33,7 @@ structure System (e : A ↪ V) (L : Rel A → Prop) (H : Equiv.Perm V → Prop)
     (Z J : Type u) where
   copy : J → (Sum A V ↪ Z)
   root : J
-  exact : ∀ j k, Allowed e L H (fun x y => copy j x = copy k y)
+  overlap_allowed : ∀ j k, Allowed e L H (fun x y => copy j x = copy k y)
 
 variable {e : A ↪ V} {L : Rel A → Prop} {H : Equiv.Perm V → Prop}
 variable (S : System e L H Z J)
@@ -53,7 +53,7 @@ theorem meeting_decorated (j k : J) (x y : Sum A V)
     (hxy : S.copy j x = S.copy k y) :
     ∃ f, L f ∧ ∃ h, H h ∧ Compatible e f h ∧
       (∀ s t, S.copy j s = S.copy k t ↔ decorated f h s t) := by
-  rcases S.exact j k with hz | ⟨f, hf, h, hh, hc, he⟩
+  rcases S.overlap_allowed j k with hz | ⟨f, hf, h, hh, hc, he⟩
   · have hempty := congrFun (congrFun hz x) y
     exact False.elim (hempty.mp hxy)
   · exact ⟨f, hf, h, hh, hc, fun s t => (congrFun (congrFun he s) t).to_iff⟩
@@ -166,6 +166,29 @@ theorem nonempty_trace_preserved (X : S.Real → Prop) (j : J)
   obtain ⟨y,hy,x,hx⟩ := hne
   have hj := S.chart_meeting_carrier_retained j x y hx
   exact ⟨hj, fun z => and_congr_right (fun _ => S.trace_restriction j hj z)⟩
+
+/-- Equality of complete nonempty trace families, including repeated copy
+parametrizations. No local bound is consumed in extracting the anchor. -/
+theorem trace_family_equivalence (X T : S.Real → Prop) (hne : ∃ y, T y) :
+    (∃ j, ∀ y : S.Real, T y ↔ X y ∧ ∃ x : Sum A V, S.copy j x = y.val) ↔
+    (∃ j, ∃ hj : S.retained j, ∀ y : S.Real, T y ↔ X y ∧ ∃ a : A, S.copy j (.inl a) = y.val) := by
+  constructor
+  · rintro ⟨j,hj⟩
+    obtain ⟨y,hy⟩ := hne
+    have ht : ∃ z : S.Real, X z ∧ ∃ x, S.copy j x = z.val := ⟨y,(hj y).1 hy⟩
+    obtain ⟨hr,htr⟩ := S.nonempty_trace_preserved X j ht
+    exact ⟨j,hr,fun z => (hj z).trans (htr z)⟩
+  · rintro ⟨j,hr,hj⟩
+    exact ⟨j,fun z => (hj z).trans (and_congr_right (fun _ => (S.trace_restriction j hr z).symm))⟩
+
+theorem projection_unique (p : S.Real → V)
+    (hp : ∀ j (hj : S.retained j) a,
+      S.copy S.root (.inr (p (S.chart j hj a))) = S.copy j (.inr (e a))) : p = S.projection := by
+  funext y
+  obtain ⟨⟨j,a⟩,hj,ha⟩ := y.property
+  have hy : S.chart j hj a = y := Subtype.ext ha
+  rw [← hy]
+  exact Sum.inr.inj ((S.copy S.root).injective ((hp j hj a).trans (S.projection_anchor j hj a).symm))
 
 variable [Nonempty V]
 

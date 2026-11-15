@@ -9,7 +9,7 @@ import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.MultipartiteCoherentEPPA
-import GluingEPPA.Reducts.AnchorActions
+import GluingEPPA.Reducts.AnchorMultipartiteTransfer
 import GluingEPPA.Reducts.AnchorFamily
 
 /-! The public umbrella imports terminal local modules. The complete closure

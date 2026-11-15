@@ -1,0 +1,18 @@
+import GluingEPPA.Reducts.AnchorMultipartiteTransfer
+
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.realHom
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.anchorHom
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.descent
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.descent_surjective
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.anchor_range_allowed
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.ambient_in_anchor_range
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.real_group_extends
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.retained_transporter
+#print axioms GluingEPPA.Reducts.AnchorGroupDescent.restriction_preserves_composition
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.pullbackInput
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.extracted_copy_color
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.extracted_copy_part
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.extracted_action_color
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.extracted_action_part
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.extracted_parts_surjective
+#print axioms GluingEPPA.Reducts.AnchorMultipartiteTransfer.ordered_palette_pullback
