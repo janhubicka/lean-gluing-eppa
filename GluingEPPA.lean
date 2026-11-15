@@ -8,7 +8,8 @@ import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
-import GluingEPPA.Reducts.PairValuationConjugation
+import GluingEPPA.Reducts.PairRowCompletion
+import GluingEPPA.Reducts.MultipartiteReplication
 
 /-!
 # The Gluing EPPA library

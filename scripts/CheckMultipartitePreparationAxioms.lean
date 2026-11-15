@@ -1,0 +1,19 @@
+import GluingEPPA.Reducts.PairRowCompletion
+import GluingEPPA.Reducts.MultipartiteReplication
+
+#print axioms GluingEPPA.Reducts.PairRowCompletion.fill_pair
+#print axioms GluingEPPA.Reducts.PairRowCompletion.completeRows_on_domain
+#print axioms GluingEPPA.Reducts.PairRowCompletion.completeRows_pair
+#print axioms GluingEPPA.Reducts.PairRowCompletion.twisted_completion
+#print axioms GluingEPPA.Reducts.PairRowCompletion.completed_lift_preserves_edge
+#print axioms GluingEPPA.Reducts.PairRowCompletion.completed_lift_extends
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.copyPerm
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.padded_comp_forward
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.padded_identity_forward
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.embed_injective
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.padded_embed
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.auxiliary_restrict
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.auxiliary_invariant
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.auxiliary_reverse
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.auxiliary_within
+#print axioms GluingEPPA.Reducts.MultipartiteReplication.padded_part_iff

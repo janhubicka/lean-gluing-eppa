@@ -3,8 +3,9 @@ name: Pair valuation core
 on:
   pull_request:
     paths:
-      - 'GluingEPPA/Reducts/PairValuationConjugation.lean'
+      - 'GluingEPPA/Reducts/**'
       - 'scripts/CheckPairValuationAxioms.lean'
+      - 'scripts/CheckMultipartitePreparationAxioms.lean'
       - '.github/workflows/pair-valuation.yml'
       - 'lean-toolchain'
   workflow_dispatch:
@@ -32,35 +33,35 @@ jobs:
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Compile full valuation action formulas
+      - name: Compile concrete replication and valuation maps
         run: |
           mkdir -p proof-audit
           git rev-parse HEAD | tee proof-audit/source-sha.txt
           lean --version | tee proof-audit/lean-version.txt
-          if ! lean GluingEPPA/Reducts/PairValuationConjugation.lean > proof-audit/pair-valuation.log 2>&1; then
-            cat proof-audit/pair-valuation.log
-            exit 1
-          fi
-          cat proof-audit/pair-valuation.log
-      - name: Audit exact nine-declaration manifest
+          export LEAN_PATH="$PWD"
+          for module in PairValuationConjugation PairRowCompletion MultipartiteReplication; do
+            path="GluingEPPA/Reducts/$module"
+            if ! lean -o "$path.olean" "$path.lean" > "proof-audit/$module.log" 2>&1; then
+              cat "proof-audit/$module.log"
+              exit 1
+            fi
+            cat "proof-audit/$module.log"
+          done
+          for manifest in CheckPairValuationAxioms CheckMultipartitePreparationAxioms; do
+            lean "scripts/$manifest.lean" > "proof-audit/$manifest.log" 2>&1 || { cat "proof-audit/$manifest.log"; exit 1; }
+            python3 scripts/check-axiom-log.py "proof-audit/$manifest.log" "scripts/$manifest.lean"
+          done
+      - name: Reject source placeholders
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
-          src = Path('GluingEPPA/Reducts/PairValuationConjugation.lean').read_text()
-          code = re.sub(r'/\-.*?\-/', '', src, flags=re.S)
-          assert not re.search(r'\b(sorry|admit|axiom)\b', code)
-          log = Path('proof-audit/pair-valuation.log').read_text()
-          expected = set(re.findall(r'^#print axioms (\S+)', Path('scripts/CheckPairValuationAxioms.lean').read_text(), re.M))
-          found = re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log, re.S)
-          found += [(n, '') for n in re.findall(r"'([^']+)' does not depend on any axioms", log)]
-          assert len(expected) == 9 and len(found) == 9
-          assert {n for n, _ in found} == expected
-          for name, raw in found:
-              deps = {x.strip() for x in raw.split(',') if x.strip()}
-              assert deps <= {'propext', 'Classical.choice', 'Quot.sound'}, (name, deps)
-          assert 'sorryAx' not in log and 'error:' not in log
-          print('PASS: exact nine-declaration valuation-action audit; finite padding and EPPA assembly are not claimed')
+          for name in ('PairValuationConjugation', 'PairRowCompletion', 'MultipartiteReplication'):
+              source = Path(f'GluingEPPA/Reducts/{name}.lean').read_text()
+              code = re.sub(r'/\-.*?\-/', '', source, flags=re.S)
+              code = re.sub(r'--[^\n]*', '', code)
+              assert not re.search(r'\b(sorry|admit|axiom|native_decide|unsafe)\b', code), name
+          print('PASS: concrete replication and row completion; common finite atlas and full EPPA not claimed')
           PY
       - uses: actions/upload-artifact@v4
         if: always()
