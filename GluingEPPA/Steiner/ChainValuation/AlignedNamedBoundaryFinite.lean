@@ -205,7 +205,7 @@ theorem buildNonempty_has_aligned_named_boundaries
           (P.boundary.leftMask, P.boundary.rightMask)) =
           (H.aligned.map (fun P => P.boundary)).map
             (fun P => (P.leftMask, P.rightMask)) := by
-        rw [List.map_map]
+        simp only [List.map_map, Function.comp_def]
       _ = H.boundaryHistory.boundaries.map
             (fun P => (P.leftMask, P.rightMask)) := by
         rw [H.forget]
