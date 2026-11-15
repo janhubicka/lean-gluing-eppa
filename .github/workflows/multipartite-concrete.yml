@@ -41,13 +41,13 @@ jobs:
           export PATH="$HOME/.elan/bin:$PATH"
           test -s lake-manifest.json || lake update
           lake exe cache get
-      - name: Build actual finite witness
+      - name: Build actual finite witness and partial-base maps
         run: |
           mkdir -p concrete-audit
           git rev-parse HEAD > concrete-audit/source-sha.txt
           lean --version > concrete-audit/lean-version.txt
-          lake build GluingEPPA.Reducts.MultipartiteWitnessScope > concrete-audit/build.log 2>&1 || { cat concrete-audit/build.log; exit 1; }
-          for m in ConcreteCarrier ActualActions LocalWitness WitnessScope; do
+          lake build GluingEPPA.Reducts.MultipartitePartialBase > concrete-audit/build.log 2>&1 || { cat concrete-audit/build.log; exit 1; }
+          for m in ConcreteCarrier ActualActions LocalWitness WitnessScope PartialBase; do
             manifest="scripts/CheckMultipartite${m}Axioms.lean"
             log="concrete-audit/CheckMultipartite${m}Axioms.log"
             lake env lean "$manifest" > "$log" 2>&1 || { cat "$log"; exit 1; }

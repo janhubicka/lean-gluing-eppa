@@ -1,0 +1,10 @@
+import GluingEPPA.Reducts.MultipartitePartialBase
+
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.partsEquiv
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.partPermutation_on_point
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.partPermutation_occupied
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.multiplicity_match
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.baseEquiv_extends
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.baseEquiv_owner
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.baseEquiv_part
+#print axioms GluingEPPA.Reducts.MultipartitePartialBase.partial_base_extension

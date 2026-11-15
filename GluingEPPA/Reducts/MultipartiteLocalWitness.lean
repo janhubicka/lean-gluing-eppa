@@ -58,7 +58,10 @@ theorem initialTable_reverse (S : Input A I) (x y : Base A I) (h : x.1 ≠ y.1) 
     | some b =>
       have ha := decode_sound S.owner x a hx
       have hb := decode_sound S.owner y b hy
-      have hab : S.owner a ≠ S.owner b := by simpa [← ha, ← hb, inputEmbedding] using h
+      have hab : S.owner a ≠ S.owner b := by
+        intro he
+        apply h
+        exact (congrArg Prod.fst ha).symm.trans (he.trans (congrArg Prod.fst hb))
       simpa only [initialTable, hx, hy] using S.reverse a b hab
 
 def rows (S : Input A I) : Base A I → Base A I → Bool :=
