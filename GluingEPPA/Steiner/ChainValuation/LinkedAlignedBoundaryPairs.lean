@@ -9,7 +9,7 @@ when normalizing a *selected active interval*, we need an ordinary
 statement with a pair of boundary occurrences, not a recursive
 list predicate.
 
-If the original boundary history decomposes as prefix followed
+If the original boundary history decomposes as pref followed
 by P,Q and suffix, linkedness yields literal equality of the
 named right chart of P and named left chart of Q. The proof makes
 no assumption that source masks or boundaries are distinct and
@@ -40,10 +40,10 @@ theorem alignedBoundaryList_adjacent_middle_eq
     {M : Proper S} {R : BuildResult D S old L}
     (history : List (AlignedNamedBoundary D S old L M R))
     (hlinked : AlignedBoundaryList.Linked D S old L history)
-    (prefix : List (AlignedNamedBoundary D S old L M R))
+    (pref : List (AlignedNamedBoundary D S old L M R))
     (P Q : AlignedNamedBoundary D S old L M R)
     (suffix : List (AlignedNamedBoundary D S old L M R))
-    (heq : history = prefix ++ P :: Q :: suffix) :
+    (heq : history = pref ++ P :: Q :: suffix) :
     P.rightNamed = Q.leftNamed := by
   have aux : ∀ pre : List (AlignedNamedBoundary D S old L M R),
       AlignedBoundaryList.Linked D S old L
@@ -67,7 +67,7 @@ theorem alignedBoundaryList_adjacent_middle_eq
                 (b :: tail ++ P :: Q :: suffix) at h
             exact ih h.2
   rw [heq] at hlinked
-  exact aux prefix hlinked
+  exact aux pref hlinked
 
 /-- In the original finite separated LinkChain construction,
 each consecutive pair of the aligned true historical boundary
@@ -83,13 +83,13 @@ theorem buildNonempty_adjacent_middle_eq
     let H := linkedAlignedBuildNonempty D S old L M atoms hne hsep
     ∀ (P Q : AlignedNamedBoundary D S old L M
         H.data.boundaryHistory.chain)
-      (prefix suffix : List (AlignedNamedBoundary D S old L M
+      (pref suffix : List (AlignedNamedBoundary D S old L M
         H.data.boundaryHistory.chain)),
-      H.data.aligned = prefix ++ P :: Q :: suffix →
+      H.data.aligned = pref ++ P :: Q :: suffix →
       P.rightNamed = Q.leftNamed := by
-  intro H P Q prefix suffix heq
+  intro H P Q pref suffix heq
   exact alignedBoundaryList_adjacent_middle_eq D S old L
-    H.data.aligned H.linked prefix P Q suffix heq
+    H.data.aligned H.linked pref P Q suffix heq
 
 end LinkChain
 end RecursiveRecord
