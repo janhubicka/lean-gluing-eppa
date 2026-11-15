@@ -51,6 +51,7 @@ import GluingEPPA.Steiner.ChainValuation.PointwiseNamedBoundaryCharts
 import GluingEPPA.Steiner.ChainValuation.PointwiseNamedHistoryFinite
 import GluingEPPA.Steiner.ChainValuation.CombinedHistoricalExactCharts
 import GluingEPPA.Steiner.ChainValuation.AlignedBoundaryBlockSequence
+import GluingEPPA.Steiner.ChainValuation.AlignedBoundaryBlockStep
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
