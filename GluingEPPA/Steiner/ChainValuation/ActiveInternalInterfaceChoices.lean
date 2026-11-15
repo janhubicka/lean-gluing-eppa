@@ -1,6 +1,6 @@
 import GluingEPPA.Steiner.ChainValuation.ActiveInternalBoundaryPositions
 import GluingEPPA.Steiner.ChainValuation.LinkedCoveredNamedHistory
-import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryComponentWitness
+import GluingEPPA.Steiner.ChainValuation.FiniteInterfaceSelection
 
 /-!
 # Actual parameters for all internal boundaries of a selected M-interval
@@ -63,9 +63,10 @@ theorem namedAdjacentBlockPairs_endpoints_mem
           simp [namedAdjacentBlockPairs] at h
       | cons b tail =>
           intro P Q h
-          change (P, Q) = (a, b) ∨
-            (P, Q) ∈ namedAdjacentBlockPairs D S old L (b :: tail) at h
-          rcases h with hpair | htail
+          have heither : (P, Q) = (a, b) ∨
+              (P, Q) ∈ namedAdjacentBlockPairs D S old L (b :: tail) := by
+            simpa only [namedAdjacentBlockPairs, List.mem_cons] using h
+          rcases heither with hpair | htail
           · have hP : P = a := congrArg Prod.fst hpair
             have hQ : Q = b := congrArg Prod.snd hpair
             subst P
