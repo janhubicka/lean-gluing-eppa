@@ -1,0 +1,3 @@
+import GluingEPPA.Steiner.ChainValuation.FiniteAlignedInteriorShift
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_consecutive_unique_interior_shift
