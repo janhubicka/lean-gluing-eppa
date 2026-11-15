@@ -1,0 +1,14 @@
+import GluingEPPA.Reducts.MultipartiteConcreteCarrier
+
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.inputEmbedding
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.trace_card_dvd
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.layers_pos
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.exists_part_atlas
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.indexedForward_injective
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.indexedForward_surjective
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.commonAtlas_owner
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.commonAtlas_fixes
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.unused_separate
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.multiplicity_invariant
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.concrete_common_carrier
+#print axioms GluingEPPA.Reducts.MultipartiteConcreteCarrier.model_finite
