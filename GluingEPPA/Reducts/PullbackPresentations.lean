@@ -1,4 +1,5 @@
 import Mathlib.Logic.Equiv.Set
+import Mathlib.Data.Fintype.Basic
 
 /-! Generic pullback presentations, stable quotients and surjective-natural
 readouts. No affine or reduct-specific completion assumption is built in. -/

@@ -1,5 +1,5 @@
 import Mathlib.Logic.Equiv.Set
-import Mathlib.Data.Fintype.Basic
+import Mathlib.Data.Fintype.EquivFin
 
 /-! Common-anchor extraction from full decorated overlaps. The projection,
 its well-definedness, exact overlaps and trace identities are conclusions.
@@ -156,7 +156,7 @@ theorem trace_family_equivalence (X T : Real S → Prop) (hne : ∃ y, T y) :
     obtain ⟨y,hy⟩ := hne
     have ht : ∃ z : Real S, X z ∧ ∃ x, S.copy j x = z.val := ⟨y,(hj y).1 hy⟩
     obtain ⟨hr,htr⟩ := nonempty_trace_preserved S X j ht
-    exact ⟨hr,fun z => (hj z).trans (htr z)⟩ |> fun ⟨hr,hh⟩ => ⟨j,hr,hh⟩
+    exact ⟨j,hr,fun z => (hj z).trans (htr z)⟩
   · rintro ⟨j,hr,hj⟩
     exact ⟨j,fun z => (hj z).trans (and_congr_right (fun _ => (trace_restriction S j hr z).symm))⟩
 

@@ -1,0 +1,13 @@
+import GluingEPPA.Reducts.AnchorLabelledCoherence
+
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.decorated_matching
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.decorated_identity
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.CoherentRaw.ordinary
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.labelledLift_extends
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.labelledLift_identity
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.labelledLift_comp
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.ambientDescent
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.labelledLift_over
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.ambientSection
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.ambientSection_rightInverse
+#print axioms GluingEPPA.Reducts.AnchorLabelledCoherence.split_ambient_epimorphism
