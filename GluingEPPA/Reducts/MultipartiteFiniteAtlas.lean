@@ -13,6 +13,7 @@ carrier, pointwise on the original local domain. No EPPA theorem is used.
 -/
 namespace GluingEPPA.Reducts.MultipartiteFiniteAtlas
 open GluingEPPA.Reducts.MultipartiteReplication
+open scoped BigOperators
 universe u v w
 
 /-- Extend the identification of two embedded copies while keeping every
@@ -67,11 +68,11 @@ finite dependent sum, including when multiplicities vary between parts. -/
 def copiesEquivSigma {D : Type u} (m : D → Nat) :
     Copies m ≃ (Σ d : D, Fin (m d)) where
   toFun z := ⟨z.val.1, ⟨z.val.2, z.property⟩⟩
-  invFun z := ⟨(z.1, z.2.val), z.2.property⟩
+  invFun z := ⟨(z.1, z.2.val), z.2.isLt⟩
   left_inv := fun _ => rfl
   right_inv := fun _ => rfl
 
-noncomputable def copiesFintype {D : Type u} [Fintype D] (m : D → Nat) :
+noncomputable abbrev copiesFintype {D : Type u} [Fintype D] (m : D → Nat) :
     Fintype (Copies m) :=
   Fintype.ofEquiv (Σ d : D, Fin (m d)) (copiesEquivSigma m).symm
 
