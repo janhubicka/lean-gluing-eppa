@@ -1,8 +1,7 @@
 import GluingEPPA.Reducts.MultipartiteReplication
 import Mathlib.Logic.Equiv.Fintype
 import Mathlib.Data.Fintype.Prod
-import Mathlib.Data.Fintype.Sigma
-import Mathlib.Data.Fintype.Sum
+import Mathlib.Data.Fintype.BigOperators
 
 /-!
 Finite carrier bridge for the multipartite local-action construction.
