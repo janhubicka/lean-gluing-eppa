@@ -1,5 +1,6 @@
 import GluingEPPA.Steiner.ChainValuation.NormalizedProperMaskReindex
 import GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv
+import GluingEPPA.Steiner.ChainValuation.LinkLastCoset
 import GluingEPPA.Steiner.ChainValuation.ReachComponentWords
 
 /-!
