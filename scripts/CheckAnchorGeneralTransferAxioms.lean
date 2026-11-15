@@ -1,0 +1,18 @@
+import GluingEPPA.Reducts.AnchorStructureTransfer
+
+#print axioms GluingEPPA.Reducts.PullbackPresentations.Presentation.embedding_comp
+#print axioms GluingEPPA.Reducts.PullbackPresentations.Presentation.equivariant_pullback
+#print axioms GluingEPPA.Reducts.PullbackPresentations.Presentation.pullback_section
+#print axioms GluingEPPA.Reducts.PullbackPresentations.StableCongruence.quotient
+#print axioms GluingEPPA.Reducts.PullbackPresentations.StableCongruence.quotient_embedding
+#print axioms GluingEPPA.Reducts.PullbackPresentations.NaturalReduct.embedding
+#print axioms GluingEPPA.Reducts.PullbackPresentations.NaturalReduct.invariant
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.retained_copy
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.image_action
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.structural_transfer
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.member_transfer
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.completed_local_section
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.quotient_structure_transfer
+#print axioms GluingEPPA.Reducts.PullbackPresentations.SurjectiveReduct.equivariant_readout
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.member_transfer_surjective
+#print axioms GluingEPPA.Reducts.AnchorStructureTransfer.surjective_readout_transfer

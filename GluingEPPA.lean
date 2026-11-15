@@ -11,6 +11,6 @@ import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.MultipartiteCoherentEPPA
 import GluingEPPA.Reducts.AnchorMultipartiteTransfer
 import GluingEPPA.Reducts.AnchorGeneralTheorem
+import GluingEPPA.Reducts.AnchorStructureTransfer
 
-/-! Public imports cover the existing results and the general anchor/pullback
-transfer. No geometric existence proof is replaced by the transfer theorem. -/
+/-! Existing proof coverage and the uniform relative structural transfer. -/
