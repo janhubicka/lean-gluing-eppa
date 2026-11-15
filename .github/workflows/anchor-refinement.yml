@@ -1,0 +1,67 @@
+name: Anchor refinement
+
+on:
+  pull_request:
+    paths:
+      - 'GluingEPPA/Reducts/Anchor*.lean'
+      - 'scripts/CheckAnchor*Axioms.lean'
+      - '.github/workflows/anchor-refinement.yml'
+      - 'lean-toolchain'
+      - 'lakefile.toml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: anchor-refinement-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  anchor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/cache@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - uses: actions/cache/restore@v5
+        with:
+          path: .lake
+          key: lake-v3-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+          restore-keys: |
+            lake-v3-${{ runner.os }}-${{ runner.arch }}-
+      - name: Toolchain and dependencies
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          test -s lake-manifest.json || lake update
+          lake exe cache get
+      - name: Build anchor extraction
+        run: |
+          mkdir -p anchor-audit
+          git rev-parse HEAD > anchor-audit/source-sha.txt
+          lean --version > anchor-audit/lean-version.txt
+          lake build GluingEPPA.Reducts.AnchorExtraction > anchor-audit/build.log 2>&1 || { cat anchor-audit/build.log; exit 1; }
+          for manifest in scripts/CheckAnchor*Axioms.lean; do
+            log="anchor-audit/$(basename "$manifest" .lean).log"
+            lake env lean "$manifest" > "$log" 2>&1 || { cat "$log"; exit 1; }
+            python3 scripts/check-axiom-log.py "$log" "$manifest"
+          done
+      - name: Record exact sources
+        if: always()
+        run: |
+          mkdir -p anchor-audit/source anchor-audit/manifests
+          cp GluingEPPA/Reducts/Anchor*.lean anchor-audit/source/
+          cp scripts/CheckAnchor*Axioms.lean anchor-audit/manifests/
+          cp lean-toolchain lakefile.toml anchor-audit/
+          (cd anchor-audit && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: anchor-refinement-${{ github.event.pull_request.head.sha || github.sha }}
+          path: anchor-audit/
