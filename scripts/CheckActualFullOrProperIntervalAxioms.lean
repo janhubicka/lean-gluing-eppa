@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.ActualFullOrProperInterval
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_full_or_proper
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_full_or_proper_interval_with_interfaces
