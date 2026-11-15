@@ -5,20 +5,16 @@ import Mathlib.Data.Fintype.Pi
 
 /-!
 A single finite balanced carrier for an actual finite partitioned input.
-For every actual induced domain D, this file constructs its partwise replica
-coordinates, combines them into one global atlas, and proves that the atlas
-preserves the partition and every original domain point. No atlas, divisibility
-hypothesis, or finite ambient extension is supplied by the caller.
-
-The factorial padding is intentionally larger than the sharp lcm padding in
-the paper. It avoids silently claiming the smaller paper witness as the formal
-one. A complete coherent-EPPA endpoint is not yet asserted by this module.
+For every actual induced domain D, construct and combine the partwise replica
+coordinates, preserving the partition and every original domain point.
+No atlas, divisibility hypothesis, or finite extension is supplied by the caller.
+Factorial padding is larger than the paper's sharp lcm padding. This module
+does not assert the final coherent-EPPA theorem.
 -/
 namespace GluingEPPA.Reducts.MultipartiteConcreteCarrier
 open GluingEPPA.Reducts.MultipartiteFiniteAtlas
 open GluingEPPA.Reducts.PairValuationConjugation
 open GluingEPPA.Reducts.FixedCarrierTransport
-namespace MR := GluingEPPA.Reducts.MultipartiteReplication
 
 noncomputable section
 attribute [local instance] Classical.propDecidable
@@ -142,7 +138,8 @@ theorem multiplicity_pos (o : A → I) (D : Set A) (d : D) :
     0 < multiplicity o D d := layers_pos o D (o d.val) ⟨⟨d, rfl⟩⟩
 
 def copiesIndexed (o : A → I) (D : Set A) :
-    MR.Copies (multiplicity o D) ≃ (Σ i : I, Trace o D i × Fin (layers o D i)) where
+    MultipartiteReplication.Copies (multiplicity o D) ≃
+      (Σ i : I, Trace o D i × Fin (layers o D i)) where
   toFun z := ⟨o z.val.1.val, ⟨z.val.1, rfl⟩, ⟨z.val.2, z.property⟩⟩
   invFun z := ⟨(z.2.1.val, z.2.2.val), by
     change z.2.2.val < layers o D (o z.2.1.val.val)
@@ -154,18 +151,20 @@ def copiesIndexed (o : A → I) (D : Set A) :
     cases hd
     rfl
 
-abbrev Model (o : A → I) (D : Set A) := MR.Space (multiplicity o D) (Unused o D)
+abbrev Model (o : A → I) (D : Set A) :=
+  MultipartiteReplication.Space (multiplicity o D) (Unused o D)
 
 def commonAtlas (o : A → I) (D : Set A) : Model o D ≃ Base A I :=
   (Equiv.sumCongr (copiesIndexed o D) (Equiv.refl _)).trans (indexedAtlas o D)
 
 theorem commonAtlas_owner (o : A → I) (D : Set A) (z : Model o D) :
-    (commonAtlas o D z).1 = MR.owner (fun d : D => o d.val)
+    (commonAtlas o D z).1 = MultipartiteReplication.owner (fun d : D => o d.val)
       (fun w : Unused o D => w.val.1) z := by
   cases z <;> rfl
 
 theorem commonAtlas_fixes (o : A → I) (D : Set A) (d : D) :
-    commonAtlas o D (MR.embed (multiplicity_pos o D) d) = inputEmbedding o d.val := by
+    commonAtlas o D (MultipartiteReplication.embed (multiplicity_pos o D) d) =
+      inputEmbedding o d.val := by
   apply Prod.ext
   · rfl
   · exact partAtlas_zero o D (o d.val) ⟨⟨d, rfl⟩⟩ ⟨d, rfl⟩
@@ -197,8 +196,8 @@ for every actual induced domain, including the empty one. -/
 theorem concrete_common_carrier (o : A → I) :
     ∃ j : A ↪ Base A I, ∀ D : Set A,
       ∃ e : Model o D ≃ Base A I,
-        (∀ d : D, e (MR.embed (multiplicity_pos o D) d) = j d.val) ∧
-        (∀ z, (e z).1 = MR.owner (fun d : D => o d.val)
+        (∀ d : D, e (MultipartiteReplication.embed (multiplicity_pos o D) d) = j d.val) ∧
+        (∀ z, (e z).1 = MultipartiteReplication.owner (fun d : D => o d.val)
           (fun w : Unused o D => w.val.1) z) := by
   exact ⟨inputEmbedding o, fun D =>
     ⟨commonAtlas o D, commonAtlas_fixes o D, commonAtlas_owner o D⟩⟩
