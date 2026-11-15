@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   anchor:
-    runs-on: ubuntu-latest
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v7
         with:
@@ -41,12 +41,12 @@ jobs:
           export PATH="$HOME/.elan/bin:$PATH"
           test -s lake-manifest.json || lake update
           lake exe cache get
-      - name: Build anchor extraction
+      - name: Build anchor extraction and action
         run: |
           mkdir -p anchor-audit
           git rev-parse HEAD > anchor-audit/source-sha.txt
           lean --version > anchor-audit/lean-version.txt
-          lake build GluingEPPA.Reducts.AnchorExtraction > anchor-audit/build.log 2>&1 || { cat anchor-audit/build.log; exit 1; }
+          lake build GluingEPPA.Reducts.AnchorActions GluingEPPA.Reducts.AnchorFamily > anchor-audit/build.log 2>&1 || { cat anchor-audit/build.log; exit 1; }
           for manifest in scripts/CheckAnchor*Axioms.lean; do
             log="anchor-audit/$(basename "$manifest" .lean).log"
             lake env lean "$manifest" > "$log" 2>&1 || { cat "$log"; exit 1; }
@@ -59,7 +59,13 @@ jobs:
           cp GluingEPPA/Reducts/Anchor*.lean anchor-audit/source/
           cp scripts/CheckAnchor*Axioms.lean anchor-audit/manifests/
           cp lean-toolchain lakefile.toml anchor-audit/
-          (cd anchor-audit && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('anchor-audit')
+          files=sorted(f for f in p.rglob('*') if f.is_file() and f.name!='SHA256SUMS')
+          (p/'SHA256SUMS').write_text(''.join(hashlib.sha256(f.read_bytes()).hexdigest()+'  '+f.relative_to(p).as_posix()+'\n' for f in files))
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
