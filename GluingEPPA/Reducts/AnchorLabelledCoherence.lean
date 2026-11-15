@@ -75,7 +75,7 @@ structure CoherentRaw where
   composition : ∀ r s hr hs (hc : Allowed e L (fun h => h ∈ H) (relComp r s)),
     Matching r s → extend (relComp r s) hc = extend s hs * extend r hr
 
-/-- Changing the graph transports only a proof-valued admissibility witness. -/
+/- Changing the graph transports only a proof-valued admissibility witness. -/
 variable {S} in
 theorem CoherentRaw.extend_congr (R : CoherentRaw S)
     {r s : Rel (Sum A V)} (hr : Allowed e L (fun h => h ∈ H) r)
