@@ -63,13 +63,13 @@ private theorem range_comp_of_range_eq
       rw [← h]
       exact ⟨a, rfl⟩
     obtain ⟨b, hb⟩ := ha
-    exact ⟨b, by rw [← hb]⟩
+    exact ⟨b, congrArg k hb⟩
   · rintro ⟨b, rfl⟩
     have hb : g b ∈ Set.range f := by
       rw [h]
       exact ⟨b, rfl⟩
     obtain ⟨a, ha⟩ := hb
-    exact ⟨a, by rw [← ha]⟩
+    exact ⟨a, congrArg k ha⟩
 
 /-- For the literal new Link attachment, the boundary's left
 Cayley chart is the transported *previous last named chart*, and
