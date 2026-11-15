@@ -56,8 +56,12 @@ noncomputable def normalizedOneBlock_equiv
   have hInjective : Function.Injective G := by
     intro x y hxy
     -- An equality after the embedding G reflects the underlying point.
-    apply Subtype.val_injective
-    exact congrArg Subtype.val hxy
+    -- Fix the codomain of the projection explicitly; otherwise Lean
+    -- infers the input subtype from the desired x=y equality.
+    have hval := congrArg
+      (fun z : MatchingReachComponent (block S old A).matching M.val g =>
+        z.val) hxy
+    exact Subtype.ext hval
   have hSurjective : Function.Surjective G := by
     intro y
     refine ⟨⟨y.val,
