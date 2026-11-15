@@ -55,7 +55,8 @@ noncomputable def normalizedOneBlock_equiv
         y.property⟩
   have hInjective : Function.Injective G := by
     intro x y hxy
-    apply Subtype.ext
+    -- An equality after the embedding G reflects the underlying point.
+    apply Subtype.val_injective
     exact congrArg Subtype.val hxy
   have hSurjective : Function.Surjective G := by
     intro y
