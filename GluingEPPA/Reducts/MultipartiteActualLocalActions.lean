@@ -110,11 +110,15 @@ theorem baseAction_part {S : Input A I} {D : Set A} (f : LocalAut S D) (x y : Ba
   rw [commonAtlas_owner, commonAtlas_owner]
   change modelOwner S D ((modelAction f).forward ((modelAtlas S D).backward x)) =
     modelOwner S D ((modelAction f).forward ((modelAtlas S D).backward y)) ↔ _
-  rw [MultipartiteReplication.padded_part_iff
+  have hp := MultipartiteReplication.padded_part_iff
     (fun d : D => S.owner d.val) (fun w : Unused S.owner D => w.val.1)
     (unused_separate S.owner D) f.perm
-    (multiplicity_invariant S.owner D f.perm f.part_iff) f.part_iff]
-  rw [backward_owner, backward_owner]
+    (multiplicity_invariant S.owner D f.perm f.part_iff) f.part_iff
+    ((modelAtlas S D).backward x) ((modelAtlas S D).backward y)
+  change (modelOwner S D ((modelAction f).forward ((modelAtlas S D).backward x)) =
+    modelOwner S D ((modelAction f).forward ((modelAtlas S D).backward y))) ↔
+    modelOwner S D ((modelAtlas S D).backward x) = modelOwner S D ((modelAtlas S D).backward y) at hp
+  exact hp.trans (by rw [backward_owner, backward_owner])
 
 def baseline (x y : Base A I) : Bool :=
   decide ((Fintype.equivFin I x.1).val < (Fintype.equivFin I y.1).val)
