@@ -72,7 +72,6 @@ theorem alignedBoundaryBlockSequence_length
   | cons P rest =>
       simp only [alignedBoundaryBlockSequence, List.length_cons,
         List.length_map]
-      omega
 
 /-- The crucial positional identity: the true boundary records
 are precisely the consecutive named Cayley block pairs in the
