@@ -110,7 +110,8 @@ theorem projection_chart_injective (j : J) (hj : retained S j) :
   apply e.injective
   apply Sum.inr.inj
   apply (S.copy j).injective
-  rw [← projection_anchor S j hj a, ← projection_anchor S j hj b, h]
+  exact (projection_anchor S j hj a).symm.trans
+    ((congrArg (fun v => S.copy S.root (.inr v)) h).trans (projection_anchor S j hj b))
 
 theorem carrier_disjoint_anchor (y : Real S) (v : V) :
     S.copy S.root (.inr v) ≠ y.val := by
@@ -155,7 +156,7 @@ theorem trace_family_equivalence (X T : Real S → Prop) (hne : ∃ y, T y) :
     obtain ⟨y,hy⟩ := hne
     have ht : ∃ z : Real S, X z ∧ ∃ x, S.copy j x = z.val := ⟨y,(hj y).1 hy⟩
     obtain ⟨hr,htr⟩ := nonempty_trace_preserved S X j ht
-    exact ⟨j,hr,fun z => (hj z).trans (htr z)⟩
+    exact ⟨hr,fun z => (hj z).trans (htr z)⟩ |> fun ⟨hr,hh⟩ => ⟨j,hr,hh⟩
   · rintro ⟨j,hr,hj⟩
     exact ⟨j,fun z => (hj z).trans (and_congr_right (fun _ => (trace_restriction S j hr z).symm))⟩
 
@@ -239,6 +240,7 @@ theorem projection_surjective (hr : Realizes S) (hzero : L (emptyRel A))
       ((he (.inr (h (e a))) (.inr (e a))).2 (h.symm_apply_apply (e a))).symm
     _ = S.copy S.root (.inr v) := congrArg (fun v => S.copy S.root (.inr v)) ha
 
-theorem extracted_finite [Finite Z] : Finite (Real S) := by infer_instance
+theorem extracted_finite [Finite Z] : Finite (Real S) :=
+  Finite.of_injective (fun y : Real S => y.val) (fun _ _ h => Subtype.ext h)
 end
 end GluingEPPA.Reducts.AnchorExtraction
