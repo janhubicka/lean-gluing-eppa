@@ -1,0 +1,5 @@
+import GluingEPPA.Reducts.AnchorReadoutExistence
+
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.image_member_pullback
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.general_readout_theorem_from_set_realization
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.extracted_readout_in_image

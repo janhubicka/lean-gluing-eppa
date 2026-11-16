@@ -10,6 +10,6 @@ import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.MultipartiteCoherentEPPA
 import GluingEPPA.Reducts.AnchorMultipartiteTransfer
-import GluingEPPA.Reducts.AnchorExistenceReduction
+import GluingEPPA.Reducts.AnchorReadoutExistence
 
-/-! Existing proof coverage and the conditional general existence theorem. -/
+/-! Existing proof coverage and the general reduct existence reduction. -/
