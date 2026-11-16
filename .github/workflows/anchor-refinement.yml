@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   anchor:
-    runs-on: ubuntu-latest
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v7
         with:
