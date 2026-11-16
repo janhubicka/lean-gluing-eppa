@@ -200,18 +200,20 @@ the fresh interface are themselves disjoint. -/
 theorem historicalBoundaryList_append_fresh
     {M : Proper S} {R : BuildResult D S old L}
     (pre : List (AlignedNamedBoundary D S old L M R))
-    (P Q : AlignedNamedBoundary D S old L M R)
-    (hOld : HistoricalBoundaryList.AdjacentInterfacesDisjoint
-      D S old L (pre ++ [P]))
-    (hCross : Disjoint
+    (P Q : AlignedNamedBoundary D S old L M R) :
+    HistoricalBoundaryList.AdjacentInterfacesDisjoint
+      D S old L (pre ++ [P]) →
+    Disjoint
       (Set.range (P.boundary.interfaceMap D S old L))
-      (Set.range (Q.boundary.interfaceMap D S old L))) :
+      (Set.range (Q.boundary.interfaceMap D S old L)) →
     HistoricalBoundaryList.AdjacentInterfacesDisjoint
       D S old L (pre ++ [P, Q]) := by
   induction pre with
   | nil =>
+      intro _ hCross
       exact ⟨hCross, trivial⟩
   | cons a rest ih =>
+      intro hOld hCross
       cases rest with
       | nil =>
           change Disjoint
@@ -236,7 +238,7 @@ theorem historicalBoundaryList_append_fresh
             (Set.range (b.boundary.interfaceMap D S old L)) ∧
             HistoricalBoundaryList.AdjacentInterfacesDisjoint
               D S old L ((b :: tail) ++ [P, Q])
-          exact ⟨hOld.1, ih hOld.2⟩
+          exact ⟨hOld.1, ih hOld.2 hCross⟩
 
 /-- In one literal separated LinkChain.step, all earlier historical
 interface separations persist, and the fresh final pair is disjoint
