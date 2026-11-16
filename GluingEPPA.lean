@@ -9,6 +9,7 @@ import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
 import GluingEPPA.Reducts.MultipartiteCoherentEPPA
+import GluingEPPA.Reducts.AnchorMultipartiteTransfer
+import GluingEPPA.Reducts.AnchorReadoutExistence
 
-/-! The public umbrella imports terminal local modules. The complete closure
-and absence of redundant umbrella imports are audited in CI. -/
+/-! Existing proof coverage and the general reduct existence reduction. -/

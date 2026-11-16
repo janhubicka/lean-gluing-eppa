@@ -1,0 +1,8 @@
+import GluingEPPA.Reducts.AnchorUniformTheorem
+
+#print axioms GluingEPPA.Reducts.AnchorUniformTheorem.constructed_labelled_laws
+#print axioms GluingEPPA.Reducts.AnchorUniformTheorem.selectionToAmbient
+#print axioms GluingEPPA.Reducts.AnchorUniformTheorem.selectionToOutput
+#print axioms GluingEPPA.Reducts.AnchorUniformTheorem.coherent_forgetting_iff
+#print axioms GluingEPPA.Reducts.AnchorUniformTheorem.real_group_preserves_copies
+#print axioms GluingEPPA.Reducts.AnchorUniformTheorem.general_structured_labelled_refinement

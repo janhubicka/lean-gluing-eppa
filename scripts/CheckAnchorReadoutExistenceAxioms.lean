@@ -1,0 +1,9 @@
+import GluingEPPA.Reducts.AnchorReadoutExistence
+
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.FiniteSurjectiveReadout.ofSurjective
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.FiniteSurjectiveReadout.identity
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.FiniteSurjectiveReadout.comp
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.FiniteSurjectiveReadout.quotient
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.image_member_pullback
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.general_readout_theorem_from_set_realization
+#print axioms GluingEPPA.Reducts.AnchorReadoutExistence.extracted_readout_in_image

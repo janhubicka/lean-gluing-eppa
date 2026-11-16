@@ -1,0 +1,18 @@
+import GluingEPPA.Reducts.AnchorExtraction
+
+#print axioms GluingEPPA.Reducts.AnchorExtraction.anchors_equal_of_meet
+#print axioms GluingEPPA.Reducts.AnchorExtraction.companion_equal
+#print axioms GluingEPPA.Reducts.AnchorExtraction.labels_equal
+#print axioms GluingEPPA.Reducts.AnchorExtraction.projection_chart
+#print axioms GluingEPPA.Reducts.AnchorExtraction.projection_root
+#print axioms GluingEPPA.Reducts.AnchorExtraction.projection_chart_injective
+#print axioms GluingEPPA.Reducts.AnchorExtraction.carrier_disjoint_anchor
+#print axioms GluingEPPA.Reducts.AnchorExtraction.chart_meeting_carrier_retained
+#print axioms GluingEPPA.Reducts.AnchorExtraction.nonempty_trace_preserved
+#print axioms GluingEPPA.Reducts.AnchorExtraction.trace_family_equivalence
+#print axioms GluingEPPA.Reducts.AnchorExtraction.projection_unique
+#print axioms GluingEPPA.Reducts.AnchorExtraction.full_real_overlap
+#print axioms GluingEPPA.Reducts.AnchorExtraction.chart_has_ambient_label
+#print axioms GluingEPPA.Reducts.AnchorExtraction.every_real_overlap
+#print axioms GluingEPPA.Reducts.AnchorExtraction.projection_surjective
+#print axioms GluingEPPA.Reducts.AnchorExtraction.extracted_finite

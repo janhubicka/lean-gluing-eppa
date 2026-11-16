@@ -1,0 +1,19 @@
+import GluingEPPA.Reducts.AnchorGeneralTheorem
+
+#print axioms GluingEPPA.Reducts.EqualityFreePullback.eval_pullback
+#print axioms GluingEPPA.Reducts.EqualityFreePullback.models_pullback
+#print axioms GluingEPPA.Reducts.EqualityFreePullback.interpretation_pullback
+#print axioms GluingEPPA.Reducts.EqualityFreePullback.interpreted_action
+#print axioms GluingEPPA.Reducts.EqualityFreePullback.theory_and_interpretation
+#print axioms GluingEPPA.Reducts.AnchorGeometry.incidence_iff
+#print axioms GluingEPPA.Reducts.AnchorGeometry.adjacent_iff
+#print axioms GluingEPPA.Reducts.AnchorGeometry.conformal_transfer
+#print axioms GluingEPPA.Reducts.AnchorGeometry.chordal_transfer
+#print axioms GluingEPPA.Reducts.AnchorGeometry.same_local_parameter
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.pair_lift
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.intended_anchor_range
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.extracted_transitive
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.general_relative_realization
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.interpreted_copy
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.interpreted_group_action
+#print axioms GluingEPPA.Reducts.AnchorGeneralTheorem.general_interpreted_transfer
