@@ -1,11 +1,11 @@
 import GluingEPPA.Reducts.AnchorExistenceReduction
 
 /-!
-The general existence reduction for a surjective-natural reduct readout.
-Ambient permutations need preserve only the reduct, NOT the source presentation.
-Only surjective source pullbacks are required to preserve the source class.
-The source structure, target readout, exact overlaps, local copy geometry,
-split ambient action and all labelled coherent lifts are produced together.
+A general finite-source-class reduct realization. Ambient symmetries preserve
+only the reduct, not its source presentation. Naturality and class closure
+are required ONLY for surjections between finite carriers. This matters when
+Member is a class of finite structures: closure under arbitrary infinite
+cloning would be an unnecessarily strong, often impossible premise.
 The set-geometric existence principle is still an explicit hypothesis.
 -/
 namespace GluingEPPA.Reducts.AnchorReadoutExistence
@@ -18,43 +18,83 @@ open GluingEPPA.Reducts.AnchorUniformTheorem
 open GluingEPPA.Reducts.AnchorExistenceReduction
 open GluingEPPA.Reducts.PullbackPresentations
 noncomputable section
-universe u v w
+universe u v w z
 
-/-- The reduct class is the same-carrier image of a source class. This
-existential definition requires no choice of a canonical presentation. -/
+/-- The object map need obey naturality only on finite surjections. Its values
+on other carriers play no role in the finite realization theorem. -/
+structure FiniteSurjectiveReadout (P : Presentation.{u,v}) (Q : Presentation.{u,w}) where
+  interpret : {X : Type u} → P.Obj X → Q.Obj X
+  natural : ∀ {X Y : Type u} [Finite X] [Finite Y] (p : X → Y),
+    Function.Surjective p → ∀ T : P.Obj Y,
+      interpret (P.pull p T) = Q.pull p (interpret T)
+
+namespace FiniteSurjectiveReadout
+
+def ofSurjective {P : Presentation.{u,v}} {Q : Presentation.{u,w}}
+    (F : SurjectiveReduct P Q) : FiniteSurjectiveReadout P Q where
+  interpret := F.interpret
+  natural := by
+    intro X Y _ _ p hp T
+    exact F.natural p hp T
+
+def identity (P : Presentation.{u,v}) : FiniteSurjectiveReadout P P where
+  interpret T := T
+  natural := by intro X Y _ _ p hp T; rfl
+
+/-- Successive permitted readouts again have the same uniform interface. -/
+def comp {P : Presentation.{u,v}} {Q : Presentation.{u,w}} {R : Presentation.{u,z}}
+    (F : FiniteSurjectiveReadout P Q) (G : FiniteSurjectiveReadout Q R) :
+    FiniteSurjectiveReadout P R where
+  interpret T := G.interpret (F.interpret T)
+  natural := by
+    intro X Y _ _ p hp T
+    rw [F.natural p hp T, G.natural p hp (F.interpret T)]
+
+/-- Stable presentation quotients enter the same readout theorem without
+any choice of representatives or lifts of quotient automorphisms. -/
+def quotient {P : Presentation.{u,v}} (C : StableCongruence P) :
+    FiniteSurjectiveReadout P C.quotient where
+  interpret {X} T := Quotient.mk (C.rel X) T
+  natural := by intro X Y _ _ p hp T; rfl
+
+end FiniteSurjectiveReadout
+
+/-- The reduct class is the same-carrier image of a source class. No canonical
+presentation or invariance of source membership under congruence is needed. -/
 def ImageMember {P : Presentation.{u,v}} {Q : Presentation.{u,w}}
-    (F : SurjectiveReduct P Q)
+    (F : FiniteSurjectiveReadout P Q)
     (Member : {X : Type u} → P.Obj X → Prop)
     {X : Type u} (B : Q.Obj X) : Prop :=
   ∃ T : P.Obj X, Member T ∧ F.interpret T = B
 
 theorem image_member_pullback {P : Presentation.{u,v}} {Q : Presentation.{u,w}}
-    (F : SurjectiveReduct P Q)
+    (F : FiniteSurjectiveReadout P Q)
     (Member : {X : Type u} → P.Obj X → Prop)
-    (closed : ∀ {X Y : Type u} (p : X → Y), Function.Surjective p →
-      ∀ T : P.Obj Y, Member T → Member (P.pull p T))
-    {X Y : Type u} (p : X → Y) (hp : Function.Surjective p)
+    (closed : ∀ {X Y : Type u} [Finite X] [Finite Y] (p : X → Y),
+      Function.Surjective p → ∀ T : P.Obj Y, Member T → Member (P.pull p T))
+    {X Y : Type u} [Finite X] [Finite Y] (p : X → Y) (hp : Function.Surjective p)
     (B : Q.Obj Y) (hB : ImageMember F Member B) :
     ImageMember F Member (Q.pull p B) := by
   obtain ⟨T,hT,rfl⟩ := hB
   exact ⟨P.pull p T,closed p hp T hT,F.natural p hp T⟩
 
 /-- Complete conditional reduct realization with a constructed source model.
-There is deliberately no source-invariance premise and no claim that the
-readout commutes with restricting to an arbitrary induced substructure. -/
+There is no source-invariance premise, no closure under infinite cloning,
+and no assertion that readout commutes with arbitrary restrictions. -/
 theorem general_readout_theorem_from_set_realization
     {A V : Type u} [Finite A] [Finite V] [Nonempty V]
     (e : A ↪ V) (L : Rel A → Prop) (H : Subgroup (Equiv.Perm V))
     (n : Nat) (geo : GeometricPrinciple.{u} n) (hL : ClosedPartialFamily A L)
     (hlift : ∀ f, L f → ∃ h : H, Compatible e f h.val)
     (horbit : ∀ v : V, ∃ h : Equiv.Perm V, h ∈ H ∧ ∃ a : A, h (e a) = v)
-    (P : Presentation.{u,v}) (Q : Presentation.{u,w}) (F : SurjectiveReduct P Q)
+    (P : Presentation.{u,v}) (Q : Presentation.{u,w}) (F : FiniteSurjectiveReadout P Q)
     (A0 : Q.Obj A) (T : P.Obj V)
     (he : Q.pull e (F.interpret T) = A0)
     (hH : ∀ h : H, Q.IsInvariant (F.interpret T) h.val)
     (Member : {X : Type u} → P.Obj X → Prop)
-    (closed : ∀ {X Y : Type u} (p : X → Y), Function.Surjective p →
-      ∀ B : P.Obj Y, Member B → Member (P.pull p B)) (hT : Member T) :
+    (closed : ∀ {X Y : Type u} [Finite X] [Finite Y] (p : X → Y),
+      Function.Surjective p → ∀ B : P.Obj Y, Member B → Member (P.pull p B))
+    (hT : Member T) :
     ∃ (Z J : Type u) (S : System e L (fun h => h ∈ H) Z J) (R : CoherentRaw S),
     Finite (Real S) ∧ Function.Surjective (projection S) ∧
     ∃ T' : P.Obj (Real S), ∃ theta : RealGroup S →* H, ∃ sec : H →* RealGroup S,
@@ -80,6 +120,7 @@ theorem general_readout_theorem_from_set_realization
     general_theorem_from_set_realization e L H n geo hL hlift horbit
       Q A0 (F.interpret T) he hH (fun {_} _ => True)
       (fun {_ _} _ _ _ _ => True.intro) True.intro
+  letI : Finite (Real S) := hfinite
   have hread : F.interpret (P.pull (projection S) T) = B :=
     (F.natural (projection S) hs T).trans hB.symm
   refine ⟨Z,J,S,R,hfinite,hs,P.pull (projection S) T,theta,sec,
@@ -88,14 +129,12 @@ theorem general_readout_theorem_from_set_realization
   · simpa only [hread] using hcopies
   · simpa only [hread] using hactions
 
-/-- The ambient action may fail to preserve its presentation. The conclusion
-still places the output reduct in the image of the stipulated source class. -/
 theorem extracted_readout_in_image {P : Presentation.{u,v}} {Q : Presentation.{u,w}}
-    (F : SurjectiveReduct P Q)
+    (F : FiniteSurjectiveReadout P Q)
     (Member : {X : Type u} → P.Obj X → Prop)
-    (closed : ∀ {X Y : Type u} (p : X → Y), Function.Surjective p →
-      ∀ T : P.Obj Y, Member T → Member (P.pull p T))
-    {X V : Type u} (p : X → V) (hp : Function.Surjective p)
+    (closed : ∀ {X Y : Type u} [Finite X] [Finite Y] (p : X → Y),
+      Function.Surjective p → ∀ T : P.Obj Y, Member T → Member (P.pull p T))
+    {X V : Type u} [Finite X] [Finite V] (p : X → V) (hp : Function.Surjective p)
     (T : P.Obj V) (hT : Member T) :
     ImageMember F Member (Q.pull p (F.interpret T)) :=
   image_member_pullback F Member closed p hp (F.interpret T) ⟨T,hT,rfl⟩
