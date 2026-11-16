@@ -1,5 +1,6 @@
 import GluingEPPA.Steiner.ChainValuation.HistoricalEmbeddedInterface
 import GluingEPPA.Steiner.ChainValuation.LinkChain
+import GluingEPPA.Steiner.ChainValuation.LinkStepCoset
 
 /-!
 # Separation of the genuine incoming and outgoing Link interfaces
