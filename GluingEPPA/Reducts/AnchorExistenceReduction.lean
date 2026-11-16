@@ -16,7 +16,7 @@ noncomputable section
 universe u v
 
 structure ClosedPartialFamily (X : Type u) (F : Rel X → Prop) : Prop where
-  partial : ∀ f, F f → PartialBijection f
+  partial_bijection : ∀ f, F f → PartialBijection f
   identity : F (relId X)
   empty : F (emptyRel X)
   inverse : ∀ f, F f → F (relInv f)
@@ -57,7 +57,7 @@ variable {A V : Type u} (e : A ↪ V) (L : Rel A → Prop) (H : Subgroup (Equiv.
 
 theorem decorated_closed (hL : ClosedPartialFamily A L) :
     ClosedPartialFamily (Sum A V) (Allowed e L (fun h => h ∈ H)) := by
-  refine ⟨allowed_partial e L _ hL.partial,
+  refine ⟨allowed_partial e L _ hL.partial_bijection,
     allowed_identity e L _ hL.identity H.one_mem,
     allowed_empty e L _,
     allowed_inverse e L _ hL.inverse (fun h hh => H.inv_mem hh), ?_⟩
@@ -113,6 +113,8 @@ theorem general_theorem_from_set_realization [Finite A] [Finite V] [Nonempty V]
       (∀ f, L f → ∃ j, ∃ hj : retained S j, ∀ a b,
         chart S S.root (root_retained S) a = chart S j hj b ↔ f a b) ∧
       Conformal n (extractedEdges S) ∧ Chordal n (extractedEdges S) := by
+  letI : Fintype A := Fintype.ofFinite A
+  letI : Fintype V := Fintype.ofFinite V
   obtain ⟨r⟩ := geo (Sum A V) (Allowed e L (fun h => h ∈ H)) (decorated_closed e L H hL)
   let S := asAnchor e L H r
   let R := asCoherentRaw e L H r
