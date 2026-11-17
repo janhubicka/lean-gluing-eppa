@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryPairs
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryList_adjacent_middle_eq
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_adjacent_middle_eq
