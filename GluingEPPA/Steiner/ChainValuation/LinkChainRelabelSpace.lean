@@ -22,6 +22,18 @@ variable (L : ∀ m t : Proper S, m.val ⊆ t.val → Link D (old m) (old t))
 variable (L' : ∀ m t : Proper T, m.val ⊆ t.val → Link D' (old' m) (old' t))
 variable {p : E ≃ E'}
 
+/-- A dependent use of buildNonempty respects equality of the underlying
+list, including its nonempty and separation proof witnesses. -/
+private theorem buildNonempty_congr
+    (l m : List (Atom T old')) (h : l = m)
+    (hne : l ≠ []) (hme : m ≠ [])
+    (hsep : separatedList D' T old' L' l)
+    (hsep' : separatedList D' T old' L' m) :
+    buildNonempty D' T old' L' l hne hsep =
+      buildNonempty D' T old' L' m hme hsep' := by
+  cases h
+  rfl
+
 /-- The existing finite test space and its actual relabelled counterpart
 have an edge-reflecting equivalence. -/
 theorem chainSpace_matchingRelabel
@@ -60,8 +72,16 @@ theorem chainSpace_matchingRelabel
     change buildNonempty D' T old' L'
        (List.ofFn ((chainIndexEquiv D D' S T old old' L L' R N c).1.2)) _ _ =
        buildNonempty D' T old' L' (atoms.map φ) _ _
-    cases hAtoms
-    rfl
-  exact hState.symm ▸ ⟨F, hF⟩
+    exact buildNonempty_congr D' T old' L' _ _ hAtoms _ _ _ _
+  have transport : ∀ Q : SomeState T old',
+      Q = buildNonempty D' T old' L' (atoms.map φ) hne' hsep' →
+      ∃ G : chainSpace D N S old L c ≃ Q.state.Space,
+        ∀ (e : E) (u v : chainSpace D N S old L c),
+          ((chainState D N S old L c).state.matching e).Rel u v ↔
+            (Q.state.matching (p e)).Rel (G u) (G v) := by
+    intro Q hQ
+    cases hQ
+    exact ⟨F, hF⟩
+  exact transport _ hState
 
 end GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData
