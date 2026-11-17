@@ -22,15 +22,15 @@ theorem pullbackSubset_inter (p : E ≃ E') (A B : Finset E') :
   ext e
   constructor
   · intro h
-    have hab : p e ∈ A ∩ B := (pullback_mem p (A ∩ B) e).2 h
+    have hab : p e ∈ A ∩ B := (pullback_mem p (A ∩ B) e).1 h
     obtain ⟨ha, hb⟩ := Finset.mem_inter.mp hab
     exact Finset.mem_inter.mpr
-      ⟨(pullback_mem p A e).1 ha, (pullback_mem p B e).1 hb⟩
+      ⟨(pullback_mem p A e).2 ha, (pullback_mem p B e).2 hb⟩
   · intro h
     obtain ⟨ha, hb⟩ := Finset.mem_inter.mp h
-    exact (pullback_mem p (A ∩ B) e).1
+    exact (pullback_mem p (A ∩ B) e).2
       (Finset.mem_inter.mpr
-        ⟨(pullback_mem p A e).2 ha, (pullback_mem p B e).2 hb⟩)
+        ⟨(pullback_mem p A e).1 ha, (pullback_mem p B e).1 hb⟩)
 
 /-- Relabelling the actual proper predecessors respects their meet,
 not merely the isomorphism type of the intersection group. -/
