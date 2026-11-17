@@ -31,6 +31,8 @@ import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelStep
 import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelPair
 import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelTail
 import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelNonempty
+import GluingEPPA.Steiner.ChainValuation.LinkNaturalityBridge
+import GluingEPPA.Steiner.ChainValuation.TestCoordinateConjugation
 
 /-!
 # Chain valuation proof development
