@@ -61,7 +61,7 @@ theorem tripleSeparated_iff (R : RelabelData D D' S T old old' L L' p)
     (x y z : Atom S old) :
     tripleSeparated D S old L x y z ↔
       tripleSeparated D' T old' L'
-        (R.atomEquiv x) (R.atomEquiv y) (R.atomEquiv z) := by
+        ((atomEquiv D D' S T old old' L L' R) x) ((atomEquiv D D' S T old old' L L' R) y) ((atomEquiv D D' S T old old' L L' R) z) := by
   change Disjoint
       (ChainValuation.leftCoset (right D S old L x.1 y.1).range 1)
       (ChainValuation.leftCoset (left D S old L y.1 z.1).range y.2) ↔
