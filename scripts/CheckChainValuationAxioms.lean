@@ -63,6 +63,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.filteredChainRelabel
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_relabel_mem_iff
 #print axioms GluingEPPA.Steiner.ChainValuation.leftCoset_relabel_disjoint_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.word_values_eq_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.preserves_word_equalities
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
