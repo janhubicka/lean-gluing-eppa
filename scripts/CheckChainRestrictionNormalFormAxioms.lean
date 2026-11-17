@@ -1,0 +1,7 @@
+import GluingEPPA.Steiner.ChainValuation.ChainRestrictionNormalForm
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentNormalForm.mono
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentChart.normalForm
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_original_state
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chain_restriction
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chain_restriction_completed_actions

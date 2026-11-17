@@ -1,0 +1,10 @@
+import GluingEPPA.Steiner.ChainValuation.ComponentTraceDichotomy
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.sources_masks
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.sources_length
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.block_embedding
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extend
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.exists_shift
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_componentsCharted
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentChart.fullTraceBlock_equiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentChart.full_or_proper

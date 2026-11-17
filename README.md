@@ -58,6 +58,39 @@ import GluingEPPA
 #check GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.out_eq
 ~~~
 
+## Part II: recursive chain valuations
+
+The recursive-valuation development now constructs the actual finite
+chain-augmented family with coherent inclusions and deletions, injectivity,
+and exact endpoint repair. Its groups have no coset cycles of length two
+through the prescribed bound N, and its literal full lift has no separated
+component cycles of these lengths.
+
+The geometric chain-restriction lemma is also complete. For every proper
+alphabet restriction, each
+component of an actual bounded separated-chain test is equivalent either
+to the genuine earlier Cayley graph or to an actual earlier separated
+chain with no more blocks. The equivalences preserve and reflect genuine
+labelled edges and intertwine the completed letter actions.
+
+The geometric endpoints are `LinkChain.chain_restriction` and
+`LinkChain.chain_restriction_completed_actions` in
+[`ChainRestrictionNormalForm.lean`](GluingEPPA/Steiner/ChainValuation/ChainRestrictionNormalForm.lean),
+under the namespace `GluingEPPA.Steiner.EdgeGraph.RecursiveRecord`.
+The final cycle endpoints are `AugmentedFamily.no_bounded_coset_cycle`
+and `AugmentedFamily.no_bounded_component_cycle` in
+[`AugmentedFamilyCycles.lean`](GluingEPPA/Steiner/ChainValuation/AugmentedFamilyCycles.lean),
+under the same namespace. Their action and recursion premises are discharged
+for the constructed family; the statements do not assume a separated test,
+a moved endpoint, or the target absence of cycles.
+
+This does not yet complete manuscript Part II. Naturality of the augmented
+family, prescribed exact-overlap realizations, and the hypergraph/local-tree
+and local-section assembly remain. The
+[integration note](validation/part-ii-integration-20261117.md) distinguishes
+the proved statements from these obligations and records the pinned kernel
+checks and named axiom audits.
+
 ## Reuse and installation
 
 Pin a tested revision in a compatible Lean 4 Lake project:

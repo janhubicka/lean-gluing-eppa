@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.Logic.Relation
+import Mathlib.Data.Quot
 
 /-! Transport follows the orientation of an edge: (a,x) goes to (b,y).
 A realization therefore satisfies rho b y = rho a x. -/

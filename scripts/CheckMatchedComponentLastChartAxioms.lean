@@ -1,0 +1,9 @@
+import GluingEPPA.Steiner.ChainValuation.MatchedComponentLastChart
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.initial
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepMatchedComponent_interfaceEquiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.normalized_attachment_disjoint
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extendEquiv_last_val
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extendEquiv_edge_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extend
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.perm_val

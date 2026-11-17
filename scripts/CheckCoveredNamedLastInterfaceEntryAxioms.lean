@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.CoveredNamedLastInterfaceEntry
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.LastInterfaceIsEntry
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedStep_lastInterfaceIsEntry
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildTail_lastInterfaceIsEntry
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_lastInterfaceIsEntry

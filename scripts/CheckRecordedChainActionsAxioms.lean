@@ -1,0 +1,13 @@
+import GluingEPPA.Steiner.ChainValuation.RecordedChainActions
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_action
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_action
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.recordedTestAction
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.recordedTestAction_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.recordedTest_kernel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTest_equivariant_cover
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictionSourceAction_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTest_kernel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTestRightAction
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTestRightAction_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTestRightAction_word

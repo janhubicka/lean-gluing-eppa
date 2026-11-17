@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.ChainValuation.Cosets
+import Mathlib.Algebra.Group.Subgroup.Ker
 
 /-!
 # Algebraic core of chain restriction

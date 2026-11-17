@@ -1,4 +1,5 @@
 import GluingEPPA.Relational
+import Mathlib.Logic.Equiv.Defs
 
 namespace GluingEPPA
 universe u v w

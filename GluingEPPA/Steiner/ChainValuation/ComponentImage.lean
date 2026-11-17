@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.ComponentCompatibility
+import Mathlib.Algebra.Group.Subgroup.Basic
 
 /-!
 # The invariant component image in the simplified reflection proof

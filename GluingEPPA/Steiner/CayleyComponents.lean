@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.CayleyLift
+import Mathlib.Basic.Finite.Prod
 
 /-!
 # Components and their right action in the current manuscript

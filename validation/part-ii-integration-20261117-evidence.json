@@ -1,0 +1,794 @@
+{
+  "status": "PASS",
+  "date": "2026-11-17",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "lean_compiler_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+  "mathlib_revision": "5bd58ac291422a21f412ae354c91e7d172255a2c",
+  "kernel_method": "Pinned native Lean compiler in topological dependency order, with source digests checked against compiled project artifacts; not a claim of a final default lake build invocation.",
+  "default_closure_modules": 340,
+  "source_sha256": {
+    "GluingEPPA.Basic": "8d20aa63dc0271a79d811ce4b2c74d33dbf6fc7efac199fe92f88a46f6fdef4d",
+    "GluingEPPA.Parity": "326c2015cd90b4a42db7f4406ba0cbbc8dcf81c9931dadfab474e2962859de36",
+    "GluingEPPA.Relational": "6375a18de481450161f982ef4f795e5dc3995bd4838f4b556d0ae2e72d09ee1a",
+    "GluingEPPA.Replay": "b7ebb4ca9700e4494f26b599589cda31cf1a1684ea988e66b26fef61f7498f11",
+    "GluingEPPA.Cover": "6c4d2d23f3f4fd191732a43999d0a16bef570f83d2ac657b9743d730e9ca2e63",
+    "GluingEPPA.Symmetry": "ed2f2f2f0483520bbca1c83e8cca65167c757263152cfeabb48021f59d4458e2",
+    "GluingEPPA.AffineLift": "f1b86f91a8b4d08b9456e76b9358aaeb7684afe2f2162d5eb9c9cf31adbdc2c3",
+    "GluingEPPA.PermutationDiagram": "7356fdf4ad6c722915b1ed3c1f29dbcdb889cb870a8e67db8fad2dc1ebe84b2c",
+    "GluingEPPA.PaddingCore": "9bfb08fdb4ac396edadae299ce0633aa9cf8ab692dae85656a1e051e5240b2ea",
+    "GluingEPPA.Marker4": "8c81229a91a4cabda5926527fa7e62e3b60a6aa516b21a35d32d074a3608dfa1",
+    "GluingEPPA.PaddedFamily": "c25c7ecceeb029c2dfe5e0add8ffc172b368ebe582d16f79a7ed37707b5ac09e",
+    "GluingEPPA.PartialFamily": "306e056687bf639790c7fd4643ba061955ab1ad132c8ba7f04c12d439428205d",
+    "GluingEPPA.RelPartialAut": "3587dc3f6b3eac3edecf3b7912ebac8b0759487712178bdcf5141f40e3bf5989",
+    "GluingEPPA.OrientedCover": "6d11912fd903955852f476519975b56751eaeff9ee694d09f2f93930a5b85b1b",
+    "GluingEPPA.OrientedAssembly": "2d1eeeddebb548cdd13620890f2a468c3be7b6f2aef3e331f736251ba66f6c7e",
+    "GluingEPPA.FiniteEPPA": "eadb3a9b74f47857048a7b8a029e66031ae9bb98bc9e60b90ce7e6f2ae11d824",
+    "GluingEPPA.UnorderedEdges": "59affc23b748209680d9aa4f0efb4323247d071b0dfbaef9e5ac4453f69c4336",
+    "GluingEPPA.UnorderedCover": "6d22a91274b6b354850499e89675523898ee477b2eb0526232435762bdaadc63",
+    "GluingEPPA.UnorderedAssembly": "9d844d322560fb05ac4c4f33ce98772dc6447e48a045db0f2c25a9639ff9601a",
+    "GluingEPPA.UnorderedFiniteEPPA": "c370c45ff629231b80c88ddf5c6da59f547b25b0532238681655e0f8342f993a",
+    "GluingEPPA.PrivateCycles": "db78f9b9063cbb635a414aafd07a4e98ac3c62f80c576e5af7121f5a3325771c",
+    "GluingEPPA.PrivateCycleInjection": "f1378f60aafa37d07ead8fd2ab171a697cd284ca64f160ec2023b3d01747f598",
+    "GluingEPPA.PaddedPrivateFamily": "f24bafb6fc5b00d0512b4369d0dec32cce5ce3e4bf6c785fb2f29e8334478f2f",
+    "GluingEPPA.PrivateFiniteEPPA": "716169c9f4b9376c200d7a1c5ac713635124291d03f723dba2595b6e8d951807",
+    "GluingEPPA.Sparsening.Saturated": "27b8f4b67edaeffcec7702b2e578e861a2e92430d27ab24d462c42f4ba87467f",
+    "GluingEPPA.Sparsening.Descent": "b29a62dfb8e07b68ac19216d1330de6393f154692218181fe11b603d99e1f1b0",
+    "GluingEPPA.Sparsening.LocalParity": "28e2e9fd83a34e05ff115ac0a62691a09066141ff6f996b7808bcc1052490607",
+    "GluingEPPA.Sparsening.OddBoundary": "b2ec00ebac8e138bd4cd0dda23234ecdf416158dd2bf0d9864de2a9d66d79e97",
+    "GluingEPPA.Sparsening.StarCorrection": "2814c8e5b61c57f66c4e38b5f9d87a250b72124a5a12d7324ee40665424934c2",
+    "GluingEPPA.Sparsening.RecordInvariance": "0553d23df5fef12c243b58f36cee001e8facab16c908e3e8f418173c0f27add4",
+    "GluingEPPA.Sparsening.CompleteRecords": "087b42728215b14a8ecc20b9730dd44208713f6a3f06b657027e2b1c1bbeb0ab",
+    "GluingEPPA.Sparsening.ChartAtlas": "525e5e64f0c01cb5822752dedae28eb7c4abd810ce5785d0c59ac09b4a4de8cc",
+    "GluingEPPA.Sparsening.ClosedCuts": "9cea29d576471526b36a92b703341bec160fd06097c3969f96487b89d64a1596",
+    "GluingEPPA.Sparsening.UnaryAtlas": "0e62ceeecab5b3bf42249983cee9cd4d1aa2dfbe8669fc44be803da1f36c112f",
+    "GluingEPPA.Sparsening.CoherentTranslation": "9d142a6b33cdbd1109ed63523a06f9e29da46a32fbede63a2b090db1d3fa7235",
+    "GluingEPPA.Sparsening.AtlasAction": "19427ce8eb9a0954e5d1687720cc861b7286a638f7949743f1b8860e63193096",
+    "GluingEPPA.Sparsening.AtlasUnaryAction": "aed68ccf1d5c691d690195945b4b30ba10c80799d7c9d49d7f17a58fc344f217",
+    "GluingEPPA.Sparsening.AtlasEndpoint": "aa905676c1c4aa19631aa77263906845d84e27015c439b6c1691fa171601532d",
+    "GluingEPPA.Sparsening.CompleteChartGraph": "68fcbd54700b1d66e01dc6203fc1179fde81e2c18274425f940a338580c2bc5b",
+    "GluingEPPA.Sparsening.OrbitAtlas": "367181098732292ecfb9e751383563cdfcd401083e33d8738d3dc471cf25e782",
+    "GluingEPPA.Sparsening.OrbitAction": "4aba35bf723a7df61f6199464e7aed848ebdd35fe4cd8f70e0fde962cbb027e9",
+    "GluingEPPA.Sparsening.OrbitEndpoint": "bda55368b89f40c19437cf7c0b0c05d30d53cf46a6f342edbe449b07bd03bf32",
+    "GluingEPPA.Sparsening.AtlasRecords": "cb30efbbd50eee68ce85c44824a814361c3de52cc2ec7307be5a30709179d33c",
+    "GluingEPPA.Sparsening.AtlasSeparator": "334efd5b731624776866daea104094ca544fb8524eb0c83879f25883be1a42d4",
+    "GluingEPPA.Sparsening.IrreducibleBridge": "dc26ceab7ba863d5a8fedc3477de2d3597d08679524e02d5740986ee2a9c73c0",
+    "GluingEPPA.Sparsening.AtlasIrreducible": "119b64bfcd48a398c6db8c25acc060e28b8c69cbbd6b9d5efb46a75f7c5df79c",
+    "GluingEPPA.Sparsening.OrbitIrreducible": "aa372b72bb03342642b681e2349f038342121ce24bcc16b7d3ca424dad9337b0",
+    "GluingEPPA.Sparsening.AuxiliaryJ": "d38574dd2760df36818debb7ef9a43c30c4f5c9821a73e82379c78d6d8e84293",
+    "GluingEPPA.Sparsening.TreePushoutCarrier": "91422812daa4ada64dbda01edf3405fd010c6f66b73519c48927ff88b65953db",
+    "GluingEPPA.Sparsening.TreeFreeCutMaps": "efadcee0301c9fb3f1c8942251c141bc737def05ad0056aa2d6eee1784314b9e",
+    "GluingEPPA.Sparsening.TreeFreeCutHom": "8d24070dba86e9bc0bbd0aa43a75f3597043bba36418234b991bb2881db97e39",
+    "GluingEPPA.Sparsening.TreePushoutRelations": "4985311ecfa6138d46ec1327803bb2b5630ad89584f72f1e1db440974fd05fd4",
+    "GluingEPPA.Sparsening.TreePushoutExact": "99e0bd435011c00311f00df2d8c937b6388d484a1e72d208087dfea537e58ef0",
+    "GluingEPPA.Sparsening.TreeStrongAmalgam": "c651706e4c53279aa6797bacbb93b9bd43090a818caa907b1c1716a3c2251aac",
+    "GluingEPPA.Sparsening.TreeEmbeddingComposition": "ad2c348d38f3124a8e65cbc554e523a3957e9f274184ae7600bd07290aeaca0b",
+    "GluingEPPA.Sparsening.TreeFullA": "f47209c7a8fbd5fcab64d0c4c3d273686c4952f4f6358d61575a9aa1682942a8",
+    "GluingEPPA.Sparsening.TreeIrreducibleSide": "9a6b5592f656fc7dfa92c1f819c417a822ce2c2a5d5cffe5bafb0958d8b1f695",
+    "GluingEPPA.Sparsening.ClosedPartialAut": "708000b514577c5f06b848d8478b05c711ee4556b255ee26d5289d84e6accc64",
+    "GluingEPPA.Sparsening.TreeBaseChange": "d5cb452c6c5bda8bd8985ee67a3ce2ab724c15de94bf67547737a083273ba87e",
+    "GluingEPPA.Sparsening.TreeJCliqueRoot": "3e404a2d633688b84f11a2e606c864d290e6cf283e570125687f5b4d6f649260",
+    "GluingEPPA.Sparsening.TreeRootFactorization": "235d3049eae3c16573ad00c4b3184d6d1e755cc1304e72e013efdbaecaa991cd",
+    "GluingEPPA.Sparsening.TreeFreeCutPushoutHom": "6543db2e5c91205682bc5d999c537d48db7b7d2b336b6b2a36871c7d10fd887a",
+    "GluingEPPA.Sparsening.TreeHomEmbedding": "34459e8c2c227a70991ebc4efdd8fbfc643b916c68e9921ae9041aee58e3bfd4",
+    "GluingEPPA.Sparsening.TreeHomEmbeddingGlue": "30edf5a285348133aeacd37de4017e5493355be33fe316e4a3694c1a96b2663b",
+    "GluingEPPA.Sparsening.TreeHomEmbeddingTreeGlue": "e711003c2b41682dd0d93ce9fdecba4c3b2e42f47bdf592daaa2af5525aca584",
+    "GluingEPPA.Sparsening.TreeHomEmbeddingRestrict": "8a1d9b200554f74577de8d3c13795e972a99724de847586a745fc0d1fb38845e",
+    "GluingEPPA.Sparsening.TreeHomEmbeddingClosedCodomain": "ab0cafdce127c1bbd6c792be9dc9732ca803c4fe308844eb524384466ae520ef",
+    "GluingEPPA.Sparsening.TreeProjectedRootAssembly": "76f8a00c8ab50d31f0706295f721d5a0577910718978c8c0f6d4283efb9409e4",
+    "GluingEPPA.Sparsening.ProjectionStep": "83814387acab203274bbfd7c8a3fec606c30ccb3b36554eecd626b360ba93511",
+    "GluingEPPA.Sparsening.TreeProjectedFreeCut": "065ab7dbdbb4dc6c1bce2beaa0c6fa5ef694f8374717ebf79631b465ea07fd9e",
+    "GluingEPPA.Sparsening.OrbitProjectionHomEmbedding": "84703b532cf90be2ac37343415b4d9fcd9584ecb7e5a82fe6f3c329cc37d129e",
+    "GluingEPPA.Sparsening.AtlasAllTestCuts": "4b598faf744ba46409ce806e27a1b746f706466d8f95564df46c5d3c431218fd",
+    "GluingEPPA.Sparsening.AtlasRootedFreeCut": "7346ba25333e3e4ff86b8521d212dc94b20857eacaca69caa63e23e448e2bc4a",
+    "GluingEPPA.Sparsening.OrbitProjectedLocalGlue": "84a18444c53e98fee8fe375a9b3380c5732455f343b0f489585b191d3826c5c0",
+    "GluingEPPA.Sparsening.OrbitRefinedRoot": "63573c4380a402083366789017bf38c42514e696a05f6d17a8701f4d981b96f3",
+    "GluingEPPA.Sparsening.OrbitRefinedRootExact": "4477fe49340c8dcb7a4756aea86602004fbe127db79d38e7a835295bc356005f",
+    "GluingEPPA.Sparsening.OrbitRootedDichotomy": "b39532ecea3999ee7bf7e1c73feb1f2c1fe51dd6b1f0b74cc34aadc545f3299f",
+    "GluingEPPA.Sparsening.OrbitChartExact": "67e7e02a53cff4a0a37e14289c2f26b9dfc008d0ea0de30aa03b5390992cb5b2",
+    "GluingEPPA.Sparsening.OrbitLocalTreeStep": "a6b9ccb565e5cdb0c718ad406310144df55023a84099280c01a5c9039a6b07b3",
+    "GluingEPPA.Sparsening.OrbitLocalTreeBounded": "b43b4e473884cbea247226e097fc7cde78b4ea30e0af661cd858d2e7b66881c2",
+    "GluingEPPA.Sparsening.OrbitTreeBaseChange": "479856937fab58d86d938ca3569042bedb093c3f26b4ac6f5a2affec3c8804fd",
+    "GluingEPPA.Sparsening.UnaryGeneratedClosure": "11ba0cf01db1a9cd7534f158b524cb72145a632a96d02bd8ac98ca96d7b5044f",
+    "GluingEPPA.Sparsening.OrbitFiniteTower": "3cd9179b0b1d3673eee1a2b85be0decf2a310a18b5b48dda7d4ae65e994051c9",
+    "GluingEPPA.Sparsening.ForgetJ": "a14b3acf6b70ee3e229c9f76309c9dcc02f23176a9d42b4558f66660eafb4f17",
+    "GluingEPPA.Sparsening.OrbitTowerReduct": "612e6fbc7be37545ec410ff1be86b6c098ab3d9562d848087dd779c6dda29a69",
+    "GluingEPPA.Sparsening.OrbitExtensionFamily": "a2fc83bcbd0aed596bb667a1629c5ca5d4d2b1c4e8a3348cb4b1aacc8365fb06",
+    "GluingEPPA.Sparsening.CompleteJPartialAut": "fffe92e27c6d94873108aa28cd6a7650cc4838cb76afe69adeb816c9f6a3488a",
+    "GluingEPPA.Sparsening.SparseningTheorem": "74a1f9ae0913c9b50750d6086aa42198abb5c2afb26b176ee11f472cdb4f7c71",
+    "GluingEPPA.Steiner.WalkValues": "86200049a214a4d09c0b805bd53ecdfb5f2e108c563c1509ca83437d33be7b67",
+    "GluingEPPA.Steiner.CayleyLift": "4014c0496d83cc1f509248488e0a691c1b9055893884ba324ba61f6bedf23664",
+    "GluingEPPA.Steiner.CayleyComponents": "983142cb889fe2f15d4fa30bc896ec7e55afd4296da49f715fe48b0785b1d6c1",
+    "GluingEPPA.Steiner.ComponentPermutations": "3c2ee5a52b131dfc07b105c8db6fa864b3089f7844e1cc36ba71d656633e7eaa",
+    "GluingEPPA.Steiner.ComponentInclusion": "4895e61d0c3105a7e03f9ee3e852420f64b2d499f97c1c2aa5388aaf6afea333",
+    "GluingEPPA.Steiner.RightAction": "b1bd2ae0d25ebbb38693e6e0f98c01da194216f44bebf1e8d5303e4e578be395",
+    "GluingEPPA.Steiner.ComponentCompatibility": "37bf5fbc42e721de0b5492a35276d2f8eb87e01f075d59d3e5d952f5032f1a93",
+    "GluingEPPA.Steiner.RecordValuation": "b94a50e2238dcc4f26dba6547d0f231383c1aa508e5202e162ec622a040f0fbe",
+    "GluingEPPA.Steiner.RecordInclusion": "d71396ea095aae3297eae7340b35bab174cb17fd81a98522fa3f16f5f48bec81",
+    "GluingEPPA.Steiner.RecursiveRecord": "a727676bb6a32063aced6a566db92c97c8f6f1acf000b8a9719051d23e7f13ca",
+    "GluingEPPA.Steiner.RecursiveLinks": "a2b28142ca680a0af6afda5f0b337c616c6c5c02533f4b78a471dcffc49ffb17",
+    "GluingEPPA.Steiner.RecursiveTransport": "ef75b897f528790371283993f96370b707eedbdf1e47f2ffac42fa1b956fd0e3",
+    "GluingEPPA.Steiner.CayleyIsomorphism": "fcd9e4148cf29d2793f5f4470f8b5fc0b1ff00bb53c3bbe15a79c2014580ca86",
+    "GluingEPPA.Steiner.WordHomomorphism": "53714b869432be6f317ef7a07e844ce0412822eb158a7cbb316bd69338c17413",
+    "GluingEPPA.Steiner.RecordIsomorphism": "20d4503ae4c2962be63cf143289167c8bc478e480f38a260199106cbda44e1be",
+    "GluingEPPA.Steiner.RecursiveNaturality": "0fdd1c2daf551d3d5a24794dc5ff7eb55cc0231d10cb958f2991b2e82d407633",
+    "GluingEPPA.Steiner.FiniteIntersections": "c6cc9e412ace0971a49789b4ffb1b74a4d9a686f75e7c6a8ce6ff5d5b787d87e",
+    "GluingEPPA.Steiner.DiagramPresentation": "6e8f295a46492046598a9dcf2dc89dee12816b980242a997f0c57c41665d04df",
+    "GluingEPPA.Steiner.DiagramRecords": "b6122cb7ff208d34b7cf1c1dac96aa420b872f693720bd2902a53230ef2bad25",
+    "GluingEPPA.Steiner.DiagramIntersections": "33234fca4b9107447993380bbef98adc86d34eb5709792a843b24aadc6f8ee67",
+    "GluingEPPA.Steiner.DiagramSteinerTransport": "cae37906ae0f17094dde77cde52fbb8e6e024c2c085455ed651ae06189223eed",
+    "GluingEPPA.Steiner.DiagramFreeQuotient": "0b03ec09a2baeee497d2e5666576c020dce286290d3114dfcf6b7897ec22348f",
+    "GluingEPPA.Steiner.DiagramCompletion": "f5e7d1fd4507bd41168603c05508dfd5b146a04312c0ea6c9e1ae1c02d6e4992",
+    "GluingEPPA.Steiner.DiagramRealizedSTS": "4ae9c87ab8ba23176247358e94e3fe716e47f6988f5d5676e8d47735ef698e0d",
+    "GluingEPPA.Steiner.DiagramRealizationConsequences": "ca63fe194bec1ff77c5aa57b2de1375ea18dcdd3961f741245f6e200a27b854e",
+    "GluingEPPA.Steiner.DiagramDeck": "82859a090784167f9c2085feb023a91aec9f7fb4a0911ebb95b6f0222655ebe8",
+    "GluingEPPA.Steiner.DiagramRelabelling": "a883b2013ffbc77c3dba7500dd48e5952125c966797ed1b06c0d4f42c372b3fc",
+    "GluingEPPA.Steiner.DiagramRelabellingEquiv": "f0bfa3f0e5e0c8f63f8577f5c6a3d13d6e17891efc2f231217b54d15bd778f37",
+    "GluingEPPA.Steiner.DiagramRelabellingAction": "db574fab0dab6641722c699f9953f89607a609023f9cab0a82a0c54e5afb08a9",
+    "GluingEPPA.Steiner.DiagramRelabellingDeck": "114fc66898e6fea5d8e65a3d5ad44698ce6d87189c9af4268b31b885a741d521",
+    "GluingEPPA.Steiner.DiagramRelabellingComposition": "7a852609747cee9d8f1de8bb62a32ce8d67af1f1f94d50ccc632575cf9e8e568",
+    "GluingEPPA.Steiner.DiagramCoherentFormula": "781afb1a9fb897de8889102334469aaf3925761615b35ad18539009c02c9a213",
+    "GluingEPPA.Steiner.DiagramOrderedCompletion": "f7cf1cfac9b1691e16ebc2bc57c29200a0a58c6769a17d3afbad9c78f9a27351",
+    "GluingEPPA.Steiner.DiagramOrderedTotalCompletion": "25923ac780c2ac6aa80314bccc210d6983fb66d0d9fc0cb18883b05a9af850d4",
+    "GluingEPPA.Steiner.DiagramInitialSites": "565ef7cb4689a45cb80bda0d7758e7944ff3d204f63124fcacb51a1441d962a6",
+    "GluingEPPA.Steiner.DiagramInitialEdges": "8083c12fd732d58521627ec412e9a5c6243a5b95339b01ff78f1a832b68894d5",
+    "GluingEPPA.Steiner.DiagramInitialRootEdge": "f5a373369f7f67eb2524ade8646d197256b34950e50acdc5a3095d0ffde674ec",
+    "GluingEPPA.Steiner.DiagramInitialSteiner": "f64a2c59612627a1af8e5ebd9731fc56f65b82cb1a806ab21b82ccaf94ef3c49",
+    "GluingEPPA.Steiner.DiagramInitialRepresentative": "43fc69f54cac380cacb8c11009089b6bd2774924269bc44e4382e8c222f7d05c",
+    "GluingEPPA.Steiner.DiagramInitialSymmetry": "5ca41b33b8870dca5b65e430f86a095024d491f9313017e70a6e676af8421633",
+    "GluingEPPA.Steiner.DiagramPartialSite": "0fc98381742b7723f38d0a5b1436d2b51e7cb0a70fdbae6fc1ef68ab126d0288",
+    "GluingEPPA.Steiner.DiagramExtensionPoints": "a2416c89531681d1c8cb3609888f047b3db26f5ae0a8656773aa7ebdaefeb602",
+    "GluingEPPA.Steiner.DiagramConcreteProperExtension": "45b01ad25e938888506238fd64300ac8242d2ddb04dfd1c3b5acb32078dfa43f",
+    "GluingEPPA.Steiner.DiagramFullDomainExtension": "78f2592e637a0fc6078887d45efa4146d8ae7fe258c404e1d423d8b806912668",
+    "GluingEPPA.Steiner.DiagramInputAction": "240cac86258397e5e75e748bf772a4b7efcce8418feb7b7375e9f35b2d581c05",
+    "GluingEPPA.Steiner.DiagramCoherentFamily": "5e5ad4e92be399e0de58786f57141765794be53c26d0582ca19a47da9ba1b959",
+    "GluingEPPA.Steiner.DiagramUniformExtension": "23c2842f1c78ef93fcccca52a1f014d242fd2cfe9779a7fe7c1c44a9e172313e",
+    "GluingEPPA.Steiner.DiagramRootWitness": "87e3205e24fd8a6452a23dd7f78ded9bea9848d0e9b80742249718b91fe546ed",
+    "GluingEPPA.Steiner.DiagramMainEPPA": "556506fd7c437d512f11e241b51c41d4ea21906ad208585bf707e19a963fda87",
+    "GluingEPPA.Steiner.DiagramFunctionBridge": "08a7aad046de3cb4e86265db88fb63fd11608d22a607ed67bfda7f46f12a424c",
+    "GluingEPPA.Steiner.DiagramFullEPPAStatement": "7dbcf79eb56ec67ef1ae44c74e78926c1bbfa3b780e0124e3f6f0ffd07394985",
+    "GluingEPPA.Steiner.DiagramFreeRealizationTheorem": "fd8d4545a699b3d1e965b7ed7332bf1dd733ba0e910263d481fae5b109bbf0ac",
+    "GluingEPPA.Steiner.DiagramLocalFunctions": "3fc049925186ab0cc41426ecca0746184eab0bbe7b40c73cf08ec7a8c26f8a4d",
+    "GluingEPPA.Steiner.DiagramExactProperties": "04939c860fe7191c588a4a2458b8b7495b9c155f300605692f57ce356d9ba288",
+    "GluingEPPA.Steiner.DiagramWordNaturality": "7aa7a18755320336837eb3b02bea05b0ef8281f3c6a191fc1d76ce51df2c34b5",
+    "GluingEPPA.Steiner.DiagramBooleanSupport": "e009866c49bb43281a19f884c09bdc83483688db5183a30d4003f4d48142a456",
+    "GluingEPPA.Steiner.DiagramBooleanSingleton": "47753194cf3945f1fa7e619ea0efc9d0bca9bf2e71659b51373172d8e87d50de",
+    "GluingEPPA.Steiner.DiagramBooleanQuotient": "210d97b15c0c17a6d5ac4fca3c883333edbbead6b324bd8847d53e1483064cdb",
+    "GluingEPPA.Steiner.ChainValuation.Cosets": "e2f3c7e667ec1da0ede7b8d83fdee5c6d59f3f859c38794c86736e51128b730a",
+    "GluingEPPA.Steiner.ChainValuation.ChainRestrictionCore": "87e7acce7c93e6c95254f8f73c318c8f5ac73fe936f4471533de13df85a4f74e",
+    "GluingEPPA.Steiner.ChainValuation.MaskRestriction": "edb8a7704612ff9e1f74c0ce20d5a54ad4a12293e773f1cfb2bd6a7d57e8a6ff",
+    "GluingEPPA.Steiner.ChainValuation.Matching": "b4cc6bc7122028d7bfedbde29cdebfa87beb4822b239b3b718893f95211c7f94",
+    "GluingEPPA.Steiner.ChainValuation.RestrictionLink": "cd0f0907379e6855dc50642b70521ab6c0a9729b79d01e406f82d402ef965e55",
+    "GluingEPPA.Steiner.ChainValuation.MatchingComponents": "1771cc1638a5b868819ee82a92d106c06869b1f81f005286d687d43f115d5c65",
+    "GluingEPPA.Steiner.ChainValuation.TwoGroupRestriction": "d303b760e5da6953acbf0868b0e206fdc2437ebdc2add8d29f3ae8750932c164",
+    "GluingEPPA.Steiner.ChainValuation.ComapSquare": "324cfb8d491308a5b5aba5031f4453213f0b64924a143b74435642cf1e012412",
+    "GluingEPPA.Steiner.ChainValuation.CosetCycleCore": "d35630bc3645d5f91f2bf4dd851fff5f69616cf9a8bcfb1936d7520b2cf6e3b3",
+    "GluingEPPA.Steiner.ChainValuation.ChainIndex": "4ea494aea8bbed9b85ce72e7d03d49ad7207e7b695271899da5830dc485489c5",
+    "GluingEPPA.Steiner.ChainValuation.SeparatedChains": "a96e85810a32167a7326797a176c19d5f73c66f86d1b2c2ded839362b15d96c2",
+    "GluingEPPA.Steiner.ChainValuation.BlockMatching": "cbb96d60584d83af766a27bbd619a0eb0e00278167662effb78db2069c503ac1",
+    "GluingEPPA.Steiner.ChainValuation.MatchingComponentStep": "1f97f2a90b729f98992cd363401c372db8f8da936f8c9d2d4b091112a9d6b82c",
+    "GluingEPPA.Steiner.ChainValuation.MatchingGluing": "5fd9dc7dbe7a1431e739e5ff6a0b356b2dc8702c8edb6fa88e90bcb4acd89a32",
+    "GluingEPPA.Steiner.ChainValuation.CanonicalAttachmentMatching": "552ee9d1d8fed9433c6ea6b83a2fc45a5955bb197554fb5ddd5cac07c2eb11df",
+    "GluingEPPA.Steiner.ChainValuation.Pushout": "084e6efc07e1ce5e07afe00dccd142e8cbd9043238a844272357f69edffeb830",
+    "GluingEPPA.Steiner.ChainValuation.PushoutReachBridge": "cd3ded340455a820112d61b657519e5812aa158c7973f337f2c752c22610ad9a",
+    "GluingEPPA.Steiner.ChainValuation.ChainState": "d363f06f710dde3bf4162487245d47b58ba4d2c05c2824b998be47ca30757580",
+    "GluingEPPA.Steiner.ChainValuation.GroupAttachment": "cd3aae7f9f5edc76744013a86aefcdb1d7ca0282807331c444693b3dd6d68e23",
+    "GluingEPPA.Steiner.ChainValuation.ChainExtend": "8e9cf77e247178e78437569ac415b53489f0701aaf1f6ed773cba84947ac1f3a",
+    "GluingEPPA.Steiner.ChainValuation.ChainAttach": "5697f9fcea3ae79d659959e4a49fd66f9be48df8f11e503f5c02d0573e044814",
+    "GluingEPPA.Steiner.ChainValuation.ChainAttachReach": "15b91dd340fc282cf69ac011ceec49bd2304121c25251ca4211e73cf5612b9b3",
+    "GluingEPPA.Steiner.ChainValuation.ChainComponentPullback": "bb449b39080717aea469f21fcb7257846e9cb007778f98bc49caef9547e05c3a",
+    "GluingEPPA.Steiner.ChainValuation.LastCosetStep": "95cf7e2b3cdf62df50a4f6f1df065a802c2ac181b11853e223be3a1771e8a5f0",
+    "GluingEPPA.Steiner.ChainValuation.OldComponentPersistence": "09305fa250c60d2d1f2c3fe59de96fa4f108be614787ebd6851b93b6a64b600e",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalCosetCharts": "fc26a18ee69fb81d818a5bbbae6366326f9be8a35244ea03f2fb0b29f5827563",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalBlockFamily": "3873a30eeeb07e0dd2e37e02be1a20d26b6a91c66ef6a9fdd9ab045c0afc0702",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalBlockCoverage": "2ebb78bc021bc85b02338461b5676ac18c61dafa4962918853989cf00017cb94",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalComponentSlices": "b2c9cec047bfdbf111a67c47dc83890925338570272e491b8c4d7a436e9b76e5",
+    "GluingEPPA.Steiner.ChainValuation.CayleyMaskReach": "12cc7efe7deb968f8c9c210e47a770c3fbb367d0f193d389029e352f11f05772",
+    "GluingEPPA.Steiner.ChainValuation.LinkChain": "b07a186366efac53894f52f3dcfd6e30002b9c956af4bfd21dd460cd1684b3e6",
+    "GluingEPPA.Steiner.ChainValuation.LinkCayleyMask": "66a8b4c5b5b390fe5b13d6b23a32856ad40ee878a294ba283a6ff7c0aeb79857",
+    "GluingEPPA.Steiner.ChainValuation.LinkProjectors": "46c17d24bdb33c002a175de4ca27a0f3119fdd5733b973be01608f6bfe362e4d",
+    "GluingEPPA.Steiner.ChainValuation.ProjectorNaturality": "20b3b60a4c46769f31d65ee2efb1a6557bfc282d0e4d1ac94f97806b63186073",
+    "GluingEPPA.Steiner.ChainValuation.LinkRestrictedMatching": "142e9faf45dfd176808e64bb534cb25038c3d6d0c676e5a02a94c5d8894b4834",
+    "GluingEPPA.Steiner.ChainValuation.LinkLastCoset": "f2c6b399b6142e28feee19cd591a78c54e7a0a1747a9060ac5a8aa274e899387",
+    "GluingEPPA.Steiner.ChainValuation.LinkStepCoset": "e0f2036e079f7c081cef0283f7b0af39d9b2ee8418d35f850decde03ce6179e7",
+    "GluingEPPA.Steiner.ChainValuation.LinkStepComponentMatching": "17c3ecc45ddd65d58c9b0e3c7057f4305ee2294d3be38339b594e47497f61d6a",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryStep": "1b3a27bceadb49f6738e54d11a9bdb290da0b0b0281ddb3c50724add770610d1",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoricalLinkBlocks": "eea0818ebbf285dda0a7d777eb28200abd7ee96346661fb9fab34a11cc064342",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoricalForgetful": "340b6a11992446a872031f93ced09feda38d6d586946f66b2901557a51aabfa6",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoryStepBridge": "ec21c26f3e576599ba5b132dac4097257174f08131ddcf90073460b83a272441",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoryFinite": "a735ffdd2b7adec888ddd5770f59b8706d54ef32710440c5314d4314869805d5",
+    "GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness": "55e8870b64da58e13e537052f60e9c49c0a3b117c2893309ee7fc31ac7e94425",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness": "13d3f34e421ecfcaaf94bf6f6b94dd391bfe1a1fcf42abf413293277eb4b8ad0",
+    "GluingEPPA.Steiner.ChainValuation.AdjacentCayleyInterfaceWitness": "1ed2bf28a5420a6e3564c13124138bdad750c086f6b199fd6f373320e3c41fe2",
+    "GluingEPPA.Steiner.ChainValuation.PersistentHistoricalBoundaries": "c4b7f2967947827bc6aefe1c8aa139fb1631487622270b4c27a0287c2b1ccf04",
+    "GluingEPPA.Steiner.ChainValuation.FiniteWitnessedHistoricalBoundaries": "e8ca8aad8f4b9a4e0e630ae9d9b294ce924c17cb4d990f2524397369c45c30f9",
+    "GluingEPPA.Steiner.ChainValuation.FiniteBoundarySourcePairs": "9796de839f7bed950222c256af0e6fce8d5db5c4c0a6bd4a09614fa211db101f",
+    "GluingEPPA.Steiner.ChainValuation.NamedBoundaryMaskAlignment": "9e39141bb8c35d38be57c56674c176d79c3a0acf596b2bd528671c97cb76669c",
+    "GluingEPPA.Steiner.ChainValuation.CoupledNamedBoundaryStep": "ecacd0c914e836ef10f5d207fad072b83b51db5d328a8c9df686204798fe6361",
+    "GluingEPPA.Steiner.ChainValuation.CoupledHistoryFinite": "5dd9523f70bf5999295b7672f3f22432ecd39794901fce91f17d1b6086534c3c",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryInjectivity": "7dc02f8b934d04fcd7e1ed1113c3c9a83585cf97487221851e1fe6edfdfdd4ff",
+    "GluingEPPA.Steiner.ChainValuation.FiniteBoundaryInjectivity": "3665989af6478b9d9c067456bea551fde3cdf231a819e97fb9db55d500dc71b9",
+    "GluingEPPA.Steiner.ChainValuation.FiniteBoundaryCertificates": "7b0ea9784eccc0c35daf3298763d5c13afb07ed0e004fe74c2e81f6acf1fc25c",
+    "GluingEPPA.Steiner.ChainValuation.BoundaryHistoryOriginalCorrespondence": "4cf4f6c1738e50828e603cc0a714fd3f9d702ec52d3f9f97934e413599e69ecd",
+    "GluingEPPA.Steiner.ChainValuation.CoupledHistoryOriginalCorrespondence": "a20265cfd5025f6643ea3b07c443ea2eb179203b949a06a4aa56217110af4e8d",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoricalLetterEdges": "389ea61e530378fee38d23d08bb4d667ea552b56114abbd1126f6d877de841ec",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoryLetterEdgesFinite": "f4b372e39d6db75b10036f5fbca2ac747e1ba597a3eeefcf7e6d970ac004c42a",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoryOriginalCorrespondence": "8ad5ffb329808b40abf123611e508d2076071a2b550b7590d9a2cdb6759b0e0d",
+    "GluingEPPA.Steiner.ChainValuation.SaturatedMatchingComponent": "c5ce9b4eb39642a0de9b7d9335991a0ab7990ceb6d241db43c4bd0229fa2a51d",
+    "GluingEPPA.Steiner.ChainValuation.PushoutFunctor": "db5b12e6231b4fdf47c84dafd6564109e11eec1a875fe7df0ecd8b9017b0875f",
+    "GluingEPPA.Steiner.ChainValuation.RestrictedPushoutExact": "1fbc674e0ae30926f00e4fb0889fec56099390999b67997ce0a1c613e0c020c4",
+    "GluingEPPA.Steiner.ChainValuation.AttachmentFibers": "44c95d130415088ca170835b75c7b8f2f7010ed341abf0ca3b1f49c43e2b1c56",
+    "GluingEPPA.Steiner.ChainValuation.LinkAttachmentFibers": "3d5ad1b56470de612f66b600115bdd1db85b161c8c1094c8f5cb2a1294c18108",
+    "GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetRestriction": "3b4fa47c8beb8df893f686d7e8871b0f241c3e2719cfdde8abde8a458efc7798",
+    "GluingEPPA.Steiner.ChainValuation.MatchedLinkCosetSaturation": "a997677558c739cc0031ec3a1ad875ada8466a765f7a72742e8628c2f11339b6",
+    "GluingEPPA.Steiner.ChainValuation.FullMaskHistoricalComponent": "c33c51d2a9bd252916ab728091a650df52c8b6a36f050203ad7f40538b31189a",
+    "GluingEPPA.Steiner.ChainValuation.FiniteHistoricalComponentDichotomy": "5a5c4cad3cba632699f72e433ea38fe4a0597edcb49d46ee78af5b316082bc0d",
+    "GluingEPPA.Steiner.ChainValuation.MatchingActionEquiv": "11e6e5a270066809623de449bf323c7f5d467b1d29209e690d032ced3c0b5d3c",
+    "GluingEPPA.Steiner.ChainValuation.ReachComponentAction": "df5a3d1d2ee0ad608df731b3da4faf74aa97e3d519a73a232a0a0cbc89f90edd",
+    "GluingEPPA.Steiner.ChainValuation.ReachComponentWords": "afe69d336c717a0b82d1c7817348df1816574f17504527847d203fc24c8a11ef",
+    "GluingEPPA.Steiner.ChainValuation.LinkCosetEdgeEquiv": "a5b896e248f51c378fe5fd0b4f7f752c67776c10bc9932ece1f0f03aa10683ae",
+    "GluingEPPA.Steiner.ChainValuation.LinkCosetEquiv": "16380a99fa3da1023665931e6da1d6b44421ee5cf2fa055e1633f2b3bb514924",
+    "GluingEPPA.Steiner.ChainValuation.FullMaskLabelledEquivalence": "7b4f8b5d76d5da666d8186db31d31fec3adc23e3442f1b8ec97a77e0bd52beca",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryParameterInjectivity": "1169b12283bc293d44cb1c4f2afa8ee5ddc10d16c5d7fb0f828296245fcee983",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalExactOverlap": "55ef36ffde573c266bcee08ce38f5fdc3904a35d77da2e6fd36de0e0c5481dc7",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalEmbeddedInterface": "627a27af38bb5126bf629f2d0844aa82d162407d60d7d1116db042f2ad78b4c3",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalInterfaceEquivalence": "02c21be7345a15c62fe8c8851dbc2351b69844e7126bdd93f1c1b95783463f25",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalConsecutiveBoundaryCharts": "0be10fac00cce4569dcd43cccfec8be3495f7b2209ba4064ef8150cecf7c99b2",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryNamedBridge": "3883027edd3f658f9bbb85d506e59404fccb2069e4c4f8038bc0c60a0b271af4",
+    "GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryHistory": "13701a1daccd9a14a7f136beb8ccc2ed8db2260f4b8590ef39228759d9ef50d1",
+    "GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryFinite": "bfb4bfa88021ce64301d07e46e2dbd3d8934852d5f2ad0ff4b634fc2bf2360bc",
+    "GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryHistory": "b72c009b403afc9f2c69edf9d6becc4ba5ac8d0600918d38592f5f4494e592ac",
+    "GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryFinite": "22ffc9710ea671842ee64a6fc4ca2cedfcb359b249ea02312f686ba74a0f61ea",
+    "GluingEPPA.Steiner.ChainValuation.PointwiseNamedBoundaryCharts": "f1dba5ce6df2acab2b9bd62188cc01f28ea792e8d92d289fa96a18e072f0d48f",
+    "GluingEPPA.Steiner.ChainValuation.PointwiseNamedHistoryFinite": "89f9bc974a8072e8dc933d3de569cf53825d54d3a1493411eeb928d80e5b2113",
+    "GluingEPPA.Steiner.ChainValuation.CombinedHistoricalExactCharts": "11595e1671748fd0bdd71439cb84084c833d637544606f2a7a13cf91131516ef",
+    "GluingEPPA.Steiner.ChainValuation.MatchedComponentPushout": "5daebe8f49e368a2b9f582bfc2da55ff11a439329018f1136923cc5aa5fd6735",
+    "GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent": "5460a5dc1eee0000b565e89281e9250da47c8c96539fe039f75e3a4e223a6e96",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalSupportTransport": "ca2e40788cc740c5068147f3c6a5818f2e5e48d4f62ed48cd16870f10eff3ca6",
+    "GluingEPPA.Steiner.ChainValuation.ConsecutiveHistoricalSupport": "d955dab27bbae51b73635e39324dcee96c821e088623190104b197d642b250d5",
+    "GluingEPPA.Steiner.ChainValuation.ConsecutiveSupportFinal": "1eb13d1e02c29a01a115765aaca23a579fcdb3ff536c20f173ca54e34248eff0",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalSupportLastChart": "b4cbd6826a866d48b5cf04cc9b85dceff5f6c10cc48139781748dcbc922a0de9",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalNewRootSupport": "5af48a66e0cda6c94ad80088296b986f85862e9a093988ca526702ac3d1b3307",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalAllRootInterval": "4218d47775cd18444faa111dac81b70774aaf133aac171ad6ccdeb5219831036",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalStep": "1206ece82db610624f4758de87b3792f971c9ce27ea0e6ea825c0bece3994484",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoryConsecutiveSupport": "6bf871b28776dfe766a4ebfe40a0eef0f8f516b573b559dacacdda1554fce08d",
+    "GluingEPPA.Steiner.ChainValuation.NamedHistoryActiveInterval": "2289d8c385a3011d476c3fc6852dc57f08bb1ec1634aa00a6b261d145267ab0d",
+    "GluingEPPA.Steiner.ChainValuation.AlignedBoundaryBlockSequence": "885c73e5960070db91956953949a396fdc4489b82eb27348db9728d327a1587a",
+    "GluingEPPA.Steiner.ChainValuation.AlignedBoundaryBlockStep": "05a1e613852af0a2ba4255355b852158dfed3af7702de9650016e20b7aa9d630",
+    "GluingEPPA.Steiner.ChainValuation.CoveredNamedAlignedHistory": "c3568f63754d5790af142310b3d3e40973e0ff6b6168730d2f1a7d908c3448d3",
+    "GluingEPPA.Steiner.ChainValuation.ActiveInternalBoundaryPositions": "a7cddab2702b822e6cb4e7df19c280dbf9751785cd151bef0d06ca27bf1404be",
+    "GluingEPPA.Steiner.ChainValuation.LinkedCoveredNamedHistory": "3ee11581f287aa0b083ec167330de21b2cdb862aecf21113b225f73b5c9e33e7",
+    "GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryComponentWitness": "eda243a839769770b57dcbea3a92575f01ba8938014ee5165d7401eecc0594cd",
+    "GluingEPPA.Steiner.ChainValuation.FiniteInterfaceSelection": "9dd87e0c5b84d631d0efd8df4a5d4d42450634697f45ab367ba674d630e0d396",
+    "GluingEPPA.Steiner.ChainValuation.ActiveInternalInterfaceChoices": "097221bd7510f4c77c4f6a9cad3402dd7292d8e7d10165cb83d9b9d29ab5e012",
+    "GluingEPPA.Steiner.ChainValuation.ActualActiveIntervalInterfaceExistence": "c06d976773dad180b73077c6038af6058cd341e97a5914b5fb347a36b82797a7",
+    "GluingEPPA.Steiner.ChainValuation.ActualFullOrProperInterval": "dc1d0748af4b39e5e17d0a6117d5ef963d9addc9c55ae87e8df4676b37123ff6",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalInternalPaths": "462dd4da100319a7628ff33b40ec056b68807d4db7c33a6fd4b603a3ae9c07a0",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedBoundarySquare": "876e988b879b9a17884b1df43d3d646d921760dae0de343fafe5dc85de739a63",
+    "GluingEPPA.Steiner.ChainValuation.ActualNormalizedBoundary": "c4dd3914e171134b2959cdebf8b9f449862379499646370a5cc3b1167f4d18f5",
+    "GluingEPPA.Steiner.ChainValuation.ActualNormalizedSeparation": "a20e3d579c21c5e255fe4df6601a64b1f09d502a6e94ef04ff68db96c03defa9",
+    "GluingEPPA.Steiner.ChainValuation.ActualNormalizedTripleSeparation": "0b332894cd73f268ec40d6e235637c19bf9919f7a6fe1f3913c3cb61b7c99010",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalInteriorNormalization": "b65d329956da5ab948a08d1ba6e0e69a5609a6e9534b73b94a117515326d7f80",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedSeparationFromInterfaceImages": "b2211566d4712a384f09300ecb125725e48a91ff7a84d39bfe0cf69910380e21",
+    "GluingEPPA.Steiner.ChainValuation.LeftInducedMatching": "a7d38d60a8cd813adc151131f6b81d4fb42dff6f789cdd411fefd27f2ce38816",
+    "GluingEPPA.Steiner.ChainValuation.LinkChainListCoset": "4a75dd69f2f0ccbad3077add4f1a228d1262f07d33bdde4c989d89bf22ef35bf",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryList": "500d4c6b31cdf9905af37bb38d713f3c0a5a490ed91a94391574ce12149694db",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryCorrespondence": "b318c2e73fff41dc02154f45794e3137db4b7997e55782afefb9de86b8fedd98",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalList": "3639a7bd02af022a6afc91c03ffad2592fc7441e4b347b24eaf32d6ad6c65626",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryIntervalCorrespondence": "7ef24697a82dc9a718dbf63d4b993b99fcfabbcbed7227d210b36dc3de3380c4",
+    "GluingEPPA.Steiner.ChainValuation.LinkHistoryOriginalInterval": "45eb42ac1f27feb46322ce7e8319d49467016fe16432e987f8b5ffbc474e3204",
+    "GluingEPPA.Steiner.ChainValuation.CoupledHistorySourcePairs": "0156439c3a8aa5cd152b23ba717d599b8ca61075f89eaadbed328c819bb72278",
+    "GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceMask": "aa217d446325f98a43398274fea8e007ed5bab9ec91ad7e126986e3b18fa9685",
+    "GluingEPPA.Steiner.ChainValuation.MatchedLinkInterfaceEquiv": "dcd477bff5e75c19157a6d6168c5a0fee225e38bc5a838a8e31c10f34fc07086",
+    "GluingEPPA.Steiner.ChainValuation.PushoutEquiv": "25cae4409ff0ab4d79e3e40be658c56943844dfa82ff24649cb6049721c3928e",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockComponent": "56f27087fee8ef6f8162438ad4e2537e7f3145baa6c2e1cf8fe7cba62fbd0392",
+    "GluingEPPA.Steiner.ChainValuation.PushoutChartEdgeEquiv": "4066ad0f16192f952ec6555b200e3b7bbd4ed7ffb86b7725780ab86c35c3e523",
+    "GluingEPPA.Steiner.ChainValuation.RestrictedPushoutEdges": "b6169687f39c63bdb300d61af14736bef2db89517a4855ab8039c3f43bd018ce",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockEdges": "a91ff3adc4fc26f59393f2b8be78d978763fd37f6e80bae090f57352ea44bbad",
+    "GluingEPPA.Steiner.ChainValuation.MatchedComponentChartExtension": "84c281a266bed7a70c16beae3b49186217449b8619250117550228484ebc3064",
+    "GluingEPPA.Steiner.ChainValuation.MatchedComponentChartEdges": "17b7d1418b171ecb023f1f0c68a18f9fc430c9156ace875cb61068a657e35a94",
+    "GluingEPPA.Steiner.ChainValuation.LinkedAlignedBoundaryPairs": "19796bc1e09f1a18418f10b85864681d9cbf98f26fb9404c8f55cbbe584f11ae",
+    "GluingEPPA.Steiner.ChainValuation.AlignedInteriorShift": "40d00543ceced632cc453735847ad2279a8148693ef58904f4bdca5bdc418165",
+    "GluingEPPA.Steiner.ChainValuation.ChosenInternalInterfaceShifts": "bcf327da3088a2fa1de20bc66573bccc6c94978eb53a02cd18dc36f0a8f27a80",
+    "GluingEPPA.Steiner.ChainValuation.PointwiseCoveredNamedHistory": "1a815a211c9a9b127f5ef9172314b8fe7e11121522eebdffb649dc2cd0a78df9",
+    "GluingEPPA.Steiner.ChainValuation.PointwiseAlignedInteriorCoordinates": "edbb584a6cdca748c89ac8c39787f0e05f1ea14257195f7593806844d21056f4",
+    "GluingEPPA.Steiner.ChainValuation.ExactActiveInteriorCoordinates": "c9ffb233aa84795525d268b43d8713ae35f611df02aa3a3a73b52fe572f7a06d",
+    "GluingEPPA.Steiner.ChainValuation.CoveredNamedLastInterfaceEntry": "df7e472374d4cc9d5de406e4cabeaea3ffa8b1f46b5a613c8d3b819e5a5eb067",
+    "GluingEPPA.Steiner.ChainValuation.ActualStepInterfaceSeparation": "7619a0ea7db3c3f485cad8e44c76a25ea2318d4c4cb44e505cafd695e3721f0d",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalConsecutiveInterfaceDisjoint": "844d3a7740425db93347ff65c643b4cf8052c8606c22afc180ce7d5c0c827f81",
+    "GluingEPPA.Steiner.ChainValuation.FiniteHistoricalInterfaceSeparation": "282410c13a84aaa22a9377dac6c402274fd9491639df7d529f9166027bd138f4",
+    "GluingEPPA.Steiner.ChainValuation.HistoricalInterfaceMultiplication": "d51ad620303733b7bb125795916dd61d594def8c5fceed0032cdc9247acb61c9",
+    "GluingEPPA.Steiner.ChainValuation.ActualActiveNormalizedSeparation": "bcf04597896349ece3880435465357d4818505e5e266637f897ce0b07321d3a5",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedProperMaskReindex": "d2053233803232e7490fcca2907d57caed000a9b0de312cd54425e870b286491",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedRecord": "3640f09a19e7f73de92f4f6bca0e9282939eafa84b16f6a352c8249417b86b40",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedStep": "f2c5a755c5ffbe7de7f12827b9f5b9bf3cc3c14849fb342a0990dbdee0a3c107",
+    "GluingEPPA.Steiner.ChainValuation.ParameterizedFamily": "6f62c9e3465c411bef9b557d733f069839d2376be9a857ea392ef0c8e809c41c",
+    "GluingEPPA.Steiner.ChainValuation.ChainTests": "b167cb67c1a423c270e2fc7558ec7627969b6880360c0d7e3297ef21744ed81e",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedProperRawChain": "fd237510ab27c254d054ffa4adc855fb1ec7c6780218c8318eb45b3410c02459",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedProperSeparatedChain": "14858ba8f64609219203ca04a4d2519e0b8f953fb31c59853dc26047dd8bab7e",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedBoundaryAssembly": "53712882a664c319de436274798107738bf5566ec5a9fbf2be5934955846922b",
+    "GluingEPPA.Steiner.ChainValuation.BoundedActiveIntervalLength": "07bb6937a8955e28b0a6412ffdf0628c70dd86069d17226669ff27631bcfc258",
+    "GluingEPPA.Steiner.ChainValuation.ActualActiveSeparatedTest": "c6e5ee3a514f968f4787b9d91c459fb60b6939e7b4e4e42427283937f925f465",
+    "GluingEPPA.Steiner.ChainValuation.LinkUniqueness": "3f5006d8017a0b8b9312535adc1d59b649638cf40e17cdb6f359b5d1f47e2cfd",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedInclusion": "7856138f6513101c8f340c7df62665f016ebeb01f969bd7c71f722aa44e159a0",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedLinks": "30ec2fc9dcca1f6b15991c047cd916403475893433ad3cbf4488e68521ca88e7",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedFamilyData": "d99b103218beb58f6282216edf79198484f59b49990b01ea3346ee7756546e3b",
+    "GluingEPPA.Steiner.ChainValuation.OldComponentLinkFibre": "877d6947fbb68c4c576cff822fa8f72e862673514d0ab47909ab148465614ec0",
+    "GluingEPPA.Steiner.ChainValuation.StepMatchedOldComponent": "abd5b365cef5fb3ecba8dc4742720068305af4a004db215cdc47584b263901a6",
+    "GluingEPPA.Steiner.ChainValuation.LinkStepExactComponent": "c1fc2b2ff7c9a9860f514996dac77763f8b16fb7aab2942ca2cbff5d41bf5f04",
+    "GluingEPPA.Steiner.ChainValuation.LinkStepChartEdges": "d3515b4d4d4c3cd6aa6260d2149734914289dd3fcb901a15b79e8d6fd54bedc5",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedChainTrace": "d0bcd97591da4790a8121552643a9df7fd940913ff459f1ab8e60fc6a110303f",
+    "GluingEPPA.Steiner.ChainValuation.MatchedComponentLastChart": "9a0af7c180e799b9bf5a75aa1e5bfcb1595945c9c4b30041831e969f7049fcd6",
+    "GluingEPPA.Steiner.ChainValuation.UnmatchedComponentPushout": "c53e0db5cc9424bbd90bb279b9674f2752f31facd4db42f17955a5e9d6cd41a8",
+    "GluingEPPA.Steiner.ChainValuation.UnmatchedComponentCharts": "eda023f044e99a166b45e131a7241fe48d25d87af2afc115e5a7273af3ebfe09",
+    "GluingEPPA.Steiner.ChainValuation.ComponentChartInduction": "e2c77794b03e4510d3dc2b37446fb93c97c038b07dee986df0af059d1cbe1c2b",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedTraceBlocks": "91937e498f9182b4c6d4295087a7e14ce859604853b3b31a69de035ff4ca205d",
+    "GluingEPPA.Steiner.ChainValuation.ComponentTraceDichotomy": "96c77b9ad0f1534b59e11da84db4e38ee44bc2dd23dcebbfee1c638efb45999b",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedProperAttachmentEquiv": "7cd8b845ca8cbdd02d8e76850d5b7baf575a77ea1780da7322fc7e27f24bb35a",
+    "GluingEPPA.Steiner.ChainValuation.OrderedBuildTrace": "8ba63ed7d6ba83199d02b7fcad20ac42fa7014cd6bea1fe42bd6ea0927a2e60c",
+    "GluingEPPA.Steiner.ChainValuation.NormalizedTraceSeparatedTest": "297c86f2f19e3b192ead45fb920db7f69a2cc06c7a7428caf7d00c8f4e91ae90",
+    "GluingEPPA.Steiner.ChainValuation.WordAction": "2004b2118f914dee546cc97e8698a08b7d6dc76434a3ee2b0caca79598875d42",
+    "GluingEPPA.Steiner.ChainValuation.EquivariantTestCovers": "2968ecb34c0444a9da842fd57e64bcd9d6e8082dcd4ffef67b2b40078b04d4c1",
+    "GluingEPPA.Steiner.ChainValuation.ReachComponentTestWords": "8f8786fb8959cca31dc03df9ec82236fa2f6919732ad4a8d0eb3d9f74771dc56",
+    "GluingEPPA.Steiner.ChainValuation.ChainRestrictionNormalForm": "47e9b1924c19990421da4383b90924acbc034a0a1fa79fdbc7a6ca496ffecc0a",
+    "GluingEPPA.Steiner.ChainValuation.CoverRightAction": "909349651e9cb1621302cfa08fd0d86f462c3ddce6b4816ce5b276b2cb8140b3",
+    "GluingEPPA.Steiner.ChainValuation.RecordedChainActions": "433b590d290c597d3c7e9e90ee278b90a21b0f21fda5bb73dc6a04e846cbf570",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedFamilyActions": "67a79f085d75969a492c3cdeb754780d6b9a4cc504a852eef88cf22716db7f9d",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedFamilyLinks": "5990af03f4092ca4b5b73286c793ca7dc5b455afdeae4d9f0fba0b5f5d4ad38b",
+    "GluingEPPA.Steiner.ChainValuation.ComponentImage": "efb83ddbb6ce5298bf72b4b5323e4d682e349af87413b0ec91d91069317b7763",
+    "GluingEPPA.Steiner.ChainValuation.ReflectionWitness": "75d96deef7725bf3d58bdd8a55ef4b317c49f21f7ade9743cb2f3345f56d36e2",
+    "GluingEPPA.Steiner.ChainValuation.ComponentReflection": "b4fc42f255116bec4db393c3911fbadd2b638706d2b1298de36b00d19feedc3a",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedComponentReflection": "ee0c6d9cb12d27ed4df117283e49d0e1be47bfe8b11acc213cc023270988f4ef",
+    "GluingEPPA.Steiner.ChainValuation.ChainEndpoint": "035185ac8903f8d47fab1e9e3852d337045e9f2766111beb1f021e0dfdc06b8d",
+    "GluingEPPA.Steiner.ChainValuation.ChainEndpointIterate": "c409842835e5a7fb2884e15f78a0cb1e039c4388890c4faee0409fcbc301540f",
+    "GluingEPPA.Steiner.ChainValuation.CycleUnwindingCore": "efdf48aaa4a71fcc96f935b18bf1884d7cb42b4755ac3346cbc9e3e8ad95c1bd",
+    "GluingEPPA.Steiner.ChainValuation.ActualChainTraversal": "8d1809155bad077c9c5b18f9a543800946373a9b9dbcd9c86cf69d73e605e4d8",
+    "GluingEPPA.Steiner.ChainValuation.CosetCycleChainTest": "1ac3a774827db3adc82cb323bf5f6967c137e8e31bf1df1c5acd71a31f5957f1",
+    "GluingEPPA.Steiner.ChainValuation.AugmentedFamilyCycles": "4c75ce2126db7c684ed7b4f570a80086b1b4782d8fe9efb44676b43ef13f875c",
+    "GluingEPPA.Steiner.ChainValuation.All": "d57255dee85aae6461daea85285ee0613e83bcd0dd96d7b3bd22c9b6fe8aa63e",
+    "GluingEPPA.Reducts.SemigenericObstruction": "4119270c924abe3be8e1154fe2a809c6161380707f9d333805088faf7129f181",
+    "GluingEPPA": "6a0f4af8feb43ba429f51bcadcc58155b0dc3139ee27a7cd2d81e4e1101c8f19"
+  },
+  "axiom_manifests": [
+    {
+      "manifest": "CheckActiveInternalInterfaceChoicesAxioms.lean",
+      "sha256": "f63089a1dc04b060546d84fa33f61dfc335dc4f1b1fcf95f81aa8bd954ac9c61",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckActualActiveIntervalInterfaceExistenceAxioms.lean",
+      "sha256": "2bf9422102602b3db1e3bf793652c0ff2a6ec82f0e655537574300c826c021f6",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckActualActiveNormalizedSeparationAxioms.lean",
+      "sha256": "603666983f6f878b66f6fb01bc0c9d2f33ec368cfe31fa6d0dd9ccba793bc2e1",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckActualActiveSeparatedTestAxioms.lean",
+      "sha256": "92a6eca05ee59156e72843185530aabe7008a461cc4881e94168f1510460c0df",
+      "declarations": 7
+    },
+    {
+      "manifest": "CheckActualChainTraversalAxioms.lean",
+      "sha256": "2ca2c818359c358ce776865c875e9962e865ac40c49f8685a7faa547e402959a",
+      "declarations": 9
+    },
+    {
+      "manifest": "CheckActualFullOrProperIntervalAxioms.lean",
+      "sha256": "1cff9fe43c01d2d06b1f137b0a6a214f2af76d38d1e188283d0174e8d003a65b",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckActualStepInterfaceSeparationAxioms.lean",
+      "sha256": "2335eb043a16a190d98ea8dd2fdf2d5d15067b44f5c216ee2094005e0b536fa8",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckAlignedInteriorShiftAxioms.lean",
+      "sha256": "5e621efc00199855870e212b3807b917f77915c596f87255d48ba7da41421cc1",
+      "declarations": 1
+    },
+    {
+      "manifest": "CheckAlignedNamedBoundaryComponentWitnessAxioms.lean",
+      "sha256": "751219b6c1b501f23e0d70c215afa70eb2dfcd9615804db11970acf7f615289a",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckAlignedNamedBoundaryFiniteAxioms.lean",
+      "sha256": "d7dd32ed1f90ea6f4b36a23fb74363114e0d1bac6bddd5c1a68a4d656cd33245",
+      "declarations": 7
+    },
+    {
+      "manifest": "CheckAugmentedComponentReflectionAxioms.lean",
+      "sha256": "d212992ba2fb92e25c864e12c666565e2564cfffcdaa9e4dc63f9deff2c16fc2",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckAugmentedFamilyAxioms.lean",
+      "sha256": "2ef21781857ac1bdaf8807e1651c357c7dfdbdf76019fe112faec0a99e75109a",
+      "declarations": 20
+    },
+    {
+      "manifest": "CheckAugmentedFamilyCyclesAxioms.lean",
+      "sha256": "6dfa0166ce7af2228a9cd618068b7a36627402b5caeb336c4d838ee0daffdfee",
+      "declarations": 7
+    },
+    {
+      "manifest": "CheckAxioms.lean",
+      "sha256": "87a41d5455d35c4cade4aa92e9f79c52e9aa13534ee117c65e5cb601e97fc77d",
+      "declarations": 281
+    },
+    {
+      "manifest": "CheckBoundedActiveIntervalLengthAxioms.lean",
+      "sha256": "befb05b31bd881f50fc0199709aea0bde552fd0af5b7dbbcbcd6aa34a4117a30",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckCayleyComponentsAxioms.lean",
+      "sha256": "d979d205ca0ffc7aaa60095e32574273043e899751b7ffbbdbe223ad6cb01b30",
+      "declarations": 18
+    },
+    {
+      "manifest": "CheckCayleyIsomorphismAxioms.lean",
+      "sha256": "d48436c8131191b7a32431f077d67f84ba352ed56b995592e51004b7671ab5f4",
+      "declarations": 15
+    },
+    {
+      "manifest": "CheckChainRestrictionNormalFormAxioms.lean",
+      "sha256": "1791f251c5d1fc26b60d95f82994d2bd8b69637020536e569b5061c0b4c0e19a",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckChainValuationAxioms.lean",
+      "sha256": "d71edd5ca94f43ae1fba690d84de361c7a705f3dd584187bd257e29512a9e7ce",
+      "declarations": 283
+    },
+    {
+      "manifest": "CheckChosenInternalInterfaceShiftsAxioms.lean",
+      "sha256": "d60756279236f2531ca185da0c2f5889eecc329153369a10f3473c77532581af",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckCombinedHistoricalExactChartsAxioms.lean",
+      "sha256": "9fa521f82f7b1817ff6443d33c6987fc9d7f611d303757f5756e9765f12cf3a3",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckComponentCompatibilityAxioms.lean",
+      "sha256": "cfaa6a4b609451196058823fb25b4204cbacbef7d720bfc44b241563226632c3",
+      "declarations": 18
+    },
+    {
+      "manifest": "CheckComponentInclusionAxioms.lean",
+      "sha256": "0a8706593129a7925d329e6e6eb8d36d84be770cb04c05b97aca4be727da65da",
+      "declarations": 22
+    },
+    {
+      "manifest": "CheckComponentTraceDichotomyAxioms.lean",
+      "sha256": "faa40040c43061c8b239638eae821622cea3396e718582a0dd1e7689942bf4f2",
+      "declarations": 8
+    },
+    {
+      "manifest": "CheckCosetCycleChainTestAxioms.lean",
+      "sha256": "7867ce34a5d9465f16a2f2038230a97ad22486155dea97ff9212be32eb0f878b",
+      "declarations": 15
+    },
+    {
+      "manifest": "CheckCoupledHistoryFiniteAxioms.lean",
+      "sha256": "289b532bcbaa0fe111aab4d96f62b2e5b2e091ea760277189530e1db1de6a33b",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckCoupledHistoryOriginalAxioms.lean",
+      "sha256": "183eec0a656657bc7599fdec69305e875e599fc2252723b684350dc947686ac6",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckCoupledHistorySourcePairsAxioms.lean",
+      "sha256": "e10e4add2e5dd0ea62558aa8acd01092052b830d5d71973c9b86ba0d22e263dd",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckCoupledNamedBoundaryAxioms.lean",
+      "sha256": "2436fb0bb148d48e70929337ab9ea0fb1b51ca323a92ba18903b28dd80fe84cd",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckCoverRightActionAxioms.lean",
+      "sha256": "2d0c8b8c04828d7d5ba385a26b6c4a1d956acb116bd022831621a3c83085d927",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckCoveredNamedAlignedHistoryAxioms.lean",
+      "sha256": "bf4d3aed2812f3eeca6e2c735cc2c1fc665c048fea23ce49e5363c293f801154",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckCoveredNamedLastInterfaceEntryAxioms.lean",
+      "sha256": "3916e9fa24bd2ed5f3c6d43e7916941d46a48a19c231ac59932623a5e4116103",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckDiagramPresentationAxioms.lean",
+      "sha256": "294a61339cafa9b686f90a5450f90b979183996f417ed077f6b31ae721ec9714",
+      "declarations": 133
+    },
+    {
+      "manifest": "CheckExactActiveInteriorCoordinatesAxioms.lean",
+      "sha256": "ad9f061554f2f80a8b27b4430f7667a6868dab308cf9149fcdce989cbddcc737",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckFamilyAxioms.lean",
+      "sha256": "161311a0598d879eaaedc1b58dd3a9687131df77b28fce7c76e1ffa1d6b8ce86",
+      "declarations": 21
+    },
+    {
+      "manifest": "CheckFiniteHistoricalComponentDichotomyAxioms.lean",
+      "sha256": "0a58d11ec07018065b069ef7ba9a7f706392a0afed9d04680fe910d6903a97bd",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckFiniteHistoricalInterfaceSeparationAxioms.lean",
+      "sha256": "e95b8d31a14ef8038d026543037edf88e4f627cf3a607d39de6a3f720ddd18a5",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckFiniteIntersectionsAxioms.lean",
+      "sha256": "dd8662d431c95f5b87ad31a2f011ca829f747ff5be95b69bba427ac0758cea38",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckFullMaskHistoricalComponentAxioms.lean",
+      "sha256": "6e70f5e4f15d1fa9e91ec36c49219c4e6401c14a831fdbf8e72ab9f46aa48946",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckFullMaskLabelledEquivalenceAxioms.lean",
+      "sha256": "2cd7e5e637d3039c2528e58bdd094eb6fce50fccf217671abd757ca1f1599134",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckHistoricalBoundaryNamedBridgeAxioms.lean",
+      "sha256": "f65dab6614b407b149053663b8f2edcc98be950d5ab3135cde84662b919f4339",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckHistoricalConsecutiveBoundaryChartsAxioms.lean",
+      "sha256": "e7c72ddb52f567a49c6047536cfa9c42bb712ec468cd9b6e2eab71bccaef99b8",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckHistoricalConsecutiveInterfaceDisjointAxioms.lean",
+      "sha256": "1c20508029b4701a06048b68782a6ee93bb7c4a30d0bf8f65eb7f80a09512919",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckHistoricalInteriorNormalizationAxioms.lean",
+      "sha256": "ba2cd3743abc1decea45c31e1b9119d931b88d6f86c99c214447b5e3e53035cd",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckHistoricalInternalPathsAxioms.lean",
+      "sha256": "70494c68f10ed216a28890ac8c05abf7b769b8f66aad0106b708c38fc3def4ac",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckLinkStepChartEdgesAxioms.lean",
+      "sha256": "dbc73e59f244640853c404130bf810c0ac8ceaada1f690771f533cb9a6326537",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckLinkedCoveredNamedHistoryAxioms.lean",
+      "sha256": "f83f2b6914eb28276f3dd5d5305e360e40f956913c71b8fbe3af053b0e05704d",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckMatchedComponentChartAxioms.lean",
+      "sha256": "c3daddfaf2f411a58ea226cc787165aef22352ab395b7e1007bc06e0a9d7bd79",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckMatchedComponentChartEdgesAxioms.lean",
+      "sha256": "4239d4e16498c2c8e14c4937cd391130f46ebc5f2eb302a1aacaa2fbbde2cdf5",
+      "declarations": 1
+    },
+    {
+      "manifest": "CheckMatchedComponentLastChartAxioms.lean",
+      "sha256": "3b36f2e6c2db754b8a514b8397f0fa5975bdcfa58b89f81fa3dc5a9b986ea775",
+      "declarations": 7
+    },
+    {
+      "manifest": "CheckNamedBoundaryMaskAlignmentAxioms.lean",
+      "sha256": "a18a0c13893116c7c0739daf7ab57213ba84ea3b2f4d87a41446669913326bd8",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckNamedHistoricalForgetfulAxioms.lean",
+      "sha256": "4a099f92f25c579235d565ad8c3257a75fec25ef134bb09dcdf04b7b6d9e79c5",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckNamedHistoricalLetterEdgesAxioms.lean",
+      "sha256": "2358e16816ceda74cf811819592430eba7e5c7f8fe0473323d63ca8185dd3444",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckNamedHistoryActiveIntervalAxioms.lean",
+      "sha256": "ccc2af1c489f970c66ac1d451ce352616035c7838e8bb57d21e58afc3098228c",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckNamedHistoryConsecutiveSupportAxioms.lean",
+      "sha256": "7d314e8a3b44163cf3b82ea54d9c3b60ecfc4be6d061c73a015578f6b930ebe4",
+      "declarations": 5
+    },
+    {
+      "manifest": "CheckNamedHistoryFiniteAxioms.lean",
+      "sha256": "1679742add8030b46ea765ee8a589eb065edf9b627789f18d35f32a12780df6b",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckNamedHistoryOriginalCorrespondenceAxioms.lean",
+      "sha256": "b4214c701ae1d5c25c9f7cbc7f2553de77fc471667e967d28f34380ea958fb60",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckNamedHistoryStepBridgeAxioms.lean",
+      "sha256": "2c6890c0f0db8db7bd7048befb97a45824b2628e378c2317ab96df81188e798e",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckNormalizedProperAttachmentEquivAxioms.lean",
+      "sha256": "5521b6ce99305b8657fa2edcd3fcde4a49d22047021fa46972f6c551d9266133",
+      "declarations": 10
+    },
+    {
+      "manifest": "CheckNormalizedProperMaskReindexAxioms.lean",
+      "sha256": "ff4180fae2fba44c3ee9a00a83ebf9ec2fff33714ab3b5bc722d569e88b3102c",
+      "declarations": 7
+    },
+    {
+      "manifest": "CheckNormalizedProperRawChainAxioms.lean",
+      "sha256": "ac7ea584840a99b6b08b6db2a4f7352ca3b152df1b4426e8feaefc4c8f25b91c",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckNormalizedSeparatedTestAxioms.lean",
+      "sha256": "fe5752378e0566cbe9b6bdff1b68d1d7ae46afdc59865866b93cb7576d1553a2",
+      "declarations": 10
+    },
+    {
+      "manifest": "CheckNormalizedSeparationFromInterfaceImagesAxioms.lean",
+      "sha256": "fe4f313c80d73547da11c814bd5b2971190b644390facfaa052e6e5b29f18f5a",
+      "declarations": 2
+    },
+    {
+      "manifest": "CheckNormalizedTraceSeparatedTestAxioms.lean",
+      "sha256": "2a618acbf2211423f7ce09b07779263cec62cdbd5d61ac485980a726a230fff9",
+      "declarations": 11
+    },
+    {
+      "manifest": "CheckNormalizedTwoBlockEdgesAxioms.lean",
+      "sha256": "44bb73babfa991699ad784a10951a0e6144b9616d4cdab0481579deb03590dd2",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckOrderedBuildTraceAxioms.lean",
+      "sha256": "08c5b84e76b5078a1d757892768e28070ebf3678515a4b8139a7e15446bb87b1",
+      "declarations": 6
+    },
+    {
+      "manifest": "CheckPointwiseNamedBoundaryChartsAxioms.lean",
+      "sha256": "a92e9e2b6e629381f176b3df0d5e587d16b563126a06e11da99ca629b35c5894",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckPointwiseNamedHistoryFiniteAxioms.lean",
+      "sha256": "891d45fedfbaa113bbc9b44b697977a50e22914ea1552f83dcec214226c6afb1",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckReachComponentActionAxioms.lean",
+      "sha256": "f3590ab1389b1d8c903d1558906d62dfb8cf79739e1da23ef9f830dcd4206308",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckReachComponentTestWordsAxioms.lean",
+      "sha256": "2a6c207723a98ad322440e9cba9ce953e812b19f1b39763515ea313e8eae79cc",
+      "declarations": 1
+    },
+    {
+      "manifest": "CheckReachComponentWordsAxioms.lean",
+      "sha256": "150d3350a6d6b911492aa32b125ff69834c07105550c09bdcee24b7f147e5481",
+      "declarations": 3
+    },
+    {
+      "manifest": "CheckRecordInclusionAxioms.lean",
+      "sha256": "0253821e58bb4811a9a8f2b6903158b5158396633a5e4612c0cec281d70ebd7b",
+      "declarations": 10
+    },
+    {
+      "manifest": "CheckRecordIsomorphismAxioms.lean",
+      "sha256": "3b7895ad290f258ad041d2dc9d0a853fcab81d001beda8c193125df567053dcc",
+      "declarations": 8
+    },
+    {
+      "manifest": "CheckRecordValuationAxioms.lean",
+      "sha256": "df365b7e0104f737edf96930709ea4d44dc93011e0f2d5b1936cc100861f6c6b",
+      "declarations": 18
+    },
+    {
+      "manifest": "CheckRecordedChainActionsAxioms.lean",
+      "sha256": "f843d28576cf804c1aa23320bb31b9c08899d3eb05112f8ae85426e9802ff64d",
+      "declarations": 11
+    },
+    {
+      "manifest": "CheckRecursiveLinksAxioms.lean",
+      "sha256": "d970267f3b82609b4444467fc59372386020fc839705243aeea0602c8b4e091b",
+      "declarations": 19
+    },
+    {
+      "manifest": "CheckRecursiveNaturalityAxioms.lean",
+      "sha256": "8b79263e17c254b16d78004a09946f85e9ecbb5ddccd14eab9af14282a5bdc63",
+      "declarations": 15
+    },
+    {
+      "manifest": "CheckRecursiveRecordAxioms.lean",
+      "sha256": "709efb9f2fa55676c08744309f75399ec638c60c55113ec83a054b5e874ef560",
+      "declarations": 17
+    },
+    {
+      "manifest": "CheckRecursiveTransportAxioms.lean",
+      "sha256": "5eaeca5e7beaa4449b308d77510afc915ed92201a6d2d1369beea2df0325e030",
+      "declarations": 17
+    },
+    {
+      "manifest": "CheckReductAxioms.lean",
+      "sha256": "a0deaa0efdb5c9a04da30449635f54f3d97456ad6f7fc64881671792a4f05f48",
+      "declarations": 12
+    },
+    {
+      "manifest": "CheckReductObstructionAxioms.lean",
+      "sha256": "79c224c0c779ecb4ed52ba49de127308a1ea549d24b044f13753c12c644c3078",
+      "declarations": 8
+    },
+    {
+      "manifest": "CheckSaturatedMatchingComponentAxioms.lean",
+      "sha256": "847b9500a2bc3578efe56757cde7829dfe0cc5201b6d041f96885a873fafc30d",
+      "declarations": 4
+    },
+    {
+      "manifest": "CheckSparseningAxioms.lean",
+      "sha256": "7e48da64dbeb09186f400dd7f6350c05ed60409fcb7216bea5ff4530d49b3da9",
+      "declarations": 17
+    },
+    {
+      "manifest": "CheckUnmatchedComponentChartsAxioms.lean",
+      "sha256": "99f8f8ecd939b6fee089b06bd827bb622dbb43fc36545489266c9b1588b0030e",
+      "declarations": 4
+    }
+  ],
+  "manifest_count": 84,
+  "unique_declarations": 1251,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "manifest_union_sha256": "e60ccfa1cf627b71379dd96402dbcb6531eac38e5df9e4c2c3f3eb7aec57f4ce",
+  "axiom_log_sha256": "6cf8bb2748e8c695fd860379f0682905db3718c1071e982e2a1bef6b1287b077",
+  "axiom_log": "part-ii-integration-20261117-axioms.log",
+  "public_library_modules": 339,
+  "chain_modules": 192,
+  "explicit_admissions": 0,
+  "final_all_direct_imports": 16,
+  "final_all_local_dependency_closure": 202,
+  "remaining_part_ii": [
+    "augmented diagram-isomorphism naturality",
+    "prescribed exact-overlap realization",
+    "carrier-to-hypergraph transfer and join-tree criterion",
+    "all-copy local sections and set-valued structure transfer"
+  ]
+}

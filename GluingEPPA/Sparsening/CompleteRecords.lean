@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.RecordInvariance
+import Mathlib.Algebra.BigOperators.Pi
 
 /-!
 Complete records classify supported Boolean walks. We construct actual walks:

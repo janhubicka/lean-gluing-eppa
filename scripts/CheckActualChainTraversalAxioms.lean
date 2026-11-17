@@ -1,0 +1,11 @@
+import GluingEPPA.Steiner.ChainValuation.ActualChainTraversal
+
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchingWordPath.completed
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_unop_product
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.traversalWord_letters
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.traversalWord_value
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildTail_traversal
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_traversal_moves
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_traversal_moves
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.augmented_chain_traversal_not_one
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.augmented_chain_displacement_product_ne_one

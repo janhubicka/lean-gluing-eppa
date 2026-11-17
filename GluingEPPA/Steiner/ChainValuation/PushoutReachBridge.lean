@@ -1,5 +1,6 @@
 import GluingEPPA.Steiner.ChainValuation.MatchingGluing
 import GluingEPPA.Steiner.ChainValuation.Pushout
+import Mathlib.Data.Finset.Basic
 
 /-!
 # Labelled reachability in an actual injective pushout

@@ -1,0 +1,9 @@
+import GluingEPPA.Steiner.ChainValuation.ActualActiveSeparatedTest
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.exists_unique_shift
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.shift_spec
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.sources_masks
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.sources_length
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.sources_separated
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.test
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.test_length

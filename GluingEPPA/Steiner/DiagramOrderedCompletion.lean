@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.DiagramCoherentFormula
+import Mathlib.Data.Fintype.Sort
 
 /-!
 # Increasing bijections between complements of finite ordered subsets

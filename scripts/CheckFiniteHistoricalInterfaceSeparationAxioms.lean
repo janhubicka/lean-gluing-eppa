@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.FiniteHistoricalInterfaceSeparation
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildTail_adjacentInterfacesDisjoint
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_adjacentInterfacesDisjoint

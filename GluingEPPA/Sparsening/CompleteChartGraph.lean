@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.AtlasEndpoint
+import Mathlib.Data.Sym.Sym2
 
 /-! One Boolean coordinate per unordered pair of DISTINCT charts.
 Endpoint representatives are irrelevant: incidence is equality of unordered

@@ -23,8 +23,8 @@ remains part of the all-length chart induction.
 
 namespace GluingEPPA.Steiner.ChainValuation
 
-universe u
-variable {H P G C : Type u}
+universe u v w x
+variable {H : Type u} {P : Type v} {G : Type w} {C : Type x}
 variable [Group H] [Group P] [Group G] [Group C]
 
 /-- A normalized interface coset maps wholly into the original

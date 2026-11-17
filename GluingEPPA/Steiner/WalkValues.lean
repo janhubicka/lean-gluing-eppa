@@ -1,4 +1,6 @@
-import Mathlib
+import Mathlib.Algebra.Group.Hom.Defs
+import Mathlib.Data.Set.Basic
+import Mathlib.Tactic.Group
 
 /-!
 # Values of walks for the Steiner EPPA construction

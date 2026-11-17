@@ -1,4 +1,5 @@
 import GluingEPPA.OrientedAssembly
+import Mathlib.Data.Sym.Sym2
 
 /-!
 The literal unordered edge set in Sofia's base permutation diagram.
