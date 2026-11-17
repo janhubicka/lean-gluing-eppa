@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentCharts
+
+#print axioms GluingEPPA.Steiner.ChainValuation.unmatchedNewComponentEquiv
+#print axioms GluingEPPA.Steiner.ChainValuation.unmatchedNewComponentEquiv_edge_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.unmatchedOldComponentEquiv
+#print axioms GluingEPPA.Steiner.ChainValuation.unmatchedOldComponentEquiv_edge_iff
