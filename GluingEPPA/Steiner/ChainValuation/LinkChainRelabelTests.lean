@@ -39,12 +39,16 @@ theorem chainSpace_matchingRelabel
         ((chainState D' N T old' L'
           (chainIndexEquiv D D' S T old old' L L' R N c)).state.matching (p e)).Rel
           (F u) (F v) := by
+  let c' := chainIndexEquiv D D' S T old old' L L' R N c
+  have hl : List.ofFn c'.1.2 =
+      (List.ofFn c.1.2).map (atomEquiv D D' S T old old' L L' R) := by
+    dsimp [c', chainIndexEquiv]
+    exact rawRelabel_list D D' S T old old' L L' R N c.1
   have h := buildNonempty_matchingRelabel D D' S T old old' L L' R
     (List.ofFn c.1.2) (rawChain_list_nonempty N S old c.1) c.2
-  -- Simplify the target test index instead of rewriting a dependent
-  -- buildNonempty expression whose nonempty/separated proofs depend on its list.
-  simpa only [chainSpace, chainState, chainIndexEquiv,
-    rawRelabel_list] using h
+  -- Dependent simplification transports the nonempty/separated proofs
+  -- together with the list, unlike a bare rewrite inside the sigma type.
+  simpa only [chainSpace, chainState, c', ← hl] using h
 
 /-- With the genuine edge relation transported, the canonical involutive
 fixed-point completion of every named edge is transported as well. -/
