@@ -1,0 +1,8 @@
+import GluingEPPA.Steiner.ChainValuation.NormalizedProperRawChain
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAtom
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAtom_mask
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAtom_value
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperRawChain
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperRawChain_length
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperRawChain_mask
