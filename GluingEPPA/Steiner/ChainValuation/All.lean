@@ -15,6 +15,7 @@ import GluingEPPA.Steiner.ChainValuation.MatchedComponentChartEdges
 import GluingEPPA.Steiner.ChainValuation.ActualActiveSeparatedTest
 import GluingEPPA.Steiner.ChainValuation.AugmentedFamilyCycles
 import GluingEPPA.Steiner.ChainValuation.AugmentedTestKernelTransport
+import GluingEPPA.Steiner.ChainValuation.ChainIndexRelabel
 
 /-!
 # Chain valuation proof development
