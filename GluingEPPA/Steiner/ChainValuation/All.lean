@@ -29,7 +29,7 @@ import GluingEPPA.Steiner.ChainValuation.StateRelabelExit
 import GluingEPPA.Steiner.ChainValuation.ProperSubsetMeetRelabel
 import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelStep
 import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelPair
-import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelAugmentedStep
+import GluingEPPA.Steiner.ChainValuation.LinkChainRelabelInterface
 
 /-!
 # Chain valuation proof development
