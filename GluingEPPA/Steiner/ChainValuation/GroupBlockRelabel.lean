@@ -1,5 +1,6 @@
 import GluingEPPA.Steiner.ChainValuation.MatchingActionEquiv
 import GluingEPPA.Steiner.ChainValuation.ChainState
+import Mathlib.Algebra.Group.Equiv.Defs
 
 /-!
 # Natural equivalence of single Cayley blocks and their completed matchings
