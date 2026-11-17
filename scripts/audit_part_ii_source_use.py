@@ -17,9 +17,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = 'GluingEPPA.Steiner.ChainValuation.'
 PROOF_ROOTS = [PREFIX + x for x in (
-    'ChainRestrictionNormalForm', 'ActualActiveSeparatedTest',
-    'ActualChainTraversal', 'CoverRightAction', 'ChainTests',
-    'AugmentedLinks', 'ComponentReflection')]
+    'AugmentedFamilyCycles', 'ChainRestrictionNormalForm',
+    'ActualActiveSeparatedTest', 'RecordedChainActions',
+    'CosetCycleChainTest')]
 
 
 def uncomment(text: str) -> str:
@@ -126,9 +126,9 @@ def inspect() -> dict:
         'explicit_admission_tokens': admissions,
         'consecutive_duplicate_change_tactics': repeated,
         'unresolved_manuscript_obligations': [
-            'simultaneous recursive augmented Data/Link/action construction',
-            'recorded smaller-chain tests in each actual earlier augmented stage',
-            'instantiate the moving-endpoint contradiction for every bounded coset cycle',
+            'naturality under diagram isomorphisms for the actual augmented family',
+            'finite coherent realization with all prescribed exact overlaps',
+            'carrier-to-hypergraph transfer and the finite join-tree criterion',
             'set-valued structure transfer and all-copy local sections',
             'Part III path-closed amalgamation and girth-transfer assembly'],
         'interpretation': 'Import closure measures available infrastructure; lexical references are not kernel dependency edges. No unused-candidate count is a completion percentage.'

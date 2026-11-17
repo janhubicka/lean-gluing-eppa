@@ -1,0 +1,2599 @@
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedAdjacentBlockPairs_endpoints_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.internal_boundary_both_active' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.chosenInternalInterfaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.chosenInternalInterfaces_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_chosenInternalInterfaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_activeInterval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_has_active_interval_and_interfaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_allParameterMultiplicative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.normalized_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.named_normalized_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.namedNormalizedRight_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.nextNormalizedLeft_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_internal_pair_shift_and_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.exists_unique_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.shift_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.sources_masks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.sources_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.sources_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.test' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperActiveInterval.test_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.MatchingWordPath.completed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_unop_product' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.traversalWord_letters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.traversalWord_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildTail_traversal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_traversal_moves' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_traversal_moves' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.augmented_chain_traversal_not_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.augmented_chain_displacement_product_ne_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_full_or_proper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_full_or_proper_interval_with_interfaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_entry_point_ne_new_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_entry_image_disjoint_new_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_historical_entry_disjoint_fresh_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.adjacent_unique_interior_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.interface_has_named_endpoints' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.meets_interface_iff_named' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedBuildNonempty_all_interface_witnesses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedHistory' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedBuildNonempty_boundary_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedBuildNonempty_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_aligned_named_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.range_word_generation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.repair_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.full_component_record' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.linked_coset_component_reflection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.proper_coset_component_reflection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.eq_of_generator_rules' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.tests_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.family_eq_augmented' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.family_component_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.recordedAction_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.recordedAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.family_links' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.familyLink' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.earlierLinks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.family_record_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.actual_tests_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.stageLink' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.inclusion_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.deletion_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.retraction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.inclusion_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.replacement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.inclusion_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.deletion_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.ComponentCycle.toCosetCycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.range_eq_maskSubgroup' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.maskSubgroup_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.full_component_record' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.coset_component_reflection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.no_bounded_coset_cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedFamily.no_bounded_component_cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.System.connected_symm' does not depend on any axioms
+'GluingEPPA.System.Frame.path_value' does not depend on any axioms
+'GluingEPPA.System.Frame.path_unique' does not depend on any axioms
+'GluingEPPA.System.Frame.copy_injective' depends on axioms: [propext]
+'GluingEPPA.System.compatible_of_realization' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.System.obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.System.replay' depends on axioms: [Classical.choice, Quot.sound]
+'GluingEPPA.System.Symmetry.rel_iff' depends on axioms: [Quot.sound]
+'GluingEPPA.System.Symmetry.extends_of_step' depends on axioms: [Quot.sound]
+'GluingEPPA.EdgeGraph.support_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.EdgeGraph.changed_available' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.EdgeGraph.cover_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.EdgeGraph.liftSymmetry' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.EdgeGraph.root_extension' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.PermutationDiagramData.label_unique' depends on axioms: [Quot.sound]
+'GluingEPPA.PermutationDiagramData.loop_free' depends on axioms: [Quot.sound]
+'GluingEPPA.PermutationDiagramData.respects' depends on axioms: [Quot.sound]
+'GluingEPPA.PermutationDiagramData.root_incoming' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.PermutationDiagramData.shift_incidence' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.PermutationDiagramData.root_incidence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.extends_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.finite_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.all_extensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.finite_eppa_for_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.exists_perm_extending_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.exists_perm_extending_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.step_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.InverseLabels.step_inverse' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.InverseLabels.markerPerm_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.InverseLabels.markerPerm_inverse' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.InverseLabels.markerPerm_ne_refl' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.BaseFamily.paddedSigma_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.BaseFamily.paddedSigma_inverse' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.BaseFamily.paddedSigma_ne_refl' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.PartialFamily.exists_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PartialFamily.exists_involution_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PartialFamily.coherentBase_extends' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PartialFamily.coherentBase_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.RelPartialAut.inverse_inverse' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.finite_relational_eppa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.baseAdjacent_symm' depends on axioms: [Quot.sound]
+'GluingEPPA.PermutationDiagramData.edgeEquiv' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.PermutationDiagramData.unordered_incidence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.unorderedRootInc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.unordered_extends_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.PermutationDiagramData.finite_unordered_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.PermutationDiagramData.finite_eppa_for_data_unordered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.finite_relational_eppa_unordered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privateSlots_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privateCycle_first' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privateCycle_middle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privateCycle_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privateCycle_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privatePerm_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privatePerm_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privatePerm_inverse_pair_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privatePerm_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.InverseLabels.privatePerm_ne_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.BaseFamily.privateSigma_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.BaseFamily.privateSigma_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.BaseFamily.privateSigma_ne_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.BaseFamily.privateCarrier_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.finite_relational_eppa_private' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.respects' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.System.Frame.projection_rel' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.saturated_cover_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.local_path_potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.closed_parity_sum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.rank_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.exists_good_stage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.sum_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.common_chart_of_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.exterior_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.common_chart_of_consistent_records' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.chartTranslation_comp' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.chartTranslation_identity' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.exists_edge_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.internal_star_correction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.common_lifted_record' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.cutSide_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.tuple_cutSide' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.record_chart_or_closed_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.image_small_or_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.proper_piece_image_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.image_inter_of_injective_union' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.unary_image_closed' does not depend on any axioms
+'GluingEPPA.Sparsening.boundary_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.charge_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.charge_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.exterior_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.realizes_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.boundary_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.cone_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.realizes_of_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.supported_walk_of_records' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.supported_walk_iff_records' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.common_supported_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.point_eq_iff_records' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.exists_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.copy_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.chartEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.common_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.liftOutput_copy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.liftOutput_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.lifted_chart_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.output_support_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.atlasCharge_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.coChart_path_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.coChart_exterior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.relation_coChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.output_coChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.output_exterior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.inducedOutput_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.project_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_closed_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.connected_atlas_chart_or_closed_cut' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.induced_closed_ambient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.separator_root_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.separator_root_projection_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.path_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.symm_map_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_symm_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_rel_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_output_image' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.chooseRootSpokes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.root_extension' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.endpoint_map_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.identity_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.endpoint_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.map_chart_image' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.AtlasSymmetry.exists_translation_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.CompleteChartGraph.complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.CompleteChartGraph.loopless' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.CompleteChartGraph.perm_inc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.CompleteChartGraph.perm_refl' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.CompleteChartGraph.perm_trans' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.Aut.image_closed' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.Aut.image_output' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chartPerm_mem' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chartPerm_trans' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.contained_in_full' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.canonical_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.canonical_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.lift_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.lift_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.spokes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.endpoint_extends' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.endpoint_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.endpoint_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.liftedChart_in_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.fullChart_to_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chart_to_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ClosedCut.toFreeDecomposition' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.color_constant_of_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.charge_constant_of_irreducible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.irreducible_lies_in_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.project_embeds_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.projection_on_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.irreducible_move_into_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.withJ_binary_rel' depends on axioms: [propext]
+'GluingEPPA.Sparsening.j_clique_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.chart_is_J_clique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.coChart_projects_to_J' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chart_J_complete' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.coChart_projection_J' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.j_clique_subset_one_side' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.quotient_withJ_rel_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.freeCut_of_nonconstant_color' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.constant_color_or_freeCut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_freeCut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.inclRight_glued' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.inclRight_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.left_eq_right_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.pushout_covered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.freeCut_right_of_not_left' does not depend on any axioms
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_unary_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutMap_unary_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.left_map_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.right_map_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.left_map_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.right_map_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.tuple_overlap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.left_rel_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.right_rel_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.left_unary_image_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.right_unary_image_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.leftExactEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.rightExactEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.pushoutFreeDecomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.comp' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_closed' does not depend on any axioms
+'GluingEPPA.Sparsening.inducedUnary_full' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.irreducible_subset_one_side' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.refl' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.contains_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.jClique_pushout_one_side' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.JClique_contained_in_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.factor_through_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.JRoot_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.glue_JRoots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutToPushout_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutToPushout_unary_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.glueFreeCutToPushout_exact_on_irreducible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.toClosedRange' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_irreducible' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.comp' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.exactSubsetIntoSide' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.exact_afterExact' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.unaryHomEmbedding_glueFreeCut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.range_JClique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.glueHomEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.closedSubtype' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.toHomEmbedding' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.restrictClosed' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.intoClosedCodomain' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.projection_rel_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.projection_nullary_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.projectionHomEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.atlas_chart_or_JRoot_freeCut' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ChartAtlas.freeCut_projected_root_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.carrier_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.irreducible_of_complete_J' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.glueProjectedRoot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.glueProjectedFreeCut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.testProjection_fibres' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.testProjection_overlap_J' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.glueProjectedAtlasCut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.proper_set_image_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.allCharts_J_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chart_or_projected_Jroot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chart_or_projected_Jclique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chartTestExact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chartTestRootExact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.exists_chartTestRootExact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.chartHasTreeImage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.localTreeOfOldTrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.localTreeOfBoundedOldTrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.refinedRoot_J_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.refinedRootExact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.refinedRootExact_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.apply_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.inverse_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.inverse_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.changeBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.changeBase_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.HasTreeImage.changeBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.HasTreeImage.changeBase_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.hasTreeImage_refinedRoot_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.localTreeOfBoundedOldTrees_nextRoot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.unaryClosure' does not depend on any axioms
+'GluingEPPA.Sparsening.mem_unaryClosure' does not depend on any axioms
+'GluingEPPA.Sparsening.unaryClosure_closed' does not depend on any axioms
+'GluingEPPA.Sparsening.unaryClosure_minimal' does not depend on any axioms
+'GluingEPPA.Sparsening.unaryClosure_closed_subset_eq_univ' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.unaryClosure_irreducible' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.out_eq' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.image_closed' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.emptyTestExact' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.refine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.localTrees_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.localTrees_refine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_localTrees' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projectToBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projectToBase_fibres' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.rootEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.rootEmbedding_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.projectToBase_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_localTrees_fixedBase' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_local_finite_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedBuildNonempty_block_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedBuildNonempty_active_length_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedBuildNonempty_active_ChainLength' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.CayleyWalk.value' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.WalkValue.lift' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.cayleyWalk_iff_value' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.CayleyWalk.trans' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.CayleyWalk.symm' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.CayleyWalk.mono' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.cayleyWalk_left_mul' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.mem_componentSet_iff' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.component_eq_iff' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.component_eq_iff_value' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentTranslation_apply' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentTranslation_one' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentTranslation_mul' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentTranslationEquiv' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentRightAction_apply' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentRightAction_one' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentRightAction_mul' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.distinguished_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.refl' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.symm' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.trans' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.map_cayleyWalk' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.inverse_membership' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.inverse_generator' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.cayleyWalk_iff' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.mapComponent' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.componentEquiv' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.componentEquiv_apply' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.componentEquiv_translation' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.componentEquiv_rightAction' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.equiv_swap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.componentEquiv_edgePerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.Iso.componentEquiv_wordPerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentNormalForm.mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentChart.normalForm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_original_state' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chain_restriction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chain_restriction_completed_actions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.self_mem_leftCoset' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.leftCoset_eq_of_mem' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.leftCoset_inter_of_mem' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.mask_coset_inter' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.reflection_coordinate' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.chain_walkValue_mem' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.chain_reflection_witness' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.chainComponentImage_distinguished' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.chainComponentImage_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.chainComponentImage_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.chain_componentWord_internal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.chain_word_map_value' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.chain_reflection_from_records' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.chain_coset_component_reflection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.attachment_same_intersection_coset' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.attachment_no_merge' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.restricted_attachments_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.mask_attachment_piece' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.mask_triple_intersection' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.mask_attachment_no_merge' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.separated_link_not_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.separated_link_not_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushoutInl_injective' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.pushoutInr_injective' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.pushoutInl_eq_inr_iff' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushout_attachment' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.value_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.letter_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.generator_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_valuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_test_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.attachLeft_injective' does not depend on any axioms
+'GluingEPPA.Steiner.ChainValuation.group_attachment_transition' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.group_attachment_overlap_iff' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.attachInto_injective' does not depend on any axioms
+'GluingEPPA.Steiner.ChainValuation.chainExtend_old_injective' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_new_injective' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_overlap_iff' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.component_coordinate_eq_of_value_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.component_record_of_word_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.parameterizedFamily_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.parameterizedFamily_generated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.parameterizedFamily_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.chainLength_le' does not depend on any axioms
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.chainLength_pos' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.separatedList_short' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.coordinateHom_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.inclusion_replacement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_append' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordActionValue_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.wordRightAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.next_eq_of_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.next_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.perm_eq_of_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.perm_fixed_of_none' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.blockMatching_perm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.blockMatching_perm_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.GroupBlock.matching_perm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.GroupBlock.matching_none' does not depend on any axioms
+'GluingEPPA.Steiner.ChainValuation.ChainState.first_perm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.cross_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extendedMatching' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.range_eq_leftCoset_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.translated_range_eq_leftCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.left_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.right_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.shared_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.separatedList_three_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.separatedList_three_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.rawChain_list_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainPerm_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.restrictedAttachment_old_unique' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.restrictedAttachment_new_unique' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.quotient_eq_iff' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.inl_component_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.inr_component_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.restrictedPiece_old_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.restrictedPiece_new_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.twoGroupAttachment_old_unique' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.twoGroupAttachment_new_unique' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.twoGroup_old_components_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.twoGroup_new_components_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.inclusion_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.projector_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.mem_range_iff_projector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.projector_inter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.range_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.range_inter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.comap_range_of_exact_intersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.two_block_pullbacks_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.projector_natural' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.comap_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.mask_pullbacks_agree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.inclusion_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.deletion_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.inclusion_replace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.differenceProduct_to_last' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.differenceProduct_cycle' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_one_test_fixed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.moved_test_implies_nontrivial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.impossible_identity_cycle_test' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.outside_exit_not_new' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.outside_last_not_new' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.outside_last_propagates' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.component_old_or_unmatched_new' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.old_component_unique_of_match' does not depend on any axioms
+'GluingEPPA.Steiner.ChainValuation.Matching.new_component_unique_of_match' does not depend on any axioms
+'GluingEPPA.Steiner.ChainValuation.Matching.unmatched_new_not_old' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_sound' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_complete' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_iff_matching_class_eq' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_of_pushoutPoint_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_to_pushoutReach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushoutReach_to_gluedReach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushoutReach_iff_gluedReach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushoutReach_iff_matchingClass_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.LabelReach.congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_edge_iff_pushout' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_glued' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.chainState_extend_reach_iff_glued' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.attachmentPair_new_unique' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.attachmentPair_old_unique' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.canonicalAttachmentMatching' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_iff_canonical_matching' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_old_reflect' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.gluedReach_new_reflect' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_reach_iff_component_matching' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_old_components_reflect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.chainExtend_new_components_reflect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.two_group_coset_pullback' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.attachment_compatible_of_cosets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extended_new_reach_iff_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extend_lastBlockCosetInvariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.cayley_mask_reach_iff_coset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restricted_block_reach_iff_coset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictedSubgroup_pullback' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.link_extend_lastCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_attachment_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.initial_lastMaskCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_lastMaskCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.oldComponent_mask_edge_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_oldComponent_attachment_fibre_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivCovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepMatchedOldComponentRestriction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepMatchedOldComponent_equivCovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.pair_lastCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.next_lastCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildTail_lastCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_lastCoset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extended_old_reach_iff_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalLastChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_preimage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.extend' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlock_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlocks_first_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_slice_of_meets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalCosetChart.component_slice_empty_or_coset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalCover_component_coset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalCover_component_iff_coset_piece' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_attachment_compatible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyInitial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_apply' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.Matching.relabelLeft_extract' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.matchedComponentRestriction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.matchedComponent_covered_iff_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.matchedComponent_equivReach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.unmatchedOldComponent_iff_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.unmatchedNewComponent_iff_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extend_matchedComponent_covered_iff_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushout_cross_reach_iff_attachment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extend_cross_reach_iff_attachment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_cross_reach_iff_attachment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlock_newBlock_common_interface_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_previous_new_common_interface_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_adjacentCayley_reach_iff_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_adjacentCayley_meets_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_masks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.BoundaryHistoryBuildResult' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryInitial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistory_connected_boundary_has_real_parameter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_all_interfaces_witnessed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.tailSourceMaskPairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_sourcePairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_sourcePairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.Embeds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step_embeds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_embeds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_embedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.BoundaryHistoryBuildResult.AllEmbedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryInitial_allEmbedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryStep_allEmbedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_allEmbedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allEmbedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_boundary_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_complete_boundary_certificates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.BoundaryHistoryBuildResult.asPair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryStep_asPair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_asOriginal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_certified_boundary_history' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.ParametersInjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step_parametersInjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_parametersInjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_parametersInjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_parametersInjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allParametersInjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.ExactOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalLinkBoundary_step_exactOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_exactOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaries_step_exactOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildTail_exactOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allExactOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.uniqueOverlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_unique_actual_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceMap_eq_right' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceMap_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceRange_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allInterfacesEmbedded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.exactRangeIntersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allExactEmbeddedInterfaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.mem_intersection_iff_unique_parameter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceEquivIntersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_allInterfaceEquivalences' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceEquivIntersection_left' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.interfaceEquivIntersection_right' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.component_meets_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.boundaryHistoryBuildNonempty_every_active_boundary_met' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_matchedOldComponent_covered_iff_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.step_matchedOldComponent_equivFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalBlock.Meets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport_meets_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport_transport_old' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.lastBlock_meets_iff_attachment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_old' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.consecutive_append_inactive' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.activeSuffix_append_active' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.consecutive_append_of_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_consecutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.consecutive_activeSuffix_of_last' depends on axioms: [propext]
+'GluingEPPA.Steiner.ChainValuation.consecutive_append_of_last_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.singletonLast_hasLastHistoricalChart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_hasLast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.activeSuffix_of_lastChart_and_exit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport_extend_old_consecutive_of_lastChart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport_eq_of_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extended_newToOldReach_has_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.HistoricalBlock.transport_new_unmatched' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extended_newRoot_reach_old_interface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.AllComponentsConsecutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalBlocks_extend_allConsecutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.singletonHistorical_allConsecutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyInitial_allConsecutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyInitial_hasLast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyStep_allConsecutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyStep_hasLast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryPair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryNext' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historyBuildNonempty_result_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildTail_data_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildNonempty_data_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.intervalHistoryBuildNonempty_result_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_consecutive_history' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.matching_perm_conjugate_of_rel_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.matching_family_perm_equivariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryLinked_drop' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundaryLinked_take' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.internal_boundaries_linked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.internal_pair_unique_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_internal_pair_unique_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedBuildNonempty_pointwise_and_linked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_joint_exact_historical_charts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.RightAction.comap' depends on axioms: [propext]
+'GluingEPPA.Steiner.RightAction.perm' does not depend on any axioms
+'GluingEPPA.Steiner.RightAction.perm_apply' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.RightAction.perm_mul' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.RightAction.glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.RightAction.glueAct_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.RightAction.glueAct_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.RightAction.glue_apply_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.RightAction.glue_apply_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentGroupAction' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentGroupAction_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentGroupAction_comap_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentCompatibilityAction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentCompatibilityAction_image' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentCompatibilityAction_outside' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentCompatibilityAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentAction_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentWordPerm_equal_of_value_equal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentEdgePerm_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentEdgePerm_of_not_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentEdgePerm_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentEdgePerm_internal_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentEdgePerm_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentEdgePerm_external_fixed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentWordPerm_nil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentWordPerm_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentWordPerm_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.WordWalk.value' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.WalkValue.exists_word' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.componentWordPerm_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.WalkValue.congr_edges' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_apply' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_distinguished' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_translation' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.distinguished_mem_componentMap_range' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_range_translation' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.injective_map_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_edgePerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.componentMap_range_edgePerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.sources_masks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.sources_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.block_embedding' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extend' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.exists_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_componentsCharted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentChart.fullTraceBlock_equiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentChart.full_or_proper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.CosetCycle.mask_proper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.prod_cyclic_differences' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stage_inclusion_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stage_inclusion_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.tripleSeparated_of_coset_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.one_not_exit_of_coset_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycle_displacement_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycleAtom_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycle_atoms_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycle_start_outside_exit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycleSeparatedTest' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycleSeparatedTest_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.cosetCycleSeparatedTest_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.augmented_no_bounded_coset_cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.augmented_no_bounded_coset_cycle_of_links' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_sameChain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_namedCover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildTail_boundary_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_boundary_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_named_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildTail_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_sourceMasks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_boundaryPairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryInitial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoupledNamedBoundaryHistory.covered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_map_of_generator_intertwining' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_joint_equivariant_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.coveredTest_kernel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightActionOfEquivariantCover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightActionOfEquivariantCover_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rightActionOfEquivariantCover_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedInitial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_named_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_sameBlocks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.LastInterfaceIsEntry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedStep_lastInterfaceIsEntry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildTail_lastInterfaceIsEntry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_lastInterfaceIsEntry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_append' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_eq_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_append' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordPermutation_singleton_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.leftTranslate_commutes_with_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.leftTranslate_at_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.diagramAction_eq_iff_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.diagramAction_eq_iff_valuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordValue_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.restrictWord_mem_inter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.intersection_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.exact_intersection_walk_by_words' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pair_walk_carries_third' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.two_walks_carry_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pointAt_eq_iff' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pointAt_injective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.completion_agrees_across_copies' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_swap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_rotate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedTriple_distinct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.canonicalPoint_triple_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.occurrenceLeft_respects' depends on axioms: [propext]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.freePointLeft_comp' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.freePointLeft_one' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedDeck_preserves_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelOccurrence_respects' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_canonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_preserves_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPointEquiv_preserves_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelValuation_id' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelValuation_trans' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_deck' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.realizedDeck_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_id' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPoint_trans' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPointEquiv_id' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.relabelPointEquiv_trans' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.extensionMap_id' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.extensionMap_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.increasingIso_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.increasingIso_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.complementIso_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.complementIso_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.totalCompletion_domain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.totalCompletion_complement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.totalCompletion_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.OrderedCompletion.totalCompletion_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.SiteData.relabel_refl' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.SiteData.relabel_trans' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.siteOf_relabel' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.Site.relabel_refl' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.Site.relabel_trans' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.overlap_at_ends' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.edge_triple_down' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.root_full' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.root_triple' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.siteOf_points_id' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.siteOf_triple_id' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.root_closed_subsite' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.rootEdge_source' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.rootEdge_target' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.rootEdge_overlap' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.site_triple_present' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.site_triple_unique' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.site_triple_swap' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.site_triple_rotate' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.site_triple_distinct' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.root_present' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.subsystem_present' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.root_point_eq_subsystem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.full_relabel' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.closedSubsite_relabel' depends on axioms: [Quot.sound]
+'GluingEPPA.Steiner.InitialSites.relabel_points_ne' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.edgeRelabel_refl' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.edgeRelabel_trans' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.SiteData.eq_of_fields' does not depend on any axioms
+'GluingEPPA.Steiner.InitialSites.relabel_induced_site' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.totalCompletion_maps_site' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.extensionMap_on_local_point' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.extensionMap_of_representatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.InitialSites.extension_on_proper_subsystems' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.InitialSites.inputSymmetry_fixes_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.extension_on_full_domain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.graphRelabel_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.graphRelabel_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.inputSymmetry_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.inputSymmetry_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.domainPrefix_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.coherentExtension_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.coherentExtension_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.full_domain_iff_full_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.coherentExtension_on_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.rootEmbedding_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.rootEmbedding_triple_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.rootEmbedding_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.coherentExtension_preserves_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.InitialSites.coherentExtension_triple_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.InitialSites.concreteCoherentEPPAWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.closed_iff_completionSet' does not depend on any axioms
+'GluingEPPA.Steiner.InitialSites.input_completion_unique' does not depend on any axioms
+'GluingEPPA.Steiner.InitialSites.witness_embedding_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.witness_extension_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.InitialSites.coherentSteinerEPPA_function' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.closedSteinerFreeRealization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_word_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_word_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_endpoint_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_permutation_endpoint_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.canonicalPoint_completion_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_word_action_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.diagram_lift_walk_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.edgeParity_weighted_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.wordWalk_cut_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.boolean_support_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.boolean_support_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.boolean_lift_support_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_edge_ne_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.singleton_exactly_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanBit_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanWord_wellDefined' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.booleanCoordinates_transition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.exact_boolean_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.CoveredNamedAlignedHistory.internal_pair_exact_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_internal_pair_exact_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.ClosedPartialAut.Graph' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.IsComposition' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.idOn' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.ClosedPartialAut.retag' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.ClosedPartialAut.retag_surjective' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.ClosedPartialAut.comp' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.ClosedPartialAut.comp_isComposition' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.ClosedPartialAut.idOn_isComposition' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.Aut.ext_perm' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.ExtendsAlong' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.CoherentFamily' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.rootAmbient' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.partChart' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.partChart_congr' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.partChart_image' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.refineFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.refineFamily_extends' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.refineFamily_coherent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.towerFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.towerFamily_extends' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.towerFamily_coherent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_of_meets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_fullMask_meets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_full_or_proper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildTail_adjacentInterfacesDisjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_adjacentInterfacesDisjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.edgeSubset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.edgeSubset_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.set_component_intersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.set_exact_intersection_walk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.finite_intersection_walk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.component_finite_intersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.restrictedCosetImage_saturated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.restrictedCosetImage_connected' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_fullMask_component_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedFullMask_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.genuine_source_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_equiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_equiv_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_word_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.AgreesWithNamed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalStep_boundary_named_agree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_agreesWithNamed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.consecutiveHistoricalBoundary_pointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.consecutiveHistoricalBoundary_adjacentRanges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_adjacentRanges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.disjoint_ranges_comp_of_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.transport_interface_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedBoundary_transport_interface_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaryList_transport_adjacentDisjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalBoundaryList_append_fresh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedStep_adjacentInterfacesDisjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalInterior_blockPath_of_component' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalInterior_unique_shift_and_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historical_chart_reach_iff_block_reach' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historical_chart_common_component_has_internal_path' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historical_chart_unique_displacement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepComponentChart_equivActual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepComponentChart_genuine_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.LinkedCoveredNamedHistory' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.linkedCoveredNamedStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.linkedCoveredNamedBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.linkedCoveredNamedBuildNonempty_data_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_linked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushoutMap_injective_of_equivs' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.pushoutEquivOfEquivs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivFullReachOfCharts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.matchedComponent_equivFullReachOfCharts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.MatchedRestriction.equivFullReachOfCharts_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.initial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepMatchedComponent_interfaceEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.normalized_attachment_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extendEquiv_last_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.extendEquiv_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ComponentLastChart.perm_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.maskPairTail_atoms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.adjacentMaskPairs_atoms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistory_boundaries_align_masks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalLast_forget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalTransport_forget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalStepList_forget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.HasGenuineLetterEdges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalLast_hasGenuineLetterEdges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalTransport_hasGenuineLetterEdges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryStep_allGenuineLetterEdges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_allGenuineLetterEdges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.list_active_interval_of_consecutive_map' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.historicalSupport_has_active_of_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_active_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedIntervalInitial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedIntervalStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedIntervalBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedIntervalBuildNonempty_data_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_allConsecutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildTail_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildTail_named_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coupledHistoryBuildNonempty_named_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryInitial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoryBuildResult.covers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperInterfaceEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_left_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_right_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAttachmentEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAttachmentEquiv_old' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAttachmentEquiv_new' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAttachmentEquiv_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_exitSet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_entrySet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_target_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.liftProperMask' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperMask' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.lift_normalizedProperMask' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.smallerOld' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.smallerLinks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_data' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedTripleMask' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAtom' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAtom_mask' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperAtom_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperRawChain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperRawChain_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperRawChain_mask' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_left_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_right_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_tripleSeparated_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperList_separated_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperSeparatedChain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperSeparatedChain_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundaryTail_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundarySources_masks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundarySources_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundarySeparatedChain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.translated_coset_maps_into_interface_image' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.normalized_interface_cosets_disjoint_of_images' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepCondition_of_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.realize' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.sources_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.toSeparatedTest' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.toSeparatedTest_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.toSeparatedTest_atoms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.test_state_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.testEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.testEquiv_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.testEquiv_last' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NormalizedChainTrace.testEquiv_perm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_equivRestricted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_equivCovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_genuine_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.OrderedBuildTrace.nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.OrderedBuildTrace.separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.orderedResultTail_snoc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.orderedResultNonempty_snoc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.OrderedBuildTrace.result_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.OrderedBuildTrace.state_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.sourceMaskCast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalStep_boundary_named_pointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_pointwiseNamed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedHistory.AllPointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedStep_allPointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.pointwiseAlignedBuildNonempty_data_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_all_pointwise_named_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.reachComponentMatching' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.reachComponentMatching_perm_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.componentChart_perm_val_of_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.componentChart_testWordPerm_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.matchingWordApply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.componentChart_word_perm_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.componentChart_word_actions_eq_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.coordinateHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.coordinateHom_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.map_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.inclusion_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.projection_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.inclusion_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.inclusion_componentAction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.replacement_from_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.inclusion_replacement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.wordMap_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.wordHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.wordHom_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.wordHom_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.exists_equiv_of_word_equalities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.restricted_value_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.word_values_eq_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.preserves_word_equalities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.restrictWord_eq_of_letters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.value_nil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.value_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.value_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.letter_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.letter_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.value_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.imageGroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.finiteImageGroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.valuation_group_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.valuation_component_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.generator_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.projection_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.projection_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.coordinateAction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.coordinateAction_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.coordinateAction_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.testWordPerm_eq_of_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.recordedTestAction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.recordedTestAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.recordedTest_kernel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTest_equivariant_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.restrictionSourceAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTest_kernel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTestRightAction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTestRightAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.chainTestRightAction_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.left_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.wordWalk_letters' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.meet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.meet_lt_left' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.groupHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.groupHom_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.compatibleAction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.compatibleAction_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.hom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.hom_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.inclusion_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.inclusion_replace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.link' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_coordinate_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_links' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pullbackSubset' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pullback_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.properPullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.properPullback_membership' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_iso_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_all_edges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Data.equiv_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_refl' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.naturalIso_cayleyWalk_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.totalGenerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.totalGenerator_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.totalGenerator_not_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.totalGenerator_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.totalGenerator_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.valuation_eq_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.DirectRecord.image_generated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.projection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.projection_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Step.action_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_generated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.family_empty_eq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.familyLink' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.deletion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.inclusion_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.deletion_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.retraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.inclusion_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.inclusion_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.deletion_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.map_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.projector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.projector_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.projector_inter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.walk_projector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.exact_intersection_walk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.component_intersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.forgetJRelations' does not depend on any axioms
+'GluingEPPA.Sparsening.UnaryFreeDecomposition.forgetJ' does not depend on any axioms
+'GluingEPPA.Sparsening.irreducible_expand_J' does not depend on any axioms
+'GluingEPPA.Sparsening.Tree.ExactUnaryEmbedding.forgetJ' does not depend on any axioms
+'GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.forgetJ' does not depend on any axioms
+'GluingEPPA.Sparsening.OrbitAtlas.Aut.forgetJ' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.Tree.FullATree.forgetJ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.reductProjection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.reductProjection_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_reduct_local_finite_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.refine_reduct_faithful' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.FiniteRooted.tower_reduct_faithful' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Reducts.SemigenericObstruction.involution_fixes_parts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Reducts.SemigenericObstruction.pattern_forces_part_movement' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Reducts.SemigenericObstruction.no_involution_on_pattern' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Reducts.SemigenericObstruction.Four.model' depends on axioms: [propext, Quot.sound]
+'GluingEPPA.Reducts.SemigenericObstruction.Four.swap_involutive' does not depend on any axioms
+'GluingEPPA.Reducts.SemigenericObstruction.Four.swap_preserves' depends on axioms: [propext]
+'GluingEPPA.Reducts.SemigenericObstruction.four_no_involutive_extension' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Reducts.SemigenericObstruction.four_no_coherent_C2_lift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.MatchingSaturated.reach_mem_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.MatchingSaturated.component_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extend_oldMatchingSaturated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.extend_oldSaturated_component_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.completeJ' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.forgetJ' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.withCompleteJ' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.forgetJ_withCompleteJ' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.withCompleteJ_forgetJ' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.IsComposition.forgetJ' does not depend on any axioms
+'GluingEPPA.Sparsening.ClosedPartialAut.IsComposition.withCompleteJ' does not depend on any axioms
+'GluingEPPA.Sparsening.OrbitAtlas.Aut.withCompleteJ' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.initialRooted' does not depend on any axioms
+'GluingEPPA.Sparsening.OrbitAtlas.SparseningWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.initialFamily' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.initialFamily_extends' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.initialFamily_coherent' depends on axioms: [Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.sparseningFromExtensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.sparseningFromExtensions_coherent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.sparsening_eppa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Sparsening.OrbitAtlas.coherent_sparsening_eppa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.unmatchedNewComponentEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.unmatchedNewComponentEquiv_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.unmatchedOldComponentEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GluingEPPA.Steiner.ChainValuation.unmatchedOldComponentEquiv_edge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

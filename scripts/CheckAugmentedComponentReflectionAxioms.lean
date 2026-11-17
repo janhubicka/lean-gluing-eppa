@@ -1,0 +1,7 @@
+import GluingEPPA.Steiner.ChainValuation.AugmentedComponentReflection
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.range_word_generation
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.Link.repair_range
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.full_component_record
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.linked_coset_component_reflection
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.proper_coset_component_reflection

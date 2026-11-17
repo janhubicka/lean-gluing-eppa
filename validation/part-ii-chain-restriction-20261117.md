@@ -59,14 +59,16 @@ bound of at most `N` blocks because it bounds the smaller source by the
 original chain's own block count.
 
 This closes the geometric normal-form statement of
-`lem:chain-restriction`. It does not complete `lem:chain-exact-properties`
-or the main Part II theorem. In particular, arbitrary old `Data` and
-`Link` records are not assumed to contain the smaller test coordinates.
-The simultaneous augmented recursive record must still be constructed,
-or supplied with an explicit verified certificate recording those
-actions, before the geometric theorem can establish that record's word
-kernel compatibility. Cycle assembly and the local tree realization
-statement retain their separate obligations.
+`lem:chain-restriction`. By itself it does not construct the simultaneous
+augmented family: arbitrary old `Data` and `Link` records are not assumed
+to contain the smaller test coordinates. The follow-up
+`AugmentedFamilyData.lean`, `AugmentedFamilyActions.lean`, and
+`AugmentedFamilyLinks.lean` now supply this concrete family and its recorded
+actions, and prove the actual family Links. `CosetCycleChainTest.lean` and
+`AugmentedFamilyCycles.lean` subsequently assemble the bounded coset-cycle
+and component-cycle contradictions. Naturality of this augmented family
+and the full exact-overlap/local-tree realization assembly remain outside
+this chain-restriction endpoint.
 
 ## Validation
 

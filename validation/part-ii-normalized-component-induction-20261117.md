@@ -75,10 +75,12 @@ original test's exact dependent state, and proves `chain_restriction`.
 The source uses the same bound `N`, with block count at most that of the
 original test. Its completed-letter corollary includes fixed points.
 
-The remaining construction issue is the simultaneous augmented recursive
-family: the old record must record all smaller chain-test actions before
-the chain restriction theorem can transfer its word kernel. This is not
-a missing component-chart or source-builder identification lemma.
+The chain restriction theorem transfers a word kernel once the old record
+records all smaller chain-test actions. The follow-up
+`AugmentedFamilyData.lean`, `AugmentedFamilyActions.lean`, and
+`AugmentedFamilyLinks.lean` now construct the simultaneous augmented
+recursive family and discharge this condition for its actual records.
+It is not an added assumption at the final family endpoint.
 
 ## Checked full-or-proper trace dichotomy
 

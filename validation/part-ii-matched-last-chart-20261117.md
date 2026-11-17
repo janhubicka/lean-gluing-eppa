@@ -70,10 +70,12 @@ restriction theorem for the original bounded separated-chain test, with
 no increase in its block count. No abstract historical-parameter converse
 or arbitrary unverified equivariant cover is used here.
 
-The simultaneous augmented recursive record, including the fact that its
-earlier records contain all the required smaller test actions, remains a
-separate construction obligation. The geometric theorem does not assume
-or establish this property for arbitrary old records.
+The simultaneous augmented recursive record is a separate construction
+from this geometric theorem. The follow-up `AugmentedFamilyData.lean`,
+`AugmentedFamilyActions.lean`, and `AugmentedFamilyLinks.lean` now construct
+that family and verify that its earlier records contain all the required
+smaller test actions. This property is not assumed for arbitrary old
+records by the component-chart theorem.
 
 ## Validation
 
