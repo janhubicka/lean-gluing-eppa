@@ -26,6 +26,19 @@ variable (L : ∀ m t : Proper S, m.val ⊆ t.val → Link D (old m) (old t))
 variable (L' : ∀ m t : Proper T, m.val ⊆ t.val → Link D' (old' m) (old' t))
 variable {p : E ≃ E'}
 
+/-- Equality of the actual list gives equality of the entire chain state,
+not just its carrier. In particular all dependent nonemptiness and separation
+proofs are transported together; no rewriting underneath a sigma binder is
+required. -/
+theorem buildNonempty_eq_of_list_eq
+    (l m : List (Atom S old)) (hl : l = m)
+    (hnl : l ≠ []) (hsl : separatedList D S old L l)
+    (hnm : m ≠ []) (hsm : separatedList D S old L m) :
+    buildNonempty D S old L l hnl hsl =
+      buildNonempty D S old L m hnm hsm := by
+  cases hl
+  rfl
+
 /-- The genuine nonempty builder preserves and reflects every *named*
 edge after relabelling. The arbitrary final shift in a raw test is carried
 along as a normal atom coordinate; it does not change the builder's
