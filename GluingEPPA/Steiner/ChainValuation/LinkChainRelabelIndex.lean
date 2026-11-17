@@ -72,9 +72,7 @@ theorem rawRelabel_list (N : Nat) (c : ChainValuation.RawChain N S old) :
   change List.ofFn
       (fun i => (atomEquiv D D' S T old old' L L' R) (c.2 i)) =
     (List.ofFn c.2).map (atomEquiv D D' S T old old' L L' R)
-  simpa only [Function.comp_def] using
-    (List.map_ofFn (f := c.2)
-      (g := atomEquiv D D' S T old old' L L' R)).symm
+  exact List.ofFn_comp' c.2 (atomEquiv D D' S T old old' L L' R)
 
 /-- The genuine separated tests, rather than arbitrary raw bounded
 chains, are mapped bijectively under diagram-data relabelling. -/
