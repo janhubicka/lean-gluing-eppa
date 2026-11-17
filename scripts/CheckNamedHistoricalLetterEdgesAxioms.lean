@@ -1,0 +1,7 @@
+import GluingEPPA.Steiner.ChainValuation.NamedHistoryLetterEdgesFinite
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.HasGenuineLetterEdges
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalLast_hasGenuineLetterEdges
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoricalTransport_hasGenuineLetterEdges
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryStep_allGenuineLetterEdges
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_allGenuineLetterEdges
