@@ -410,3 +410,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.indexedSpaceEquiv_perm
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.concreteTestCoordinates
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.concreteTestKernel_iff
+
+-- Actual augmented successor-stage word equality, no current-stage isomorphism premise.
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.earlierStageIsos
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.actualAugmentedStep_preserves_word_equalities
