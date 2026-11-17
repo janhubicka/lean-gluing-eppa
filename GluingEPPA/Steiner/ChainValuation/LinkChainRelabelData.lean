@@ -46,18 +46,19 @@ structure RelabelData (p : E ≃ E') where
 namespace RelabelData
 
 variable {p : E ≃ E'}
-variable (R : RelabelData D D' S T old old' L L' p)
 
 /-- Transport an actual labelled Cayley block together with its group
 coordinate. The shift coordinate is transformed by the corresponding old
 stage group isomorphism. -/
-noncomputable def atomEquiv : Atom S old ≃ Atom T old' :=
+noncomputable def atomEquiv (R : RelabelData D D' S T old old' L L' p) :
+    Atom S old ≃ Atom T old' :=
   ChainValuation.atomRelabel R.proper (fun i => (R.stage i).toEquiv)
 
 /-- Preservation of the exact separated-triple predicate follows from
 the two commuting interface squares and reflects every disjointness
 witness, not just the forward implication. -/
-theorem tripleSeparated_iff (x y z : Atom S old) :
+theorem tripleSeparated_iff (R : RelabelData D D' S T old old' L L' p)
+    (x y z : Atom S old) :
     tripleSeparated D S old L x y z ↔
       tripleSeparated D' T old' L'
         (R.atomEquiv x) (R.atomEquiv y) (R.atomEquiv z) := by
