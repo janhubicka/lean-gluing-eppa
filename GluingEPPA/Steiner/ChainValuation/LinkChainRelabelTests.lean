@@ -59,11 +59,21 @@ theorem chainSpace_matchingRelabel
       c'.2 hmne hmsep
   have h := buildNonempty_matchingRelabel D D' S T old old' L L' R
     l (rawChain_list_nonempty N S old c.1) c.2
-  -- Rewrite the whole dependent SomeState, whose proofs are irrelevant,
-  -- instead of attempting to rewrite a list within its sigma-type fields.
-  dsimp only [chainSpace, chainState]
-  rw [htarget]
-  exact h
+  -- State equality transports the *whole dependent predicate*. An ordinary
+  -- rewrite would incorrectly abstract only the state from a dependent
+  -- equivalence and matching relation, so we provide its motive explicitly.
+  let src := buildNonempty D S old L l
+    (rawChain_list_nonempty N S old c.1) c.2
+  let P : SomeState T old' → Prop := fun dst =>
+    ∃ F : src.state.Space ≃ dst.state.Space,
+      ∀ e (u v : src.state.Space),
+        (src.state.matching e).Rel u v ↔
+          (dst.state.matching (p e)).Rel (F u) (F v)
+  have hP : P (buildNonempty D' T old' L' m hmne hmsep) := h
+  have hTargetP : P (buildNonempty D' T old' L'
+      (List.ofFn c'.1.2) (rawChain_list_nonempty N T old' c'.1) c'.2) :=
+    Eq.mpr (congrArg P htarget) hP
+  exact hTargetP
 
 /-- With the genuine edge relation transported, the canonical involutive
 fixed-point completion of every named edge is transported as well. -/
