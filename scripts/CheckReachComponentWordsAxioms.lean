@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.ReachComponentWords
+
+#print axioms GluingEPPA.Steiner.ChainValuation.matchingWordApply
+#print axioms GluingEPPA.Steiner.ChainValuation.componentChart_word_perm_val
+#print axioms GluingEPPA.Steiner.ChainValuation.componentChart_word_actions_eq_iff
