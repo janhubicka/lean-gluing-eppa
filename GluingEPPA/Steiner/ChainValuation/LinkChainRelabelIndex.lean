@@ -24,6 +24,8 @@ variable (old' : ∀ i : Proper T, Data E' i.val)
 variable (L : ∀ m t : Proper S, m.val ⊆ t.val → Link D (old m) (old t))
 variable (L' : ∀ m t : Proper T, m.val ⊆ t.val → Link D' (old' m) (old' t))
 variable {p : E ≃ E'}
+namespace RelabelData
+
 variable (R : RelabelData D D' S T old old' L L' p)
 
 /-- Every finite list of actual consecutive block atoms preserves and
@@ -46,9 +48,12 @@ theorem separatedList_relabel (atoms : List (Atom S old)) :
               change (tripleSeparated D S old L x y z ∧
                 separatedList D S old L (y :: z :: zs)) ↔
                 (tripleSeparated D' T old' L'
-                  (R.atomEquiv x) (R.atomEquiv y) (R.atomEquiv z) ∧
+                  ((atomEquiv D D' S T old old' L L' R) x)
+                  ((atomEquiv D D' S T old old' L L' R) y)
+                  ((atomEquiv D D' S T old old' L L' R) z) ∧
                 separatedList D' T old' L'
-                  ((R.atomEquiv y) :: (R.atomEquiv z) ::
+                  (((atomEquiv D D' S T old old' L L' R) y) ::
+                    ((atomEquiv D D' S T old old' L L' R) z) ::
                     (zs.map R.atomEquiv)))
               exact and_congr (R.tripleSeparated_iff x y z) ih
 
@@ -64,10 +69,12 @@ list of block atoms, including the unused last shift. -/
 theorem rawRelabel_list (N : Nat) (c : ChainValuation.RawChain N S old) :
     List.ofFn ((R.rawRelabel N) c).2 =
       (List.ofFn c.2).map R.atomEquiv := by
-  change List.ofFn (fun i => R.atomEquiv (c.2 i)) =
-    (List.ofFn c.2).map R.atomEquiv
+  change List.ofFn
+      (fun i => (atomEquiv D D' S T old old' L L' R) (c.2 i)) =
+    (List.ofFn c.2).map (atomEquiv D D' S T old old' L L' R)
   simpa only [Function.comp_def] using
-    (List.map_ofFn (f := c.2) (g := R.atomEquiv)).symm
+    (List.map_ofFn (f := c.2)
+      (g := atomEquiv D D' S T old old' L L' R)).symm
 
 /-- The genuine separated tests, rather than arbitrary raw bounded
 chains, are mapped bijectively under diagram-data relabelling. -/
@@ -87,4 +94,5 @@ noncomputable def chainIndexEquiv
     SeparatedChains D N S old L ≃ SeparatedChains D' N T old' L' :=
   (R.rawRelabel N).subtypeEquiv (R.isSeparated_relabel N)
 
+end RelabelData
 end GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain
