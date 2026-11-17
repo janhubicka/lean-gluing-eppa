@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.ChainValuation.StateRelabel
+import GluingEPPA.Steiner.ChainValuation.ChainAttach
 import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
 
 /-!
