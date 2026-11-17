@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.SaturatedMatchingComponent
+
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchingSaturated.reach_mem_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.MatchingSaturated.component_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.extend_oldMatchingSaturated
+#print axioms GluingEPPA.Steiner.ChainValuation.extend_oldSaturated_component_iff
