@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.NormalizedTwoBlockEdges
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_equivRestricted
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_equivCovered
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalized_twoBlock_genuine_edge_iff
