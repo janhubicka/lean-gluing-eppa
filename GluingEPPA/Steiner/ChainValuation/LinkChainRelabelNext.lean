@@ -30,15 +30,17 @@ theorem pair_next_exit_disjoint
     Disjoint P.state.entry
       (ChainValuation.exitSet (block S old y.1) y.2
         (left D S old L y.1 z.1)) := by
-  rw [P.entry_spec]
-  change Disjoint (Set.range (right D S old L x.1 y.1))
-    (ChainValuation.exitSet (block S old y.1) y.2
-      (left D S old L y.1 z.1))
-  unfold ChainValuation.exitSet
-  rw [ChainValuation.range_eq_leftCoset_one
-        (right D S old L x.1 y.1),
-      ChainValuation.translated_range_eq_leftCoset
-        (left D S old L y.1 z.1) y.2]
+  have hentry :
+      Set.range (right D S old L x.1 y.1) =
+        ChainValuation.leftCoset (right D S old L x.1 y.1).range 1 :=
+    ChainValuation.range_eq_leftCoset_one _
+  have hexit :
+      ChainValuation.exitSet (block S old y.1) y.2
+        (left D S old L y.1 z.1) =
+        ChainValuation.leftCoset (left D S old L y.1 z.1).range y.2 :=
+    ChainValuation.translated_range_eq_leftCoset
+      (left D S old L y.1 z.1) y.2
+  rw [P.entry_spec, hentry, hexit]
   exact hsep
 
 /-- One genuine PairResult extension is natural, using the original
