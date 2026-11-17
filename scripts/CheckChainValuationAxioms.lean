@@ -97,6 +97,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testCoordinateConj_injective
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testCoordinateConj_letter
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_kernel_iff_of_equivariant
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.chainSpace_matchingRelabel
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
