@@ -1,0 +1,6 @@
+import GluingEPPA.Steiner.ChainValuation.FullMaskHistoricalComponent
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.restrictedCosetImage_saturated
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.restrictedCosetImage_connected
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_fullMask_component_iff

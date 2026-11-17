@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryNamedBridge
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.AgreesWithNamed
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.historicalStep_boundary_named_agree
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.HistoricalLinkBoundary.transport_agreesWithNamed

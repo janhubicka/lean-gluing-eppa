@@ -8,6 +8,7 @@ import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
+import GluingEPPA.Reducts.SemigenericObstruction
 
 /-!
 # The Gluing EPPA library
