@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryComponentWitness
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.interface_has_named_endpoints
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.meets_interface_iff_named
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.alignedNamedBuildNonempty_all_interface_witnesses
