@@ -68,6 +68,9 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.properRelabel
 #print axioms GluingEPPA.Steiner.ChainValuation.groupBlock_edgeRel_relabel_iff
 #print axioms GluingEPPA.Steiner.ChainValuation.groupBlock_matching_relabel
+#print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.initial
+#print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.completed_perm
+#print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.extension
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
