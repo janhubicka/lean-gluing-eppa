@@ -34,6 +34,7 @@ theorem pair_next_exit_disjoint
   change Disjoint (Set.range (right D S old L x.1 y.1))
     (ChainValuation.exitSet (block S old y.1) y.2
       (left D S old L y.1 z.1))
+  unfold ChainValuation.exitSet
   rw [ChainValuation.range_eq_leftCoset_one
         (right D S old L x.1 y.1),
       ChainValuation.translated_range_eq_leftCoset
