@@ -121,6 +121,10 @@ import GluingEPPA.Steiner.ChainValuation.ReachComponentWords
 import GluingEPPA.Steiner.ChainValuation.LinkStepChartEdges
 import GluingEPPA.Steiner.ChainValuation.ReachComponentTestWords
 
+import GluingEPPA.Steiner.ChainValuation.NormalizedProperMaskReindex
+
+import GluingEPPA.Steiner.ChainValuation.NormalizedOneBlockComponent
+
 /-!
 # Chain valuation proof development
 
