@@ -414,3 +414,11 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 -- Actual augmented successor-stage word equality, no current-stage isomorphism premise.
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.earlierStageIsos
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.actualAugmentedStep_preserves_word_equalities
+
+-- Derive RelabelData interface squares from named-generator stage isomorphisms.
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperStageRelabel.common_reindex
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperStageRelabel.common_stage_equiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperStageRelabel.common_stage_edge
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperStageRelabel.left_comm
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperStageRelabel.right_comm
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ProperStageRelabel.toRelabelData
