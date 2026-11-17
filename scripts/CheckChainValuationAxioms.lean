@@ -403,3 +403,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.buildNonempty_matchingRelabel
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.chainSpace_matchingRelabel
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.chainPerm_equivariant
+
+-- Genuine augmented test-package naturality, conditional on old-stage RelabelData.
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.oppositePermHom
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.oppositePermHom_injective
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.indexedSpaceEquiv_perm
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.concreteTestCoordinates
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.concreteTestKernel_iff
