@@ -80,6 +80,12 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.chainIndexEquiv
 #print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.wordPerm
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.firstState
+#print axioms GluingEPPA.Steiner.ChainValuation.exitSet_relabel_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.entry_exit_disjoint_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.extension_from_source
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pullbackSubset_inter
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.properRelabel_meet
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.extendState
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
