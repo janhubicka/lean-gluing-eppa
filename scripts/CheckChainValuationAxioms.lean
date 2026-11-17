@@ -55,6 +55,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.generator_involutive
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.forget_valuation
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_test_coordinate
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_coordinate_transport
+#print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_kernel_iff
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
