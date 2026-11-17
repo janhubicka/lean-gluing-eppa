@@ -89,9 +89,9 @@ theorem concreteTestCoordinates
       chainPerm D' N T old' L' (q c) (p e)
     ext y
     obtain ⟨x, rfl⟩ := (X c).surjective y
-    change (X c) (chainPerm D N S old L c e x) =
-      chainPerm D' N T old' L' (q c) (p e) (X c x)
-    exact indexedSpaceEquiv_perm D D' S T old old' L L' R N c e x
+    simpa only [Equiv.permCongrHom_coe, Equiv.permCongr_apply,
+      Equiv.symm_apply_apply] using
+      (indexedSpaceEquiv_perm D D' S T old old' L L' R N c e x)
   · intro c
     exact oppositePermHom_injective (X c)
 
