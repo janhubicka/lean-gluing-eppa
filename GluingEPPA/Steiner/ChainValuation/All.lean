@@ -17,6 +17,7 @@ import GluingEPPA.Steiner.ChainValuation.AugmentedFamilyCycles
 import GluingEPPA.Steiner.ChainValuation.AugmentedTestKernelTransport
 import GluingEPPA.Steiner.ChainValuation.ChainIndexRelabel
 import GluingEPPA.Steiner.ChainValuation.CosetRelabel
+import GluingEPPA.Steiner.ChainValuation.AugmentedStepNaturality
 
 /-!
 # Chain valuation proof development
