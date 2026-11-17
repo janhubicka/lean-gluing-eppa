@@ -40,15 +40,30 @@ theorem chainSpace_matchingRelabel
           (chainIndexEquiv D D' S T old old' L L' R N c)).state.matching (p e)).Rel
           (F u) (F v) := by
   let c' := chainIndexEquiv D D' S T old old' L L' R N c
-  have hl : List.ofFn c'.1.2 =
-      (List.ofFn c.1.2).map (atomEquiv D D' S T old old' L L' R) := by
-    dsimp [c', chainIndexEquiv]
+  let l := List.ofFn c.1.2
+  let m := l.map (atomEquiv D D' S T old old' L L' R)
+  have hl : List.ofFn c'.1.2 = m := by
+    dsimp [c', m, l, chainIndexEquiv]
     exact rawRelabel_list D D' S T old old' L L' R N c.1
+  have hmne : m ≠ [] := by
+    intro hempty
+    exact rawChain_list_nonempty N T old' c'.1 (hl.trans hempty)
+  have hmsep : separatedList D' T old' L' m :=
+    (separatedList_relabel D D' S T old old' L L' R l).mp c.2
+  have htarget :
+      buildNonempty D' T old' L' (List.ofFn c'.1.2)
+          (rawChain_list_nonempty N T old' c'.1) c'.2 =
+        buildNonempty D' T old' L' m hmne hmsep := by
+    exact buildNonempty_eq_of_list_eq D' T old' L'
+      (List.ofFn c'.1.2) m hl (rawChain_list_nonempty N T old' c'.1)
+      c'.2 hmne hmsep
   have h := buildNonempty_matchingRelabel D D' S T old old' L L' R
-    (List.ofFn c.1.2) (rawChain_list_nonempty N S old c.1) c.2
-  -- Dependent simplification transports the nonempty/separated proofs
-  -- together with the list, unlike a bare rewrite inside the sigma type.
-  simpa only [chainSpace, chainState, c', ← hl] using h
+    l (rawChain_list_nonempty N S old c.1) c.2
+  -- Rewrite the whole dependent SomeState, whose proofs are irrelevant,
+  -- instead of attempting to rewrite a list within its sigma-type fields.
+  dsimp only [chainSpace, chainState]
+  rw [htarget]
+  exact h
 
 /-- With the genuine edge relation transported, the canonical involutive
 fixed-point completion of every named edge is transported as well. -/
