@@ -20,6 +20,7 @@ import GluingEPPA.Steiner.ChainValuation.CosetRelabel
 import GluingEPPA.Steiner.ChainValuation.AugmentedStepNaturality
 import GluingEPPA.Steiner.ChainValuation.ProperSubsetRelabel
 import GluingEPPA.Steiner.ChainValuation.GroupBlockRelabel
+import GluingEPPA.Steiner.ChainValuation.StateRelabelExtension
 
 /-!
 # Chain valuation proof development
