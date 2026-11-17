@@ -20,6 +20,7 @@ variable (hActive : ∀ e, e ∈ A.active ↔ p e ∈ B.active)
 variable (hEdge : ∀ e ∈ A.active, F (A.edge e) = B.edge (p e))
 
 /-- Genuine Cayley edges are preserved and reflected under relabelling. -/
+include hActive hEdge in
 theorem groupBlock_edgeRel_relabel_iff (e : E) (x y : A.Carrier) :
     A.edgeRel e x y ↔ B.edgeRel (p e) (F x) (F y) := by
   constructor
@@ -35,6 +36,7 @@ theorem groupBlock_edgeRel_relabel_iff (e : E) (x y : A.Carrier) :
       _ = F (x * A.edge e) := by rw [map_mul, hEdge e heA]
 
 /-- The same block isomorphism conjugates the completed involutions. -/
+include hActive hEdge in
 theorem groupBlock_matching_relabel (e : E) (x : A.Carrier) :
     F ((A.matching e).perm x) = (B.matching (p e)).perm (F x) :=
   matching_perm_conjugate_of_rel_iff F.toEquiv
