@@ -1,0 +1,7 @@
+import GluingEPPA.Steiner.ChainValuation.FiniteInterfaceSelection
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.BothSidesActive
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.AlignedNamedBoundary.chooseInterface
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ActiveBoundarySelection
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ActiveBoundarySelection.chosenInterfaces
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.ActiveBoundarySelection.chosenInterfaces_length

@@ -50,6 +50,7 @@ import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryNamedBridge
 import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryHistory
 import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryFinite
 import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryComponentWitness
+import GluingEPPA.Steiner.ChainValuation.FiniteInterfaceSelection
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
