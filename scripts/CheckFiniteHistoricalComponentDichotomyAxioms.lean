@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.FiniteHistoricalComponentDichotomy
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.NamedHistoricalBlock.fullMask_component_of_meets
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_fullMask_meets
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.namedHistoryBuildNonempty_full_or_proper
