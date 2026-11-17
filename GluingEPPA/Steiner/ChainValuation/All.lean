@@ -39,8 +39,18 @@ import GluingEPPA.Steiner.ChainValuation.MatchedComponentPushout
 import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentPushout
 import GluingEPPA.Steiner.ChainValuation.UnmatchedComponentCharts
 import GluingEPPA.Steiner.ChainValuation.SaturatedMatchingComponent
-import GluingEPPA.Steiner.ChainValuation.NormalizedProperMaskReindex
-import GluingEPPA.Steiner.ChainValuation.NormalizedProperRawChain
+import GluingEPPA.Steiner.ChainValuation.NamedHistoricalLetterEdges
+import GluingEPPA.Steiner.ChainValuation.NamedHistoryLetterEdgesFinite
+import GluingEPPA.Steiner.ChainValuation.NamedHistoryOriginalCorrespondence
+import GluingEPPA.Steiner.ChainValuation.FullMaskHistoricalComponent
+import GluingEPPA.Steiner.ChainValuation.FiniteHistoricalComponentDichotomy
+import GluingEPPA.Steiner.ChainValuation.FullMaskLabelledEquivalence
+import GluingEPPA.Steiner.ChainValuation.HistoricalConsecutiveBoundaryCharts
+import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryNamedBridge
+import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryHistory
+import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryFinite
+import GluingEPPA.Steiner.ChainValuation.AlignedNamedBoundaryComponentWitness
+import GluingEPPA.Steiner.ChainValuation.AlignedInteriorShift
 import GluingEPPA.Steiner.ChainValuation.ChainExtendMatchedComponent
 import GluingEPPA.Steiner.ChainValuation.ExactCrossLayerWitness
 import GluingEPPA.Steiner.ChainValuation.HistoricalAdjacentInterfaceWitness
@@ -55,6 +65,7 @@ import GluingEPPA.Steiner.ChainValuation.BoundaryHistoryOriginalCorrespondence
 import GluingEPPA.Steiner.ChainValuation.HistoricalBoundaryParameterInjectivity
 import GluingEPPA.Steiner.ChainValuation.HistoricalExactOverlap
 import GluingEPPA.Steiner.ChainValuation.HistoricalEmbeddedInterface
+import GluingEPPA.Steiner.ChainValuation.ActualStepInterfaceSeparation
 import GluingEPPA.Steiner.ChainValuation.HistoricalInterfaceEquivalence
 import GluingEPPA.Steiner.ChainValuation.LinkChainListCoset
 import GluingEPPA.Steiner.ChainValuation.OldComponentPersistence
@@ -89,6 +100,7 @@ import GluingEPPA.Steiner.ChainValuation.NamedBoundaryMaskAlignment
 import GluingEPPA.Steiner.ChainValuation.CoupledNamedBoundaryStep
 import GluingEPPA.Steiner.ChainValuation.CoupledHistoryFinite
 import GluingEPPA.Steiner.ChainValuation.CoupledHistoryOriginalCorrespondence
+import GluingEPPA.Steiner.ChainValuation.CoupledHistorySourcePairs
 
 import GluingEPPA.Steiner.ChainValuation.PushoutEquiv
 import GluingEPPA.Steiner.ChainValuation.MatchedComponentChartExtension
@@ -108,6 +120,10 @@ import GluingEPPA.Steiner.ChainValuation.ReachComponentAction
 import GluingEPPA.Steiner.ChainValuation.ReachComponentWords
 import GluingEPPA.Steiner.ChainValuation.LinkStepChartEdges
 import GluingEPPA.Steiner.ChainValuation.ReachComponentTestWords
+
+import GluingEPPA.Steiner.ChainValuation.NormalizedProperMaskReindex
+
+import GluingEPPA.Steiner.ChainValuation.NormalizedProperRawChain
 
 /-!
 # Chain valuation proof development
