@@ -55,7 +55,7 @@ theorem separatedList_relabel (atoms : List (Atom S old)) :
                   (((atomEquiv D D' S T old old' L L' R) y) ::
                     ((atomEquiv D D' S T old old' L L' R) z) ::
                     (zs.map R.atomEquiv)))
-              exact and_congr (R.tripleSeparated_iff x y z) ih
+              exact and_congr (tripleSeparated_iff D D' S T old old' L L' R x y z) ih
 
 /-- The raw positive-length test indices, with their literal finite
 block tuples, relabel uniformly at every position. -/
@@ -67,7 +67,7 @@ noncomputable def rawRelabel
 /-- Relabelling a raw chain produces precisely the pointwise transformed
 list of block atoms, including the unused last shift. -/
 theorem rawRelabel_list (N : Nat) (c : ChainValuation.RawChain N S old) :
-    List.ofFn ((R.rawRelabel N) c).2 =
+    List.ofFn ((rawRelabel D D' S T old old' L L' R N) c).2 =
       (List.ofFn c.2).map R.atomEquiv := by
   change List.ofFn
       (fun i => (atomEquiv D D' S T old old' L L' R) (c.2 i)) =
@@ -81,18 +81,18 @@ chains, are mapped bijectively under diagram-data relabelling. -/
 theorem isSeparated_relabel (N : Nat)
     (c : ChainValuation.RawChain N S old) :
     IsSeparated D N S old L c ↔
-      IsSeparated D' N T old' L' ((R.rawRelabel N) c) := by
+      IsSeparated D' N T old' L' ((rawRelabel D D' S T old old' L L' R N) c) := by
   change separatedList D S old L (List.ofFn c.2) ↔
-    separatedList D' T old' L' (List.ofFn ((R.rawRelabel N) c).2)
-  rw [R.rawRelabel_list N c]
-  exact R.separatedList_relabel (List.ofFn c.2)
+    separatedList D' T old' L' (List.ofFn ((rawRelabel D D' S T old old' L L' R N) c).2)
+  rw [rawRelabel_list D D' S T old old' L L' R N c]
+  exact separatedList_relabel D D' S T old old' L L' R (List.ofFn c.2)
 
 /-- The complete finite index family of bounded separated-chain tests
 is invariant under a compatible relabelling of preceding group/Link data. -/
 noncomputable def chainIndexEquiv
     (R : RelabelData D D' S T old old' L L' p) (N : Nat) :
     SeparatedChains D N S old L ≃ SeparatedChains D' N T old' L' :=
-  (R.rawRelabel N).subtypeEquiv (R.isSeparated_relabel N)
+  (rawRelabel D D' S T old old' L L' R N).subtypeEquiv (isSeparated_relabel D D' S T old old' L L' R N)
 
 end RelabelData
 end GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain
