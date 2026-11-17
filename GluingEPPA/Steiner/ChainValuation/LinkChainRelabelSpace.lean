@@ -41,9 +41,10 @@ theorem chainSpace_matchingRelabel
   have hsep : separatedList D S old L atoms := c.2
   have hne' : atoms.map φ ≠ [] := by
     intro h
-    cases atoms with
-    | nil => exact hne rfl
-    | cons x xs => simp at h
+    exact hne (by
+      cases ha : atoms with
+      | nil => rfl
+      | cons x xs => simp [ha] at h)
   have hsep' : separatedList D' T old' L' (atoms.map φ) :=
     (separatedList_relabel D D' S T old old' L L' R atoms).mp hsep
   obtain ⟨F, hF⟩ := buildNonempty_matchingRelabel
@@ -59,8 +60,8 @@ theorem chainSpace_matchingRelabel
     change buildNonempty D' T old' L'
        (List.ofFn ((chainIndexEquiv D D' S T old old' L L' R N c).1.2)) _ _ =
        buildNonempty D' T old' L' (atoms.map φ) _ _
-    rw [hAtoms]
-  rw [hState]
-  exact ⟨F, hF⟩
+    cases hAtoms
+    rfl
+  exact hState.symm ▸ ⟨F, hF⟩
 
 end GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData
