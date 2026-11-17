@@ -398,3 +398,8 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.buildNonempty_has_consecutive_history
 #print axioms GluingEPPA.Steiner.ChainValuation.matching_perm_conjugate_of_rel_iff
 #print axioms GluingEPPA.Steiner.ChainValuation.matching_family_perm_equivariant
+
+-- Stacked naturality: literal nonempty builder and indexed bounded tests.
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.buildNonempty_matchingRelabel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.chainSpace_matchingRelabel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.chainPerm_equivariant
