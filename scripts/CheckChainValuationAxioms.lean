@@ -57,6 +57,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.valuation_test_coordinate
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_coordinate_transport
 #print axioms GluingEPPA.Steiner.EdgeGraph.AugmentedRecord.testValue_kernel_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.atomRelabel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rawChainRelabel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.rawChainRelabel_length
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.ChainValuation.filteredChainRelabel
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
