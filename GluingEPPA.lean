@@ -8,17 +8,7 @@ import GluingEPPA.Steiner.DiagramFullEPPAStatement
 import GluingEPPA.Steiner.DiagramLocalFunctions
 import GluingEPPA.Steiner.DiagramBooleanQuotient
 import GluingEPPA.Steiner.ChainValuation.All
+import GluingEPPA.Reducts.MultipartiteCoherentEPPA
 
-/-!
-# The Gluing EPPA library
-
-This public umbrella imports the terminal local modules of each construction.
-Earlier versions listed every module by name, adding no semantics but
-obscuring the actual dependency structure.
-
-Use a narrower import when possible (for example
-`GluingEPPA.Sparsening.TreeHomEmbedding` for locally exact maps or
-`GluingEPPA.Sparsening.SparseningTheorem` for the two final theorems).
-The import graph and its complete public closure are checked in CI
-by `scripts/audit_library_imports.py`.
--/
+/-! The public umbrella imports terminal local modules. The complete closure
+and absence of redundant umbrella imports are audited in CI. -/

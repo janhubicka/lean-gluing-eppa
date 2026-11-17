@@ -1,0 +1,21 @@
+import GluingEPPA.Reducts.CoherentDomainAssembly
+
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.basePerm_ext
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transport
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transport_identity
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transport_comp
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.table_invariant
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.cross_invariant
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transport_extends
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.table_restrict
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.replicated_table_invariant
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transported_completed_edge
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transported_lift_comp
+#print axioms GluingEPPA.Reducts.FixedCarrierTransport.transported_completed_extends
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.normalize_identity
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.normalize_comp
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.assemble_identity
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.assemble_comp
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.inverse_transport_on_input
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.assemble_extends
+#print axioms GluingEPPA.Reducts.CoherentDomainAssembly.assemble_preserves_relation

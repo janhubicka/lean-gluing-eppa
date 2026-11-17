@@ -1,0 +1,12 @@
+import GluingEPPA.Reducts.MultipartiteActualLocalActions
+
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.baseAction_identity
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.baseAction_comp
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.baseAction_extends
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.baseAction_part
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.baseline_reverse
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.localTable_restrict
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.localTable_invariant
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.localTable_reverse
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.localTable_within
+#print axioms GluingEPPA.Reducts.MultipartiteActualLocalActions.actual_local_actions

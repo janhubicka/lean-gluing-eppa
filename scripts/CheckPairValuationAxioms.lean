@@ -1,0 +1,11 @@
+import GluingEPPA.Reducts.PairValuationConjugation
+
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.translate_twice
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.rename_comp
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.lift_identity
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.lift_comp
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.lift_inverse
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.reading_translate
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.lift_preserves_reading
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.lift_preserves_edge
+#print axioms GluingEPPA.Reducts.PairValuationConjugation.lift_extends_rows

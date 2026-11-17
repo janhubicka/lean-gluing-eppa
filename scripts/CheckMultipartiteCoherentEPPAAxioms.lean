@@ -1,0 +1,13 @@
+import GluingEPPA.Reducts.MultipartiteCoherentEPPA
+
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.partialIsoOfColor
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.domainSetoid
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.transportIso
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.normalized_allowed
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.component_comp
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.coherent_identity
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.coherent_comp
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.coherent_extends
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.coherent_color
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.coherent_part
+#print axioms GluingEPPA.Reducts.MultipartiteCoherentEPPA.finite_coherent_eppa

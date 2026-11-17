@@ -1,0 +1,13 @@
+import GluingEPPA.Reducts.MultipartiteLocalWitness
+
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.witness
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.inputCopy_part
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.inputCopy_color
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.localRows_compatible
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.localLift_identity
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.localLift_comp
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.localLift_extends
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.localLift_part
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.localLift_color
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.carrier_finite
+#print axioms GluingEPPA.Reducts.MultipartiteLocalWitness.finite_local_witness
