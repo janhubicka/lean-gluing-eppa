@@ -86,6 +86,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.pullbackSubset_inter
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.properRelabel_meet
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.extendState
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.pairState
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
