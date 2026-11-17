@@ -1,0 +1,5 @@
+import GluingEPPA.Steiner.ChainValuation.ReachComponentAction
+
+#print axioms GluingEPPA.Steiner.ChainValuation.reachComponentMatching
+#print axioms GluingEPPA.Steiner.ChainValuation.reachComponentMatching_perm_val
+#print axioms GluingEPPA.Steiner.ChainValuation.componentChart_perm_val_of_edge_iff
