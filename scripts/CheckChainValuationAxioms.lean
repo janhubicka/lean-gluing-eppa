@@ -90,6 +90,7 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.pair_next_exit_disjoint
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.nextState
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.buildTail_matchingRelabel
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.buildNonempty_matchingRelabel
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
