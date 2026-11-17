@@ -84,6 +84,12 @@ jobs:
         run: |
           set -euo pipefail
           export PATH="$HOME/.elan/bin:$PATH"
+          # The axiom manifest imports ChainValuation.All; focused builds above
+          # do not necessarily produce its .olean in a fresh macOS workspace.
+          lake build GluingEPPA.Steiner.ChainValuation.All > proof-audit/chain-all.log 2>&1 || {
+            cat proof-audit/chain-all.log; exit 1;
+          }
+          tail -n 10 proof-audit/chain-all.log
           lake env lean scripts/CheckChainValuationAxioms.lean > proof-audit/axioms.log 2>&1 || {
             cat proof-audit/axioms.log; exit 1;
           }
