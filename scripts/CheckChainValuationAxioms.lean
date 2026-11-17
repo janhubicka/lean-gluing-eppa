@@ -71,6 +71,10 @@ import GluingEPPA.Steiner.ChainValuation.SeparatedChains
 #print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.initial
 #print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.completed_perm
 #print axioms GluingEPPA.Steiner.ChainValuation.StateRelabel.extension
+#print axioms GluingEPPA.Steiner.ChainValuation.mem_range_relabel_iff
+#print axioms GluingEPPA.Steiner.ChainValuation.disjoint_interface_cosets_relabel_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.atomEquiv
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.RelabelData.tripleSeparated_iff
 
 #print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.AugmentedStep.forget_edge
 
