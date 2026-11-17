@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.LinkStepChartEdges
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepComponentChart_equivActual
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.stepComponentChart_genuine_edge_iff
