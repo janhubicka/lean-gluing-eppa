@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.NormalizedSeparationFromInterfaceImages
+
+#print axioms GluingEPPA.Steiner.ChainValuation.translated_coset_maps_into_interface_image
+#print axioms GluingEPPA.Steiner.ChainValuation.normalized_interface_cosets_disjoint_of_images
