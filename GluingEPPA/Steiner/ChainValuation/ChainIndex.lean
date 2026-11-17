@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.RecursiveRecord
+import Mathlib.Basic.Finite.Sigma
 
 /-!
 # Finite indexing of bounded chain data

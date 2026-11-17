@@ -1,0 +1,12 @@
+import GluingEPPA.Steiner.ChainValuation.NormalizedBoundaryAssembly
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_left_range
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_right_range
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProper_tripleSeparated_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperList_separated_iff
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperSeparatedChain
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedProperSeparatedChain_length
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundaryTail_separated
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundarySources_masks
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundarySources_length
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.normalizedBoundarySeparatedChain

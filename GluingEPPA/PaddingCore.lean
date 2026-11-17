@@ -1,4 +1,5 @@
 import GluingEPPA.PermutationDiagram
+import Mathlib.Logic.Equiv.Fintype
 
 /-!
 Finite partial bijections admit total permutation extensions; a partial

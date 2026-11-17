@@ -1,4 +1,6 @@
 import GluingEPPA.Basic
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Linarith
 
 /-!
 Finite descent for sparsening. Vertex identifications and edge gains are both

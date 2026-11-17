@@ -1,4 +1,9 @@
 import GluingEPPA.Steiner.DiagramWordNaturality
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Combinatorics.SimpleGraph.Paths
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Abel
 
 /-!
 # Boolean support of a projected Steiner gluing walk

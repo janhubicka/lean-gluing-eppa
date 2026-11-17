@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.LocalParity
+import Mathlib.Algebra.BigOperators.Ring.Finset
 
 /-!
 Boundary/exterior records for complete-overlap refinement. These lemmas

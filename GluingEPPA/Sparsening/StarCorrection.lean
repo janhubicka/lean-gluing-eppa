@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.OddBoundary
+import Mathlib.Tactic.Abel
 
 /-!
 The no-separator branch constructs one *lifted* record, not just a common

@@ -58,6 +58,29 @@ import GluingEPPA
 #check GluingEPPA.Sparsening.Tree.UnaryHomEmbedding.out_eq
 ~~~
 
+## Part II: recursive chain valuations
+
+The recursive-valuation development now includes the full geometric
+chain-restriction lemma. For every proper alphabet restriction, each
+component of an actual bounded separated-chain test is equivalent either
+to the genuine earlier Cayley graph or to an actual earlier separated
+chain with no more blocks. The equivalences preserve and reflect genuine
+labelled edges and intertwine the completed letter actions.
+
+The endpoints are `LinkChain.chain_restriction` and
+`LinkChain.chain_restriction_completed_actions` in
+[`ChainRestrictionNormalForm.lean`](GluingEPPA/Steiner/ChainValuation/ChainRestrictionNormalForm.lean),
+under the namespace `GluingEPPA.Steiner.EdgeGraph.RecursiveRecord`.
+The literal finite-chain traversal and its nonidentity in the augmented
+record are also checked.
+
+This does not yet complete manuscript Part II. The simultaneous augmented
+family, its bounded coset-cycle instantiation, and the final realization
+and local-section assembly remain. The
+[integration note](validation/part-ii-integration-20261117.md) distinguishes
+the proved statements from these obligations and records the pinned
+332-module kernel check and 1,193-declaration axiom audit.
+
 ## Reuse and installation
 
 Pin a tested revision in a compatible Lean 4 Lake project:

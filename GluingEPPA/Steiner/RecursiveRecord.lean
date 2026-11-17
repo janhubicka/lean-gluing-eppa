@@ -1,4 +1,5 @@
 import GluingEPPA.Steiner.RecordInclusion
+import Mathlib.Data.Fintype.Powerset
 
 /-!
 # The recursive family of literal valuation records

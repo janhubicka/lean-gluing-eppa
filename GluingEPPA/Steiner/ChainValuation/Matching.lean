@@ -1,4 +1,4 @@
-import Mathlib
+import Mathlib.Logic.Equiv.Defs
 
 /-!
 # Completing a partial matching to an involutive permutation

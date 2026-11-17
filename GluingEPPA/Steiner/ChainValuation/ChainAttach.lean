@@ -1,5 +1,7 @@
 import GluingEPPA.Steiner.ChainValuation.ChainState
 import GluingEPPA.Steiner.ChainValuation.ChainExtend
+import Mathlib.Basic.Finite.Sum
+import Mathlib.Data.Set.Disjoint
 
 /-!
 # Attaching one separated Cayley block to a chain state

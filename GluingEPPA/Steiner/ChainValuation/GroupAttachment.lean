@@ -1,4 +1,6 @@
 import GluingEPPA.Steiner.ChainValuation.Pushout
+import Mathlib.Algebra.Group.Hom.Defs
+import Mathlib.Tactic.Convert
 
 /-!
 # One group attachment in a chain

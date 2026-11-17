@@ -1,4 +1,5 @@
 import GluingEPPA.Relational
+import Mathlib.Tactic.Choose
 
 namespace GluingEPPA
 universe u v w z

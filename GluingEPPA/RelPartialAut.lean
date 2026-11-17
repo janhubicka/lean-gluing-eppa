@@ -1,4 +1,5 @@
 import GluingEPPA.PartialFamily
+import Mathlib.Basic.PEquiv
 
 /-!
 The label type for the unconditional finite relational EPPA theorem is the

@@ -1,0 +1,4 @@
+import GluingEPPA.Steiner.ChainValuation.ActualActiveIntervalInterfaceExistence
+
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredNamedAlignedBuildNonempty_activeInterval
+#print axioms GluingEPPA.Steiner.EdgeGraph.RecursiveRecord.LinkChain.coveredBuildNonempty_has_active_interval_and_interfaces

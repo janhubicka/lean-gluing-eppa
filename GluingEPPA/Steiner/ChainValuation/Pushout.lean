@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.Data.Quot
+import Mathlib.Logic.Equiv.Defs
 
 /-!
 # Set pushouts along two injections

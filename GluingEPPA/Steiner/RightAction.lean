@@ -1,4 +1,7 @@
-import Mathlib
+import Mathlib.Algebra.Group.Hom.Defs
+import Mathlib.Data.Set.Function
+import Mathlib.Logic.Equiv.Defs
+import Mathlib.Tactic.Ext
 
 /-!
 # Two right actions on complementary parts

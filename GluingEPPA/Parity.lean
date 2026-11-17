@@ -1,4 +1,8 @@
 import GluingEPPA.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 
 namespace GluingEPPA
 universe u v

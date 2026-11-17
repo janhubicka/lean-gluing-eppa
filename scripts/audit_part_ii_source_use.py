@@ -17,9 +17,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = 'GluingEPPA.Steiner.ChainValuation.'
 PROOF_ROOTS = [PREFIX + x for x in (
-    'HistoricalInterfaceEquivalence', 'CoverRightAction', 'ChainTests',
-    'AugmentedLinks', 'ComponentReflection', 'ChainEndpointIterate',
-    'CycleUnwindingCore')]
+    'ChainRestrictionNormalForm', 'ActualActiveSeparatedTest',
+    'ActualChainTraversal', 'CoverRightAction', 'ChainTests',
+    'AugmentedLinks', 'ComponentReflection')]
 
 
 def uncomment(text: str) -> str:
@@ -126,9 +126,8 @@ def inspect() -> dict:
         'explicit_admission_tokens': admissions,
         'consecutive_duplicate_change_tactics': repeated,
         'unresolved_manuscript_obligations': [
-            'all-length normalized M-component classification with edge/fixed-point reflection',
-            'actual equivariant covers of every new separated-chain test',
-            'simultaneous recursive augmented-Link/action construction',
+            'simultaneous recursive augmented Data/Link/action construction',
+            'recorded smaller-chain tests in each actual earlier augmented stage',
             'instantiate the moving-endpoint contradiction for every bounded coset cycle',
             'set-valued structure transfer and all-copy local sections',
             'Part III path-closed amalgamation and girth-transfer assembly'],

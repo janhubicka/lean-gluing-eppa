@@ -1,4 +1,7 @@
 import GluingEPPA.Steiner.ChainValuation.Matching
+import Mathlib.Algebra.Group.Defs
+import Mathlib.Basic.Finite.Defs
+import Mathlib.Data.Set.Basic
 
 /-!
 # Recursive state for an actual finite chain test

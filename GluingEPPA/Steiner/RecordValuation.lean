@@ -1,4 +1,8 @@
 import GluingEPPA.Steiner.ComponentCompatibility
+import Mathlib.Algebra.Group.Pi.Basic
+import Mathlib.Algebra.Group.Prod
+import Mathlib.Algebra.Group.Subgroup.Basic
+import Mathlib.Data.Fintype.Perm
 
 /-!
 # The literal direct valuation record in the current manuscript

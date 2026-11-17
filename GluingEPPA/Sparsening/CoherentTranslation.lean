@@ -1,4 +1,5 @@
 import GluingEPPA.Sparsening.OddBoundary
+import Mathlib.Tactic.Abel
 
 /-! The endpoint-cochain cancellation used in the coherent affine lift.
 This is an algebraic identity, not an assumption of coherent EPPA. -/

@@ -1,4 +1,6 @@
-import Mathlib
+import Mathlib.Algebra.Group.Subgroup.Lattice
+import Mathlib.Tactic.Convert
+import Mathlib.Tactic.Group
 
 /-!
 # Coset identities used by the parameter-dependent chain construction
